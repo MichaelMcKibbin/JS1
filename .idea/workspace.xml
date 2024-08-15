@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTrayController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreHello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/DisplayTray-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/JewelleryMaterial-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/earringsGoldAmethyst.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/goldBars.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/jewelleryGeneral.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/jwlface1xs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/necklace01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/onyxOvalStone.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/silverBars.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/silverWeddingRing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/watchGoldHugoBoss1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2kesvm734LNNTKuef4a91oQlEMk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.JewelleryStoreApplication.executor": "Run",
+    "Application.JewelleryStoreMain.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/main/resources/images",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\images" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\Images" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\com\michaelmckibbin\js1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\Images" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\Images" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
+      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\com\michaelmckibbin\js1\views" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.michaelmckibbin.js1" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="" />
+      <created>1723655611706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723655611706</updated>
+      <workItem from="1723655612825" duration="2081000" />
+      <workItem from="1723660286501" duration="2696000" />
+      <workItem from="1723664489564" duration="21978000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

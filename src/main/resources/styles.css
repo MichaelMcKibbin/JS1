@@ -1,0 +1,10 @@
+#mikeyFaceButton {
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-border-color: #4CAF50; /* Green */
+    -fx-text-fill: blue;
+}
+#mikeyFaceButton:pressed {
+    -fx-border-color: #0000FF;
+    -fx-text-fill: yellow;
+}
