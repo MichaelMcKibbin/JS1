@@ -4,32 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="Small change to workspace">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AllStockController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/OLDJewelleryStoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/OLDJewelleryStoreMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/SceneManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/OLDDisplayCase-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/OLDStorefront-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/login-view.fxml" afterDir="false" />
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView.&#10;New view opens.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/OLDMyNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +108,7 @@
       <updated>1723655611706</updated>
       <workItem from="1723655612825" duration="2081000" />
       <workItem from="1723660286501" duration="2696000" />
-      <workItem from="1723664489564" duration="105363000" />
+      <workItem from="1723664489564" duration="111862000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -146,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723701822055</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView.&#10;New view opens.">
+      <option name="closed" value="true" />
+      <created>1723939240349</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723939240349</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +143,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Storefront view created with button.&#10;Other views created also." />
     <MESSAGE value="Small change to workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small change to workspace" />
+    <MESSAGE value="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView.&#10;New view opens." />
+    <option name="LAST_COMMIT_MESSAGE" value="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView.&#10;New view opens." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

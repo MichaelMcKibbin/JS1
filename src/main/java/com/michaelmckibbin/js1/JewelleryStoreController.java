@@ -79,9 +79,7 @@ public class JewelleryStoreController {
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
-//        System.out.println("in handleDisplayCasesButtonClick");
-//        System.out.println("in JewelleryStoreController");
-        // open DisplayCases-view.fxml
+        // open DisplayCase-view.fxml
         try {
             // Load the view
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("DisplayCase-view.fxml"));
@@ -100,45 +98,48 @@ public class JewelleryStoreController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-//
-//            try {
-//            // Load the view
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("DisplayCase-view.fxml"));
-//            Parent root = loader.load();
-//
-//            // Create a new stage and set the scene
-//            Stage stage = new Stage();
-//            stage.setTitle("*DC view*"); // Set the stage title
-//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
-//
-////            // Get the current stage (window) and close it
-////            Stage currentStage = (Stage) helloButton.getScene().getWindow();
-////            currentStage.close();
-//
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-
-
     }
 
 
     @FXML
     public void handleDisplayTraysButtonClick(ActionEvent actionEvent) {
         System.out.println("Display trays button clicked!");
+        // open DisplayCase-view.fxml
+        try {
+            // Load the view
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("DisplayTray-view.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage and set the scene
+            Stage stage = new Stage();
+            stage.setTitle("DT View");
+            stage.setScene(new Scene(root, 800, 600));
+
+            // Get the current stage (window) and close it
+            Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+            //stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
+
+
     @FXML
     public void handleJewelleryItemsButtonClick(ActionEvent actionEvent) {
         System.out.println("Jewellery items button clicked!");
     }
+
+
     @FXML
     public void handleJewelleryMaterialsButtonClick(ActionEvent actionEvent) {
         System.out.println("Jewellery materials button clicked!");
     }
+
+
     @FXML
     public void handleGenericButtonClick(ActionEvent actionEvent) {
         System.out.println("Generic button clicked!");

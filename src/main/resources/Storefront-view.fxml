@@ -68,7 +68,7 @@
                   <VBox spacing="10" styleClass="navigation-button-container-1" layoutX="61.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Cases" onAction="#handleDisplayCasesButtonClick" />
-                        <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Trays" onAction="#handleDisplayTraysButtonClick" />
+                        <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Trays" onAction="#handleDisplayTraysButtonClick" />
                         <Button layoutX="10.0" layoutY="37.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Items" onAction="#handleJewelleryItemsButtonClick" />
                         <Button layoutX="10.0" layoutY="62.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Materials" onAction="#handleJewelleryMaterialsButtonClick" />
                         <Button layoutX="10.0" layoutY="87.0" mnemonicParsing="false" styleClass="storefront-button" text="Button" onAction="#handleGenericButtonClick" />
