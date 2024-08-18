@@ -52,15 +52,15 @@ public class DisplayTray {
                 ", items=" + items +
                 '}';
     }
-    public void addItem(JewelleryItem item) {
+    /*public void addItem(JewelleryItem item) {
         items.add(item);
-    }
+    }*/
     public void removeItem(JewelleryItem item) {
         items.remove(item);
     }
-    public void clearItems() {
+    /*public void clearItems() {
         items.clear();
-    }
+    }*/
     public int getItemCount() {
         return items.size();
     }

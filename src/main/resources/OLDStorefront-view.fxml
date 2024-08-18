@@ -6,11 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
+
 <?import javafx.stage.Stage?>
 <?import javafx.scene.Scene?>
 
-
-<VBox prefHeight="600.0" prefWidth="900.0" fx:id="mainStage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.JewelleryStoreController">
+<Stage fx:id="mainStage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.JewelleryStoreController">
+    <scene>
+        <Scene>
+<AnchorPane xmlns="http://javafx.com/javafx/8" >
+<children>
+<VBox prefHeight="600.0" prefWidth="900.0"  >
 
 
         <children>
@@ -65,13 +70,13 @@
                                     <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
                                 </textFill>
                             </Label>
-                  <VBox spacing="10" styleClass="navigation-button-container-1" layoutX="61.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0">
+                  <VBox spacing="10" styleClass="storefront-button-container-1" layoutX="61.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Cases" onAction="#handleDisplayCasesButtonClick" />
-                        <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Trays" onAction="#handleDisplayTraysButtonClick" />
-                        <Button layoutX="10.0" layoutY="37.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Items" onAction="#handleJewelleryItemsButtonClick" />
-                        <Button layoutX="10.0" layoutY="62.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Materials" onAction="#handleJewelleryMaterialsButtonClick" />
-                        <Button layoutX="10.0" layoutY="87.0" mnemonicParsing="false" styleClass="storefront-button" text="Button" onAction="#handleGenericButtonClick" />
+                        <Button layoutX="10.0" layoutY="2.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Cases"  />
+                        <Button layoutX="10.0" layoutY="12.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Trays" />
+                        <Button layoutX="10.0" layoutY="37.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Items" />
+                        <Button layoutX="10.0" layoutY="62.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Materials" />
+                        <Button layoutX="10.0" layoutY="87.0" mnemonicParsing="false" styleClass="storefront-button" text="Button" />
                      </children>
                   </VBox>
                         </children>
@@ -83,7 +88,7 @@
                                     <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                         <Pane layoutX="115.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="mikeyFaceButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleMikeyFaceButtonClick" text="Have I got a deal for you!">
+                              <Button fx:id="mikeyFaceButton" contentDisplay="TOP" mnemonicParsing="false"  text="Have I got a deal for you!">
                                       <graphic>
                                           <ImageView fx:id="mikeyFaceImageView" fitWidth="150" preserveRatio="true">
                                               <Image url="@images/jwlface1xs.jpg" />
@@ -123,3 +128,8 @@
             </HBox>
         </children>
     </VBox>
+</children>
+</AnchorPane>
+        </Scene>
+    </scene>
+</Stage>

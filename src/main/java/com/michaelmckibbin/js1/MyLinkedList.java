@@ -1,87 +1,83 @@
 package com.michaelmckibbin.js1;
 
 // my version of a linked list
-// It took a lot of reading and experimentation to get this to work.
-// With thanks to stack overflow, geeks for geeks, Oracle, the internet, and w3schools.
 // After struggling with an overly bulky implementation of multiple types of linked lists all at once,
 // I took a more sensible option of separating the linked list into its own class
 // which I can now use easily for any type of object. It also makes it easier to
 // search,  delete, and add nodes to the lists.
 
+import java.util.Iterator;
+
 public class MyLinkedList<N> {
 
-    public MyNode<N> head = null, last = null;
+    private MyNode<N> head;
+    private MyNode<N> tail;
 
-//    public MyLinkedList() {
-//        this.head = null; // initialize head of list to null
-//    }
+    // inner class
+    private static class MyNode<N> {
+        N data;
+        MyNode<N> next;
 
-    /*
-     ************ ADD TO LIST ************
-     */
-    // add a new node to the end of the list
-    public void add(N data) {
-        MyNode<N> temp = new MyNode<>();
-        if (head == null) { // check if list is empty and if  so, set head to temp
-            head = temp;
-        } else { // otherwise, traverse the list and add temp to the end
-            MyNode<N> current = head; // start at the head of the list
-            while (current.next != null) { // traverse the list until the end is reached
-                current = current.next;
-            }
-            current.next = temp; // add new MyNode to the end of the list
+        MyNode(N data) {
+            this.data = data;
+            this.next = null;
         }
     }
+
+    public MyLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+
+    /*
+     ************ INSERT ITEM INTO LIST ************
+     */
+
+    // add item to end of list
+    public void insert(N data) {
+        MyNode<N> newNode = new MyNode<>(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+    }
+
 
     /*
      ************ SEARCH LIST ************
      */
-    // Need to fix the search returning node address...
-    //
-
-    // search for and return a node with a given value
-    public MyNode<N> search(N value) {
-        MyNode<N> current = head;
-        while (current != null) {
-            if (current.data == value) { // if the needed value is found, return the node
-                return current;
-            }
-            current = current.next; // move on to the next node
-        }
-        return null; // if the value is not found, return null
-    }
-    /*
-    public String search2(String value) {
-        MyNode current = head; // assuming head is the first node in the list
-        while (current != null) {
-            if (current.value.equals(value)) {
-                return current.value; // return the value of the found node
-            }
-            current = current.next;
-        }
-        return null; // return null if the value is not found
-    }
 
 
-    public void search3(N data) {
-        MyNode<N> current = head;
-        while (current != null && !current.data.equals(data)) {
-            current = current.next;
-        }
-        if (current != null) {
-            System.out.println("Element found: " + current.data);
-        } else {
-            System.out.println("Element not found");
-        }
-    }
-
-    */
 
     /*
-     ************ DELETE ITEM FROM LIST ************
+     *********** DELETE METHODS ***********
      */
+
+    public void deleteHead() {
+        if (isEmpty()) {
+            System.out.println("List is empty");
+        } else {
+            head = head.next;
+            if (head == null) {
+                tail = null;
+            }
+            System.out.println("Head deleted");
+        }
+    }
+
+    // Set head and tail to null, effectively deleting the list.
+    public void deleteList(){
+        head = null;
+        tail = null;
+        System.out.println("List has been deleted");
+    }
+
     // delete a node with a given value and close the gap
-    public void delete(N value) {
+    public void deleteNode(N value) {
         MyNode<N> current = head;
         MyNode<N> previous = null;
         while (current != null) {
@@ -99,43 +95,6 @@ public class MyLinkedList<N> {
     }
 
     /*
-    public void delete(N data) {
-        MyNode<N> current = head;
-        MyNode<N> previous = null;
-        while (current != null && !current.data.equals(data)) {
-            previous = current;
-            current = current.next;
-        }
-        if (current != null) {
-            if (previous == null) {
-                head = current.next;
-            } else {
-                previous.next = current.next;
-            }
-        }
-    }
-    */
-
-    /*
-     *********** DELETE ALL ITEMS FROM LIST ***********
-     */
-
-    // delete list
-    // Set head to null, effectively deleting the list
-    public void deleteAll() {
-        head = null;
-    }
-
-    // reset list
-    // same as deleteAll, just in case I type reset instead of deleteAll
-    public void reset() {
-        head = null;
-        last = null; // to be sure to be sure :)
-        System.out.println("List has been reset");
-    }
-
-
-    /*
      ************ PRINT LIST ************
      */
     public void printList() {
@@ -147,24 +106,45 @@ public class MyLinkedList<N> {
     }
 
 
+
+/*
+***** SHOW LIST CONTENTS *****
+ */
+    public void show() {
+        MyNode<N> current = head;
+        while (current != null) {
+            System.out.println(current.data);
+            current = current.next;
+        }
+        System.out.println();
+    }
+
     /*
      ************ MANIPULATING THE LIST ************
      */
 
-    public void addFirst(N data) {
-        MyNode<N> temp = new MyNode<>(data);
-        temp.next = head;
-        head = temp;
+    /*
+    GET & SET HEAD & TAIL
+     */
+    public void getHead() {
+        System.out.println("Head: " + head.data);
+    }
+    public void getTail() {
+        System.out.println("Tail: " + tail.data);
+    }
+    public void setHead(MyNode<N> head) {
+        this.head = head;
+    }
+    public void setTail(MyNode<N> tail) {
+        this.tail = tail;
     }
 
+    /*
+    Get size of list
+     */
 
-    public void remove(N item) {
-        MyNode<N> current = head;
-        MyNode<N> previous = null;
-    }
-
-    public void clear() {
-        head = null;
+    public void getSize() {
+        System.out.println("Size: " + size());
     }
 
     public int size() {
@@ -177,19 +157,13 @@ public class MyLinkedList<N> {
         return count;
     }
 
-    public N get(int index) {
+    // remove item
+    public void remove(N item) {
         MyNode<N> current = head;
-        int count = 0;
-        while (current != null) {
-            if (count == index) {
-                return current.data;
-            }
-            count++;
-            current = current.next;
-        }
-        return null;
+        MyNode<N> previous = null;
     }
 
+    // set node by index
     public void set(int index, N item) {
         MyNode<N> current = head;
         int count = 0;
@@ -203,6 +177,7 @@ public class MyLinkedList<N> {
         }
     }
 
+    // check if item exists in list
     public boolean contains(N item) {
         MyNode<N> current = head;
         while (current != null) {
@@ -214,6 +189,7 @@ public class MyLinkedList<N> {
         return false;
     }
 
+    // get index of item in list
     public int indexOf(N item) {
         MyNode<N> current = head;
         int index = 0;
@@ -224,11 +200,86 @@ public class MyLinkedList<N> {
             index++;
             current = current.next;
         }
-        return index;
+        return -1;
     }
 
+    // check if list is empty
     public boolean isEmpty() {
         return head == null;
     }
+    // add at index
+    public void add(int index, N item) {
+        MyNode<N> newNode = new MyNode<>(item);
+        MyNode<N> current = head;
+        int count = 0;
+        while (current != null) {
+            if (count == index - 1) {
+                newNode.next = current.next;
+                current.next = newNode;
+                return;
+            }
+            count++;
+            current = current.next;
+        }
+    }
+    // remove at index
+    public void remove(int index) {
+        MyNode<N> current = head;
+        int count = 0;
+        while (current != null) {
+            if (count == index - 1) {
+                current.next = current.next.next;
+                return;
+            }
+            count++;
+            current = current.next;
+        }
+    }
+
+    // get at index
+    public N get(int index) {
+        MyNode<N> current = head;
+        int count = 0;
+        while (current != null) {
+            if (count == index) {
+                return current.data;
+            }
+            count++;
+            current = current.next;
+        }
+        return null;
+    }
+
+    // send list to array
+    public Object[] toArray() {
+        Object[] array = new Object[size()];
+        MyNode<N> current = head;
+        int index = 0;
+        while (current != null) {
+            array[index++] = current.data;
+            current = current.next;
+        }
+        return array;
+    }
+
+    // return list of all items
+    public Iterator<N> iterator() {
+        return new Iterator<N>() {
+            MyNode<N> current = head;
+
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
+
+            @Override
+            public N next() {
+                N data = current.data;
+                current = current.next;
+                return data;
+            }
+        };
+    }
+
 }
 

@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<VBox         xmlns="http://javafx.com/javafx/8.0.171"
-              xmlns:fx="http://javafx.com/fxml/1"
-              fx:controller="com.michaelmckibbin.js1.DisplayCaseController"
-              prefHeight="600.0" prefWidth="900.0" >
+<?import javafx.stage.Stage?>
+<?import javafx.scene.Scene?>
 
 
+<Stage xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.DisplayCaseController">
+    <scene>
+        <Scene>
+<VBox prefHeight="600.0" prefWidth="900.0" >
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -71,7 +63,7 @@
                                 <Font size="18.0" fx:id="x1" />
                             </font>
                             <textFill>
-                                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+                                <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
                             </textFill>
                         </Label>
                     </children>
@@ -80,7 +72,7 @@
                     <content>
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                             <children>
-                                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View1" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -99,7 +91,7 @@
                         <Font size="11.0" fx:id="x3" />
                     </font>
                     <textFill>
-                        <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
                     </textFill>
                 </Label>
                 <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
@@ -111,3 +103,6 @@
         </HBox>
     </children>
 </VBox>
+        </Scene>
+    </scene>
+</Stage>

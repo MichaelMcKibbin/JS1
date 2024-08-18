@@ -8,3 +8,61 @@
     -fx-border-color: #0000FF;
     -fx-text-fill: yellow;
 }
+#mikeyFaceButton:hover{
+    -fx-background-color: rgba(205, 243, 195, 0.6);
+}
+.button {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 10px;
+}
+
+.button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+.button:pressed {
+    -fx-background-color: #d0d0d0;
+}
+
+.navigation-button-container-1 { /* style for VBox button container on storefront view */
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+    -fx-border-color: blue;
+    -fx-background-color: lightgrey;
+    -fx-pref-width: 140; /* adjust to suit buttons */
+    -fx-alignment: "CENTER";
+}
+.navigation-button-container-1 .button { /* style for VBox button container buttons on storefront view */
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+    -fx-border-color: blue;
+    -fx-background-color: skyblue;
+    -fx-pref-width: 130; /* adjust button width to make uniform */
+    -fx-alignment: "CENTER";
+}
+.navigation-button-container-1:hover {
+    -fx-background-color: rgba(206, 175, 175, 0.5);
+    -fx-border-color: blue;
+}
+.navigation-button-container-1 .storefront-button:hover{
+    -fx-background-color: rgba(206, 175, 175, 0.5);
+    -fx-border-color: rgb(173, 15, 15);
+}
+.menu-bar{
+    -fx-background-color: rgba(206, 175, 175, 0.25);
+    -fx-border-color: rgba(6, 70, 238, 0.6);
+    -fx-border-radius: 3;
+}
+.menu-item{
+    -fx-background-color: rgb(206, 175, 175, 0.45);
+    -fx-border-color: rgba(6, 70, 238, 0.6);
+    -fx-border-radius: 3;
+}
+.menu-item:hover{
+    -fx-background-color: skyblue;
+}
+.menu{
+    -fx-background-color: rgba(206, 175, 175, 0.70);
+}
