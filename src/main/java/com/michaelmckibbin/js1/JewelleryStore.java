@@ -1,21 +1,14 @@
 package com.michaelmckibbin.js1;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
-public class JewelleryStoreMain extends Application {
+public class JewelleryStore extends Application {
     public static Scene storefrontscene, displaycasescene, displaytrayscene, jitemscene, jmaterialscene, allstockscene;
     public static Stage mainstage;
 
@@ -24,7 +17,7 @@ public class JewelleryStoreMain extends Application {
 //    @Override
 //    public void start(Stage stage) throws IOException {
 //        mainstage = stage;
-//        FXMLLoader fxmlLoader = new FXMLLoader(JewelleryStoreMain.class.getResource("hello-view.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(JewelleryStore.class.getResource("hello-view.fxml"));
 //        storefrontscene = new Scene(fxmlLoader.load(), 320, 240);
 //        stage.setTitle("Hello!");
 //        stage.setScene(storefrontscene);
