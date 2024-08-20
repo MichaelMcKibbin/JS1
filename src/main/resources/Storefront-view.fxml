@@ -34,6 +34,8 @@
                             <items>
                                 <MenuItem mnemonicParsing="false" onAction="#viewAllStock" text="List All Stock"/>
                                 <MenuItem mnemonicParsing="false" onAction="#drillDown" text="Drilldown"/>
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" onAction="#loadTestData" text="Load test data"/>
                             </items>
                         </Menu>
                     </menus>

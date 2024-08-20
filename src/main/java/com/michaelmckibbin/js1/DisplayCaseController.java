@@ -12,12 +12,25 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayCaseController {
+    public static MyLinkedList<DisplayCase> displayCases = new MyLinkedList<>();
+
+    public DisplayCaseController() {
+        initializeDisplayCases();
+    }
+
+    void initializeDisplayCases() {
+        // Add initial display cases to the list
+        displayCases.add(new DisplayCase(1, false, false));
+        displayCases.add(new DisplayCase(2, true, true));
+        displayCases.add(new DisplayCase(3, false, true));
+        // Add more display cases as needed
+    }
 
 
-    public CheckBox CheckBoxWallMounted;
-    public CheckBox CheckBoxIsLit;
     public Button AddCaseBtn;
 
     /*
@@ -49,6 +62,9 @@ public class DisplayCaseController {
     }
     public void viewReadme(ActionEvent actionEvent) {
         System.out.println("viewReadme button clicked!");
+    }
+    public void loadTestData(ActionEvent actionEvent) {
+        System.out.println("loadTestData button clicked!");
     }
 
 
@@ -275,19 +291,20 @@ public class DisplayCaseController {
         }
     }
 
-
     @FXML
     public void handleGenericButtonClick(ActionEvent actionEvent) {
         System.out.println("Generic button clicked!");
     }
 
+    /*
+    End of Navigation Buttons
+     */
+
+
     public void onAddCaseBtn(ActionEvent actionEvent) {
         System.out.println("Add case button clicked!");
     }
 
-    /*
-    End of Navigation Buttons
-     */
 
 
 

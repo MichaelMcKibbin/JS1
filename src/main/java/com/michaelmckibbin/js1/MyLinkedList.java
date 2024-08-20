@@ -8,17 +8,17 @@ package com.michaelmckibbin.js1;
 
 import java.util.Iterator;
 
-public class MyLinkedList<N> {
+public class MyLinkedList<N> implements Iterable<N>{
 
-    private MyNode<N> head;
-    private MyNode<N> tail;
+    private Node<N> head;
+    private Node<N> tail;
 
     // inner class
-    private static class MyNode<N> {
+    private static class Node<N> {
         N data;
-        MyNode<N> next;
+        Node<N> next;
 
-        MyNode(N data) {
+        Node(N data) {
             this.data = data;
             this.next = null;
         }
@@ -30,13 +30,39 @@ public class MyLinkedList<N> {
     }
 
 
+    @Override
+    public Iterator<N> iterator() {
+        return new MyLinkedListIterator<>(this);
+    }
+
+    private static class MyLinkedListIterator<N> implements Iterator<N> {
+        private Node<N> current;
+
+        public MyLinkedListIterator(MyLinkedList<N> list) {
+            this.current = list.head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public N next() {
+            N data = current.data;
+            current = current.next;
+            return data;
+        }
+    }
+
+
     /*
      ************ INSERT ITEM INTO LIST ************
      */
 
     // add item to end of list
     public void insert(N data) {
-        MyNode<N> newNode = new MyNode<>(data);
+        Node<N> newNode = new Node<>(data);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -78,8 +104,8 @@ public class MyLinkedList<N> {
 
     // delete a node with a given value and close the gap
     public void deleteNode(N value) {
-        MyNode<N> current = head;
-        MyNode<N> previous = null;
+        Node<N> current = head;
+        Node<N> previous = null;
         while (current != null) {
             if (current.data == value) { // if the needed value is found, delete the node
                 if (previous == null) { // if the node to be deleted is the head, set the head to the next node
@@ -98,7 +124,7 @@ public class MyLinkedList<N> {
      ************ PRINT LIST ************
      */
     public void printList() {
-        MyNode<N> current = head;
+        Node<N> current = head;
         while (current != null) {
             System.out.println(current.data);
             current = current.next;
@@ -111,7 +137,7 @@ public class MyLinkedList<N> {
 ***** SHOW LIST CONTENTS *****
  */
     public void show() {
-        MyNode<N> current = head;
+        Node<N> current = head;
         while (current != null) {
             System.out.println(current.data);
             current = current.next;
@@ -132,10 +158,10 @@ public class MyLinkedList<N> {
     public void getTail() {
         System.out.println("Tail: " + tail.data);
     }
-    public void setHead(MyNode<N> head) {
+    public void setHead(Node<N> head) {
         this.head = head;
     }
-    public void setTail(MyNode<N> tail) {
+    public void setTail(Node<N> tail) {
         this.tail = tail;
     }
 
@@ -149,7 +175,7 @@ public class MyLinkedList<N> {
 
     public int size() {
         int count = 0;
-        MyNode<N> current = head;
+        Node<N> current = head;
         while (current != null) {
             count++;
             current = current.next;
@@ -159,13 +185,13 @@ public class MyLinkedList<N> {
 
     // remove item
     public void remove(N item) {
-        MyNode<N> current = head;
-        MyNode<N> previous = null;
+        Node<N> current = head;
+        Node<N> previous = null;
     }
 
     // set node by index
     public void set(int index, N item) {
-        MyNode<N> current = head;
+        Node<N> current = head;
         int count = 0;
         while (current != null) {
             if (count == index) {
@@ -179,7 +205,7 @@ public class MyLinkedList<N> {
 
     // check if item exists in list
     public boolean contains(N item) {
-        MyNode<N> current = head;
+        Node<N> current = head;
         while (current != null) {
             if (current.data == item) {
                 return true;
@@ -191,7 +217,7 @@ public class MyLinkedList<N> {
 
     // get index of item in list
     public int indexOf(N item) {
-        MyNode<N> current = head;
+        Node<N> current = head;
         int index = 0;
         while (current != null) {
             if (current.data == item) {
@@ -209,8 +235,8 @@ public class MyLinkedList<N> {
     }
     // add at index
     public void add(int index, N item) {
-        MyNode<N> newNode = new MyNode<>(item);
-        MyNode<N> current = head;
+        Node<N> newNode = new Node<>(item);
+        Node<N> current = head;
         int count = 0;
         while (current != null) {
             if (count == index - 1) {
@@ -224,7 +250,7 @@ public class MyLinkedList<N> {
     }
     // remove at index
     public void remove(int index) {
-        MyNode<N> current = head;
+        Node<N> current = head;
         int count = 0;
         while (current != null) {
             if (count == index - 1) {
@@ -238,7 +264,7 @@ public class MyLinkedList<N> {
 
     // get at index
     public N get(int index) {
-        MyNode<N> current = head;
+        Node<N> current = head;
         int count = 0;
         while (current != null) {
             if (count == index) {
@@ -253,7 +279,7 @@ public class MyLinkedList<N> {
     // send list to array
     public Object[] toArray() {
         Object[] array = new Object[size()];
-        MyNode<N> current = head;
+        Node<N> current = head;
         int index = 0;
         while (current != null) {
             array[index++] = current.data;
@@ -262,24 +288,44 @@ public class MyLinkedList<N> {
         return array;
     }
 
-    // return list of all items
-    public Iterator<N> iterator() {
-        return new Iterator<N>() {
-            MyNode<N> current = head;
+//    // return list of all items
+//    public Iterator<N> iterator() {
+//        return new Iterator<N>() {
+//            Node<N> current = head;
+//
+//            @Override
+//            public boolean hasNext() {
+//                return current != null;
+//            }
+//
+//            @Override
+//            public N next() {
+//                N data = current.data;
+//                current = current.next;
+//                return data;
+//            }
+//        };
+//    }
 
-            @Override
-            public boolean hasNext() {
-                return current != null;
-            }
-
-            @Override
-            public N next() {
-                N data = current.data;
-                current = current.next;
-                return data;
-            }
-        };
+    // add a displaycase to the list
+    public void add(DisplayCase displayCase) {
+        insert((N) displayCase);
     }
+    // add a displaytray to the list
+    public void add(DisplayTray displayTray) {
+        insert((N) displayTray);
+    }
+    // add a jewelleryitem to the list
+    public void add(JewelleryItem jewelleryItem) {
+        insert((N) jewelleryItem);
+    }
+    // add a jewellerymaterial to the list
+    public void add(JewelleryMaterial jewelleryMaterial) {
+        insert((N) jewelleryMaterial);
+    }
+
+
+
 
 }
 

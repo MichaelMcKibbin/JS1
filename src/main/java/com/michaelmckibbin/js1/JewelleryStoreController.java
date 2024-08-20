@@ -105,6 +105,19 @@ sPECIAL oFFER bUTTON
         public void drillDown(ActionEvent actionEvent) {
             System.out.println("Drill down button clicked!");
         }
+        public void loadTestData(ActionEvent actionEvent) {
+            System.out.println("loadTestData button clicked!");
+            // initialize displaycases
+            DisplayCaseController displayCaseController = new DisplayCaseController();
+            displayCaseController.initializeDisplayCases();
+            System.out.println("Display cases initialized");
+            // print list of displaycases
+            System.out.println("Display cases:");
+            for (DisplayCase displayCase : DisplayCaseController.displayCases) {
+                System.out.println(displayCase);
+            }
+        }
+
         public void viewAbout(ActionEvent actionEvent) {
             System.out.println("viewAbout button clicked!");
         }
