@@ -5,28 +5,37 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DisplayCaseController {
     public static MyLinkedList<DisplayCase> displayCases = new MyLinkedList<>();
+    public TextField CaseSearchBtn;
+    public CheckBox CheckBoxWallMounted;
+    public Button deleteAllCasesButton;
+    public Pane deleteAllCasesPane;
+    public Pane listAllCasesPane;
+    public Button listAllCasesButton;
 
     public DisplayCaseController() {
-        initializeDisplayCases();
+       // initializeDisplayCases();
     }
 
     void initializeDisplayCases() {
         // Add initial display cases to the list
-        displayCases.add(new DisplayCase(1, false, false));
-        displayCases.add(new DisplayCase(2, true, true));
-        displayCases.add(new DisplayCase(3, false, true));
+        System.out.println("To add some test data, uncomment the code in initializeDisplayCases(), in DisplayCaseController.java");
+//        displayCases.add(new DisplayCase(901, false, false));
+//        displayCases.add(new DisplayCase(902, true, true));
+//        displayCases.add(new DisplayCase(903, false, true));
+//        displayCases.add(new DisplayCase(904, true, false));
         // Add more display cases as needed
     }
 
@@ -301,11 +310,69 @@ public class DisplayCaseController {
      */
 
 
+    private int getNextCaseID() {
+        int nextCaseID = displayCases.size() + 1;
+        boolean idExists;
+
+        do {
+            idExists = false;
+            for (DisplayCase displayCase : displayCases) {
+                if (displayCase.getCaseId() == nextCaseID) {
+                    idExists = true;
+                    nextCaseID++;
+                    break;
+                }
+            }
+        } while (idExists);
+
+        return nextCaseID;
+    }
+    @FXML
     public void onAddCaseBtn(ActionEvent actionEvent) {
         System.out.println("Add case button clicked!");
+        // get next caseID using (displayCases.size() + 1)
+        DisplayCase newDisplayCase = new DisplayCase(getNextCaseID(), false, false);
+        displayCases.add(newDisplayCase);
+
+        
+        // add a new case to the list
+       // displayCases.add(new DisplayCase(getNextCaseID(), false, false));
     }
 
 
+    public void onDeleteAllCasesButton(ActionEvent actionEvent) {
+        System.out.println("Delete all cases button clicked!");
+//        displayCases.clear(); // short & immediate!
+        showConfirmationDialog(); // a better way. confirm choice.
+    }
 
+    public void onListAllCasesButton(ActionEvent actionEvent) {
+        System.out.println("List all cases button clicked!");
+        // print list of displaycases
+        System.out.println("Display cases:");
+        for (DisplayCase displayCase : displayCases) {
+            System.out.println(displayCase);
+        }
+    }
 
+    private void showConfirmationDialog() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete All Display Cases!");
+        alert.setHeaderText("Are you sure you want to delete all display cases?");
+        alert.setContentText("This action cannot be undone!");
+
+        ButtonType confirmButton = new ButtonType("Delete");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(confirmButton, cancelButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == confirmButton) {
+            deleteAllCases();
+        }
+    }
+
+    private void deleteAllCases() {
+        displayCases.clear();
+    }
 }

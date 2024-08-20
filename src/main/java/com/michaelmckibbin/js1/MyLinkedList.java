@@ -13,6 +13,12 @@ public class MyLinkedList<N> implements Iterable<N>{
     private Node<N> head;
     private Node<N> tail;
 
+    public void clear() {
+        head = null;
+        tail = null;
+        System.out.println("List has been cleared");
+    }
+
     // inner class
     private static class Node<N> {
         N data;

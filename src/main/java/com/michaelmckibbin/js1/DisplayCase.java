@@ -19,9 +19,10 @@ public class DisplayCase {
        // this.trays = new MyLinkedList<>();
     }
 
-    public int getCaseID() {
+    public int getCaseId() {
         return caseID;
     }
+
     public void setCaseID(int caseID) {
         this.caseID = caseID;
     }
@@ -45,9 +46,6 @@ public class DisplayCase {
                 ", isLit=" + isLit +
                 '}';
     }
-
-
-
 
 
 

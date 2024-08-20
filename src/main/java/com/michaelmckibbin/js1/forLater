@@ -1,0 +1,43 @@
+// optimized version of the getNextCaseID() method using HashSet
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class DisplayCaseController {
+    private List<DisplayCase> displayCases;
+    private Set<Integer> existingCaseIds;
+
+    public DisplayCaseController() {
+        displayCases = new ArrayList<>();
+        existingCaseIds = new HashSet<>();
+    }
+
+    private int getNextCaseID() {
+        int nextCaseID = displayCases.size() + 1;
+
+        while (existingCaseIds.contains(nextCaseID)) {
+            nextCaseID++;
+        }
+
+        existingCaseIds.add(nextCaseID);
+        return nextCaseID;
+    }
+
+    public void initializeDisplayCases() {
+        // Add initial display cases to the list
+        displayCases.add(new DisplayCase(getNextCaseID(), false, false));
+        displayCases.add(new DisplayCase(getNextCaseID(), true, true));
+        displayCases.add(new DisplayCase(getNextCaseID(), false, true));
+
+        // Populate the existingCaseIds set
+        for (DisplayCase displayCase : displayCases) {
+            existingCaseIds.add(displayCase.getCaseId());
+        }
+    }
+
+    // other/existing methods...
+}
+
+
+//=====================================================================
+
