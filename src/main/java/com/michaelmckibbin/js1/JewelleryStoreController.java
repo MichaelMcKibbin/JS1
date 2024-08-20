@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-//import static com.michaelmckibbin.js1.JewelleryStore.mainstage;
+//import static com.michaelmckibbin.js1.JewelleryStore.primarystage;
 
 
 
@@ -92,7 +92,7 @@ sPECIAL oFFER bUTTON
         public void closeProg(ActionEvent actionEvent) {
             System.out.println("Close program button clicked!");
             //close the program
-            // mainstage.close();
+            // primarystage.close();
             System.exit(0);
         }
 

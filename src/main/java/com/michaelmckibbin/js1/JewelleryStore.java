@@ -9,8 +9,8 @@ import java.io.IOException;
 
 
 public class JewelleryStore extends Application {
-    public static Scene storefrontscene, displaycasescene, displaytrayscene, jitemscene, jmaterialscene, allstockscene;
-    public static Stage mainstage;
+    public static Scene scene;
+    public static Stage primarystage;
 
 
 // ** error ** fxml loader wouldn't work until changed to getClassLoader
@@ -28,20 +28,17 @@ public class JewelleryStore extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        mainstage = stage;
+        primarystage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Storefront-view.fxml"));
-        storefrontscene = new Scene(fxmlLoader.load(), 900, 400);
+        scene = new Scene(fxmlLoader.load());
 
         // load the CSS file
-        storefrontscene.getStylesheets().addAll("styles.css");
+        scene.getStylesheets().addAll("styles.css");
 
         stage.setTitle("Jewellery Store");
-        stage.setScene(storefrontscene);
+        stage.setScene(scene);
         stage.show();
     }
-
-    // scene.getStylesheets().addAll("styles.css");
-    // stage.setTitle("Jewellery*Store");
 
 
     public static void main(String[] args) {

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -15,10 +16,13 @@ import java.io.IOException;
 public class DisplayCaseController {
 
 
+    public CheckBox CheckBoxWallMounted;
+    public CheckBox CheckBoxIsLit;
+    public Button AddCaseBtn;
 
     /*
-MENUBAR
- */
+    MENUBAR
+     */
     public void loadFile(ActionEvent actionEvent) {
         System.out.println("Load file button clicked!");
     }
@@ -275,6 +279,10 @@ MENUBAR
     @FXML
     public void handleGenericButtonClick(ActionEvent actionEvent) {
         System.out.println("Generic button clicked!");
+    }
+
+    public void onAddCaseBtn(ActionEvent actionEvent) {
+        System.out.println("Add case button clicked!");
     }
 
     /*
