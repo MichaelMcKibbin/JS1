@@ -61,6 +61,17 @@ public class MyLinkedList<N> implements Iterable<N>{
         }
     }
 
+    /*
+    add all items to list
+     */
+    public void addAll(N... items) {
+        for (N item : items) {
+            insert(item);
+        }
+        System.out.println("Items added to list");
+    }
+
+
 
     /*
      ************ INSERT ITEM INTO LIST ************

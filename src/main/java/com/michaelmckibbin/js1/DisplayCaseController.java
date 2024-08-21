@@ -59,9 +59,6 @@ public class DisplayCaseController {
     }
 
 
-
-
-
     /*
     MENUBAR
      */
@@ -369,13 +366,22 @@ public class DisplayCaseController {
 //        displayCases.clear(); // short & immediate!
         showConfirmationDialog(); // a better way. confirm choice.
     }
-
+    @FXML
     public void onListAllCasesButton(ActionEvent actionEvent) {
         System.out.println("List all cases button clicked!");
         // print list of displaycases
         System.out.println("Display cases:");
         for (DisplayCase displayCase : displayCases) {
             System.out.println(displayCase);
+
+        }
+    }
+
+    public void listAllCases() {
+        System.out.println("Display cases:");
+        for (DisplayCase displayCase : displayCases) {
+            System.out.println(displayCase);
+
 
         }
     }

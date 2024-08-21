@@ -285,4 +285,9 @@ MENUBAR
     }
 
 
+    public void onDeleteAllTraysButton(ActionEvent actionEvent) {
+    }
+
+    public void onListAllTraysButton(ActionEvent actionEvent) {
+    }
 }
