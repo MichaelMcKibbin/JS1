@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="DC test data loading &amp; printing.&#10;MyLinkedList - updated Iterator.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/forLater" afterDir="false" />
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="Add case - check for next available ID OK.&#10;List cases OK&#10;Delete all cases with conformation dialog OK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +132,7 @@
       <updated>1723655611706</updated>
       <workItem from="1723655612825" duration="2081000" />
       <workItem from="1723660286501" duration="2696000" />
-      <workItem from="1723664489564" duration="180225000" />
+      <workItem from="1723664489564" duration="192650000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -201,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724127198231</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add case - check for next available ID OK.&#10;List cases OK&#10;Delete all cases with conformation dialog OK">
+      <option name="closed" value="true" />
+      <created>1724181094954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724181094954</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +233,8 @@
     <MESSAGE value="menubars &amp; navigation buttons ok" />
     <MESSAGE value="before new list" />
     <MESSAGE value="DC test data loading &amp; printing.&#10;MyLinkedList - updated Iterator." />
-    <option name="LAST_COMMIT_MESSAGE" value="DC test data loading &amp; printing.&#10;MyLinkedList - updated Iterator." />
+    <MESSAGE value="Add case - check for next available ID OK.&#10;List cases OK&#10;Delete all cases with conformation dialog OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add case - check for next available ID OK.&#10;List cases OK&#10;Delete all cases with conformation dialog OK" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

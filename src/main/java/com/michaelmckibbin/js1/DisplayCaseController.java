@@ -13,34 +13,54 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 public class DisplayCaseController {
     public static MyLinkedList<DisplayCase> displayCases = new MyLinkedList<>();
-    public TextField CaseSearchBtn;
-    public CheckBox CheckBoxWallMounted;
-    public Button deleteAllCasesButton;
-    public Pane deleteAllCasesPane;
-    public Pane listAllCasesPane;
-    public Button listAllCasesButton;
+    @FXML public TextField CaseSearchBtn;
+    @FXML public CheckBox CheckBoxWallMounted;
+    @FXML public Button deleteAllCasesButton;
+    @FXML public Pane deleteAllCasesPane;
+    @FXML public Pane listAllCasesPane;
+    @FXML public Button listAllCasesButton;
+    @FXML public Button AddCaseBtn;
+
+
+
+
+    @FXML
+    private Label nextCaseIdLabel;
+
 
     public DisplayCaseController() {
-       // initializeDisplayCases();
+       //initializeDisplayCases();
+
+    }
+
+    @FXML
+    public void initialize() {
+        initializeDisplayCases();
+        // Initialization code here
+        //nextCaseIdLabel.setText("Next Case ID: " + getNextCaseID());
+
     }
 
     void initializeDisplayCases() {
         // Add initial display cases to the list
         System.out.println("To add some test data, uncomment the code in initializeDisplayCases(), in DisplayCaseController.java");
-//        displayCases.add(new DisplayCase(901, false, false));
-//        displayCases.add(new DisplayCase(902, true, true));
-//        displayCases.add(new DisplayCase(903, false, true));
-//        displayCases.add(new DisplayCase(904, true, false));
+//        displayCases.add(new DisplayCase(getNextCaseID(), false, false));
+//        displayCases.add(new DisplayCase(getNextCaseID(), true, true));
+//        displayCases.add(new DisplayCase(getNextCaseID(), false, true));
+//        displayCases.add(new DisplayCase(getNextCaseID(), true, false));
         // Add more display cases as needed
+
     }
 
 
-    public Button AddCaseBtn;
+
+
 
     /*
     MENUBAR
@@ -327,16 +347,20 @@ public class DisplayCaseController {
 
         return nextCaseID;
     }
+
+
+
     @FXML
     public void onAddCaseBtn(ActionEvent actionEvent) {
         System.out.println("Add case button clicked!");
+
         // get next caseID using (displayCases.size() + 1)
         DisplayCase newDisplayCase = new DisplayCase(getNextCaseID(), false, false);
-        displayCases.add(newDisplayCase);
 
-        
         // add a new case to the list
-       // displayCases.add(new DisplayCase(getNextCaseID(), false, false));
+        displayCases.add(newDisplayCase);
+        System.out.println("New case added: " + newDisplayCase);
+
     }
 
 
@@ -352,6 +376,7 @@ public class DisplayCaseController {
         System.out.println("Display cases:");
         for (DisplayCase displayCase : displayCases) {
             System.out.println(displayCase);
+
         }
     }
 
@@ -375,4 +400,5 @@ public class DisplayCaseController {
     private void deleteAllCases() {
         displayCases.clear();
     }
+
 }

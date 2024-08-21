@@ -78,6 +78,11 @@
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                             <children>
                                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <ScrollPane layoutX="52.0" layoutY="174.0" prefHeight="333.0" prefWidth="330.0">
+                          <content>
+
+                          </content>
+                        </ScrollPane>
                             </children>
                         </AnchorPane>
                     </content>
@@ -85,46 +90,39 @@
                 <AnchorPane>
                     <children>
                         <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Display Case Actions" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                        <Pane fx:id="listAllCasesPane" layoutX="44.0" layoutY="59.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: green; -fx-border-color: black; -fx-border-radius: 3; -fx-border-width: 3;">
+                        <Pane fx:id="listAllCasesPane" layoutX="44.0" layoutY="59.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: rgba(0,128,0,0.5); -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
                             <children>
                                 <Button fx:id="listAllCasesButton" accessibleText="List All Cases" alignment="CENTER" layoutX="23.0" layoutY="24.0" mnemonicParsing="false" onAction="#onListAllCasesButton" text="List All Cases!" textAlignment="CENTER" />
                             </children>
                         </Pane>
-                        <Separator layoutX="11.0" layoutY="156.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
-                  <VBox layoutX="44.0" layoutY="219.0" prefHeight="154.0" prefWidth="134.0" styleClass="addCaseBtnVBox">
+                        <Separator layoutX="11.0" layoutY="156.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: rgba(0,128,0,0.75);" />
+                  <VBox layoutX="44.0" layoutY="186.0" prefHeight="128.0" prefWidth="134.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addCaseBtnVBox">
 
 
                             <padding>
                                 <Insets left="5.0" right="5.0" />
                             </padding>
-                            <Label alignment="CENTER" contentDisplay="CENTER" text="Add New Case" textAlignment="CENTER">
-                                <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                </padding>
-
-                            </Label>
-                            <TextField fx:id="CaseSearchBtn" alignment="CENTER" promptText="Enter New Case ID" />
-                            <CheckBox fx:id="CheckBoxWallMounted" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Wall Mounted?">
-                                <padding>
-                                    <Insets left="20.0" />
-                                </padding>
+                            <CheckBox fx:id="CheckBoxWallMounted" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Wall Mounted?">
                                 <opaqueInsets>
                                     <Insets />
                                 </opaqueInsets>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin>
                             </CheckBox>
                             <CheckBox fx:id="CheckBoxIsLit" mnemonicParsing="false" prefHeight="23.0" prefWidth="111.0" text="       Lit ?">
                                 <VBox.margin>
-                                    <Insets />
+                                    <Insets bottom="10.0" top="5.0" />
                                 </VBox.margin>
-                                <padding>
-                                    <Insets left="20.0" />
-                                </padding>
                             </CheckBox>
-                            <Button fx:id="AddCaseBtn" mnemonicParsing="false" onAction="#onAddCaseBtn" prefHeight="25.0" text="Add Case" />
+                            <Button fx:id="AddCaseBtn" mnemonicParsing="false" onAction="#onAddCaseBtn" prefHeight="37.0" prefWidth="125.0" text="Add New Case">
+                        <padding>
+                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding></Button>
 
                   </VBox>
                   <Separator layoutX="11.0" layoutY="437.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                  <Pane fx:id="deleteAllCasesPane" layoutX="44.0" layoutY="456.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 3; -fx-border-width: 3;">
+                  <Pane fx:id="deleteAllCasesPane" layoutX="44.0" layoutY="456.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
                      <children>
                         <Button fx:id="deleteAllCasesButton" accessibleText="Delete All Cases" alignment="CENTER" layoutX="15.0" layoutY="24.0" mnemonicParsing="false" onAction="#onDeleteAllCasesButton" text="Delete All Cases!" textAlignment="CENTER" />
                      </children>
