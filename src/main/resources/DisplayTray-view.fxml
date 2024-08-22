@@ -2,16 +2,11 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox         xmlns="http://javafx.com/javafx/8.0.171"
-              xmlns:fx="http://javafx.com/fxml/1"
-              fx:controller="com.michaelmckibbin.js1.DisplayTrayController"
-              prefHeight="600.0" prefWidth="900.0" >
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.DisplayTrayController">
 
 
     <children>
@@ -21,21 +16,20 @@
                 <menus>
                     <Menu mnemonicParsing="false" text="File">
                         <items>
-                            <MenuItem mnemonicParsing="false" onAction="#loadFile" text="Load Data File"/>
+                            <MenuItem mnemonicParsing="false" onAction="#loadFile" text="Load Data File" />
                             <SeparatorMenuItem mnemonicParsing="false" />
-                            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Data File"/>
-                            <MenuItem mnemonicParsing="false" onAction="#saveAndExit" text="Save and Exit"/>
+                            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Data File" />
+                            <MenuItem mnemonicParsing="false" onAction="#saveAndExit" text="Save and Exit" />
                             <SeparatorMenuItem mnemonicParsing="false" />
-                            <MenuItem mnemonicParsing="false" onAction="#closeProg" text="Exit"/>
+                            <MenuItem mnemonicParsing="false" onAction="#closeProg" text="Exit" />
                             <SeparatorMenuItem mnemonicParsing="false" />
-                            <MenuItem mnemonicParsing="false" onAction="#deleteAllStock"
-                                      text="Delete Stock List * CAUTION *"/>
+                            <MenuItem mnemonicParsing="false" onAction="#deleteAllStock" text="Delete Stock List * CAUTION *" />
                         </items>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Stock List">
                         <items>
-                            <MenuItem mnemonicParsing="false" onAction="#viewAllStock" text="List All Stock"/>
-                            <MenuItem mnemonicParsing="false" onAction="#drillDown" text="Drilldown"/>
+                            <MenuItem mnemonicParsing="false" onAction="#viewAllStock" text="List All Stock" />
+                            <MenuItem mnemonicParsing="false" onAction="#drillDown" text="Drilldown" />
                         </items>
                     </Menu>
                 </menus>
@@ -62,17 +56,17 @@
                                 <Font size="18.0" fx:id="x1" />
                             </font>
                             <textFill>
-                                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+                                <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
                             </textFill>
                         </Label>
-                        <VBox spacing="10" styleClass="navigation-button-container-1" layoutX="61.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0">
+                        <VBox layoutX="61.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0" spacing="10" styleClass="navigation-button-container-1">
                             <children>
-                                <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" styleClass="storefront-button" text="Storefront" onAction="#handleStorefrontButtonClick" />
-                                <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Cases" onAction="#handleDisplayCasesButtonClick" />
-                                <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" styleClass="storefront-button" text="Display Trays" onAction="#handleDisplayTraysButtonClick" />
-                                <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Items" onAction="#handleJewelleryItemsButtonClick" />
-                                <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" styleClass="storefront-button" text="Jewellery Materials" onAction="#handleJewelleryMaterialsButtonClick" />
-                                <Button fx:id="genericButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" styleClass="storefront-button" text="Button" onAction="#handleGenericButtonClick" />
+                                <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
+                                <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button" text="Display Cases" />
+                                <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleDisplayTraysButtonClick" styleClass="storefront-button" text="Display Trays" />
+                                <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" styleClass="storefront-button" text="Jewellery Items" />
+                                <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" styleClass="storefront-button" text="Jewellery Materials" />
+                                <Button fx:id="genericButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleGenericButtonClick" styleClass="storefront-button" text="Button" />
                             </children>
                         </VBox>
 
@@ -83,6 +77,18 @@
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
                             <children>
                                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <GridPane layoutX="42.0" layoutY="48.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                        <ListView fx:id="trayListView" layoutX="106.0" layoutY="244.0" prefHeight="200.0" prefWidth="200.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -92,34 +98,42 @@
                         <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Display Tray Actions" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                         <Pane fx:id="listAllTraysPane" layoutX="44.0" layoutY="59.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: rgba(0,128,0,0.5); -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
                             <children>
-                                <Button fx:id="listAllTraysButton" accessibleText="List All Trays" alignment="CENTER" layoutX="23.0" layoutY="24.0" mnemonicParsing="false" onAction="#onListAllTraysButton" text="List All Trays!" textAlignment="CENTER" />
+                                <Button fx:id="listAllTraysButton" accessibleText="List All Trays" alignment="CENTER" layoutX="23.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleListAllTraysButtonClick" text="List All Trays!" textAlignment="CENTER" />
                             </children>
                         </Pane>
                         <Separator layoutX="11.0" layoutY="156.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: rgba(0,128,0,0.75);" />
-                        <VBox layoutX="44.0" layoutY="186.0" prefHeight="128.0" prefWidth="134.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
-
-
+                        <VBox layoutX="12.0" layoutY="186.0" prefHeight="222.0" prefWidth="200.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
                             <padding>
-                                <Insets left="5.0" right="5.0" />
+                                <Insets left="5.0" right="5.0" top="10.0" />
                             </padding>
-                            <CheckBox fx:id="CheckBoxWallMounted" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Wall Mounted?">
-                                <opaqueInsets>
-                                    <Insets />
-                                </opaqueInsets>
-                                <VBox.margin>
-                                    <Insets top="10.0" />
-                                </VBox.margin>
-                            </CheckBox>
-                            <CheckBox fx:id="CheckBoxIsLit" mnemonicParsing="false" prefHeight="23.0" prefWidth="111.0" text="       Lit ?">
-                                <VBox.margin>
-                                    <Insets bottom="10.0" top="5.0" />
-                                </VBox.margin>
-                            </CheckBox>
-                            <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#onAddTrayBtn" prefHeight="37.0" prefWidth="125.0" text="Add New Tray">
+                     <Label text="Enter new tray ID number" />
+                            <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText="e.g. A123">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin></TextField>
+                     <Label text="Choose tray colour">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Label>
+                            <ChoiceBox fx:id="displayTrayColorChoiceBox" prefWidth="150.0">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin></ChoiceBox>
+                     <Label text="Enter tray size">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Label>
+                     <TextField fx:id="newTrayWidthTextField" promptText="Width in cm" />
+                     <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm" />
+                            <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick" prefHeight="37.0" prefWidth="150.0" text="Add New Tray">
                                 <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                </padding></Button>
-
+                                </padding>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin></Button>
                         </VBox>
                         <Separator layoutX="11.0" layoutY="437.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: red;" />
                         <Pane fx:id="deleteAllTraysPane" layoutX="44.0" layoutY="456.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
@@ -140,7 +154,7 @@
                         <Font size="11.0" fx:id="x3" />
                     </font>
                     <textFill>
-                        <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+                        <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
                     </textFill>
                 </Label>
                 <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />

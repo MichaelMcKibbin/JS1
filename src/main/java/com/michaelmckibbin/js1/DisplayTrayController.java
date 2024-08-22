@@ -5,18 +5,62 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Optional;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 
 public class DisplayTrayController {
+
+    private MyLinkedList<DisplayTray> displayTrays = new MyLinkedList<>();
+
+    @FXML
+    private void initialize() {
+        // Populate the displayTrayColorChoiceBox
+        displayTrayColorChoiceBox.getItems().addAll("Black", "Red", "Green", "Blue");
+        // Set the default value for the displayTrayColorChoiceBox
+        displayTrayColorChoiceBox.setValue("Black"); // in case user forgets to choose.
+
+    }
+
+
+
+
+
+    @FXML
+    public Button AddTrayBtn;
+
+    @FXML
+    public Button listAllTraysButton;
+
+    @FXML
+    public Button deleteAllTraysButton;
+
+    @FXML
+    private TextField displayTrayIdTextField;
+
+    @FXML
+    private ChoiceBox<String> displayTrayColorChoiceBox;
+
+    @FXML
+    private TextField newTrayWidthTextField;
+
+    @FXML
+    private TextField newTrayDepthTextField;
+
+    @FXML
+    private ListView<DisplayTray> trayListView;
 
 
 
     /*
-MENUBAR
- */
+    MENUBAR
+     */
     public void loadFile(ActionEvent actionEvent) {
         System.out.println("Load file button clicked!");
     }
@@ -132,11 +176,11 @@ MENUBAR
 
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Display Cases");
+            stage.setTitle("Display Trays");
             // end of option with css from styles.css in resources folder
 
             // Get the current stage (window) and close it
-            Stage currentStage = (Stage) displayCasesButton.getScene().getWindow();
+            Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
             currentStage.close();
 
             stage.show();
@@ -149,7 +193,7 @@ MENUBAR
     @FXML
     public void handleDisplayTraysButtonClick(ActionEvent actionEvent) {
         System.out.println("Display trays button clicked!");
-        // open DisplayCase-view.fxml
+        // open DisplayTray-view.fxml
         try {
             // Load the view
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("DisplayTray-view.fxml"));
@@ -281,13 +325,130 @@ MENUBAR
 
 
 
-    public void onAddTrayBtn(ActionEvent actionEvent) {
-    }
 
-
-    public void onDeleteAllTraysButton(ActionEvent actionEvent) {
-    }
-
+    @FXML
     public void onListAllTraysButton(ActionEvent actionEvent) {
+        System.out.println("List all trays button clicked!");
     }
+
+    private static final Pattern TRAY_ID_PATTERN = Pattern.compile("^[a-zA-Z]\\d{1,3}$");
+
+
+    @FXML
+    private void handleAddTrayButtonClick(ActionEvent event) {
+        System.out.println("Add tray button clicked!");
+
+        // Get the user inputed trayID
+        String trayId = displayTrayIdTextField.getText();
+
+        // Validate the tray ID
+        Matcher matcher = TRAY_ID_PATTERN.matcher(trayId);
+        if (matcher.matches()) {
+            // Convert the first character to uppercase if it's lowercase
+            if (Character.isLowerCase(trayId.charAt(0))) {
+                trayId = Character.toUpperCase(trayId.charAt(0)) + trayId.substring(1);
+            }
+
+            // Add leading zeros to the numeric part of the tray ID
+            int numericPart = Integer.parseInt(trayId.substring(1));
+            trayId = trayId.charAt(0) + String.format("%03d", numericPart);
+        } else {
+            System.out.println("Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
+            return;
+        }
+
+        // Get the color from the ChoiceBox
+        String trayColor = displayTrayColorChoiceBox.getValue();
+
+        // Get the width and depth values from the TextFields
+        // Get & validate the tray width
+        int trayWidth;
+        try {
+            trayWidth = Integer.parseInt(newTrayWidthTextField.getText());
+            if (trayWidth < 1 || trayWidth > 999) {
+                System.out.println("Invalid tray width. Please enter an integer between 1 and 999.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid tray width. Please enter an integer value.");
+            return;
+        }
+
+        // Get & validate the tray depth
+        int trayDepth;
+        try {
+            trayDepth = Integer.parseInt(newTrayDepthTextField.getText());
+            if (trayDepth < 1 || trayDepth > 999) {
+                System.out.println("Invalid tray depth. Please enter an integer between 1 and 999.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid tray depth. Please enter an integer value.");
+            return;
+        }
+
+        // Create a new DisplayTray instance with the user input
+        DisplayTray newTray = new DisplayTray(trayId, trayColor, trayWidth, trayDepth);
+
+        // Add the new DisplayTray to the displayTrays list
+        displayTrays.add(newTray);
+
+        // Clear the input fields
+        displayTrayIdTextField.clear();
+        displayTrayColorChoiceBox.setValue("Black"); // clearing the value here with null allows null on subsequent additions which causes a validation error. So set it to Black to match initial default.
+        newTrayWidthTextField.clear();
+        newTrayDepthTextField.clear();
+
+        // print to console
+        System.out.println("New tray added: " + newTray);
+    }
+
+    @FXML
+    private void handleListAllTraysButtonClick(ActionEvent event) {
+        System.out.println("List all trays button clicked!");
+        // print list of trays to System.out
+        System.out.println("Display trays:");
+        for (DisplayTray displayTray : displayTrays) {
+            System.out.println(displayTray);
+        }
+
+        // TODO listview not working
+//        // Clear the existing items in the trayListView
+//        trayListView.getItems().clear();
+//
+//        // Add all the DisplayTray objects from the displayTrays list to the trayListView
+//        trayListView.getItems().addAll((Collection<? extends DisplayTray>) displayTrays);
+    }
+
+
+    private void showConfirmationDialog() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete All Display Trays!");
+        alert.setHeaderText("Are you sure you want to delete all display trays?");
+        alert.setContentText("This action cannot be undone!");
+
+        ButtonType confirmButton = new ButtonType("Delete");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(confirmButton, cancelButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == confirmButton) {
+            deleteAllTrays();
+        }
+    }
+
+    @FXML
+    public void onDeleteAllTraysButton(ActionEvent actionEvent) {
+        System.out.println("Delete all trays button clicked!");
+//        displayTrays.clear(); // short & immediate!
+        showConfirmationDialog(); // a better way. confirm choice.
+    }
+
+    private void deleteAllTrays() {
+        displayTrays.clear();
+    }
+
+
+
 }

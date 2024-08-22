@@ -91,3 +91,10 @@
     -fx-background-color: rgba(206, 175, 175, 0.5);
     -fx-border-color: rgb(173, 15, 15);
 }
+
+.addTrayBtnVBox {
+    -fx-border-style: dotted;
+    -fx-border-radius: 3;
+    -fx-border-color: green;
+    -fx-border-width: 3;
+}

@@ -381,7 +381,13 @@ public class DisplayCaseController {
         System.out.println("Display cases:");
         for (DisplayCase displayCase : displayCases) {
             System.out.println(displayCase);
+        }
+    }
 
+    public void viewAllCases() {
+        System.out.println("Display cases:");
+        // add each case to a table view
+        for (DisplayCase displayCase : displayCases) {
 
         }
     }
