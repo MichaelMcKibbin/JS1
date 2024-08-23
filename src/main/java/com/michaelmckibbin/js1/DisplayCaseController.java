@@ -8,15 +8,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -94,6 +90,29 @@ public class DisplayCaseController {
             Label displayCaseLabel = new Label(displayCase.toString());
             displayCasesVBox.getChildren().add(displayCaseLabel);
         }
+    }
+
+    @FXML
+    private VBox displayCaseSearchResultVBox;
+
+    public void displayCaseSearchResult(DisplayCase foundCase) {
+        displayCaseSearchResultVBox.getChildren().clear(); // Clear the VBox first
+
+//        for (DisplayCase displayCase : displayCases) {
+//            // Create a UI element for each display case (e.g., a Label or a custom control)
+//            Label displayCaseSearchResultLabel = new Label(displayCase.toString());
+//            displayCaseSearchResultVBox.getChildren().add(displayCaseSearchResultLabel);
+//        }
+        if (foundCase != null) {
+            // Create a UI element for the found display case (e.g., a Label or a custom control)
+            Label displayCaseLabel = new Label(foundCase.toString());
+            displayCaseSearchResultVBox.getChildren().add(displayCaseLabel);
+        } else {
+            // Display a message when no case is found
+            Label noResultLabel = new Label("No DisplayCase found");
+            displayCaseSearchResultVBox.getChildren().add(noResultLabel);
+        }
+
     }
 
 
@@ -407,7 +426,70 @@ public class DisplayCaseController {
         System.out.println("New case added: " + newDisplayCase);
 
     }
+    public DisplayCase findDisplayCaseById(int caseId) {
+        for (DisplayCase displayCase : displayCases) {
+            if (displayCase.getCaseId()==(caseId)) {
+                return displayCase;
+            }
+        }
+        return null; // Return null if no matching DisplayCase is found
+    }
+    @FXML
+    private TextField displayCaseSearchField;
 
+    @FXML
+    private void handleDisplayCaseSearchButton() {
+        String input = displayCaseSearchField.getText().trim(); // get input and remove any leading or trailing whitespace
+
+//        // before input validation
+//        DisplayCase foundCase = findDisplayCaseById(Integer.parseInt(caseId));
+//        if (foundCase != null) {
+//            // Display the found DisplayCase or perform other actions
+//            System.out.println("Found DisplayCase: " + foundCase);
+//            displayCaseSearchResult(foundCase);
+//
+//        } else {
+//            System.out.println("No DisplayCase found with caseId: " + caseId);
+//        }
+
+        // with input validation
+        if (input.isEmpty()) {
+            //System.out.println("Please enter a caseId to search.");
+            displayCaseSearchResult(null); // Clear the search result if the input is empty
+            showErrorMessage("Invalid input. Please enter a number.");
+            return;
+        }
+        // Check if the input is a valid number
+        if (!isNumeric(input)) {
+            displayCaseSearchResult(null); // Clear the search result
+            showErrorMessage("Invalid input. Please enter a number.");
+            return;
+        }
+
+        String caseId = input;
+        //System.out.println("Searching for: " + caseId);
+        DisplayCase foundCase = findDisplayCaseById(Integer.parseInt(caseId));
+        displayCaseSearchResult(foundCase);
+        //System.out.println("Found DisplayCase: " + foundCase);
+
+    }
+
+    private boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str); // Try to parse the string as a double
+        } catch (NumberFormatException e) {
+            return false; // Return false if the string cannot be parsed as a number
+        }
+        return true;
+    }
+    private void showErrorMessage(String message) {
+        // Display the error message to the user (e.g., using an Alert dialog or a Label)
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
     public void onDeleteAllCasesButton(ActionEvent actionEvent) {
         System.out.println("Delete all cases button clicked!");
@@ -422,6 +504,7 @@ public class DisplayCaseController {
         for (DisplayCase displayCase : displayCases) {
             System.out.println(displayCase);
         }
+
         populateDisplayCasesVBox();
     }
 
