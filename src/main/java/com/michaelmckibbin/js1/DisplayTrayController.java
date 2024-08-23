@@ -13,7 +13,9 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import com.michaelmckibbin.js1.MyLinkedList;
 
+//private MyLinkedList<DisplayTray> displayTrays;
 
 public class DisplayTrayController {
 
@@ -21,6 +23,9 @@ public class DisplayTrayController {
 
     @FXML
     private void initialize() {
+
+        //displayTrays = new MyLinkedList<>();
+
         // Populate the displayTrayColorChoiceBox
         displayTrayColorChoiceBox.getItems().addAll("Black", "Red", "Green", "Blue");
         // Set the default value for the displayTrayColorChoiceBox
@@ -55,6 +60,9 @@ public class DisplayTrayController {
 
     @FXML
     private ListView<DisplayTray> trayListView;
+
+
+
 
 
 
@@ -402,7 +410,36 @@ public class DisplayTrayController {
         // print to console
         System.out.println("New tray added: " + newTray);
     }
+/*
+HANDLE LIST ALL TRAYS BUTTON
+ */
 
+//    @FXML
+//    private void handleListAllTraysButtonClick(ActionEvent event) {
+//        // Check if trayListTextArea is not null
+//        if (trayListTextArea != null) {
+//            // Clear the existing text in the trayListTextArea
+//            trayListTextArea.clear();
+//
+//            // Iterate over the displayTrays list and append each DisplayTray's information to the trayListTextArea
+//            StringBuilder sb = new StringBuilder();
+//            for (DisplayTray displayTray : displayTrays) {
+//                sb.append("Tray ID: ").append(displayTray.getTrayId()).append("\n");
+//                sb.append("Tray Color: ").append(displayTray.getTrayColor()).append("\n");
+//                sb.append("Tray Width: ").append(displayTray.getTrayWidth()).append("\n");
+//                sb.append("Tray Depth: ").append(displayTray.getTrayDepth()).append("\n\n");
+//            }
+//            trayListTextArea.setText(sb.toString());
+//        } else {
+//            System.out.println("trayListTextArea is null. Unable to display tray information.");
+//        }
+//    }
+
+
+
+
+
+    // OUTPUT TO CONSOLE OPTION
     @FXML
     private void handleListAllTraysButtonClick(ActionEvent event) {
         System.out.println("List all trays button clicked!");
@@ -412,6 +449,7 @@ public class DisplayTrayController {
             System.out.println(displayTray);
         }
 
+//
         // TODO listview not working
 //        // Clear the existing items in the trayListView
 //        trayListView.getItems().clear();
@@ -420,8 +458,51 @@ public class DisplayTrayController {
 //        trayListView.getItems().addAll((Collection<? extends DisplayTray>) displayTrays);
     }
 
+//
+//    // OUTPUT TO TEXTAREA OPTION
+//    @FXML
+//    private TextArea trayListTextArea;
+//    @FXML
+//    private TextArea getTrayListTextArea;
+//    @FXML
+//    private void updateTrayListTextArea() {
+//        StringBuilder trayList = new StringBuilder();
+//        for (DisplayTray displayTray : displayTrays) {
+//            trayList.append(displayTray).append("\n");
+//        }
+//        getTrayListTextArea.setText(trayList.toString());
+//    }
+//
+//    @FXML
+//    private void handleListAllTraysButtonClick(ActionEvent event) {
+//        updateTrayListTextArea();
+//    }
 
-    private void showConfirmationDialog() {
+//      // TRAYLIST OPTION
+//    @FXML
+//    private void handleListAllTraysButtonClick(ActionEvent event) {
+//        // Clear the existing text in the trayListTextArea
+//        trayListTextArea.clear();
+//
+//        // Iterate over the displayTrays list and append each DisplayTray's information to the trayListTextArea
+//        StringBuilder sb = new StringBuilder();
+//        for (DisplayTray displayTray : displayTrays) {
+//            sb.append("Tray ID: ").append(displayTray.getTrayId()).append("\n");
+//            sb.append("Tray Color: ").append(displayTray.getTrayColor()).append("\n");
+//            sb.append("Tray Width: ").append(displayTray.getTrayWidth()).append("\n");
+//            sb.append("Tray Depth: ").append(displayTray.getTrayDepth()).append("\n\n");
+//        }
+//        trayListTextArea.setText(sb.toString());
+//    }
+
+
+        /*
+    END OF HANDLE LIST ALL TRAYS BUTTON
+     */
+
+    // DELETE ALL TRAYS CONFIRMATION DIALOG
+    @FXML
+    private void showDeleteAllTraysConfirmationDialog() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete All Display Trays!");
         alert.setHeaderText("Are you sure you want to delete all display trays?");
@@ -438,11 +519,17 @@ public class DisplayTrayController {
         }
     }
 
+
+
+
+
+
+
     @FXML
     public void onDeleteAllTraysButton(ActionEvent actionEvent) {
         System.out.println("Delete all trays button clicked!");
 //        displayTrays.clear(); // short & immediate!
-        showConfirmationDialog(); // a better way. confirm choice.
+        showDeleteAllTraysConfirmationDialog(); // a better way. confirm choice.
     }
 
     private void deleteAllTrays() {

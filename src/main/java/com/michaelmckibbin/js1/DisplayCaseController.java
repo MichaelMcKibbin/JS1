@@ -1,5 +1,7 @@
 package com.michaelmckibbin.js1;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +21,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class DisplayCaseController {
+
     public static MyLinkedList<DisplayCase> displayCases = new MyLinkedList<>();
+
     @FXML public TextField CaseSearchBtn;
     @FXML public CheckBox CheckBoxWallMounted;
     @FXML public Button deleteAllCasesButton;
@@ -27,8 +32,8 @@ public class DisplayCaseController {
     @FXML public Button listAllCasesButton;
     @FXML public Button AddCaseBtn;
 
-
-
+    @FXML
+    private ListView<DisplayCase> displayCasesListView;
 
     @FXML
     private Label nextCaseIdLabel;
@@ -36,26 +41,69 @@ public class DisplayCaseController {
 
     public DisplayCaseController() {
        //initializeDisplayCases();
-
     }
 
     @FXML
     public void initialize() {
-        initializeDisplayCases();
+        populateDisplayCasesVBox();
+        //initializeDisplayCases();
         // Initialization code here
         //nextCaseIdLabel.setText("Next Case ID: " + getNextCaseID());
-
     }
 
     void initializeDisplayCases() {
-        // Add initial display cases to the list
-        System.out.println("To add some test data, uncomment the code in initializeDisplayCases(), in DisplayCaseController.java");
-//        displayCases.add(new DisplayCase(getNextCaseID(), false, false));
-//        displayCases.add(new DisplayCase(getNextCaseID(), true, true));
-//        displayCases.add(new DisplayCase(getNextCaseID(), false, true));
-//        displayCases.add(new DisplayCase(getNextCaseID(), true, false));
-        // Add more display cases as needed
+        // Add initial test data.
+        //System.out.println("To add some test data, uncomment the code in initializeDisplayCases(), in DisplayCaseController.java");
+//        DisplayCase displayCase1 = new DisplayCase(999, false, false);
+//        displayCase1.addDisplayTray(new DisplayTray("Z999", "Red", 10, 20));
+//        displayCases.add(displayCase1);
+//
+//        DisplayCase displayCase2 = new DisplayCase(998, true, true);
+//        displayCase2.addDisplayTray(new DisplayTray("Z998", "Blue", 15, 25));
+//        displayCases.add(displayCase2);
+//
+//        DisplayCase displayCase3 = new DisplayCase(997, false, true);
+//        displayCase3.addDisplayTray(new DisplayTray("Z997", "Green", 8, 18));
+//        displayCases.add(displayCase3);
+//
+//        DisplayCase displayCase4 = new DisplayCase(996, true, false);
+//        displayCase4.addDisplayTray(new DisplayTray("Z996", "Yellow", 12, 22));
+//        displayCases.add(displayCase4);
 
+//        // Populate the displayTrays list in the DisplayTrayController
+//        for (DisplayCase displayCase : displayCases) {
+//            displayTrays.addAll(displayCase.getDisplayTrays());
+//        }
+
+//        for (DisplayCase displayCase : displayCases) {
+//            System.out.println("CaseID : " + displayCase.getCaseId());
+//            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
+//                System.out.println(displayTray);
+//            }
+//            System.out.println();
+//        }
+}
+
+    @FXML
+    private VBox displayCasesVBox;
+
+    public void populateDisplayCasesVBox() {
+        displayCasesVBox.getChildren().clear(); // Clear the VBox first
+        for (DisplayCase displayCase : displayCases) {
+            // Create a UI element for each display case (e.g., a Label or a custom control)
+            Label displayCaseLabel = new Label(displayCase.toString());
+            displayCasesVBox.getChildren().add(displayCaseLabel);
+        }
+    }
+
+
+    public void populateDisplayCasesList() {
+        displayCasesListView.getItems().clear(); // Clear the list first
+
+        // Convert MyLinkedList to an ObservableList
+        ObservableList<DisplayCase> observableDisplayCases = FXCollections.observableList((List<DisplayCase>) displayCases);
+
+        displayCasesListView.setItems(observableDisplayCases); // Set the ObservableList to the ListView
     }
 
 
@@ -373,8 +421,8 @@ public class DisplayCaseController {
         System.out.println("Display cases:");
         for (DisplayCase displayCase : displayCases) {
             System.out.println(displayCase);
-
         }
+        populateDisplayCasesVBox();
     }
 
     public void listAllCases() {

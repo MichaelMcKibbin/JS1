@@ -37,4 +37,25 @@ public class DisplayTray {
                 ", trayDepth=" + trayDepth +
                 '}';
     }
+
+//    @Override
+//    public String toString() {
+//        return " trayID= " + trayID + ", trayColor= " + trayColor +", trayWidth=" + trayWidth + ", trayDepth= " + trayDepth;
+//    }
+//
+//    public char[] getTrayId() {
+//        return trayID.toCharArray();
+//    }
+//
+//    public char[] getTrayColor() {
+//        return trayColor.toCharArray();
+//    }
+//
+//    public char[] getTrayWidth() {
+//        return String.valueOf(trayWidth).toCharArray();
+//    }
+//
+//    public char[] getTrayDepth() {
+//        return String.valueOf(trayDepth).toCharArray();
+//    }
 }
