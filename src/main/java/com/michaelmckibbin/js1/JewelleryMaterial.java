@@ -4,21 +4,22 @@ public class JewelleryMaterial {
 
     int materialID; // number e.g. 101
     String materialName; // eg silver chain, ruby, gold
-    // String materialDescription; //
+    String materialDescription; //
     String materialUnit; // e.g grams, each, cm
     String materialImage; // url to image, or placeholder
     int materialQuantity; // number of units in stock
     int materialPrice; // price per unit
 
-
     public JewelleryMaterial(int materialID,
                              String materialName,
+                             String materialDescription,
                              String materialUnit,
                              String materialImage,
                              int materialQuantity,
                              int materialPrice) {
         this.materialID = materialID;
         this.materialName = materialName;
+        this.materialDescription = materialDescription;
         this.materialUnit = materialUnit;
         this.materialImage = materialImage;
         this.materialQuantity = materialQuantity;
@@ -75,6 +76,14 @@ public class JewelleryMaterial {
 
     public void setMaterialPrice(int materialPrice) {
         this.materialPrice = materialPrice;
+    }
+
+    public String getMaterialDescription() {
+        return materialDescription;
+    }
+
+    public void setMaterialDescription(String materialDescription) {
+        this.materialDescription = materialDescription;
     }
 
     @Override

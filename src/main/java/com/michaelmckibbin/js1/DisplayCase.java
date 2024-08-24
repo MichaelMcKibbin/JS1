@@ -5,15 +5,13 @@ public class DisplayCase {
     public int caseID;
     public boolean isWall = false; // false = floor, true = wall
     public boolean isLit = false;  // false = not lit, true = lit
-   // private MyLinkedList<DisplayTray> displayTrays;
-
-    public DisplayCase(){}
+    public MyLinkedList<DisplayTray> displayTrays;
 
     public DisplayCase(int caseID, boolean isWall, boolean isLit) {
         this.caseID = caseID;
         this.isWall = isWall;
         this.isLit = isLit;
-       // this.displayTrays = new MyLinkedList<>();
+        this.displayTrays = new MyLinkedList<>();
     }
 
 //    public static void initializeDisplayTrays() {
@@ -68,5 +66,7 @@ public class DisplayCase {
     }
 
 
-
+    public void addDisplayTray(DisplayTray newTray) {
+        displayTrays.add(newTray);
+    }
 }

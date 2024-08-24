@@ -7,17 +7,18 @@ public class DisplayTray {
     private String trayColor;
     private int trayWidth;
     private int trayDepth;
+    //public MyLinkedList<JewelleryItem> jewelleryItems;
 
-   // public MyLinkedList<JewelleryItem> items = new MyLinkedList<>();
-
-    public DisplayTray(){}
-
-    public DisplayTray(String trayID, String trayColor, int trayWidth, int trayDepth) {
+    public DisplayTray(String trayID, String trayColor, int trayWidth, int trayDepth/*, JewelleryItem jewelleryItems*/) {
         this.trayID = trayID;
         this.trayColor = trayColor;
         this.trayWidth = trayWidth;
         this.trayDepth = trayDepth;
-        //this.items = new MyLinkedList<>();
+        //this.jewelleryItems = new MyLinkedList<>();
+    }
+
+    public DisplayTray() {
+
     }
 
     public String getTrayID() {
@@ -28,6 +29,38 @@ public class DisplayTray {
         this.trayID = trayID;
     }
 
+    public String getTrayColor() {
+        return trayColor;
+    }
+
+    public void setTrayColor(String trayColor) {
+        this.trayColor = trayColor;
+    }
+
+    public int getTrayWidth() {
+        return trayWidth;
+    }
+
+    public void setTrayWidth(int trayWidth) {
+        this.trayWidth = trayWidth;
+    }
+
+    public int getTrayDepth() {
+        return trayDepth;
+    }
+
+    public void setTrayDepth(int trayDepth) {
+        this.trayDepth = trayDepth;
+    }
+//
+//    public MyLinkedList<JewelleryItem> getJewelleryItems() {
+//        return jewelleryItems;
+//    }
+//
+//    public void setJewelleryItems(MyLinkedList<JewelleryItem> jewelleryItems) {
+//        this.jewelleryItems = jewelleryItems;
+//    }
+
     @Override
     public String toString() {
         return "DisplayTray{" +
@@ -35,27 +68,7 @@ public class DisplayTray {
                 ", trayColor='" + trayColor + '\'' +
                 ", trayWidth=" + trayWidth +
                 ", trayDepth=" + trayDepth +
+                /*", jewelleryItems=" + jewelleryItems + */
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        return " trayID= " + trayID + ", trayColor= " + trayColor +", trayWidth=" + trayWidth + ", trayDepth= " + trayDepth;
-//    }
-//
-//    public char[] getTrayId() {
-//        return trayID.toCharArray();
-//    }
-//
-//    public char[] getTrayColor() {
-//        return trayColor.toCharArray();
-//    }
-//
-//    public char[] getTrayWidth() {
-//        return String.valueOf(trayWidth).toCharArray();
-//    }
-//
-//    public char[] getTrayDepth() {
-//        return String.valueOf(trayDepth).toCharArray();
-//    }
 }

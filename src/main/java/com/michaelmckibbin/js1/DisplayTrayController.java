@@ -19,17 +19,18 @@ import com.michaelmckibbin.js1.MyLinkedList;
 
 public class DisplayTrayController {
 
-    private MyLinkedList<DisplayTray> displayTrays = new MyLinkedList<>();
+    private MyLinkedList<JewelleryItem> jewelleryItems = new MyLinkedList<>();
 
     @FXML
     private void initialize() {
 
         //displayTrays = new MyLinkedList<>();
 
-        // Populate the displayTrayColorChoiceBox
-        displayTrayColorChoiceBox.getItems().addAll("Black", "Red", "Green", "Blue");
-        // Set the default value for the displayTrayColorChoiceBox
-        displayTrayColorChoiceBox.setValue("Black"); // in case user forgets to choose.
+        //moved to display case controller
+//        // Populate the displayTrayColorChoiceBox
+//        displayTrayColorChoiceBox.getItems().addAll("Black", "Red", "Green", "Blue");
+//        // Set the default value for the displayTrayColorChoiceBox
+//        displayTrayColorChoiceBox.setValue("Black"); // in case user forgets to choose.
 
     }
 
@@ -37,8 +38,7 @@ public class DisplayTrayController {
 
 
 
-    @FXML
-    public Button AddTrayBtn;
+
 
     @FXML
     public Button listAllTraysButton;
@@ -46,17 +46,19 @@ public class DisplayTrayController {
     @FXML
     public Button deleteAllTraysButton;
 
-    @FXML
-    private TextField displayTrayIdTextField;
-
-    @FXML
-    private ChoiceBox<String> displayTrayColorChoiceBox;
-
-    @FXML
-    private TextField newTrayWidthTextField;
-
-    @FXML
-    private TextField newTrayDepthTextField;
+//    @FXML
+//    public Button AddTrayBtn;
+//    @FXML
+//    private TextField displayTrayIdTextField;
+//
+//    @FXML
+//    private ChoiceBox<String> displayTrayColorChoiceBox;
+//
+//    @FXML
+//    private TextField newTrayWidthTextField;
+//
+//    @FXML
+//    private TextField newTrayDepthTextField;
 
     @FXML
     private ListView<DisplayTray> trayListView;
@@ -338,78 +340,80 @@ public class DisplayTrayController {
     public void onListAllTraysButton(ActionEvent actionEvent) {
         System.out.println("List all trays button clicked!");
     }
-
-    private static final Pattern TRAY_ID_PATTERN = Pattern.compile("^[a-zA-Z]\\d{1,3}$");
-
-
-    @FXML
-    private void handleAddTrayButtonClick(ActionEvent event) {
-        System.out.println("Add tray button clicked!");
-
-        // Get the user inputed trayID
-        String trayId = displayTrayIdTextField.getText();
-
-        // Validate the tray ID
-        Matcher matcher = TRAY_ID_PATTERN.matcher(trayId);
-        if (matcher.matches()) {
-            // Convert the first character to uppercase if it's lowercase
-            if (Character.isLowerCase(trayId.charAt(0))) {
-                trayId = Character.toUpperCase(trayId.charAt(0)) + trayId.substring(1);
-            }
-
-            // Add leading zeros to the numeric part of the tray ID
-            int numericPart = Integer.parseInt(trayId.substring(1));
-            trayId = trayId.charAt(0) + String.format("%03d", numericPart);
-        } else {
-            System.out.println("Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
-            return;
-        }
-
-        // Get the color from the ChoiceBox
-        String trayColor = displayTrayColorChoiceBox.getValue();
-
-        // Get the width and depth values from the TextFields
-        // Get & validate the tray width
-        int trayWidth;
-        try {
-            trayWidth = Integer.parseInt(newTrayWidthTextField.getText());
-            if (trayWidth < 1 || trayWidth > 999) {
-                System.out.println("Invalid tray width. Please enter an integer between 1 and 999.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid tray width. Please enter an integer value.");
-            return;
-        }
-
-        // Get & validate the tray depth
-        int trayDepth;
-        try {
-            trayDepth = Integer.parseInt(newTrayDepthTextField.getText());
-            if (trayDepth < 1 || trayDepth > 999) {
-                System.out.println("Invalid tray depth. Please enter an integer between 1 and 999.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid tray depth. Please enter an integer value.");
-            return;
-        }
-
-        // Create a new DisplayTray instance with the user input
-        DisplayTray newTray = new DisplayTray(trayId, trayColor, trayWidth, trayDepth);
-
-        // Add the new DisplayTray to the displayTrays list
-        displayTrays.add(newTray);
-
-        // Clear the input fields
-        displayTrayIdTextField.clear();
-        displayTrayColorChoiceBox.setValue("Black"); // clearing the value here with null allows null on subsequent additions which causes a validation error. So set it to Black to match initial default.
-        newTrayWidthTextField.clear();
-        newTrayDepthTextField.clear();
-
-        // print to console
-        System.out.println("New tray added: " + newTray);
-    }
+    //
+    // moved to display case controller
+//
+//    private static final Pattern TRAY_ID_PATTERN = Pattern.compile("^[a-zA-Z]\\d{1,3}$");
+//
+//
+//    @FXML
+//    private void handleAddTrayButtonClick(ActionEvent event) {
+//        System.out.println("Add tray button clicked!");
+//
+//        // Get the user inputed trayID
+//        String trayId = displayTrayIdTextField.getText();
+//
+//        // Validate the tray ID
+//        Matcher matcher = TRAY_ID_PATTERN.matcher(trayId);
+//        if (matcher.matches()) {
+//            // Convert the first character to uppercase if it's lowercase
+//            if (Character.isLowerCase(trayId.charAt(0))) {
+//                trayId = Character.toUpperCase(trayId.charAt(0)) + trayId.substring(1);
+//            }
+//
+//            // Add leading zeros to the numeric part of the tray ID
+//            int numericPart = Integer.parseInt(trayId.substring(1));
+//            trayId = trayId.charAt(0) + String.format("%03d", numericPart);
+//        } else {
+//            System.out.println("Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
+//            return;
+//        }
+//
+//        // Get the color from the ChoiceBox
+//        String trayColor = displayTrayColorChoiceBox.getValue();
+//
+//        // Get the width and depth values from the TextFields
+//        // Get & validate the tray width
+//        int trayWidth;
+//        try {
+//            trayWidth = Integer.parseInt(newTrayWidthTextField.getText());
+//            if (trayWidth < 1 || trayWidth > 999) {
+//                System.out.println("Invalid tray width. Please enter an integer between 1 and 999.");
+//                return;
+//            }
+//        } catch (NumberFormatException e) {
+//            System.out.println("Invalid tray width. Please enter an integer value.");
+//            return;
+//        }
+//
+//        // Get & validate the tray depth
+//        int trayDepth;
+//        try {
+//            trayDepth = Integer.parseInt(newTrayDepthTextField.getText());
+//            if (trayDepth < 1 || trayDepth > 999) {
+//                System.out.println("Invalid tray depth. Please enter an integer between 1 and 999.");
+//                return;
+//            }
+//        } catch (NumberFormatException e) {
+//            System.out.println("Invalid tray depth. Please enter an integer value.");
+//            return;
+//        }
+//
+//        // Create a new DisplayTray instance with the user input
+//        DisplayTray newTray = new DisplayTray(trayId, trayColor, trayWidth, trayDepth );
+//
+//        // Add the new DisplayTray to the displayTrays list
+//        displayTrays.add(newTray);
+//
+//        // Clear the input fields
+//        displayTrayIdTextField.clear();
+//        displayTrayColorChoiceBox.setValue("Black"); // clearing the value here with null allows null on subsequent additions which causes a validation error. So set it to Black to match initial default.
+//        newTrayWidthTextField.clear();
+//        newTrayDepthTextField.clear();
+//
+//        // print to console
+//        System.out.println("New tray added: " + newTray);
+//    }
 /*
 HANDLE LIST ALL TRAYS BUTTON
  */
@@ -434,8 +438,8 @@ HANDLE LIST ALL TRAYS BUTTON
 //            System.out.println("trayListTextArea is null. Unable to display tray information.");
 //        }
 //    }
-
-
+//
+//
 
 
 
@@ -445,9 +449,9 @@ HANDLE LIST ALL TRAYS BUTTON
         System.out.println("List all trays button clicked!");
         // print list of trays to System.out
         System.out.println("Display trays:");
-        for (DisplayTray displayTray : displayTrays) {
-            System.out.println(displayTray);
-        }
+//        for (DisplayTray displayTray : displayTrays) {
+//            System.out.println(displayTray);
+//        }
 
 //
         // TODO listview not working
@@ -533,7 +537,7 @@ HANDLE LIST ALL TRAYS BUTTON
     }
 
     private void deleteAllTrays() {
-        displayTrays.clear();
+//        displayTrays.clear();
     }
 
 

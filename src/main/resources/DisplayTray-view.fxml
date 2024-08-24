@@ -73,28 +73,9 @@
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
-                    <content>
-                        <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
-                            <children>
-                                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                        <GridPane layoutX="42.0" layoutY="48.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                                <TextArea fx:id="trayListTextArea" editable="false" prefHeight="200.0" prefWidth="300.0" />
-
-                                <ListView fx:id="trayListView" layoutX="106.0" layoutY="244.0" prefHeight="200.0" prefWidth="200.0" />
-                            </children>
-                        </AnchorPane>
-                    </content>
-                </ScrollPane>
+               <content>
+                  <VBox prefHeight="444.0" prefWidth="441.0" />
+               </content></ScrollPane>
                 <AnchorPane>
                     <children>
                         <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Display Tray Actions" textAlignment="CENTER" textFill="$x2" wrapText="false" />
@@ -104,39 +85,39 @@
                             </children>
                         </Pane>
                         <Separator layoutX="11.0" layoutY="156.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: rgba(0,128,0,0.75);" />
-                        <VBox layoutX="12.0" layoutY="186.0" prefHeight="222.0" prefWidth="200.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
-                            <padding>
-                                <Insets left="5.0" right="5.0" top="10.0" />
-                            </padding>
-                     <Label text="Enter new tray ID number" />
-                            <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText="e.g. A123">
-                        <VBox.margin>
-                           <Insets top="5.0" />
-                        </VBox.margin></TextField>
-                     <Label text="Choose tray colour">
-                        <VBox.margin>
-                           <Insets top="5.0" />
-                        </VBox.margin>
-                     </Label>
-                            <ChoiceBox fx:id="displayTrayColorChoiceBox" prefWidth="150.0">
-                        <VBox.margin>
-                           <Insets />
-                        </VBox.margin></ChoiceBox>
-                     <Label text="Enter tray size">
-                        <VBox.margin>
-                           <Insets top="5.0" />
-                        </VBox.margin>
-                     </Label>
-                     <TextField fx:id="newTrayWidthTextField" promptText="Width in cm" />
-                     <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm" />
-                            <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick" prefHeight="37.0" prefWidth="150.0" text="Add New Tray">
-                                <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                </padding>
-                        <VBox.margin>
-                           <Insets top="10.0" />
-                        </VBox.margin></Button>
-                        </VBox>
+<!--                        <VBox layoutX="12.0" layoutY="186.0" prefHeight="222.0" prefWidth="200.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">-->
+<!--                            <padding>-->
+<!--                                <Insets left="5.0" right="5.0" top="10.0" />-->
+<!--                            </padding>-->
+<!--                     <Label text="Enter new tray ID number" />-->
+<!--                            <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText="e.g. A123">-->
+<!--                        <VBox.margin>-->
+<!--                           <Insets top="5.0" />-->
+<!--                        </VBox.margin></TextField>-->
+<!--                     <Label text="Choose tray colour">-->
+<!--                        <VBox.margin>-->
+<!--                           <Insets top="5.0" />-->
+<!--                        </VBox.margin>-->
+<!--                     </Label>-->
+<!--                            <ChoiceBox fx:id="displayTrayColorChoiceBox" prefWidth="150.0">-->
+<!--                        <VBox.margin>-->
+<!--                           <Insets />-->
+<!--                        </VBox.margin></ChoiceBox>-->
+<!--                     <Label text="Enter tray size">-->
+<!--                        <VBox.margin>-->
+<!--                           <Insets top="5.0" />-->
+<!--                        </VBox.margin>-->
+<!--                     </Label>-->
+<!--                     <TextField fx:id="newTrayWidthTextField" promptText="Width in cm" />-->
+<!--                     <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm" />-->
+<!--                            <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick" prefHeight="37.0" prefWidth="150.0" text="Add New Tray">-->
+<!--                                <padding>-->
+<!--                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />-->
+<!--                                </padding>-->
+<!--                        <VBox.margin>-->
+<!--                           <Insets top="10.0" />-->
+<!--                        </VBox.margin></Button>-->
+<!--                        </VBox>-->
                         <Separator layoutX="11.0" layoutY="437.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: red;" />
                         <Pane fx:id="deleteAllTraysPane" layoutX="44.0" layoutY="456.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
                             <children>

@@ -1,6 +1,8 @@
 package com.michaelmckibbin.js1;
 import com.michaelmckibbin.js1.MyLinkedList;
 
+import java.util.List;
+
 
 public class JewelleryItem {
     private int itemID; // ID number
@@ -20,7 +22,8 @@ public class JewelleryItem {
                          String itemColour,
                          String itemTargetGender,
                          String itemImage,
-                         float itemPrice
+                         float itemPrice,
+                         JewelleryMaterial materials
                          ) {
         this.itemID = itemID;
         this.itemName = itemName;
@@ -33,12 +36,7 @@ public class JewelleryItem {
         this.materials = new MyLinkedList<>();
     }
 
-    public void addMaterial(JewelleryMaterial material) {
-        materials.insert(material);
-    }
-    public MyLinkedList<JewelleryMaterial> getMaterials() {
-        return materials;
-    }
+
 
     /* examples
     JewelleryItem necklace = new JewelleryItem(101, "Gold Necklace", "Necklace", "A beautiful gold necklace", "Gold", "Any", "https://example.com/gold-necklace.jpg", 499.99);
@@ -49,10 +47,7 @@ public class JewelleryItem {
     necklace.addMaterial(diamond2Karat);
     */
 
-    @Override
-    public String toString() {
-        return "Item ID: " + itemID + "\nName: " + itemName + "\nType: " + itemType + "\nDescription: " + itemDescription + "\nColour: " + itemColour + "\nTarget Gender: " + itemTargetGender + "\nImage: " + itemImage + "\nPrice: " + itemPrice;
-    }
+
 
     /*
     Getters and Setters
@@ -121,7 +116,25 @@ public class JewelleryItem {
         this.itemPrice = itemPrice;
     }
 
-    public void setMaterials(MyLinkedList<JewelleryMaterial> materials) {
-        this.materials = materials;
+
+    public void addMaterial(JewelleryMaterial material) {
+        materials.add(material);
+    }
+
+    public void removeMaterial(JewelleryMaterial material) {
+        materials.remove(material);
+    }
+    public MyLinkedList<JewelleryMaterial> getMaterials() {
+        return materials;
+    }
+
+//    public void setMaterials(MyLinkedList<JewelleryMaterial> materials) {
+//        this.materials = materials;
+//    }
+
+
+    @Override
+    public String toString() {
+        return "Item ID: " + itemID + "\nName: " + itemName + "\nType: " + itemType + "\nDescription: " + itemDescription + "\nColour: " + itemColour + "\nTarget Gender: " + itemTargetGender + "\nImage: " + itemImage + "\nPrice: " + itemPrice;
     }
 }
