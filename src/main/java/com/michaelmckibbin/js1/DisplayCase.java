@@ -21,6 +21,10 @@ public class DisplayCase {
 //        DisplayTray displayTray4 = new DisplayTray("Z666", "Green", 10, 10);
 //    }
 
+    public MyLinkedList<DisplayTray> getDisplayTrays() {
+        return displayTrays;
+    }
+
     public int getCaseId() {
         return caseID;
     }

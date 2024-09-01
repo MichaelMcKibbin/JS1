@@ -1,5 +1,6 @@
 package com.michaelmckibbin.js1;
 
+import com.michaelmckibbin.js1.TrayManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -86,14 +87,38 @@ public class DisplayCaseController {
     @FXML
     private VBox displayCasesVBox;
 
+//    public void populateDisplayCasesVBox() {
+//        displayCasesVBox.getChildren().clear(); // Clear the VBox first
+//        for (DisplayCase displayCase : displayCases) {
+//            // Create a UI element for each display case (e.g., a Label or a custom control)
+//            Label displayCaseLabel = new Label(displayCase.toString());
+//            displayCasesVBox.getChildren().add(displayCaseLabel);
+//        }
+
+
     public void populateDisplayCasesVBox() {
         displayCasesVBox.getChildren().clear(); // Clear the VBox first
+
         for (DisplayCase displayCase : displayCases) {
-            // Create a UI element for each display case (e.g., a Label or a custom control)
-            Label displayCaseLabel = new Label(displayCase.toString());
-            displayCasesVBox.getChildren().add(displayCaseLabel);
+            VBox caseVBox = new VBox();
+            Label caseLabel = new Label("Case ID: " + displayCase.getCaseId());
+            caseVBox.getChildren().add(caseLabel);
+
+            VBox traysVBox = new VBox();
+            traysVBox.getChildren().add(new Label("Trays:"));
+
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
+                if (displayTray != null && displayTray.getTrayId() != null && !displayTray.getTrayId().isEmpty()) {
+                    Label trayLabel = new Label("Tray ID: " + displayTray.getTrayId());
+                    traysVBox.getChildren().add(trayLabel);
+                }
+            }
+
+            caseVBox.getChildren().add(traysVBox);
+            displayCasesVBox.getChildren().add(caseVBox);
         }
     }
+
 
     @FXML
     private VBox displayCaseSearchResultVBox;
@@ -489,11 +514,11 @@ public class DisplayCaseController {
     @FXML
     public void onListAllCasesButton(ActionEvent actionEvent) {
         System.out.println("List all cases button clicked!");
-        // print list of displaycases
-        System.out.println("Display cases:");
-        for (DisplayCase displayCase : displayCases) {
-            System.out.println(displayCase);
-        }
+//        // print list of displaycases
+//        System.out.println("Display cases:");
+//        for (DisplayCase displayCase : displayCases) {
+//            System.out.println(displayCase);
+//        }
 
         populateDisplayCasesVBox();
     }
@@ -571,13 +596,18 @@ public class DisplayCaseController {
         int caseId = Integer.parseInt(caseIdInput);
         DisplayCase selectedCase = findDisplayCaseById(caseId);
 
-        if (selectedCase != null) {
-            DisplayTray newTray = new DisplayTray();
-            selectedCase.addDisplayTray(newTray);
-            // Update the UI to reflect the changes, if necessary
-        } else {
-            showErrorMessage("No display case found with ID: " + caseId);
-        }
+        // before TrayManager
+//        if (selectedCase != null) {
+//            // take user input from displayTrayIdTextField and create trayId
+//            String trayId = displayTrayIdTextField.getText();
+//
+//            DisplayTray newTray = new DisplayTray(trayId);
+//            selectedCase.addDisplayTray(newTray);
+//
+//            // Update the UI to reflect the changes, if necessary
+//        } else {
+//            showErrorMessage("No display case found with ID: " + caseId);
+//        }
 
         // Get the user inputed trayID
         String trayId = displayTrayIdTextField.getText();
@@ -629,10 +659,15 @@ public class DisplayCaseController {
         }
 
         // Create a new DisplayTray instance with the user input
-        DisplayTray newTray = new DisplayTray(trayId, trayColor, trayWidth, trayDepth );
+        if (trayId != null) {
+            DisplayTray newTray = new DisplayTray(caseId, trayId, trayColor, trayWidth, trayDepth);
+            selectedCase.addDisplayTray(newTray);
+            System.out.println("New tray added: " + newTray);
+            // Update the UI to reflect the changes, if necessary
+        } else {
+            showErrorMessage("Invalid tray ID format. Please try again.");
+        }
 
-        // Add the new DisplayTray to the displayTrays list
-//        displayTrays.add(newTray);
 
         // Clear the input fields
         displayTrayIdTextField.clear();
@@ -640,11 +675,6 @@ public class DisplayCaseController {
         newTrayWidthTextField.clear();
         newTrayDepthTextField.clear();
 
-        // print to console
-        System.out.println("New tray added: " + newTray);
     }
-
-
-
 
 }

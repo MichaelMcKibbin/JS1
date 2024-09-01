@@ -7,9 +7,10 @@ public class DisplayTray {
     private String trayColor;
     private int trayWidth;
     private int trayDepth;
+    private int caseId;
     //public MyLinkedList<JewelleryItem> jewelleryItems;
 
-    public DisplayTray(String trayID, String trayColor, int trayWidth, int trayDepth/*, JewelleryItem jewelleryItems*/) {
+    public DisplayTray(int caseId, String trayID, String trayColor, int trayWidth, int trayDepth/*, JewelleryItem jewelleryItems*/) {
         this.trayID = trayID;
         this.trayColor = trayColor;
         this.trayWidth = trayWidth;
@@ -17,9 +18,9 @@ public class DisplayTray {
         //this.jewelleryItems = new MyLinkedList<>();
     }
 
-    public DisplayTray() {
-
+    public DisplayTray(String trayId) {
     }
+
 
     public String getTrayID() {
         return trayID;
@@ -52,6 +53,13 @@ public class DisplayTray {
     public void setTrayDepth(int trayDepth) {
         this.trayDepth = trayDepth;
     }
+
+    public int getCaseId() {
+        return caseId;
+    }
+    public void setCaseId(int caseId) {
+        this.caseId = caseId;
+    }
 //
 //    public MyLinkedList<JewelleryItem> getJewelleryItems() {
 //        return jewelleryItems;
@@ -64,11 +72,16 @@ public class DisplayTray {
     @Override
     public String toString() {
         return "DisplayTray{" +
+                "caseId" + caseId +
                 "trayID='" + trayID + '\'' +
                 ", trayColor='" + trayColor + '\'' +
                 ", trayWidth=" + trayWidth +
                 ", trayDepth=" + trayDepth +
                 /*", jewelleryItems=" + jewelleryItems + */
                 '}';
+    }
+
+    public String getTrayId() {
+        return trayID;
     }
 }
