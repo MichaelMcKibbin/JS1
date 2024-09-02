@@ -1,6 +1,5 @@
 package com.michaelmckibbin.js1;
 
-import com.michaelmckibbin.js1.TrayManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,10 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,6 +30,7 @@ public class DisplayCaseController {
     @FXML public Button AddCaseBtn;
     public Button displayCaseSearchButton;
     public CheckBox CheckBoxIsLit;
+    private Set<String> allTrayIdsSet = new HashSet<>();
 
 
     @FXML
@@ -118,6 +115,9 @@ public class DisplayCaseController {
             displayCasesVBox.getChildren().add(caseVBox);
         }
     }
+
+
+
 
 
     @FXML
@@ -576,10 +576,23 @@ public class DisplayCaseController {
     @FXML
     private TextField addTrayDisplayCaseChoice;
 
+    // create a set of trayIds across all displayCases. used to allow for uniqueness check.
+    private void populateAllTrayIdsSet() {
+        allTrayIdsSet.clear(); // Clear the set first
+
+        for (DisplayCase displayCase : displayCases) { // iterate displayCases
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) { // for each displayCase, get the list of displayTrays
+                if (displayTray != null && displayTray.getTrayId() != null && !displayTray.getTrayId().isEmpty()) { // filter out any null items
+                    allTrayIdsSet.add(displayTray.getTrayId()); // add each trayId to the set
+                }
+            }
+        }
+    }
 
     @FXML
     private void handleAddTrayButtonClick(ActionEvent event) {
         System.out.println("Add tray button clicked!");
+
 
         String caseIdInput = addTrayDisplayCaseChoice.getText().trim();
 
@@ -596,18 +609,15 @@ public class DisplayCaseController {
         int caseId = Integer.parseInt(caseIdInput);
         DisplayCase selectedCase = findDisplayCaseById(caseId);
 
-        // before TrayManager
-//        if (selectedCase != null) {
-//            // take user input from displayTrayIdTextField and create trayId
-//            String trayId = displayTrayIdTextField.getText();
-//
-//            DisplayTray newTray = new DisplayTray(trayId);
-//            selectedCase.addDisplayTray(newTray);
-//
-//            // Update the UI to reflect the changes, if necessary
-//        } else {
-//            showErrorMessage("No display case found with ID: " + caseId);
-//        }
+        if (selectedCase != null) {
+            // take user input from displayTrayIdTextField and create trayId
+            String trayId = displayTrayIdTextField.getText();
+            DisplayTray newTray = new DisplayTray(trayId);
+            selectedCase.addDisplayTray(newTray);
+            // Update the UI to reflect the changes, if necessary
+        } else {
+            showErrorMessage("No display case found with ID: " + caseId);
+        }
 
         // Get the user inputed trayID
         String trayId = displayTrayIdTextField.getText();
@@ -663,7 +673,14 @@ public class DisplayCaseController {
             DisplayTray newTray = new DisplayTray(caseId, trayId, trayColor, trayWidth, trayDepth);
             selectedCase.addDisplayTray(newTray);
             System.out.println("New tray added: " + newTray);
+
+            // Update the allTrayIdsList
+            populateAllTrayIdsSet();
+            System.out.println("All tray IDs: " + allTrayIdsSet);
+
+
             // Update the UI to reflect the changes, if necessary
+
         } else {
             showErrorMessage("Invalid tray ID format. Please try again.");
         }
