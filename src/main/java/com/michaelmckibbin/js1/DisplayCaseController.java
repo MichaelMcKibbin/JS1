@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -30,6 +32,8 @@ public class DisplayCaseController {
     @FXML public Button AddCaseBtn;
     public Button displayCaseSearchButton;
     public CheckBox CheckBoxIsLit;
+    public Button displayCaseViewItemSearchButton;
+    public TextField displayCaseViewItemSearchField;
     private Set<String> allTrayIdsSet = new HashSet<>();
 
 
@@ -166,6 +170,11 @@ public class DisplayCaseController {
     }
     public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
+        // show confirmation dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete all stock?", ButtonType.YES, ButtonType.NO);
+        // clear cases list
+        displayCases.clear();
+
     }
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");

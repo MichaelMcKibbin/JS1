@@ -9,31 +9,28 @@ public class JewelleryItem {
     private String itemName;
     private String itemType; // ring, watch, etc.
     private String itemDescription;
-    private String itemColour;
     private String itemTargetGender; // male, female, any
     private String itemImage; // url or placeholder image
     private Float itemPrice;
-    private MyLinkedList<JewelleryMaterial> materials;
+    //private MyLinkedList<JewelleryMaterial> materials;
 
     public JewelleryItem(int itemID,
                          String itemName,
                          String itemType,
                          String itemDescription,
-                         String itemColour,
                          String itemTargetGender,
                          String itemImage,
-                         float itemPrice,
-                         JewelleryMaterial materials
+                         float itemPrice/*,
+                         JewelleryMaterial materials*/
                          ) {
         this.itemID = itemID;
         this.itemName = itemName;
         this.itemType = itemType;
         this.itemDescription = itemDescription;
-        this.itemColour = itemColour;
         this.itemTargetGender = itemTargetGender;
         this.itemImage = itemImage;
         this.itemPrice = itemPrice;
-        this.materials = new MyLinkedList<>();
+        //this.materials = new MyLinkedList<>();
     }
 
 
@@ -84,14 +81,6 @@ public class JewelleryItem {
         this.itemDescription = itemDescription;
     }
 
-    public String getItemColour() {
-        return itemColour;
-    }
-
-    public void setItemColour(String itemColour) {
-        this.itemColour = itemColour;
-    }
-
     public String getItemTargetGender() {
         return itemTargetGender;
     }
@@ -117,16 +106,16 @@ public class JewelleryItem {
     }
 
 
-    public void addMaterial(JewelleryMaterial material) {
-        materials.add(material);
-    }
-
-    public void removeMaterial(JewelleryMaterial material) {
-        materials.remove(material);
-    }
-    public MyLinkedList<JewelleryMaterial> getMaterials() {
-        return materials;
-    }
+//    public void addMaterial(JewelleryMaterial material) {
+//        materials.add(material);
+//    }
+//
+//    public void removeMaterial(JewelleryMaterial material) {
+//        materials.remove(material);
+//    }
+//    public MyLinkedList<JewelleryMaterial> getMaterials() {
+//        return materials;
+//    }
 
 //    public void setMaterials(MyLinkedList<JewelleryMaterial> materials) {
 //        this.materials = materials;
@@ -135,6 +124,6 @@ public class JewelleryItem {
 
     @Override
     public String toString() {
-        return "Item ID: " + itemID + "\nName: " + itemName + "\nType: " + itemType + "\nDescription: " + itemDescription + "\nColour: " + itemColour + "\nTarget Gender: " + itemTargetGender + "\nImage: " + itemImage + "\nPrice: " + itemPrice;
+        return "Item ID: " + itemID + "\nName: " + itemName + "\nType: " + itemType + "\nDescription: " + itemDescription + "\nColour: " + "\nTarget Gender: " + itemTargetGender + "\nImage: " + itemImage + "\nPrice: " + itemPrice;
     }
 }

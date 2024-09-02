@@ -1,5 +1,9 @@
 package com.michaelmckibbin.js1;
 
+import com.michaelmckibbin.js1.JewelleryItem;
+import com.michaelmckibbin.js1.MyLinkedList;
+
+
 
 public class DisplayTray {
 
@@ -8,14 +12,14 @@ public class DisplayTray {
     private int trayWidth;
     private int trayDepth;
     private int caseId;
-    //public MyLinkedList<JewelleryItem> jewelleryItems;
+    public MyLinkedList<JewelleryItem> jewelleryItems;
 
     public DisplayTray(int caseId, String trayID, String trayColor, int trayWidth, int trayDepth/*, JewelleryItem jewelleryItems*/) {
         this.trayID = trayID;
         this.trayColor = trayColor;
         this.trayWidth = trayWidth;
         this.trayDepth = trayDepth;
-        //this.jewelleryItems = new MyLinkedList<>();
+        this.jewelleryItems = new MyLinkedList<>();
     }
 
     public DisplayTray(String trayId) {
@@ -60,14 +64,14 @@ public class DisplayTray {
     public void setCaseId(int caseId) {
         this.caseId = caseId;
     }
-//
-//    public MyLinkedList<JewelleryItem> getJewelleryItems() {
-//        return jewelleryItems;
-//    }
-//
-//    public void setJewelleryItems(MyLinkedList<JewelleryItem> jewelleryItems) {
-//        this.jewelleryItems = jewelleryItems;
-//    }
+
+    public MyLinkedList<JewelleryItem> getJewelleryItems() {
+        return jewelleryItems;
+    }
+
+    public void setJewelleryItems(MyLinkedList<JewelleryItem> jewelleryItems) {
+        this.jewelleryItems = jewelleryItems;
+    }
 
     @Override
     public String toString() {
@@ -77,7 +81,7 @@ public class DisplayTray {
                 ", trayColor='" + trayColor + '\'' +
                 ", trayWidth=" + trayWidth +
                 ", trayDepth=" + trayDepth +
-                /*", jewelleryItems=" + jewelleryItems + */
+                ", jewelleryItems=" + jewelleryItems +
                 '}';
     }
 
