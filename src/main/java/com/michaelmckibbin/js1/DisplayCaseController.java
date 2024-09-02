@@ -446,6 +446,8 @@ public class DisplayCaseController {
 
         // add a new case to the list
         displayCases.add(newDisplayCase);
+        // show confirmation message in VBox
+        displayCaseSearchResult(newDisplayCase);
         System.out.println("New case added: " + newDisplayCase);
 
     }
@@ -612,64 +614,62 @@ public class DisplayCaseController {
         if (selectedCase != null) {
             // take user input from displayTrayIdTextField and create trayId
             String trayId = displayTrayIdTextField.getText();
-            DisplayTray newTray = new DisplayTray(trayId);
-            selectedCase.addDisplayTray(newTray);
-            // Update the UI to reflect the changes, if necessary
-        } else {
-            showErrorMessage("No display case found with ID: " + caseId);
-        }
 
-        // Get the user inputed trayID
-        String trayId = displayTrayIdTextField.getText();
+            // Validate the tray ID
+            Matcher matcher = TRAY_ID_PATTERN.matcher(trayId);
+            if (matcher.matches()) {
+                // Convert the first character to uppercase if it's lowercase
+                if (Character.isLowerCase(trayId.charAt(0))) {
+                    trayId = Character.toUpperCase(trayId.charAt(0)) + trayId.substring(1);
+                }
 
-        // Validate the tray ID
-        Matcher matcher = TRAY_ID_PATTERN.matcher(trayId);
-        if (matcher.matches()) {
-            // Convert the first character to uppercase if it's lowercase
-            if (Character.isLowerCase(trayId.charAt(0))) {
-                trayId = Character.toUpperCase(trayId.charAt(0)) + trayId.substring(1);
-            }
-
-            // Add leading zeros to the numeric part of the tray ID
-            int numericPart = Integer.parseInt(trayId.substring(1));
-            trayId = trayId.charAt(0) + String.format("%03d", numericPart);
-        } else {
-            System.out.println("Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
-            return;
-        }
-
-        // Get the color from the ChoiceBox
-        String trayColor = displayTrayColorChoiceBox.getValue();
-
-        // Get the width and depth values from the TextFields
-        // Get & validate the tray width
-        int trayWidth;
-        try {
-            trayWidth = Integer.parseInt(newTrayWidthTextField.getText());
-            if (trayWidth < 1 || trayWidth > 999) {
-                System.out.println("Invalid tray width. Please enter an integer between 1 and 999.");
+                // Add leading zeros to the numeric part of the tray ID
+                int numericPart = Integer.parseInt(trayId.substring(1));
+                trayId = trayId.charAt(0) + String.format("%03d", numericPart);
+            } else {
+                showErrorMessage("\"Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
+                System.out.println("Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
                 return;
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid tray width. Please enter an integer value.");
-            return;
-        }
+            // Check if the tray ID already exists in the allTrayIdsList
+            if (allTrayIdsSet.contains(trayId)) {
+                showErrorMessage("Tray ID already exists. Please enter a different ID.");
+                return; // Exit the method without creating a new tray
+            }
+            // Get the color from the ChoiceBox
+            String trayColor = displayTrayColorChoiceBox.getValue();
 
-        // Get & validate the tray depth
-        int trayDepth;
-        try {
-            trayDepth = Integer.parseInt(newTrayDepthTextField.getText());
-            if (trayDepth < 1 || trayDepth > 999) {
-                System.out.println("Invalid tray depth. Please enter an integer between 1 and 999.");
+            // Get the width and depth values from the TextFields
+            // Get & validate the tray width
+            int trayWidth;
+            try {
+                trayWidth = Integer.parseInt(newTrayWidthTextField.getText());
+                if (trayWidth < 1 || trayWidth > 999) {
+                    showErrorMessage("Invalid tray width. Please enter an integer between 1 and 999.");
+                    System.out.println("Invalid tray width. Please enter an integer between 1 and 999.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                showErrorMessage("Invalid tray width. Please enter an integer between 1 and 999.");
+                System.out.println("Invalid tray width. Please enter an integer value.");
                 return;
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid tray depth. Please enter an integer value.");
-            return;
-        }
 
-        // Create a new DisplayTray instance with the user input
-        if (trayId != null) {
+            // Get & validate the tray depth
+            int trayDepth;
+            try {
+                trayDepth = Integer.parseInt(newTrayDepthTextField.getText());
+                if (trayDepth < 1 || trayDepth > 999) {
+                    System.out.println("Invalid tray depth. Please enter an integer between 1 and 999.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid tray depth. Please enter an integer value.");
+                return;
+            }
+
+
+            // Create a new DisplayTray instance with the user input
             DisplayTray newTray = new DisplayTray(caseId, trayId, trayColor, trayWidth, trayDepth);
             selectedCase.addDisplayTray(newTray);
             System.out.println("New tray added: " + newTray);
@@ -678,13 +678,10 @@ public class DisplayCaseController {
             populateAllTrayIdsSet();
             System.out.println("All tray IDs: " + allTrayIdsSet);
 
-
             // Update the UI to reflect the changes, if necessary
-
         } else {
-            showErrorMessage("Invalid tray ID format. Please try again.");
+            showErrorMessage("Invalid case ID. Please try again.");
         }
-
 
         // Clear the input fields
         displayTrayIdTextField.clear();
