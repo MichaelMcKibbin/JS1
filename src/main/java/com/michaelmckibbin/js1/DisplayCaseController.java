@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +47,22 @@ public class DisplayCaseController {
     @FXML public TextField addItemPriceTextField;
     @FXML public TextField addItemImageUrlTextField;
     @FXML public ChoiceBox<String> addItemTypeChoiceBox;
+    @FXML public TextField materialIdTextField;
+    @FXML public TextField materialNameTextField;
+    @FXML public TextField materialDescriptionTextField;
+    @FXML public TextField materialPriceTextField;
+    @FXML public TextField materialQuantityTextField;
+    @FXML public TextField materialImageUrlTextField;
+
+    @FXML public Button addMaterialButton;
+    @FXML public ChoiceBox materialUnitTypeChoiceBox;
+
+
     private Set<String> allTrayIdsSet = new HashSet<>();
+    private Set<String> allCaseIdsSet = new HashSet<>();
+    private Set<String> allItemIdsSet = new HashSet<>();
+
+
 
     @FXML
     private ChoiceBox<DisplayCase> displayTrayChooseCaseChoiceBox;
@@ -842,5 +859,7 @@ public class DisplayCaseController {
 
 
     }
-
+    @FXML
+    public void addJewelleryMaterialItem(ActionEvent actionEvent) {
+    }
 }

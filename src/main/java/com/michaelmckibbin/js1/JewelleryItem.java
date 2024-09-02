@@ -9,14 +9,10 @@ public class JewelleryItem {
     private String itemTargetGender;
     private String itemImage;
     private float itemPrice;
-    //public DisplayCase displayCase;
-    //public DisplayTray displayTray;
+    private MyLinkedList<JewelleryMaterial> materials;
 
     // Constructor
-    //public JewelleryItem(DisplayCase displayCase , DisplayTray displayTray,String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, float itemPrice) {
     public JewelleryItem(String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, float itemPrice) {
-            // this.displayCase = displayCase;
-       // this.displayTray = displayTray;
         this.itemID = itemID;
         this.itemName = itemName;
         this.itemType = itemType;
@@ -24,6 +20,7 @@ public class JewelleryItem {
         this.itemTargetGender = itemTargetGender;
         this.itemImage = itemImage;
         this.itemPrice = itemPrice;
+        this.materials = new MyLinkedList<>();
     }
 
     // Getters and Setters
@@ -84,32 +81,31 @@ public class JewelleryItem {
         this.itemPrice = itemPrice;
     }
 
+    public MyLinkedList<JewelleryMaterial> getMaterials() {
+        return materials;
+    }
 
-//    // Override toString() method (optional)
-//    @Override
-//    public String toString() {
-//        return "JewelleryItem{" +
-//                "displayCase=" + displayCase +
-//                ", displayTray=" + displayTray +
-//                "itemID=" + itemID +
-//                ", itemName='" + itemName + '\'' +
-//                ", itemType='" + itemType + '\'' +
-//                ", itemDescription='" + itemDescription + '\'' +
-//                ", itemTargetGender='" + itemTargetGender + '\'' +
-//                ", itemImage='" + itemImage + '\'' +
-//                ", itemPrice=" + itemPrice +
-//                '}';
-//    }
+    public void addMaterial(JewelleryMaterial material) {
+        materials.add(material);
+    }
+
+    public void removeMaterial(JewelleryMaterial material) {
+        materials.remove(material);
+    }
+
+
     @Override
     public String toString() {
         return "JewelleryItem{" +
                 "itemID=" + itemID +
-                ", itemName='" + itemName + '\'' +
-                ", itemType='" + itemType + '\'' +
-                ", itemDescription='" + itemDescription + '\'' +
-                ", itemTargetGender='" + itemTargetGender + '\'' +
-                ", itemImage='" + itemImage + '\'' +
+                ", itemName='" + itemName + '\n' +
+                ", itemType='" + itemType + '\n' +
+                ", itemDescription='" + itemDescription + '\n' +
+                ", itemTargetGender='" + itemTargetGender + '\n' +
+                ", itemImage='" + itemImage + '\n' +
                 ", itemPrice=" + itemPrice +
+                '\n' +
+                ", materials=" + materials + '\n' +
                 '}';
     }
 }

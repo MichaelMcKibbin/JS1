@@ -58,66 +58,6 @@
                         <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" styleClass="storefront-button" text="Jewellery Materials" />
                         <Button fx:id="genericButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleGenericButtonClick" styleClass="storefront-button" text="Button" />
                     </VBox>
-                    <VBox layoutX="24.0" layoutY="298.0" prefHeight="315.0" prefWidth="200.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
-                        <padding>
-                            <Insets left="5.0" right="5.0" top="10.0" />
-                        </padding>
-                        <Label alignment="TOP_CENTER" style="-fx-border-color: blue; -fx-background-color: White;" text="Add Display Tray to Case" textAlignment="CENTER">
-                            <padding>
-                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets bottom="5.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label text="Enter Display Case" />
-                        <TextField fx:id="addTrayDisplayCaseChoice" prefHeight="25.0" prefWidth="143.0" promptText="caseID?" />
-
-                        <Label text="Enter new tray ID number">
-                            <padding>
-                                <Insets top="3.0" />
-                            </padding>
-                        </Label>
-                        <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText="e.g. A123">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                            <padding>
-                                <Insets top="1.0" />
-                            </padding>
-                        </TextField>
-                        <Label text="Choose tray colour">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                            <padding>
-                                <Insets top="3.0" />
-                            </padding>
-                        </Label>
-                        <ChoiceBox fx:id="displayTrayColorChoiceBox" prefWidth="150.0">
-                            <VBox.margin>
-                                <Insets />
-                            </VBox.margin>
-                            <padding>
-                                <Insets top="1.0" />
-                            </padding>
-                        </ChoiceBox>
-                        <Label text="Enter tray size">
-                            <VBox.margin>
-                                <Insets top="5.0" />
-                            </VBox.margin>
-                        </Label>
-                        <TextField fx:id="newTrayWidthTextField" promptText="Width in cm" />
-                        <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm" />
-                        <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick" prefHeight="26.0" prefWidth="187.0" style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-radius: 5;" text="Add New Tray">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </Button>
-                    </VBox>
                     <Separator layoutX="42.0" layoutY="266.0" prefHeight="9.0" prefWidth="164.0" style="-fx-background-color: rgba(0,128,0,0.75);" />
                     <Pane fx:id="deleteAllCasesPane" layoutX="42.0" layoutY="678.0" prefHeight="52.0" prefWidth="164.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
                         <children>
@@ -130,10 +70,47 @@
                     </Pane>
 
                     <Separator layoutX="24.0" layoutY="657.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: red;" />
+                    <Pane fx:id="listAllCasesPane" layoutX="56.0" layoutY="289.0" prefHeight="72.0" prefWidth="136.0" style="-fx-background-color: rgba(0,128,0,0.5); -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
+                        <Button fx:id="listAllCasesButton" accessibleText="List All Cases" alignment="CENTER" layoutX="28.0" layoutY="24.0" mnemonicParsing="false" onAction="#onListAllCasesButton" text="List All Cases!" textAlignment="CENTER" />
+                    </Pane>
+                    <VBox layoutX="57.0" layoutY="391.0" prefHeight="123.0" prefWidth="134.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addCaseBtnVBox">
+
+            
+                                    <padding>
+                            <Insets left="5.0" right="5.0" />
+                        </padding>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="120.0" text="Add a case" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                        <CheckBox fx:id="CheckBoxWallMounted" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Wall Mounted?">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="CheckBoxIsLit" mnemonicParsing="false" prefHeight="23.0" prefWidth="111.0" text="       Lit ?">
+                            <VBox.margin>
+                                <Insets top="3.0" />
+                            </VBox.margin>
+                        </CheckBox>
+                        <Button fx:id="AddCaseBtn" mnemonicParsing="false" onAction="#onAddCaseBtn" prefHeight="37.0" prefWidth="125.0" text="Add New Case">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                        </Button>
+
+                                </VBox>
 
                 </AnchorPane>
                 <VBox prefHeight="417.0" prefWidth="443.0">
-               <Label text="Case List" />
+               <Label text="List: " />
                 <VBox fx:id="displayCasesVBox" prefHeight="329.0" prefWidth="493.0">
                   </VBox>
                     <Separator prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
@@ -162,42 +139,88 @@
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </HBox.margin>
                      </VBox>
+                     <VBox prefHeight="100.0" prefWidth="131.0" />
+                     <VBox prefHeight="100.0" prefWidth="143.0" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="186.0" prefWidth="493.0">
+                  <children>
+                     <VBox prefHeight="172.0" prefWidth="494.0">
+                        <children>
+                           <HBox prefHeight="100.0" prefWidth="200.0">
+                              <children>
+                                 <VBox prefHeight="274.0" prefWidth="239.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
+                                    <padding>
+                                       <Insets left="5.0" right="5.0" top="10.0" />
+                                    </padding>
+                                    <children>
+                                       <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="156.0" style="-fx-background-color: White;" text="New Material Details" textAlignment="CENTER">
+                                          <padding>
+                                             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                          </padding>
+                                          <VBox.margin>
+                                             <Insets bottom="5.0" />
+                                          </VBox.margin>
+                                          <font>
+                                             <Font name="System Italic" size="12.0" />
+                                          </font>
+                                       </Label>
+                                       <TextField fx:id="materialIdTextField" promptText="Material ID number" />
+                                       <TextField fx:id="materialNameTextField" prefHeight="25.0" prefWidth="143.0" promptText="Material Name">
+                                          <VBox.margin>
+                                             <Insets top="3.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <TextField fx:id="materialDescriptionTextField" layoutX="16.0" layoutY="54.0" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Description">
+                                          <VBox.margin>
+                                             <Insets top="3.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <TextField fx:id="materialQuantityTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0" prefWidth="143.0" promptText="Qty.">
+                                          <padding>
+                                             <Insets top="1.0" />
+                                          </padding>
+                                          <VBox.margin>
+                                             <Insets top="3.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <ChoiceBox fx:id="materialUnitTypeChoiceBox" layoutX="16.0" layoutY="179.0" prefWidth="150.0">
+                                          <VBox.margin>
+                                             <Insets top="3.0" />
+                                          </VBox.margin>
+                                       </ChoiceBox>
+                                       <TextField fx:id="materialImageUrlTextField" promptText="enter image url">
+                                          <VBox.margin>
+                                             <Insets top="3.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <TextField fx:id="materialPriceTextField" promptText="00.00">
+                                          <VBox.margin>
+                                             <Insets top="3.0" />
+                                          </VBox.margin>
+                                       </TextField>
+                                       <Button fx:id="addMaterialButton" mnemonicParsing="false" onAction="#addJewelleryMaterialItem" prefHeight="21.0" prefWidth="152.0" text="Add New Material">
+                                          <padding>
+                                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          </padding>
+                                          <VBox.margin>
+                                             <Insets top="10.0" />
+                                          </VBox.margin>
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children></VBox>
                   </children>
                </HBox>
                 </VBox>
                 <AnchorPane>
-                    <Pane fx:id="listAllCasesPane" layoutX="44.0" layoutY="59.0" prefHeight="72.0" prefWidth="134.0" style="-fx-background-color: rgba(0,128,0,0.5); -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">
-                        <Button fx:id="listAllCasesButton" accessibleText="List All Cases" alignment="CENTER" layoutX="23.0" layoutY="24.0" mnemonicParsing="false" onAction="#onListAllCasesButton" text="List All Cases!" textAlignment="CENTER" />
-                    </Pane>
-                    <Separator layoutX="11.0" layoutY="156.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: rgba(0,128,0,0.75);" />
-                    <VBox layoutX="44.0" layoutY="178.0" prefHeight="128.0" prefWidth="134.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addCaseBtnVBox">
-
-
-                        <padding>
-                            <Insets left="5.0" right="5.0" />
-                        </padding>
-                        <CheckBox fx:id="CheckBoxWallMounted" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Wall Mounted?">
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </CheckBox>
-                        <CheckBox fx:id="CheckBoxIsLit" mnemonicParsing="false" prefHeight="23.0" prefWidth="111.0" text="       Lit ?">
-                            <VBox.margin>
-                                <Insets bottom="10.0" top="5.0" />
-                            </VBox.margin>
-                        </CheckBox>
-                        <Button fx:id="AddCaseBtn" mnemonicParsing="false" onAction="#onAddCaseBtn" prefHeight="37.0" prefWidth="125.0" text="Add New Case">
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </padding>
-                        </Button>
-
-                    </VBox>
-                    <Separator layoutX="11.0" layoutY="327.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
-               <VBox layoutX="33.0" layoutY="358.0" prefHeight="390.0" prefWidth="164.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
+                    <Separator layoutX="23.0" layoutY="344.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
+               <VBox layoutX="41.0" layoutY="376.0" prefHeight="355.0" prefWidth="164.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
                   <padding>
                      <Insets left="5.0" right="5.0" top="10.0" />
                   </padding>
@@ -269,6 +292,63 @@
                      </Button>
                   </children>
                </VBox>
+                    <VBox layoutX="33.0" layoutY="14.0" prefHeight="315.0" prefWidth="175.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
+                        <padding>
+                            <Insets left="5.0" right="5.0" top="10.0" />
+                        </padding>
+                        <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="156.0" style="-fx-background-color: White;" text="Add Display Tray to Case" textAlignment="CENTER">
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label text="Enter Display Case" />
+                        <TextField fx:id="addTrayDisplayCaseChoice" prefHeight="25.0" prefWidth="143.0" promptText="caseID?" />
+
+                        <Label text="Enter new tray ID number">
+                            <padding>
+                                <Insets top="3.0" />
+                            </padding>
+                        </Label>
+                        <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText="e.g. A123">
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="1.0" />
+                            </padding>
+                        </TextField>
+                        <Label text="Choose tray colour">
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="3.0" />
+                            </padding>
+                        </Label>
+                        <ChoiceBox fx:id="displayTrayColorChoiceBox" prefWidth="150.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="1.0" />
+                            </padding>
+                        </ChoiceBox>
+                        <Label text="Enter tray size">
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="newTrayWidthTextField" promptText="Width in cm" />
+                        <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm" />
+                        <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick" prefHeight="26.0" prefWidth="187.0" style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-radius: 5;" text="Add New Tray">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                    </VBox>
 
 
                 </AnchorPane>
