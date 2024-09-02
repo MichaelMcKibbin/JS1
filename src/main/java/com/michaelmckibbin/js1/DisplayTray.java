@@ -88,4 +88,8 @@ public class DisplayTray {
     public String getTrayId() {
         return trayID;
     }
+
+    public void addJewelleryItem(JewelleryItem newItem) {
+        this.jewelleryItems.add(newItem);
+    }
 }

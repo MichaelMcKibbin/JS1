@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -30,12 +31,21 @@ public class DisplayCaseController {
     @FXML public Pane listAllCasesPane;
     @FXML public Button listAllCasesButton;
     @FXML public Button AddCaseBtn;
-    public Button displayCaseSearchButton;
-    public CheckBox CheckBoxIsLit;
-    public Button displayCaseViewItemSearchButton;
-    public TextField displayCaseViewItemSearchField;
+    @FXML public Button displayCaseSearchButton;
+    @FXML public CheckBox CheckBoxIsLit;
+    @FXML public Button displayCaseViewItemSearchButton;
+    @FXML public TextField displayCaseViewItemSearchField;
+    @FXML public Button addJewelleryItemButton;
+    @FXML public TextField addItemDisplayTrayIdTextField;
+    @FXML public TextField addItemDisplayCaseIdTextField;
+    @FXML public TextField addItemItemIdTextField;
+    @FXML public TextField addItemNameTextField;
+    @FXML public TextField addItemDescriptionTextField;
+    @FXML public ChoiceBox<String> addItemGenderChoiceBox;
+    @FXML public TextField addItemPriceTextField;
+    @FXML public TextField addItemImageUrlTextField;
+    @FXML public ChoiceBox<String> addItemTypeChoiceBox;
     private Set<String> allTrayIdsSet = new HashSet<>();
-
 
     @FXML
     private ChoiceBox<DisplayCase> displayTrayChooseCaseChoiceBox;
@@ -60,6 +70,14 @@ public class DisplayCaseController {
         displayTrayColorChoiceBox.getItems().addAll("Black", "Red", "Green", "Blue");
         // Set the default value for the displayTrayColorChoiceBox
         displayTrayColorChoiceBox.setValue("Black"); // in case user forgets to choose.
+        // populate the addItemGenderChoiceBox
+        addItemGenderChoiceBox.getItems().addAll("Male", "Female", "Unisex");
+        // Set the default value for the addItemGenderChoiceBox
+        addItemGenderChoiceBox.setValue("Unisex");
+        // populate the addItemTypeChoiceBox
+        addItemTypeChoiceBox.getItems().addAll("Necklace", "Ring", "Earring", "Bracelet", "Watch", "Other");
+        // Set the default value for the addItemTypeChoiceBox
+        addItemTypeChoiceBox.setValue("Other");
 
         //initializeDisplayCases();
         // Initialization code here
@@ -97,25 +115,60 @@ public class DisplayCaseController {
 //        }
 
 
-    public void populateDisplayCasesVBox() {
-        displayCasesVBox.getChildren().clear(); // Clear the VBox first
+//    public void populateDisplayCasesVBox() {
+//        displayCasesVBox.getChildren().clear(); // Clear the VBox first
+//
+//        // iterate display cases
+//        for (DisplayCase displayCase : displayCases) {
+//            VBox caseVBox = new VBox();
+//            Label caseLabel = new Label("Case ID: " + displayCase.getCaseId());
+//            caseVBox.getChildren().add(caseLabel);
+//
+//            VBox traysVBox = new VBox();
+//            traysVBox.getChildren().add(new Label("Trays:"));
+//
+//            // for each case, iterate the trays
+//            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
+//                if (displayTray != null && displayTray.getTrayId() != null && !displayTray.getTrayId().isEmpty()) {
+//                    Label trayLabel = new Label("Tray ID: " + displayTray.getTrayId());
+//                    traysVBox.getChildren().add(trayLabel);
+//                }
+//            }
+//
+//            caseVBox.getChildren().add(traysVBox);
+//            displayCasesVBox.getChildren().add(caseVBox);
+//        }
+//    }
+
+    private void populateDisplayCasesVBox() {
+        displayCasesVBox.getChildren().clear();
 
         for (DisplayCase displayCase : displayCases) {
             VBox caseVBox = new VBox();
-            Label caseLabel = new Label("Case ID: " + displayCase.getCaseId());
+            caseVBox.setSpacing(10);
+            caseVBox.setPadding(new Insets(10));
+            caseVBox.setStyle("-fx-border-color: black;");
+
+            Label caseLabel = new Label("Display Case " + displayCase.getCaseId());
             caseVBox.getChildren().add(caseLabel);
 
-            VBox traysVBox = new VBox();
-            traysVBox.getChildren().add(new Label("Trays:"));
+            for (DisplayTray tray : displayCase.getDisplayTrays()) {
+                VBox trayVBox = new VBox();
+                trayVBox.setSpacing(5);
+                trayVBox.setPadding(new Insets(5));
+                trayVBox.setStyle("-fx-border-color: gray;");
 
-            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
-                if (displayTray != null && displayTray.getTrayId() != null && !displayTray.getTrayId().isEmpty()) {
-                    Label trayLabel = new Label("Tray ID: " + displayTray.getTrayId());
-                    traysVBox.getChildren().add(trayLabel);
+                Label trayLabel = new Label("Tray " + tray.getTrayId());
+                trayVBox.getChildren().add(trayLabel);
+
+                for (JewelleryItem item : tray.getJewelleryItems()) {
+                    Label itemLabel = new Label(item.getItemName() + " - " + item.getItemType() + " - $" + item.getItemPrice());
+                    trayVBox.getChildren().add(itemLabel);
                 }
+
+                caseVBox.getChildren().add(trayVBox);
             }
 
-            caseVBox.getChildren().add(traysVBox);
             displayCasesVBox.getChildren().add(caseVBox);
         }
     }
@@ -178,6 +231,8 @@ public class DisplayCaseController {
     }
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");
+        populateDisplayCasesVBox();
+
     }
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
@@ -604,7 +659,6 @@ public class DisplayCaseController {
     private void handleAddTrayButtonClick(ActionEvent event) {
         System.out.println("Add tray button clicked!");
 
-
         String caseIdInput = addTrayDisplayCaseChoice.getText().trim();
 
         if (caseIdInput.isEmpty()) {
@@ -697,6 +751,95 @@ public class DisplayCaseController {
         displayTrayColorChoiceBox.setValue("Black"); // clearing the value here with null allows null on subsequent additions which causes a validation error. So set it to Black to match initial default.
         newTrayWidthTextField.clear();
         newTrayDepthTextField.clear();
+
+    }
+
+
+    @FXML
+    private void addJewelleryItem(ActionEvent event) {
+        System.out.println("Add jewellery item button clicked!");
+        // get user input, caseId, trayId, description, gender, image url, item price
+        
+        // Get user input for the case ID
+        int caseIdInput = Integer.parseInt(addItemDisplayCaseIdTextField.getText());
+        // Validate the case ID input
+        if (caseIdInput == 0) {
+            showErrorMessage("Please enter a case ID.");
+            return;
+        }
+
+        // Get the user input for the tray ID
+        String trayIdInput = addItemDisplayTrayIdTextField.getText().trim();
+        // Validate the tray ID input
+        if (trayIdInput.isEmpty()) {
+            showErrorMessage("Please enter a tray ID.");
+            return;
+        }
+
+        // Get the user input for the jewellery item properties
+        String itemID = addItemItemIdTextField.getText();
+        // validate the item id input
+        if (itemID.isEmpty()) {
+            showErrorMessage("Please enter an item ID.");
+            return;
+        }
+
+        String itemName = addItemNameTextField.getText();
+        //validate item name input
+        if (itemName.isEmpty()) {
+            showErrorMessage("Please enter an item name.");
+            return;
+        }
+        String itemType = addItemTypeChoiceBox.getValue();
+        String itemDescription = addItemDescriptionTextField.getText();
+        String itemTargetGender = addItemGenderChoiceBox.getValue();
+        String itemImage = addItemImageUrlTextField.getText();
+        // if no input set default image url
+        if (itemImage.isEmpty()) {
+            itemImage = "./images/jewelleryGeneral.jpg";
+        }
+
+        //float itemPrice = Float.parseFloat(addItemPriceTextField.getText());
+
+        float itemPrice;
+        // Check if the addItemPriceTextField is empty, and set the default value if it is
+        if (addItemPriceTextField.getText().trim().isEmpty()) {
+            itemPrice = 9999.99f;
+        } else {
+            itemPrice = Float.parseFloat(addItemPriceTextField.getText());
+        }
+
+
+        // Create a new JewelleryItem instance
+        JewelleryItem newItem = new JewelleryItem(itemID, itemName, itemType, itemDescription, itemTargetGender, itemImage, itemPrice);
+
+
+
+        // Add the jewellery item to the selected case and tray
+        DisplayCase selectedCase = findDisplayCaseById(Integer.parseInt(String.valueOf(caseIdInput)));
+        if (selectedCase != null) {
+            DisplayTray selectedTray = selectedCase.findDisplayTrayById(trayIdInput);
+            if (selectedTray != null) {
+                selectedTray.addJewelleryItem(newItem);
+                System.out.println("New jewellery item added: " + newItem);
+            } else {
+                System.out.println("Invalid tray ID. Please try again.");
+            }
+        } else {
+            System.out.println("Invalid case ID. Please try again.");
+        }
+
+
+        // Clear the input fields
+        addItemItemIdTextField.clear();
+        addItemNameTextField.clear();
+        addItemTypeChoiceBox.setValue("Necklace");
+        addItemDescriptionTextField.clear();
+        addItemGenderChoiceBox.setValue("Unisex");
+        addItemImageUrlTextField.clear();
+        addItemPriceTextField.clear();
+        addItemDisplayTrayIdTextField.clear();
+
 
     }
 

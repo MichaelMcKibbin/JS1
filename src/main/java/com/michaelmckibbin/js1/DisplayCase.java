@@ -1,11 +1,14 @@
 package com.michaelmckibbin.js1;
 
+import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
+
 public class DisplayCase {
 
     public int caseID;
     public boolean isWall = false; // false = floor, true = wall
     public boolean isLit = false;  // false = not lit, true = lit
     public MyLinkedList<DisplayTray> displayTrays;
+    private int caseId;
 
     public DisplayCase(int caseID, boolean isWall, boolean isLit) {
         this.caseID = caseID;
@@ -72,5 +75,23 @@ public class DisplayCase {
 
     public void addDisplayTray(DisplayTray newTray) {
         displayTrays.add(newTray);
+    }
+
+    public DisplayTray findDisplayTrayById(String trayId) {
+        for (DisplayTray tray : displayTrays) {
+            if (tray.getTrayId().equals(trayId) && tray.getCaseId() == this.caseId) {
+                return tray;
+            }
+        }
+        return null;
+    }
+
+    public DisplayCase findDisplayCaseById(int caseId) {
+        for (DisplayCase displayCase : displayCases) {
+            if (displayCase.getCaseId()==(caseId)) {
+                return displayCase;
+            }
+        }
+        return null; // Return null if no matching DisplayCase is found
     }
 }

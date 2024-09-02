@@ -1,28 +1,22 @@
 package com.michaelmckibbin.js1;
 import com.michaelmckibbin.js1.MyLinkedList;
 
-import java.util.List;
-
-
 public class JewelleryItem {
-    private int itemID; // ID number
+    private String itemID;
     private String itemName;
-    private String itemType; // ring, watch, etc.
+    private String itemType;
     private String itemDescription;
-    private String itemTargetGender; // male, female, any
-    private String itemImage; // url or placeholder image
-    private Float itemPrice;
-    //private MyLinkedList<JewelleryMaterial> materials;
+    private String itemTargetGender;
+    private String itemImage;
+    private float itemPrice;
+    //public DisplayCase displayCase;
+    //public DisplayTray displayTray;
 
-    public JewelleryItem(int itemID,
-                         String itemName,
-                         String itemType,
-                         String itemDescription,
-                         String itemTargetGender,
-                         String itemImage,
-                         float itemPrice/*,
-                         JewelleryMaterial materials*/
-                         ) {
+    // Constructor
+    //public JewelleryItem(DisplayCase displayCase , DisplayTray displayTray,String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, float itemPrice) {
+    public JewelleryItem(String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, float itemPrice) {
+            // this.displayCase = displayCase;
+       // this.displayTray = displayTray;
         this.itemID = itemID;
         this.itemName = itemName;
         this.itemType = itemType;
@@ -30,30 +24,15 @@ public class JewelleryItem {
         this.itemTargetGender = itemTargetGender;
         this.itemImage = itemImage;
         this.itemPrice = itemPrice;
-        //this.materials = new MyLinkedList<>();
     }
 
+    // Getters and Setters
 
-
-    /* examples
-    JewelleryItem necklace = new JewelleryItem(101, "Gold Necklace", "Necklace", "A beautiful gold necklace", "Gold", "Any", "https://example.com/gold-necklace.jpg", 499.99);
-    JewelleryMaterial diamond2Karat = new JewelleryMaterial("501, "Diamond, 2 Karat", "karat", "https://example.com/diamond.jpg", 2, 2000);
-    JewelleryMaterial goldChain = new JewelleryMaterial("502, "Gold Chain", "cm", "https://example.com/gold.jpg", 60, 1500);
-
-    necklace.addMaterial(goldChain);
-    necklace.addMaterial(diamond2Karat);
-    */
-
-
-
-    /*
-    Getters and Setters
-     */
-    public int getItemID() {
+    public String getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID) {
+    public void setItemID(String itemID) {
         this.itemID = itemID;
     }
 
@@ -97,33 +76,40 @@ public class JewelleryItem {
         this.itemImage = itemImage;
     }
 
-    public Float getItemPrice() {
+    public float getItemPrice() {
         return itemPrice;
     }
 
-    public void setItemPrice(Float itemPrice) {
+    public void setItemPrice(float itemPrice) {
         this.itemPrice = itemPrice;
     }
 
 
-//    public void addMaterial(JewelleryMaterial material) {
-//        materials.add(material);
+//    // Override toString() method (optional)
+//    @Override
+//    public String toString() {
+//        return "JewelleryItem{" +
+//                "displayCase=" + displayCase +
+//                ", displayTray=" + displayTray +
+//                "itemID=" + itemID +
+//                ", itemName='" + itemName + '\'' +
+//                ", itemType='" + itemType + '\'' +
+//                ", itemDescription='" + itemDescription + '\'' +
+//                ", itemTargetGender='" + itemTargetGender + '\'' +
+//                ", itemImage='" + itemImage + '\'' +
+//                ", itemPrice=" + itemPrice +
+//                '}';
 //    }
-//
-//    public void removeMaterial(JewelleryMaterial material) {
-//        materials.remove(material);
-//    }
-//    public MyLinkedList<JewelleryMaterial> getMaterials() {
-//        return materials;
-//    }
-
-//    public void setMaterials(MyLinkedList<JewelleryMaterial> materials) {
-//        this.materials = materials;
-//    }
-
-
     @Override
     public String toString() {
-        return "Item ID: " + itemID + "\nName: " + itemName + "\nType: " + itemType + "\nDescription: " + itemDescription + "\nColour: " + "\nTarget Gender: " + itemTargetGender + "\nImage: " + itemImage + "\nPrice: " + itemPrice;
+        return "JewelleryItem{" +
+                "itemID=" + itemID +
+                ", itemName='" + itemName + '\'' +
+                ", itemType='" + itemType + '\'' +
+                ", itemDescription='" + itemDescription + '\'' +
+                ", itemTargetGender='" + itemTargetGender + '\'' +
+                ", itemImage='" + itemImage + '\'' +
+                ", itemPrice=" + itemPrice +
+                '}';
     }
 }
