@@ -9,8 +9,9 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class JewelleryMaterialController {
+public class JewelleryMaterialController implements Serializable {
 
 
     /*

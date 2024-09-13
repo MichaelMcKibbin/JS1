@@ -16,13 +16,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DisplayCaseController {
+public class DisplayCaseController implements Serializable {
 
     public static MyLinkedList<DisplayCase> displayCases = new MyLinkedList<>();
 
@@ -47,15 +46,19 @@ public class DisplayCaseController {
     @FXML public TextField addItemPriceTextField;
     @FXML public TextField addItemImageUrlTextField;
     @FXML public ChoiceBox<String> addItemTypeChoiceBox;
-    @FXML public TextField materialIdTextField;
-    @FXML public TextField materialNameTextField;
-    @FXML public TextField materialDescriptionTextField;
-    @FXML public TextField materialPriceTextField;
-    @FXML public TextField materialQuantityTextField;
-    @FXML public TextField materialImageUrlTextField;
 
-    @FXML public Button addMaterialButton;
-    @FXML public ChoiceBox materialUnitTypeChoiceBox;
+    @FXML public Button addJewelleryMaterialButton;
+    @FXML public TextField addJewelleryMaterialDisplayCaseIdTextField;
+    @FXML public TextField addJewelleryMaterialDisplayTrayIdTextField;
+    @FXML public TextField addJewelleryMaterialIdTextField;
+    @FXML public TextField addJewelleryMaterialNameTextField;
+    @FXML public TextField addJewelleryMaterialDescriptionTextField;
+    @FXML public TextField addJewelleryMaterialQuantityTextField;
+    @FXML public TextField addJewelleryMaterialPriceTextField;
+    @FXML public TextField addJewelleryMaterialImageUrlTextField;
+    @FXML public ChoiceBox addJewelleryMaterialUnitTypeChoiceBox;
+    @FXML public TextField addJewelleryMaterialJewelleryItemIdTextField;
+    @FXML public TextField addJewelleryMaterialQualityTextField;
 
 
     private Set<String> allTrayIdsSet = new HashSet<>();
@@ -81,24 +84,29 @@ public class DisplayCaseController {
 
     @FXML
     public void initialize() {
+        // initialise the VBox list display
         populateDisplayCasesVBox();
 
         // Populate the displayTrayColorChoiceBox
         displayTrayColorChoiceBox.getItems().addAll("Black", "Red", "Green", "Blue");
         // Set the default value for the displayTrayColorChoiceBox
         displayTrayColorChoiceBox.setValue("Black"); // in case user forgets to choose.
+
         // populate the addItemGenderChoiceBox
         addItemGenderChoiceBox.getItems().addAll("Male", "Female", "Unisex");
         // Set the default value for the addItemGenderChoiceBox
         addItemGenderChoiceBox.setValue("Unisex");
+
         // populate the addItemTypeChoiceBox
         addItemTypeChoiceBox.getItems().addAll("Necklace", "Ring", "Earring", "Bracelet", "Watch", "Other");
         // Set the default value for the addItemTypeChoiceBox
         addItemTypeChoiceBox.setValue("Other");
 
-        //initializeDisplayCases();
-        // Initialization code here
-        //nextCaseIdLabel.setText("Next Case ID: " + getNextCaseID());
+        // populate the jewelleryMaterialUnitTypeChoiceBox
+        addJewelleryMaterialUnitTypeChoiceBox.getItems().addAll("Grams", "Karats", "oz", "cm", "Other");
+        // Set the default value for the jewelleryMaterialUnitTypeChoiceBox
+        addJewelleryMaterialUnitTypeChoiceBox.setValue("Other");
+
     }
 
     void initializeDisplayCases() {
@@ -123,40 +131,6 @@ public class DisplayCaseController {
     @FXML
     private VBox displayCasesVBox;
 
-//    public void populateDisplayCasesVBox() {
-//        displayCasesVBox.getChildren().clear(); // Clear the VBox first
-//        for (DisplayCase displayCase : displayCases) {
-//            // Create a UI element for each display case (e.g., a Label or a custom control)
-//            Label displayCaseLabel = new Label(displayCase.toString());
-//            displayCasesVBox.getChildren().add(displayCaseLabel);
-//        }
-
-
-//    public void populateDisplayCasesVBox() {
-//        displayCasesVBox.getChildren().clear(); // Clear the VBox first
-//
-//        // iterate display cases
-//        for (DisplayCase displayCase : displayCases) {
-//            VBox caseVBox = new VBox();
-//            Label caseLabel = new Label("Case ID: " + displayCase.getCaseId());
-//            caseVBox.getChildren().add(caseLabel);
-//
-//            VBox traysVBox = new VBox();
-//            traysVBox.getChildren().add(new Label("Trays:"));
-//
-//            // for each case, iterate the trays
-//            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
-//                if (displayTray != null && displayTray.getTrayId() != null && !displayTray.getTrayId().isEmpty()) {
-//                    Label trayLabel = new Label("Tray ID: " + displayTray.getTrayId());
-//                    traysVBox.getChildren().add(trayLabel);
-//                }
-//            }
-//
-//            caseVBox.getChildren().add(traysVBox);
-//            displayCasesVBox.getChildren().add(caseVBox);
-//        }
-//    }
-
     private void populateDisplayCasesVBox() {
         displayCasesVBox.getChildren().clear();
 
@@ -166,7 +140,7 @@ public class DisplayCaseController {
             caseVBox.setPadding(new Insets(10));
             caseVBox.setStyle("-fx-border-color: black;");
 
-            Label caseLabel = new Label("Display Case " + displayCase.getCaseId());
+            Label caseLabel = new Label("Display Case: " + displayCase.getCaseId() + " - Is Lit?: " + displayCase.isLit() + " - Wall Mounted?: " + displayCase.isWall());
             caseVBox.getChildren().add(caseLabel);
 
             for (DisplayTray tray : displayCase.getDisplayTrays()) {
@@ -175,12 +149,31 @@ public class DisplayCaseController {
                 trayVBox.setPadding(new Insets(5));
                 trayVBox.setStyle("-fx-border-color: gray;");
 
-                Label trayLabel = new Label("Tray " + tray.getTrayId());
+                Label trayLabel = new Label("Tray " + tray.getTrayId() + ", " + tray.getTrayColor() + ", " + tray.getTrayWidth() + " x " + tray.getTrayDepth() + "cm");
                 trayVBox.getChildren().add(trayLabel);
 
                 for (JewelleryItem item : tray.getJewelleryItems()) {
-                    Label itemLabel = new Label(item.getItemName() + " - " + item.getItemType() + " - $" + item.getItemPrice());
-                    trayVBox.getChildren().add(itemLabel);
+                    VBox itemVBox = new VBox();
+                    itemVBox.setSpacing(5);
+                    itemVBox.setPadding(new Insets(5));
+                    itemVBox.setStyle("-fx-border-color: lightgray;");
+
+                    Label itemLabel = new Label("Item " + item.getItemId() + ", " +item.getItemName() + ", " + item.getItemType() + ", $" + item.getItemPrice());
+                    itemVBox.getChildren().add(itemLabel);
+
+                    // Add jewellery materials for the item
+                    for (JewelleryMaterial jewelleryMaterial : item.getJewelleryMaterials()) {
+                        VBox jewelleryMaterialVBox = new VBox();
+                        jewelleryMaterialVBox.setSpacing(5);
+                        jewelleryMaterialVBox.setPadding(new Insets(5));
+                        jewelleryMaterialVBox.setStyle("-fx-border-color: lightgray;");
+
+                        Label jewelleryMaterialLabel = new Label("Jewellery Material: " + jewelleryMaterial.getJewelleryMaterialName() + ", $" + jewelleryMaterial.getJewelleryMaterialPrice());
+                        itemVBox.getChildren().add(jewelleryMaterialLabel);
+                    }
+
+
+                    trayVBox.getChildren().add(itemVBox);
                 }
 
                 caseVBox.getChildren().add(trayVBox);
@@ -189,6 +182,7 @@ public class DisplayCaseController {
             displayCasesVBox.getChildren().add(caseVBox);
         }
     }
+
 
 
 
@@ -498,22 +492,22 @@ public class DisplayCaseController {
      */
 
 
-    private int getNextCaseID() {
-        int nextCaseID = displayCases.size() + 1;
+    private int getNextCaseid() {
+        int nextCaseid = displayCases.size() + 1;
         boolean idExists;
 
         do {
             idExists = false;
             for (DisplayCase displayCase : displayCases) {
-                if (displayCase.getCaseId() == nextCaseID) {
+                if (displayCase.getCaseId() == nextCaseid) {
                     idExists = true;
-                    nextCaseID++;
+                    nextCaseid++;
                     break;
                 }
             }
         } while (idExists);
 
-        return nextCaseID;
+        return nextCaseid;
     }
 
 
@@ -522,8 +516,13 @@ public class DisplayCaseController {
     public void onAddCaseBtn(ActionEvent actionEvent) {
         System.out.println("Add case button clicked!");
 
-        // get next caseID using (displayCases.size() + 1)
-        DisplayCase newDisplayCase = new DisplayCase(getNextCaseID(), false, false);
+        // generate new case number with getNextCaseid
+        int newCaseid = getNextCaseid();
+        // get value of CheckBoxIsLit
+        boolean isLit = CheckBoxIsLit.isSelected();
+        // get value of CheckBoxWallMounted
+        boolean isWallMounted = CheckBoxWallMounted.isSelected();
+        DisplayCase newDisplayCase = new DisplayCase(newCaseid, isLit, isWallMounted);
 
         // add a new case to the list
         displayCases.add(newDisplayCase);
@@ -654,7 +653,7 @@ public class DisplayCaseController {
         alert.showAndWait();
     }
 
-    private static final Pattern TRAY_ID_PATTERN = Pattern.compile("^[a-zA-Z]\\d{1,3}$");
+    private static final Pattern TRAY_id_PATTERN = Pattern.compile("^[a-zA-Z]\\d{1,3}$");
 
     @FXML
     private TextField addTrayDisplayCaseChoice;
@@ -679,7 +678,7 @@ public class DisplayCaseController {
         String caseIdInput = addTrayDisplayCaseChoice.getText().trim();
 
         if (caseIdInput.isEmpty()) {
-            showErrorMessage("Please enter a display case ID.");
+            showErrorMessage("Please enter a display case id.");
             return;
         }
 
@@ -695,25 +694,25 @@ public class DisplayCaseController {
             // take user input from displayTrayIdTextField and create trayId
             String trayId = displayTrayIdTextField.getText();
 
-            // Validate the tray ID
-            Matcher matcher = TRAY_ID_PATTERN.matcher(trayId);
+            // Validate the tray id
+            Matcher matcher = TRAY_id_PATTERN.matcher(trayId);
             if (matcher.matches()) {
                 // Convert the first character to uppercase if it's lowercase
                 if (Character.isLowerCase(trayId.charAt(0))) {
                     trayId = Character.toUpperCase(trayId.charAt(0)) + trayId.substring(1);
                 }
 
-                // Add leading zeros to the numeric part of the tray ID
+                // Add leading zeros to the numeric part of the tray id
                 int numericPart = Integer.parseInt(trayId.substring(1));
                 trayId = trayId.charAt(0) + String.format("%03d", numericPart);
             } else {
-                showErrorMessage("\"Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
-                System.out.println("Invalid tray ID format. Please enter a single letter followed by a number from 1 to 999.");
+                showErrorMessage("\"Invalid tray id format. Please enter a single letter followed by a number from 1 to 999.");
+                System.out.println("Invalid tray id format. Please enter a single letter followed by a number from 1 to 999.");
                 return;
             }
-            // Check if the tray ID already exists in the allTrayIdsList
+            // Check if the tray id already exists in the allTrayIdsList
             if (allTrayIdsSet.contains(trayId)) {
-                showErrorMessage("Tray ID already exists. Please enter a different ID.");
+                showErrorMessage("Tray id already exists. Please enter a different id.");
                 return; // Exit the method without creating a new tray
             }
             // Get the color from the ChoiceBox
@@ -756,11 +755,11 @@ public class DisplayCaseController {
 
             // Update the allTrayIdsList
             populateAllTrayIdsSet();
-            System.out.println("All tray IDs: " + allTrayIdsSet);
+            System.out.println("All tray ids: " + allTrayIdsSet);
 
             // Update the UI to reflect the changes, if necessary
         } else {
-            showErrorMessage("Invalid case ID. Please try again.");
+            showErrorMessage("Invalid case id. Please try again.");
         }
 
         // Clear the input fields
@@ -775,29 +774,29 @@ public class DisplayCaseController {
     @FXML
     private void addJewelleryItem(ActionEvent event) {
         System.out.println("Add jewellery item button clicked!");
-        // get user input, caseId, trayId, description, gender, image url, item price
+        // get user input
         
-        // Get user input for the case ID
+        // Get user input for the case id
         int caseIdInput = Integer.parseInt(addItemDisplayCaseIdTextField.getText());
-        // Validate the case ID input
+        // Validate the case id input
         if (caseIdInput == 0) {
-            showErrorMessage("Please enter a case ID.");
+            showErrorMessage("Please enter a case id.");
             return;
         }
 
-        // Get the user input for the tray ID
+        // Get the user input for the tray id
         String trayIdInput = addItemDisplayTrayIdTextField.getText().trim();
-        // Validate the tray ID input
+        // Validate the tray id input
         if (trayIdInput.isEmpty()) {
-            showErrorMessage("Please enter a tray ID.");
+            showErrorMessage("Please enter a tray id.");
             return;
         }
 
         // Get the user input for the jewellery item properties
-        String itemID = addItemItemIdTextField.getText();
+        String itemid = addItemItemIdTextField.getText();
         // validate the item id input
-        if (itemID.isEmpty()) {
-            showErrorMessage("Please enter an item ID.");
+        if (itemid.isEmpty()) {
+            showErrorMessage("Please enter an item id.");
             return;
         }
 
@@ -828,7 +827,7 @@ public class DisplayCaseController {
 
 
         // Create a new JewelleryItem instance
-        JewelleryItem newItem = new JewelleryItem(itemID, itemName, itemType, itemDescription, itemTargetGender, itemImage, itemPrice);
+        JewelleryItem newItem = new JewelleryItem(itemid, itemName, itemType, itemDescription, itemTargetGender, itemImage, itemPrice);
 
 
 
@@ -838,12 +837,12 @@ public class DisplayCaseController {
             DisplayTray selectedTray = selectedCase.findDisplayTrayById(trayIdInput);
             if (selectedTray != null) {
                 selectedTray.addJewelleryItem(newItem);
-                System.out.println("New jewellery item added: " + newItem);
+                System.out.println("New jewellery item added: " + newItem.getItemName());
             } else {
-                System.out.println("Invalid tray ID. Please try again.");
+                System.out.println("Invalid tray id. Please try again.");
             }
         } else {
-            System.out.println("Invalid case ID. Please try again.");
+            System.out.println("Invalid case id. Please try again.");
         }
 
 
@@ -860,6 +859,92 @@ public class DisplayCaseController {
 
     }
     @FXML
-    public void addJewelleryMaterialItem(ActionEvent actionEvent) {
+    public void addJewelleryMaterial(ActionEvent actionEvent) {
+        System.out.println("Add jewellery material button clicked!");
+        // get user input
+
+        // Get user input for the case
+        int addJewelleryMaterialCaseIdInput = Integer.parseInt(addJewelleryMaterialDisplayCaseIdTextField.getText());
+        // Validate the case id input
+        if (addJewelleryMaterialCaseIdInput == 0) {
+            showErrorMessage("Please enter a case id.");
+            return;
+        }
+
+        // Get the user input for the tray id
+        String addJewelleryMaterialTrayIdInput = addJewelleryMaterialDisplayTrayIdTextField.getText();
+        // Validate the tray id input
+        if (addJewelleryMaterialTrayIdInput.isEmpty()) {
+            showErrorMessage("Please enter a tray id.");
+            return;
+        }
+        // Get the user input for the jewellery item id
+        int addJewelleryMaterialJewelleryIdInput = Integer.parseInt(addJewelleryMaterialJewelleryItemIdTextField.getText());
+        // validate the item id input
+        if (addJewelleryMaterialJewelleryIdInput==0) {
+            showErrorMessage("Please enter an item id.");
+            return;
+        }
+
+        // Get the user input for the jewellery material
+        String jewelleryMaterialId = addJewelleryMaterialIdTextField.getText() ;
+        // validate jewellery material id input
+        if (jewelleryMaterialId.isEmpty()) {
+            showErrorMessage("Please enter a jewellery material id.");
+            return;
+        }
+        String jewelleryMaterialName = addJewelleryMaterialNameTextField.getText() ;
+        //validate jewellery material name input
+        if (jewelleryMaterialName.isEmpty()) {
+            showErrorMessage("Please enter a jewellery material name.");
+            return;
+        }
+        String jewelleryMaterialType = (String) addJewelleryMaterialUnitTypeChoiceBox.getValue();
+        String jewelleryMaterialDescription = addJewelleryMaterialDescriptionTextField.getText();
+        String jewelleryMaterialImage = addJewelleryMaterialImageUrlTextField.getText();
+        // if no input set default image url
+        if (jewelleryMaterialImage.isEmpty()) {
+            jewelleryMaterialImage = "./images/jewelleryGeneral.jpg";
+        }
+        float jewelleryMaterialPrice;
+        // Check if the addJewelleryMaterialPriceTextField is empty, and set the default value if it is
+        if (addJewelleryMaterialPriceTextField.getText().trim().isEmpty()) {
+            jewelleryMaterialPrice = 9999.99f;
+        } else {
+            jewelleryMaterialPrice = Float.parseFloat(addJewelleryMaterialPriceTextField.getText());
+        }
+
+        int jewelleryMaterialQuantity = Integer.parseInt(addJewelleryMaterialQuantityTextField.getText());
+        float jewelleryMaterialQuality = Float.parseFloat(addJewelleryMaterialQualityTextField.getText());
+        String jewelleryMaterialUnitType = (String) addJewelleryMaterialUnitTypeChoiceBox.getValue();
+
+        // create a new jewellery material instance
+        JewelleryMaterial jewelleryMaterial = new JewelleryMaterial(jewelleryMaterialId, jewelleryMaterialName, jewelleryMaterialDescription, jewelleryMaterialUnitType, jewelleryMaterialImage, jewelleryMaterialQuantity, jewelleryMaterialQuality, jewelleryMaterialPrice);
+
+        // add the jewellery material to the selected jewellery item. add the jewellery item the tray and case as before.
+        DisplayCase selectedCase = findDisplayCaseById(Integer.parseInt(String.valueOf(addJewelleryMaterialCaseIdInput)));
+        if (selectedCase != null) {
+            DisplayTray selectedTray = selectedCase.findDisplayTrayById(addJewelleryMaterialTrayIdInput);
+            if (selectedTray != null) {
+                JewelleryItem selectedItem = selectedTray.findJewelleryItemById(Integer.parseInt(String.valueOf(addJewelleryMaterialJewelleryIdInput)));
+                if (selectedItem != null) {
+                    selectedItem.addJewelleryMaterial(new JewelleryMaterial(jewelleryMaterialId, jewelleryMaterialName, jewelleryMaterialDescription, jewelleryMaterialUnitType, jewelleryMaterialImage, jewelleryMaterialQuantity, jewelleryMaterialQuality, jewelleryMaterialPrice));
+                    System.out.println("New jewellery material added: " + jewelleryMaterial);
+                }else {
+                    System.out.println("Invalid item id. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid tray id. Please try again.");
+            }
+        } else {
+            System.out.println("Invalid case id. Please try again.");
+        }
+
+
+        // Clear the input fields
+
+
+
+
     }
 }

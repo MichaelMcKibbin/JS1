@@ -1,8 +1,10 @@
 package com.michaelmckibbin.js1;
 
+import java.io.Serializable;
+
 import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
 
-public class DisplayCase {
+public class DisplayCase implements Serializable {
 
     public int caseID;
     public boolean isWall = false; // false = floor, true = wall
@@ -10,7 +12,7 @@ public class DisplayCase {
     public MyLinkedList<DisplayTray> displayTrays;
     private int caseId;
 
-    public DisplayCase(int caseID, boolean isWall, boolean isLit) {
+    public DisplayCase(int caseID, boolean isLit, boolean isWall) {
         this.caseID = caseID;
         this.isWall = isWall;
         this.isLit = isLit;
@@ -94,4 +96,15 @@ public class DisplayCase {
         }
         return null; // Return null if no matching DisplayCase is found
     }
+
+    public JewelleryItem  findJewelleryItemById(String itemId) {
+        for (DisplayTray tray : displayTrays) {
+            JewelleryItem item = tray.findJewelleryItemById(Integer.parseInt(itemId));
+            if (item != null) {
+                return item;
+            }
+        }
+        return null;
+    }
+
 }

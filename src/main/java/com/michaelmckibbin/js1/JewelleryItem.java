@@ -1,7 +1,9 @@
 package com.michaelmckibbin.js1;
 import com.michaelmckibbin.js1.MyLinkedList;
 
-public class JewelleryItem {
+import java.io.Serializable;
+
+public class JewelleryItem implements Serializable {
     private String itemID;
     private String itemName;
     private String itemType;
@@ -9,7 +11,7 @@ public class JewelleryItem {
     private String itemTargetGender;
     private String itemImage;
     private float itemPrice;
-    private MyLinkedList<JewelleryMaterial> materials;
+    private MyLinkedList<JewelleryMaterial> jewelleryMaterials;
 
     // Constructor
     public JewelleryItem(String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, float itemPrice) {
@@ -20,13 +22,16 @@ public class JewelleryItem {
         this.itemTargetGender = itemTargetGender;
         this.itemImage = itemImage;
         this.itemPrice = itemPrice;
-        this.materials = new MyLinkedList<>();
+        this.jewelleryMaterials = new MyLinkedList<>();
     }
 
     // Getters and Setters
 
     public String getItemID() {
         return itemID;
+    }
+    public int getItemId() {
+        return Integer.parseInt(itemID);
     }
 
     public void setItemID(String itemID) {
@@ -81,16 +86,16 @@ public class JewelleryItem {
         this.itemPrice = itemPrice;
     }
 
-    public MyLinkedList<JewelleryMaterial> getMaterials() {
-        return materials;
+    public MyLinkedList<JewelleryMaterial> getJewelleryMaterials() {
+        return jewelleryMaterials;
     }
 
-    public void addMaterial(JewelleryMaterial material) {
-        materials.add(material);
+    public void addJewelleryMaterial(JewelleryMaterial jewelleryMaterial) {
+        jewelleryMaterials.add(jewelleryMaterial);
     }
 
-    public void removeMaterial(JewelleryMaterial material) {
-        materials.remove(material);
+    public void removeJewelleryMaterial(JewelleryMaterial jewelleryMaterial) {
+        jewelleryMaterials.remove(jewelleryMaterial);
     }
 
 
@@ -105,7 +110,11 @@ public class JewelleryItem {
                 ", itemImage='" + itemImage + '\n' +
                 ", itemPrice=" + itemPrice +
                 '\n' +
-                ", materials=" + materials + '\n' +
+                ", jewelleryMaterials=" + jewelleryMaterials + '\n' +
                 '}';
+    }
+
+
+    public void addJewelleryMaterial() {
     }
 }

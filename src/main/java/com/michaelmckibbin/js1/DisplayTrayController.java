@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -17,7 +18,7 @@ import com.michaelmckibbin.js1.MyLinkedList;
 
 //private MyLinkedList<DisplayTray> displayTrays;
 
-public class DisplayTrayController {
+public class DisplayTrayController implements Serializable {
 
     private MyLinkedList<JewelleryItem> jewelleryItems = new MyLinkedList<>();
 

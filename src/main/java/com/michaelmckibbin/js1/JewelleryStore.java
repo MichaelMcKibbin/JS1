@@ -6,9 +6,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 
-public class JewelleryStore extends Application {
+public class JewelleryStore extends Application implements Serializable {
     public static Scene scene;
     public static Stage primarystage;
 

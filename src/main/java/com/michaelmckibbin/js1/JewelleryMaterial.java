@@ -1,101 +1,108 @@
 package com.michaelmckibbin.js1;
 
-public class JewelleryMaterial {
+import java.io.Serializable;
 
-    int materialID; // number e.g. 101
-    String materialName; // eg silver chain, ruby, gold
-    String materialDescription; //
-    String materialUnit; // e.g grams, each, cm
-    String materialImage; // url to image, or placeholder
-    int materialQuantity; // number of units in stock
-    int materialPrice; // price per unit
+public class JewelleryMaterial implements Serializable {
 
-    public JewelleryMaterial(int materialID,
-                             String materialName,
-                             String materialDescription,
-                             String materialUnit,
-                             String materialImage,
-                             int materialQuantity,
-                             int materialPrice) {
-        this.materialID = materialID;
-        this.materialName = materialName;
-        this.materialDescription = materialDescription;
-        this.materialUnit = materialUnit;
-        this.materialImage = materialImage;
-        this.materialQuantity = materialQuantity;
-        this.materialPrice = materialPrice;
+    String jewelleryMaterialId; // number e.g. 101
+    String jewelleryMaterialName; // eg silver chain, ruby, gold
+    String jewelleryMaterialDescription; //
+    String jewelleryMaterialUnit; // e.g grams, each, cm
+    String jewelleryMaterialImage; // url to image, or placeholder
+    int jewelleryMaterialQuantity; // number of units in stock
+    float jewelleryMaterialPrice; // price per unit
+    float jewelleryMaterialQuality; // .925, 24, 99%, etc.
+
+    public JewelleryMaterial(String jewelleryMaterialId,
+                             String jewelleryMaterialName,
+                             String jewelleryMaterialDescription,
+                             String jewelleryMaterialUnit,
+                             String jewelleryMaterialImage,
+                             int jewelleryMaterialQuantity,
+                             float jewelleryMaterialPrice,
+                             float jewelleryMaterialQuality) {
+        this.jewelleryMaterialId = jewelleryMaterialId;
+        this.jewelleryMaterialName = jewelleryMaterialName;
+        this.jewelleryMaterialDescription = jewelleryMaterialDescription;
+        this.jewelleryMaterialUnit = jewelleryMaterialUnit;
+        this.jewelleryMaterialImage = jewelleryMaterialImage;
+        this.jewelleryMaterialQuantity = jewelleryMaterialQuantity;
+        this.jewelleryMaterialPrice = jewelleryMaterialPrice;
+        this.jewelleryMaterialQuality = jewelleryMaterialQuality;
     }
 
-    /*
-    Getters & Setters
-     */
-
-    public int getMaterialID() {
-        return materialID;
+    public float getJewelleryMaterialQuality() {
+        return jewelleryMaterialQuality;
     }
 
-    public void setMaterialID(int materialID) {
-        this.materialID = materialID;
+    public void setJewelleryMaterialQuality(float jewelleryMaterialQuality) {
+        this.jewelleryMaterialQuality = jewelleryMaterialQuality;
     }
 
-    public String getMaterialName() {
-        return materialName;
+    public String getJewelleryMaterialId() {
+        return jewelleryMaterialId;
     }
 
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+    public void setMaterialId(String jewelleryMaterialId) {
+        this.jewelleryMaterialId = jewelleryMaterialId;
     }
 
-    public String getMaterialUnit() {
-        return materialUnit;
+    public String getJewelleryMaterialName() {
+        return jewelleryMaterialName;
     }
 
-    public void setMaterialUnit(String materialUnit) {
-        this.materialUnit = materialUnit;
+    public void setMaterialName(String jewelleryMaterialName) {
+        this.jewelleryMaterialName = jewelleryMaterialName;
     }
 
-    public String getMaterialImage() {
-        return materialImage;
+    public String getJewelleryMaterialDescription() {
+        return jewelleryMaterialDescription;
     }
 
-    public void setMaterialImage(String materialImage) {
-        this.materialImage = materialImage;
+    public void setMaterialDescription(String jewelleryMaterialDescription) {
+        this.jewelleryMaterialDescription = jewelleryMaterialDescription;
     }
 
-    public int getMaterialQuantity() {
-        return materialQuantity;
+    public String getJewelleryMaterialUnit() {
+        return jewelleryMaterialUnit;
     }
 
-    public void setMaterialQuantity(int materialQuantity) {
-        this.materialQuantity = materialQuantity;
+    public void setMaterialUnit(String jewelleryMaterialUnit) {
+        this.jewelleryMaterialUnit = jewelleryMaterialUnit;
     }
 
-    public int getMaterialPrice() {
-        return materialPrice;
+    public String getJewelleryMaterialImage() {
+        return jewelleryMaterialImage;
     }
 
-    public void setMaterialPrice(int materialPrice) {
-        this.materialPrice = materialPrice;
+    public void setMaterialImage(String jewelleryMaterialImage) {
+        this.jewelleryMaterialImage = jewelleryMaterialImage;
     }
 
-    public String getMaterialDescription() {
-        return materialDescription;
+    public int getJewelleryMaterialQuantity() {
+        return jewelleryMaterialQuantity;
     }
 
-    public void setMaterialDescription(String materialDescription) {
-        this.materialDescription = materialDescription;
+    public void setMaterialQuantity(int jewelleryMaterialQuantity) {
+        this.jewelleryMaterialQuantity = jewelleryMaterialQuantity;
+    }
+
+    public float getJewelleryMaterialPrice() {
+        return jewelleryMaterialPrice;
+    }
+
+    public void setMaterialPrice(float jewelleryMaterialPrice) {
+        this.jewelleryMaterialPrice = jewelleryMaterialPrice;
     }
 
     @Override
     public String toString() {
-        return "JewelleryMaterial{" +
-                "materialID=" + materialID +
-                ", materialName='" + materialName + '\'' +
-                ", materialUnit='" + materialUnit + '\'' +
-                ", materialImage='" + materialImage + '\'' +
-                ", materialQuantity=" + materialQuantity +
-                ", materialPrice=" + materialPrice +
-                '}';
+        return "jewelleryMaterialId=" + jewelleryMaterialId +
+                ", jewelleryMaterialName=" + jewelleryMaterialName +
+                ", jewelleryMaterialDescription=" + jewelleryMaterialDescription +
+                ", jewelleryMaterialUnit=" + jewelleryMaterialUnit +
+                ", jewelleryMaterialImage=" + jewelleryMaterialImage +
+                ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity +
+                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice;
     }
-
 }

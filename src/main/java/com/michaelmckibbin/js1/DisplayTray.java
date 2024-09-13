@@ -3,9 +3,10 @@ package com.michaelmckibbin.js1;
 import com.michaelmckibbin.js1.JewelleryItem;
 import com.michaelmckibbin.js1.MyLinkedList;
 
+import java.io.Serializable;
 
 
-public class DisplayTray {
+public class DisplayTray  implements Serializable {
 
     private String trayID;
     private String trayColor;
@@ -76,12 +77,12 @@ public class DisplayTray {
     @Override
     public String toString() {
         return "DisplayTray{" +
-                "caseId" + caseId +
-                "trayID='" + trayID + '\'' +
-                ", trayColor='" + trayColor + '\'' +
-                ", trayWidth=" + trayWidth +
-                ", trayDepth=" + trayDepth +
-                ", jewelleryItems=" + jewelleryItems +
+                "caseId= " + caseId +
+                "trayID= " + trayID + '\'' +
+                ", trayColor= " + trayColor + '\'' +
+                ", trayWidth= " + trayWidth +
+                ", trayDepth= " + trayDepth +
+                ", jewelleryItems= " + jewelleryItems +
                 '}';
     }
 
@@ -92,4 +93,15 @@ public class DisplayTray {
     public void addJewelleryItem(JewelleryItem newItem) {
         this.jewelleryItems.add(newItem);
     }
+// findJewelleryItemById
+    public JewelleryItem findJewelleryItemById(int itemId) {
+        for (JewelleryItem item : jewelleryItems) {
+            if (item.getItemId() == itemId) {
+                return item;
+            }
+        }
+        return null; // Item not found
+    }
+
+
 }

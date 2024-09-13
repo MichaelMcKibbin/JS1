@@ -6,9 +6,10 @@ package com.michaelmckibbin.js1;
 // which I can now use easily for any type of object. It also makes it easier to
 // search,  delete, and add nodes to the lists.
 
+import java.io.Serializable;
 import java.util.Iterator;
 
-public class MyLinkedList<N> implements Iterable<N>{
+public class MyLinkedList<N> implements Iterable<N>, Serializable {
 
     private Node<N> head;
     private Node<N> tail;
@@ -20,7 +21,7 @@ public class MyLinkedList<N> implements Iterable<N>{
     }
 
     // inner class
-    private static class Node<N> {
+    private static class Node<N> implements Serializable{
         N data;
         Node<N> next;
 

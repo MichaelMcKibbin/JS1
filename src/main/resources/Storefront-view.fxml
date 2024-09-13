@@ -21,8 +21,9 @@
                         <SeparatorMenuItem mnemonicParsing="false"/>
                         <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Data File"/>
                         <MenuItem mnemonicParsing="false" onAction="#saveAndExit" text="Save and Exit"/>
+                        <MenuItem mnemonicParsing="false" onAction="#makeBackup" text="Make backup of data file"/>
                         <SeparatorMenuItem mnemonicParsing="false"/>
-                        <MenuItem mnemonicParsing="false" onAction="#closeProg" text="Exit"/>
+                        <MenuItem mnemonicParsing="false" onAction="#closeProg" text="Close program"/>
                         <SeparatorMenuItem mnemonicParsing="false"/>
                         <MenuItem mnemonicParsing="false" onAction="#deleteAllStock"
                                   text="Delete Stock List * CAUTION *"/>
