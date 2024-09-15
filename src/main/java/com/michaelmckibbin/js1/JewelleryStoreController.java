@@ -15,9 +15,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.math.RoundingMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DecimalFormat;
+import java.util.Random;
 
 
 public class JewelleryStoreController implements Serializable {
@@ -405,12 +408,73 @@ sPECIAL oFFER bUTTON
             e.printStackTrace();
         }
     }
+    public void onLoadSampleData(ActionEvent actionEvent) {
+        // create sample data
+        Random random = new Random();
+        String[] colors = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Brown", "Black", "White"};
+        String[] materials = {"Gold", "Silver", "Platinum", "Titanium", "Steel", "Wood", "Copper", "Brass", "Stainless Steel", "Aluminum"};
+        String[] itemTypes = {"Ring", "Necklace", "Earring", "Bracelet", "Anklet", "Cufflinks", "Watch", "Clothing", "Handbag", "Sunglasses"};
+        String [] trueFalse = {"true", "false"};
+        String [] gender = {"Male", "Female", "Unisex"};
+        int[] wideDeep = {10, 20, 30, 40, 50};
+        String[] materialsUnits = {"Grams", "Karats", "oz", "cm", "Other"};
 
-    // load test data file
+        for (int i = 1; i <= 5; i++) { // Create 5 display cases
+            int counter = 0;
+            int caseIdNum=900+i+counter;
+            counter++;
+            DisplayCase displayCase = new DisplayCase(caseIdNum, random.nextBoolean(), random.nextBoolean());
+
+            for (int j = 1; j <= 2; j++) { // Add 2 trays to each case
+                String color = colors[random.nextInt(colors.length)];
+                int wide = wideDeep[random.nextInt(wideDeep.length)];
+                int deep = wideDeep[random.nextInt(wideDeep.length)];
+                int trayNum = caseIdNum + i + j+counter;
+                DisplayTray tray = new DisplayTray(caseIdNum,"Z" + trayNum, color, wide,deep);
+
+                for (int k = 1; k <= 2; k++) { // Add 2 jewellery items to each tray
+                    int itemIdNum=trayNum+i+j+k+counter;
+                    counter++;
+                    String itemId = String.valueOf(itemIdNum);
+                    String itemType = itemTypes[random.nextInt(itemTypes.length)];
+                    String itemName = "A " + itemType;
+                    float price = (1 + random.nextFloat() * 1000); // Random price between 1 and 1000
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    df.setRoundingMode(RoundingMode.HALF_UP);
+                    float roundedPrice = Float.parseFloat(df.format(price));
+
+                    String genderChoice = gender[random.nextInt(gender.length)];
+                    JewelleryItem item = new JewelleryItem(itemId,itemName,itemType, "A beautiful "+itemType, genderChoice,"images/jewelleryGeneral.jpg", roundedPrice);
+
+                    for (int l = 1; l <= 2; l++) { // Add 2 materials to each item
+                        int materialIdNum=itemIdNum+i+j+k+l+counter;
+                        counter++;
+                        String materialId = String.valueOf(materialIdNum);
+                        String materialName = materials[random.nextInt(materials.length)] + materialIdNum;
+                        String materialDescription = "A high quality " + materialName + " material";
+                        String materialUnit = materialsUnits[random.nextInt(materialsUnits.length)];
+                        int quantity = 1 + random.nextInt() * 99; // Random weight between 1 and 100
+                        float quality = 1 + random.nextFloat() * 100;
+                        DecimalFormat df2 = new DecimalFormat("#.##");
+                        df2.setRoundingMode(RoundingMode.HALF_UP);
+                        float roundedQuality = Float.parseFloat(df2.format(quality));
+                        float materialPrice = random.nextFloat() * 20;
+                        float roundedMaterialPrice = Float.parseFloat(df2.format(materialPrice));
+                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"images/jewelleryGeneral.jpg", quantity, roundedMaterialPrice, roundedQuality);
+                        item.addJewelleryMaterial(jewelerylMaterial);
+                    }
+                    tray.addJewelleryItem(item);
+                }
+                displayCase.addDisplayTray(tray);
+            }
+            DisplayCaseController.displayCases.add(displayCase);
+        }
+        System.out.println("Sample data created: " + DisplayCaseController.displayCases.size() + " display cases");
+    }
+
 
     // delete all stock
     // delete materials in items, items in trays and trays in cases. then delete cases.
-
     private static void deleteAllStock() {
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
             for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
@@ -421,6 +485,8 @@ sPECIAL oFFER bUTTON
             }displayCase.getDisplayTrays().clear();
         }DisplayCaseController.displayCases.clear();
     }
+
+
 
 } // end JewelleryStoreController
 

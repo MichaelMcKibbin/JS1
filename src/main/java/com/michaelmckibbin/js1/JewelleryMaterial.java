@@ -43,7 +43,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialId;
     }
 
-    public void setMaterialId(String jewelleryMaterialId) {
+    public void setJewelleryMaterialId(String jewelleryMaterialId) {
         this.jewelleryMaterialId = jewelleryMaterialId;
     }
 
@@ -51,7 +51,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialName;
     }
 
-    public void setMaterialName(String jewelleryMaterialName) {
+    public void setJewelleryMaterialName(String jewelleryMaterialName) {
         this.jewelleryMaterialName = jewelleryMaterialName;
     }
 
@@ -59,7 +59,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialDescription;
     }
 
-    public void setMaterialDescription(String jewelleryMaterialDescription) {
+    public void setJewelleryMaterialDescription(String jewelleryMaterialDescription) {
         this.jewelleryMaterialDescription = jewelleryMaterialDescription;
     }
 
@@ -67,7 +67,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialUnit;
     }
 
-    public void setMaterialUnit(String jewelleryMaterialUnit) {
+    public void setJewelleryMaterialUnit(String jewelleryMaterialUnit) {
         this.jewelleryMaterialUnit = jewelleryMaterialUnit;
     }
 
@@ -75,7 +75,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialImage;
     }
 
-    public void setMaterialImage(String jewelleryMaterialImage) {
+    public void setJewelleryMaterialImage(String jewelleryMaterialImage) {
         this.jewelleryMaterialImage = jewelleryMaterialImage;
     }
 
@@ -83,7 +83,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialQuantity;
     }
 
-    public void setMaterialQuantity(int jewelleryMaterialQuantity) {
+    public void setJewelleryMaterialQuantity(int jewelleryMaterialQuantity) {
         this.jewelleryMaterialQuantity = jewelleryMaterialQuantity;
     }
 
@@ -91,7 +91,7 @@ public class JewelleryMaterial implements Serializable {
         return jewelleryMaterialPrice;
     }
 
-    public void setMaterialPrice(float jewelleryMaterialPrice) {
+    public void setJewelleryMaterialPrice(float jewelleryMaterialPrice) {
         this.jewelleryMaterialPrice = jewelleryMaterialPrice;
     }
 
@@ -103,6 +103,7 @@ public class JewelleryMaterial implements Serializable {
                 ", jewelleryMaterialUnit=" + jewelleryMaterialUnit +
                 ", jewelleryMaterialImage=" + jewelleryMaterialImage +
                 ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity +
-                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice;
+                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice +
+                ", jewelleryMaterialQuality= " + jewelleryMaterialQuality;
     }
 }

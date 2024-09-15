@@ -98,7 +98,7 @@ public class DisplayCaseController implements Serializable {
         addItemGenderChoiceBox.setValue("Unisex");
 
         // populate the addItemTypeChoiceBox
-        addItemTypeChoiceBox.getItems().addAll("Necklace", "Ring", "Earring", "Bracelet", "Watch", "Other");
+        addItemTypeChoiceBox.getItems().addAll("Ring", "Necklace", "Earring", "Bracelet", "Anklet", "Cufflinks", "Watch", "Clothing", "Handbag", "Sunglasses", "Other");
         // Set the default value for the addItemTypeChoiceBox
         addItemTypeChoiceBox.setValue("Other");
 
@@ -149,16 +149,16 @@ public class DisplayCaseController implements Serializable {
                 trayVBox.setPadding(new Insets(5));
                 trayVBox.setStyle("-fx-border-color: gray;");
 
-                Label trayLabel = new Label("Tray " + tray.getTrayId() + ", " + tray.getTrayColor() + ", " + tray.getTrayWidth() + " x " + tray.getTrayDepth() + "cm");
+                Label trayLabel = new Label("Display Tray: " + tray.getTrayId() + ", " + tray.getTrayColor() + ", " + tray.getTrayWidth() + " x " + tray.getTrayDepth() + "cm");
                 trayVBox.getChildren().add(trayLabel);
 
                 for (JewelleryItem item : tray.getJewelleryItems()) {
                     VBox itemVBox = new VBox();
                     itemVBox.setSpacing(5);
                     itemVBox.setPadding(new Insets(5));
-                    itemVBox.setStyle("-fx-border-color: lightgray;");
+                    itemVBox.setStyle("-fx-border-color: gray;");
 
-                    Label itemLabel = new Label("Item " + item.getItemId() + ", " +item.getItemName() + ", " + item.getItemType() + ", $" + item.getItemPrice());
+                    Label itemLabel = new Label("Jewellery Item: " + item.getItemId() + ", " +item.getItemName() + ", " + item.getItemType() + ", $" + item.getItemPrice());
                     itemVBox.getChildren().add(itemLabel);
 
                     // Add jewellery materials for the item
@@ -166,10 +166,13 @@ public class DisplayCaseController implements Serializable {
                         VBox jewelleryMaterialVBox = new VBox();
                         jewelleryMaterialVBox.setSpacing(5);
                         jewelleryMaterialVBox.setPadding(new Insets(5));
-                        jewelleryMaterialVBox.setStyle("-fx-border-color: lightgray;");
+                        jewelleryMaterialVBox.setStyle("-fx-border-color: gray;");
 
                         Label jewelleryMaterialLabel = new Label("Jewellery Material: " + jewelleryMaterial.getJewelleryMaterialName() + ", $" + jewelleryMaterial.getJewelleryMaterialPrice());
-                        itemVBox.getChildren().add(jewelleryMaterialLabel);
+
+                        jewelleryMaterialVBox.getChildren().add(jewelleryMaterialLabel);
+
+                        itemVBox.getChildren().add(jewelleryMaterialVBox);
                     }
 
 

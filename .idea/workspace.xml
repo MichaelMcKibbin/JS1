@@ -4,25 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="adding materials to items...">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/DisplayCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/DisplayTrayTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/JewelleryItemTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/JewelleryMaterialTest.java" afterDir="false" />
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="before changes to add item method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AllStockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AllStockController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTrayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTrayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/JewelleryMaterialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/JewelleryMaterialTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,42 +60,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DisplayCaseTest.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.JewelleryStore.executor": "Run",
-    "Application.JewelleryStoreApplication.executor": "Run",
-    "Application.JewelleryStoreMain.executor": "Run",
-    "JUnit.DisplayCaseTest.executor": "Run",
-    "JUnit.DisplayTrayTest.executor": "Run",
-    "JUnit.DisplayTrayTest.getCaseId.executor": "Run",
-    "JUnit.DisplayTrayTest.testToString.executor": "Run",
-    "JUnit.JewelleryItemTest.executor": "Run",
-    "JUnit.JewelleryMaterialTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/test/java/com/michaelmckibbin/js1",
-    "last_opened_file_path": "D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.file-colors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DisplayCaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JewelleryStore.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JewelleryStoreApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JewelleryStoreMain.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayCaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayTrayTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayTrayTest.getCaseId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayTrayTest.testToString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JewelleryItemTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JewelleryMaterialTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/test/java/com/michaelmckibbin/js1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\views" />
@@ -211,9 +201,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.JewelleryStore" />
-        <item itemvalue="JUnit.DisplayCaseTest" />
-        <item itemvalue="JUnit.DisplayTrayTest" />
         <item itemvalue="JUnit.JewelleryItemTest" />
+        <item itemvalue="JUnit.DisplayTrayTest" />
+        <item itemvalue="JUnit.DisplayCaseTest" />
         <item itemvalue="JUnit.JewelleryMaterialTest" />
       </list>
     </recent_temporary>
@@ -241,7 +231,8 @@
       <workItem from="1725394260079" duration="16599000" />
       <workItem from="1725413474452" duration="13179000" />
       <workItem from="1725450683316" duration="66087000" />
-      <workItem from="1726107708141" duration="9839000" />
+      <workItem from="1726107708141" duration="35453000" />
+      <workItem from="1726286260644" duration="10738000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -411,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725317227686</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="before changes to add item method">
+      <option name="closed" value="true" />
+      <created>1726198713200</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1726198713200</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +449,8 @@
     <MESSAGE value="tray id check if exist before creation - working." />
     <MESSAGE value="add jewellery item to tray in case - ok.&#10;view list of cases/trays/items - ok" />
     <MESSAGE value="adding materials to items..." />
-    <option name="LAST_COMMIT_MESSAGE" value="adding materials to items..." />
+    <MESSAGE value="before changes to add item method" />
+    <option name="LAST_COMMIT_MESSAGE" value="before changes to add item method" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
