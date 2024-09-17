@@ -34,16 +34,6 @@
                     </Menu>
                 </menus>
             </MenuBar>
-            <MenuBar>
-                <menus>
-                    <Menu mnemonicParsing="false" text="Help">
-                        <items>
-                            <MenuItem mnemonicParsing="false" onAction="#viewAbout" text="About App" />
-                            <MenuItem mnemonicParsing="false" onAction="#viewReadme" text="view Readme" />
-                        </items>
-                    </Menu>
-                </menus>
-            </MenuBar>
         </HBox>
         <!--            end of menubar-->
 
@@ -56,7 +46,7 @@
                         <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleDisplayTraysButtonClick" styleClass="storefront-button" text="Display Trays" />
                         <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" styleClass="storefront-button" text="Jewellery Items" />
                         <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" styleClass="storefront-button" text="Jewellery Materials" />
-                        <Button fx:id="genericButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleGenericButtonClick" styleClass="storefront-button" text="Button" />
+
                     </VBox>
                     <Separator layoutX="42.0" layoutY="266.0" prefHeight="9.0" prefWidth="164.0" style="-fx-background-color: rgba(0,128,0,0.75);" />
                     <Pane fx:id="deleteAllCasesPane" layoutX="42.0" layoutY="678.0" prefHeight="52.0" prefWidth="164.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-radius: 5; -fx-border-width: 3;">

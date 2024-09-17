@@ -10,11 +10,11 @@ public class JewelleryItem implements Serializable {
     private String itemDescription;
     private String itemTargetGender;
     private String itemImage;
-    private float itemPrice;
+    private double itemPrice;
     private MyLinkedList<JewelleryMaterial> jewelleryMaterials;
 
     // Constructor
-    public JewelleryItem(String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, float itemPrice) {
+    public JewelleryItem(String itemID, String itemName, String itemType, String itemDescription, String itemTargetGender, String itemImage, double itemPrice) {
         this.itemID = itemID;
         this.itemName = itemName;
         this.itemType = itemType;
@@ -78,11 +78,11 @@ public class JewelleryItem implements Serializable {
         this.itemImage = itemImage;
     }
 
-    public float getItemPrice() {
+    public double getItemPrice() {
         return itemPrice;
     }
 
-    public void setItemPrice(float itemPrice) {
+    public void setItemPrice(double itemPrice) {
         this.itemPrice = itemPrice;
     }
 
@@ -102,14 +102,13 @@ public class JewelleryItem implements Serializable {
     @Override
     public String toString() {
         return "JewelleryItem{" +
-                "itemID=" + itemID +
+                "itemID=" + itemID + '\n'+
                 ", itemName='" + itemName + '\n' +
                 ", itemType='" + itemType + '\n' +
                 ", itemDescription='" + itemDescription + '\n' +
                 ", itemTargetGender='" + itemTargetGender + '\n' +
                 ", itemImage='" + itemImage + '\n' +
-                ", itemPrice=" + itemPrice +
-                '\n' +
+                ", itemPrice=" + itemPrice + '\n' +
                 ", jewelleryMaterials=" + jewelleryMaterials + '\n' +
                 '}';
     }

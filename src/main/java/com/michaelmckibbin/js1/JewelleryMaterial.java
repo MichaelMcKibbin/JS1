@@ -10,8 +10,8 @@ public class JewelleryMaterial implements Serializable {
     String jewelleryMaterialUnit; // e.g grams, each, cm
     String jewelleryMaterialImage; // url to image, or placeholder
     int jewelleryMaterialQuantity; // number of units in stock
-    float jewelleryMaterialPrice; // price per unit
-    float jewelleryMaterialQuality; // .925, 24, 99%, etc.
+    double jewelleryMaterialPrice; // price per unit
+    double jewelleryMaterialQuality; // .925, 24, 99%, etc.
 
     public JewelleryMaterial(String jewelleryMaterialId,
                              String jewelleryMaterialName,
@@ -19,8 +19,8 @@ public class JewelleryMaterial implements Serializable {
                              String jewelleryMaterialUnit,
                              String jewelleryMaterialImage,
                              int jewelleryMaterialQuantity,
-                             float jewelleryMaterialPrice,
-                             float jewelleryMaterialQuality) {
+                             double jewelleryMaterialPrice,
+                             double jewelleryMaterialQuality) {
         this.jewelleryMaterialId = jewelleryMaterialId;
         this.jewelleryMaterialName = jewelleryMaterialName;
         this.jewelleryMaterialDescription = jewelleryMaterialDescription;
@@ -31,11 +31,11 @@ public class JewelleryMaterial implements Serializable {
         this.jewelleryMaterialQuality = jewelleryMaterialQuality;
     }
 
-    public float getJewelleryMaterialQuality() {
+    public double getJewelleryMaterialQuality() {
         return jewelleryMaterialQuality;
     }
 
-    public void setJewelleryMaterialQuality(float jewelleryMaterialQuality) {
+    public void setJewelleryMaterialQuality(double jewelleryMaterialQuality) {
         this.jewelleryMaterialQuality = jewelleryMaterialQuality;
     }
 
@@ -87,23 +87,23 @@ public class JewelleryMaterial implements Serializable {
         this.jewelleryMaterialQuantity = jewelleryMaterialQuantity;
     }
 
-    public float getJewelleryMaterialPrice() {
+    public double getJewelleryMaterialPrice() {
         return jewelleryMaterialPrice;
     }
 
-    public void setJewelleryMaterialPrice(float jewelleryMaterialPrice) {
+    public void setJewelleryMaterialPrice(double jewelleryMaterialPrice) {
         this.jewelleryMaterialPrice = jewelleryMaterialPrice;
     }
 
     @Override
     public String toString() {
-        return "jewelleryMaterialId=" + jewelleryMaterialId +
-                ", jewelleryMaterialName=" + jewelleryMaterialName +
-                ", jewelleryMaterialDescription=" + jewelleryMaterialDescription +
-                ", jewelleryMaterialUnit=" + jewelleryMaterialUnit +
-                ", jewelleryMaterialImage=" + jewelleryMaterialImage +
-                ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity +
-                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice +
+        return "jewelleryMaterialId=" + jewelleryMaterialId + '\n'+
+                ", jewelleryMaterialName=" + jewelleryMaterialName + '\n'+
+                ", jewelleryMaterialDescription=" + jewelleryMaterialDescription + '\n'+
+                ", jewelleryMaterialUnit=" + jewelleryMaterialUnit + '\n'+
+                ", jewelleryMaterialImage=" + jewelleryMaterialImage + '\n'+
+                ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity + '\n'+
+                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice + '\n'+
                 ", jewelleryMaterialQuality= " + jewelleryMaterialQuality;
     }
 }

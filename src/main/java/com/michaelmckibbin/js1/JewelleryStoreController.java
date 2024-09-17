@@ -7,11 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -25,7 +25,8 @@ import java.util.Random;
 
 public class JewelleryStoreController implements Serializable {
 
-@FXML private Button deleteAllStockButton;
+    @FXML public TextFlow stockValueTextFlow;
+    @FXML private Button deleteAllStockButton;
 
 
 //    // for testing
@@ -68,10 +69,10 @@ sPECIAL oFFER bUTTON
         if (mikeyFaceImageView.getImage() == originalImage) {
             Image goldBarsImage = new Image(getClass().getResourceAsStream("/images/goldBars.jpg"));
             mikeyFaceImageView.setImage(goldBarsImage);
-            mikeyFaceButton.setText("50% Off Gold Bars!");
+            mikeyFaceButton.setText("It's mine!\nAll mine!\n\nMuahahaha!");
         } else {
             mikeyFaceImageView.setImage(originalImage);
-            mikeyFaceButton.setText("Ask for details!");
+            mikeyFaceButton.setText("\u2615");
         }
     }
     /*
@@ -81,59 +82,71 @@ sPECIAL oFFER bUTTON
         /*
     MENUBAR options
      */
-        public void loadFile(ActionEvent actionEvent) {
-            System.out.println("Load file button clicked!");
-            // loadDisplayCasesFromFile
-            loadDisplayCasesFromFile("displayCases.ser");
-        }
-        public void saveFile(ActionEvent actionEvent) {
-            System.out.println("Save file button clicked!");
-            // call saveDisplayCasesToFile()
-            saveDisplayCasesToFile("displayCases.ser");
-        }
-        public void makeBackup(ActionEvent actionEvent) {
-            System.out.println("Make backup button clicked!");
-            // call backupSaveFile()
-            backupSaveFile("displayCases.ser");
-        }
-
+    public void loadFile(ActionEvent actionEvent) {
+        // loadDisplayCasesFromFile
+        loadDisplayCasesFromFile("displayCases.ser");
+    }
+    public void saveFile(ActionEvent actionEvent) {
+        // saveDisplayCasesToFile
+        saveDisplayCasesToFile("displayCases.ser");
+    }
+    public void makeBackup(ActionEvent actionEvent) {
+        // backupSaveFile
+        backupSaveFile("displayCases.ser");
+    }
 
     public void saveAndExit(ActionEvent actionEvent) {
-            System.out.println("Save and exit button clicked!");
-        }
+        // saveDisplayCases
+        saveDisplayCasesToFile("displayCases.ser");
+        // clear all lists
+        deleteAllStock();
+        // exit
+        System.out.println("Goodbye!");
+        System.exit(0);
+    }
 
-        public void closeProg(ActionEvent actionEvent) {
-            System.out.println("Save & exit clicked!");
-            // saveDisplayCases
-            saveDisplayCasesToFile("displayCases.ser");
-            System.exit(0);
-        }
+    public void closeProg(ActionEvent actionEvent) {
+        // clear all lists
+        deleteAllStock();
+        // exit
+        System.out.println("Goodbye!");
+        System.exit(0);
+    }
 
-        public void deleteAllStock(ActionEvent actionEvent) {
+    public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
+        // show confirmation dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete all stock?", ButtonType.YES, ButtonType.NO);
+        // clear cases list
+        // displayCases.clear();
+        deleteAllStock();
+    }
 
-        }
-        public void viewAllStock(ActionEvent actionEvent) {
-            System.out.println("View all stock button clicked!");
-        }
-        public void drillDown(ActionEvent actionEvent) {
-            System.out.println("Drill down button clicked!");
-        }
-        public void loadTestData(ActionEvent actionEvent) {
+    public void viewAllStock(ActionEvent actionEvent) {
+        System.out.println("View all stock button clicked!");
 
-        }
 
-        public void viewAbout(ActionEvent actionEvent) {
-            System.out.println("viewAbout button clicked!");
-        }
-        public void viewReadme(ActionEvent actionEvent) {
-            System.out.println("viewReadme button clicked!");
-        }
+    }
 
+    public void drillDown(ActionEvent actionEvent) {
+        System.out.println("Drill down button clicked!");
+    }
+    public void loadTestData(ActionEvent actionEvent) {
+
+    }
+
+    public void viewAbout(ActionEvent actionEvent) {
+        System.out.println("viewAbout button clicked!");
+    }
+    public void viewReadme(ActionEvent actionEvent){
+        System.out.println("viewReadme button clicked!");
+    }
 
     /*
     END OF MENUBAR
      */
+
+
 
     /*
     Navigation Buttons - copy to other views as required
@@ -149,7 +162,7 @@ sPECIAL oFFER bUTTON
     @FXML
     private Button StorefrontButton;
     @FXML
-    private Button genericButton;
+    private Button stockValuesButton;
 
 
 
@@ -356,9 +369,43 @@ sPECIAL oFFER bUTTON
 
 
     @FXML
-    public void handleGenericButtonClick(ActionEvent actionEvent) {
-        System.out.println("Generic button clicked!");
+    public void handleStockValuesButtonClick(ActionEvent actionEvent) {
+
+        // open StockValues-view.fxml
+        try {
+            // Load the view
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("StockValues-view.fxml"));
+            Parent root = loader.load();
+
+//            // option without css
+//            // Create a new stage and set the scene
+//            Stage stage = new Stage();
+//            stage.setTitle("DC View"); // Set the stage title
+//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
+//            // option without css
+
+            // option with css from styles.css in resources folder
+            // Create the Scene object
+            Scene scene = new Scene(root);
+
+            // Apply the CSS file to the scene
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Display Cases");
+            // end of option with css from styles.css in resources folder
+
+            // Get the current stage (window) and close it
+            Stage currentStage = (Stage) displayCasesButton.getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
 
 
@@ -425,6 +472,9 @@ sPECIAL oFFER bUTTON
             counter++;
             DisplayCase displayCase = new DisplayCase(caseIdNum, random.nextBoolean(), random.nextBoolean());
 
+            DecimalFormat df = new DecimalFormat("#.##");
+            df.setRoundingMode(RoundingMode.HALF_UP);
+
             for (int j = 1; j <= 2; j++) { // Add 2 trays to each case
                 String color = colors[random.nextInt(colors.length)];
                 int wide = wideDeep[random.nextInt(wideDeep.length)];
@@ -438,13 +488,10 @@ sPECIAL oFFER bUTTON
                     String itemId = String.valueOf(itemIdNum);
                     String itemType = itemTypes[random.nextInt(itemTypes.length)];
                     String itemName = "A " + itemType;
-                    float price = (1 + random.nextFloat() * 1000); // Random price between 1 and 1000
-                    DecimalFormat df = new DecimalFormat("#.##");
-                    df.setRoundingMode(RoundingMode.HALF_UP);
-                    float roundedPrice = Float.parseFloat(df.format(price));
+                    double itemPrice = Double.parseDouble(df.format(1 + random.nextDouble() * 1000)); // Random price between 1 and 1000
 
                     String genderChoice = gender[random.nextInt(gender.length)];
-                    JewelleryItem item = new JewelleryItem(itemId,itemName,itemType, "A beautiful "+itemType, genderChoice,"images/jewelleryGeneral.jpg", roundedPrice);
+                    JewelleryItem item = new JewelleryItem(itemId,itemName,itemType, "A beautiful "+itemType, genderChoice,"images/jewelleryGeneral.jpg", itemPrice);
 
                     for (int l = 1; l <= 2; l++) { // Add 2 materials to each item
                         int materialIdNum=itemIdNum+i+j+k+l+counter;
@@ -454,13 +501,9 @@ sPECIAL oFFER bUTTON
                         String materialDescription = "A high quality " + materialName + " material";
                         String materialUnit = materialsUnits[random.nextInt(materialsUnits.length)];
                         int quantity = 1 + random.nextInt() * 99; // Random weight between 1 and 100
-                        float quality = 1 + random.nextFloat() * 100;
-                        DecimalFormat df2 = new DecimalFormat("#.##");
-                        df2.setRoundingMode(RoundingMode.HALF_UP);
-                        float roundedQuality = Float.parseFloat(df2.format(quality));
-                        float materialPrice = random.nextFloat() * 20;
-                        float roundedMaterialPrice = Float.parseFloat(df2.format(materialPrice));
-                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"images/jewelleryGeneral.jpg", quantity, roundedMaterialPrice, roundedQuality);
+                        double quality = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
+                        double materialPrice = Double.parseDouble(df.format(random.nextDouble() * 20));
+                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
                         item.addJewelleryMaterial(jewelerylMaterial);
                     }
                     tray.addJewelleryItem(item);
@@ -486,6 +529,43 @@ sPECIAL oFFER bUTTON
         }DisplayCaseController.displayCases.clear();
     }
 
+    // delete all stock
+    public void onDeleteAllStock(ActionEvent actionEvent) {
+        deleteAllStock();
+        System.out.println("All stock deleted");
+    }
+    @FXML
+    public Label displayAllStockTotal;
+
+    // total value of stock
+    @ FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
+        //System.out.println("Total value of stock button clicked!");
+
+        double totalValue = calculateTotalValueOfStock();
+
+        // Format the total value to two decimal places
+        String formattedValue = String.format("%.2f", totalValue);
+
+        // Set the formatted value to the TextField
+        displayAllStockTotal.setText("€ " + formattedValue);
+    }
+
+    // calculate total value of stock
+    private static double calculateTotalValueOfStock() {
+        double totalValue = 0;
+        for (DisplayCase displayCase : DisplayCaseController.displayCases) {
+            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+                for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
+                    totalValue+=jewelleryItem.getItemPrice();
+                    for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
+                        totalValue += jewelleryMaterial.getJewelleryMaterialPrice();
+                    }
+                }
+            }
+        }
+        System.out.println("Total value of stock:: " + totalValue);
+        return totalValue;
+    }
 
 
 } // end JewelleryStoreController

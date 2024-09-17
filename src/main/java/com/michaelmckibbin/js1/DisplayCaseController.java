@@ -15,11 +15,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class DisplayCaseController implements Serializable {
 
@@ -224,25 +227,88 @@ public class DisplayCaseController implements Serializable {
     MENUBAR
      */
     public void loadFile(ActionEvent actionEvent) {
-        System.out.println("Load file button clicked!");
+        // loadDisplayCasesFromFile
+        loadDisplayCasesFromFile("displayCases.ser");
     }
     public void saveFile(ActionEvent actionEvent) {
-        System.out.println("Save file button clicked!");
+        // saveDisplayCasesToFile
+        saveDisplayCasesToFile("displayCases.ser");
+    }
+    public void makeBackup(ActionEvent actionEvent) {
+        // backupSaveFile
+        backupSaveFile("displayCases.ser");
+    }
+    // delete all stock
+    // delete materials in items, items in trays and trays in cases. then delete cases.
+    private static void deleteAllStock() {
+        for (DisplayCase displayCase : DisplayCaseController.displayCases) {
+            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+                for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
+                    for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
+                    }jewelleryItem.getJewelleryMaterials().clear();
+                }displayTray.getJewelleryItems().clear();
+            }displayCase.getDisplayTrays().clear();
+        }DisplayCaseController.displayCases.clear();
     }
     public void saveAndExit(ActionEvent actionEvent) {
-        System.out.println("Save and exit button clicked!");
-    }
-    public void closeProg(ActionEvent actionEvent) {
-        System.out.println("Close program button clicked!");
+        // saveDisplayCases
+        saveDisplayCasesToFile("displayCases.ser");
+        // clear all lists
+        deleteAllStock();
+        // exit
+        System.out.println("Goodbye!");
+        System.exit(0);
     }
     public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
         // show confirmation dialog
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete all stock?", ButtonType.YES, ButtonType.NO);
         // clear cases list
-        displayCases.clear();
-
+        // displayCases.clear();
+        deleteAllStock();
     }
+
+    public void closeProg(ActionEvent actionEvent) {
+        // clear all lists
+        deleteAllStock();
+        // exit
+        System.out.println("Goodbye!");
+        System.exit(0);
+    }
+
+
+    // saveDisplayCasesToFile
+    private static void saveDisplayCasesToFile(String filename) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(DisplayCaseController.displayCases);
+            System.out.println("Display cases saved to file: " + filename);
+        } catch (IOException e) {
+            System.out.println("Error saving display cases to file: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    // loadDisplayCasesFromFile
+    private static void loadDisplayCasesFromFile(String filename) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+            DisplayCaseController.displayCases = (MyLinkedList<DisplayCase>) ois.readObject();
+            System.out.println("Display cases loaded from file: " + filename);
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error loading display cases from file: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // make backup of save file.
+    private static void backupSaveFile(String filename) {
+        try {
+            Files.copy(Paths.get(filename), Paths.get(filename + ".bak"), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Backup of save file created: " + filename + ".bak");
+        } catch (IOException e) {
+            System.out.println("Error creating backup of save file: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");
         populateDisplayCasesVBox();
@@ -250,15 +316,6 @@ public class DisplayCaseController implements Serializable {
     }
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
-    }
-    public void viewAbout(ActionEvent actionEvent) {
-        System.out.println("viewAbout button clicked!");
-    }
-    public void viewReadme(ActionEvent actionEvent) {
-        System.out.println("viewReadme button clicked!");
-    }
-    public void loadTestData(ActionEvent actionEvent) {
-        System.out.println("loadTestData button clicked!");
     }
 
 
@@ -279,8 +336,7 @@ public class DisplayCaseController implements Serializable {
     private Button jewelleryMaterialsButton;
     @FXML
     private Button StorefrontButton;
-    @FXML
-    private Button genericButton;
+
 
 
 
@@ -483,11 +539,6 @@ public class DisplayCaseController implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    public void handleGenericButtonClick(ActionEvent actionEvent) {
-        System.out.println("Generic button clicked!");
     }
 
     /*
