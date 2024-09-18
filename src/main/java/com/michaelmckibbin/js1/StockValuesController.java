@@ -142,7 +142,9 @@ public class StockValuesController implements Serializable {
                     Label itemLabel = new Label("Jewellery Item: " + item.getItemId() + ", " +item.getItemName() + ", " + item.getItemType() + ", $" + item.getItemPrice());
                     itemVBox.getChildren().add(itemLabel);
 
-                    // Add jewellery materials for the item
+                    double materialTotalInTray = 0;
+
+                    // Add jewellery materials
                     for (JewelleryMaterial jewelleryMaterial : item.getJewelleryMaterials()) {
                         VBox jewelleryMaterialVBox = new VBox();
                         jewelleryMaterialVBox.setSpacing(5);
@@ -151,13 +153,20 @@ public class StockValuesController implements Serializable {
                         double val = jewelleryMaterial.getJewelleryMaterialPrice();
                         double qty = jewelleryMaterial.getJewelleryMaterialQuantity();
                         double materialValue = val * qty;
+                        String formattedValue = String.format("%.2f", materialValue);
 
-                        Label jewelleryMaterialLabel = new Label("Jewellery Material: " + jewelleryMaterial.getJewelleryMaterialName() + ", Qty: "+ jewelleryMaterial.getJewelleryMaterialQuantity() + " Each: €" + materialValue);
+                        Label jewelleryMaterialLabel = new Label("Jewellery Material: " + jewelleryMaterial.getJewelleryMaterialName()+", ID# " +jewelleryMaterial.getJewelleryMaterialId() + ", Qty: " + jewelleryMaterial.getJewelleryMaterialQuantity()+" @ "+jewelleryMaterial.getJewelleryMaterialPrice());
+                        Label jewelleryMaterialLabel2 = new Label("Total value: €" + formattedValue);
+                        materialTotalInTray += materialValue;
 
                         jewelleryMaterialVBox.getChildren().add(jewelleryMaterialLabel);
+                        jewelleryMaterialVBox.getChildren().add(jewelleryMaterialLabel2);
 
                         itemVBox.getChildren().add(jewelleryMaterialVBox);
                     }
+                    String formattedMaterialTotalInTrayValue = String.format("%.2f", materialTotalInTray);
+                    Label materialTotalLabel = new Label("Total value of materials in item: €" + formattedMaterialTotalInTrayValue  );
+                    itemVBox.getChildren().add(materialTotalLabel);
 
 
                     trayVBox.getChildren().add(itemVBox);

@@ -464,6 +464,8 @@ sPECIAL oFFER bUTTON
         String [] trueFalse = {"true", "false"};
         String [] gender = {"Male", "Female", "Unisex"};
         int[] wideDeep = {10, 20, 30, 40, 50};
+        int[] quant = {1, 2, 3, 4, 5, 6,7,8,9,10};
+
         String[] materialsUnits = {"Grams", "Karats", "oz", "cm", "Other"};
 
         for (int i = 1; i <= 5; i++) { // Create 5 display cases
@@ -500,9 +502,9 @@ sPECIAL oFFER bUTTON
                         String materialName = materials[random.nextInt(materials.length)] + materialIdNum;
                         String materialDescription = "A high quality " + materialName + " material";
                         String materialUnit = materialsUnits[random.nextInt(materialsUnits.length)];
-                        int quantity = 1 + random.nextInt() * 99; // Random weight between 1 and 100
+                        int quantity = quant[random.nextInt(quant.length)];
                         double quality = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
-                        double materialPrice = Double.parseDouble(df.format(random.nextDouble() * 20));
+                        double materialPrice = (Math.floor(random.nextDouble() * 20 * 100)) / 100;
                         JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
                         item.addJewelleryMaterial(jewelerylMaterial);
                     }
@@ -534,38 +536,98 @@ sPECIAL oFFER bUTTON
         deleteAllStock();
         System.out.println("All stock deleted");
     }
-    @FXML
-    public Label displayAllStockTotal;
+    @FXML public Label displayAllStockTotal;
 
-    // total value of stock
-    @ FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
-        //System.out.println("Total value of stock button clicked!");
-
-        double totalValue = calculateTotalValueOfStock();
-
-        // Format the total value to two decimal places
-        String formattedValue = String.format("%.2f", totalValue);
-
-        // Set the formatted value to the TextField
-        displayAllStockTotal.setText("€ " + formattedValue);
+//    // total value of stock
+//    @ FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
+//        //System.out.println("Total value of stock button clicked!");
+//
+//        double totalValue = calculateTotalValueOfStock();
+//
+//        // Format the total value to two decimal places
+//        String formattedValue = String.format("%.2f", totalValue);
+//
+//        // Set the formatted value to the TextField
+//        displayAllStockTotal.setText("€ " + formattedValue);
+//    }
+    @FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
+        double totalJewelleryValue = calculateTotalValueOfJewellery();
+        double totalMaterialValue = calculateTotalValueOfMaterials();
+        displayJewelleryTotal.setText("€ " + totalJewelleryValue);
+        displayMaterialsTotal.setText("€ " + totalMaterialValue);
     }
 
+    @FXML public Label displayJewelleryTotal;
+    @FXML public Label displayMaterialsTotal;
+
     // calculate total value of stock
-    private static double calculateTotalValueOfStock() {
-        double totalValue = 0;
+    private static double calculateTotalValueOfJewellery() {
+        double totalJewelleryValue = 0;
+
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
             for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
-                    totalValue+=jewelleryItem.getItemPrice();
-                    for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
-                        totalValue += jewelleryMaterial.getJewelleryMaterialPrice();
-                    }
+                    totalJewelleryValue+=jewelleryItem.getItemPrice();
                 }
             }
         }
-        System.out.println("Total value of stock:: " + totalValue);
-        return totalValue;
+        totalJewelleryValue = Double.parseDouble(df.format(totalJewelleryValue));
+        System.out.println("Total value of Jewellery:: " + totalJewelleryValue);
+        return totalJewelleryValue;
     }
+
+    // calculate total value of stock
+    private static double calculateTotalValueOfMaterials() {
+        double totalMaterialValue = 0;
+        DecimalFormat df2 = new DecimalFormat("#.##");
+        df2.setRoundingMode(RoundingMode.HALF_UP);
+
+        for (DisplayCase displayCase : DisplayCaseController.displayCases) {
+            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+                for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
+                  for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
+                        double matVal = jewelleryMaterial.getJewelleryMaterialPrice();
+                        double matQty = jewelleryMaterial.getJewelleryMaterialQuantity();
+                        double materialValue = matVal * matQty;
+                        totalMaterialValue += materialValue;
+                    }
+                }
+            }
+        }    return totalMaterialValue;
+
+    }
+
+//    // calculate total value of stock
+//    private static double calculateTotalValueOfStock() {
+//
+//        double totalStockValue = 0;
+//        DecimalFormat df = new DecimalFormat("#.##");
+//        df.setRoundingMode(RoundingMode.HALF_UP);
+//
+//        for (DisplayCase displayCase : DisplayCaseController.displayCases) {
+//            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+//                for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
+//
+//                    totalStockValue+=jewelleryItem.getItemPrice();
+//
+//                    for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
+//                        double matVal = jewelleryMaterial.getJewelleryMaterialPrice();
+//                        double matQty = jewelleryMaterial.getJewelleryMaterialQuantity();
+//                        double materialValue = matVal * matQty;
+//
+//                        totalStockValue += materialValue;
+//                    }
+//                }
+//            }
+//        }
+//        totalStockValue = Double.parseDouble(df.format(totalStockValue));
+//        System.out.println("Total value of Jewellery:: " + totalStockValue);
+//        return totalStockValue;
+//    }
+
 
 
 } // end JewelleryStoreController
