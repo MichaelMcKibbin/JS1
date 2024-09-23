@@ -33,8 +33,14 @@ public class StockValuesController implements Serializable {
     @FXML public Pane refreshValuesPane;
     @FXML public Button refreshValuesButton;
     @FXML public VBox stockValuesVBox;
+    @FXML public VBox caseValuesVBox;
+    @FXML public VBox trayValuesVBox;
+    @FXML public Button refreshAllValuesButton;
+    @FXML public Button refreshCaseValuesButton;
+    @FXML public Button refreshTrayValuesButton;
     @FXML private Button displayCasesButton;
     @FXML private Button StorefrontButton;
+
     
     @FXML
     public void handleStorefrontButtonClick(ActionEvent actionEvent) {
@@ -97,17 +103,26 @@ public class StockValuesController implements Serializable {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
                     totalValue+=jewelleryItem.getItemPrice();
                     for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
-                        totalValue += jewelleryMaterial.getJewelleryMaterialPrice();
+                        double matVal = jewelleryMaterial.getJewelleryMaterialPrice();
+                        double matQty = jewelleryMaterial.getJewelleryMaterialQuantity();
+                        double materialValue = matVal * matQty;
+                        totalValue += materialValue;
                     }
                 }
             }
         }
-        System.out.println("Total value of stock: " + totalValue);
-        return totalValue;
+        //System.out.println("Total value of stock: " + totalValue);
+
+        double formattedTotalValue = Double.parseDouble(String.format("%.2f", totalValue));
+        //System.out.printf("Total value of stock: $%.2f%n", formattedTotalValue);
+        return formattedTotalValue;
+        //return totalValue;
     }
 
 
-    public void onRefreshValuesButton(ActionEvent actionEvent) {
+    // all stock values - items and materials.
+    @FXML
+    public void onRefreshAllValuesButton(ActionEvent actionEvent) {
         calculateTotalValueOfStock();
         populateStockValuesVBox();
     }
@@ -176,6 +191,110 @@ public class StockValuesController implements Serializable {
             }
 
             stockValuesVBox.getChildren().add(caseVBox);
+        }
+    }
+
+    // Tray Values
+    @FXML
+    public void onRefreshTrayValuesButton(ActionEvent actionEvent) {
+        calculateTotalValueOfStock();
+        populateTrayValuesVBox();
+    }
+
+    private void populateTrayValuesVBox() {
+        trayValuesVBox.getChildren().clear();
+
+        for (DisplayCase displayCase : displayCases) {
+            VBox caseVBox = new VBox();
+            caseVBox.setSpacing(10);
+            caseVBox.setPadding(new Insets(10));
+            caseVBox.setStyle("-fx-border-color: red;");
+
+            Label caseLabel = new Label("Display Case: " + displayCase.getCaseId());
+            caseVBox.getChildren().add(caseLabel);
+
+            for (DisplayTray tray : displayCase.getDisplayTrays()) {
+                double trayTotalValue = 0;
+
+                VBox trayVBox = new VBox();
+                trayVBox.setSpacing(5);
+                trayVBox.setPadding(new Insets(5));
+                trayVBox.setStyle("-fx-border-color: blue;");
+
+                Label trayLabel = new Label("Display Tray: " + tray.getTrayId());
+                trayVBox.getChildren().add(trayLabel);
+
+                for (JewelleryItem item : tray.getJewelleryItems()) {
+                    double itemTotalValue = item.getItemPrice();
+                    double materialTotalInItem = 0;
+
+                    for (JewelleryMaterial jewelleryMaterial : item.getJewelleryMaterials()) {
+                        double val = jewelleryMaterial.getJewelleryMaterialPrice();
+                        double qty = jewelleryMaterial.getJewelleryMaterialQuantity();
+                        double materialValue = val * qty;
+                        materialTotalInItem += materialValue;
+                    }
+
+                    itemTotalValue += materialTotalInItem;
+                    trayTotalValue += itemTotalValue;
+                }
+                Label totalTrayValueLabel = new Label(String.format("Total Value: $%.2f", trayTotalValue));
+                trayVBox.getChildren().add(totalTrayValueLabel);
+                trayValuesVBox.getChildren().add(trayVBox);
+
+
+            }
+
+
+        }
+    }
+
+    // onRefreshCaseValuesButton
+    @FXML
+    public void onRefreshCaseValuesButton(ActionEvent actionEvent) {
+        calculateTotalValueOfStock();
+        populateCaseValuesVBox();
+    }
+
+    private void populateCaseValuesVBox() {
+        caseValuesVBox.getChildren().clear();
+
+        for (DisplayCase displayCase : displayCases) {
+            VBox caseVBox = new VBox();
+            caseVBox.setSpacing(10);
+            caseVBox.setPadding(new Insets(10));
+            caseVBox.setStyle("-fx-border-color: green;");
+
+            Label caseLabel = new Label("Display Case: " + displayCase.getCaseId());
+            caseVBox.getChildren().add(caseLabel);
+
+            double caseTotalValue = 0;
+
+            for (DisplayTray tray : displayCase.getDisplayTrays()) {
+                double trayTotalValue = 0;
+
+                for (JewelleryItem item : tray.getJewelleryItems()) {
+                    double itemTotalValue = item.getItemPrice();
+                    double materialTotalInItem = 0;
+
+                    for (JewelleryMaterial jewelleryMaterial : item.getJewelleryMaterials()) {
+                        double val = jewelleryMaterial.getJewelleryMaterialPrice();
+                        double qty = jewelleryMaterial.getJewelleryMaterialQuantity();
+                        double materialValue = val * qty;
+                        materialTotalInItem += materialValue;
+                    }
+
+                    itemTotalValue += materialTotalInItem;
+                    trayTotalValue += itemTotalValue;
+                }
+
+                caseTotalValue += trayTotalValue;
+            }
+
+            Label totalValueLabel = new Label(String.format("Total Value: $%.2f", caseTotalValue));
+            caseVBox.getChildren().add(totalValueLabel);
+
+            caseValuesVBox.getChildren().add(caseVBox);
         }
     }
 

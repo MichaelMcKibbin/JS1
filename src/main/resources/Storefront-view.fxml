@@ -90,7 +90,7 @@
                            </children></Pane>
                         <VBox layoutX="118.0" layoutY="386.0" prefHeight="142.0" prefWidth="199.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="175.0" text="Total value of jewellery:" textAlignment="CENTER" wrapText="true">
+                              <Label alignment="CENTER" prefHeight="21.0" prefWidth="189.0" text="Total value of jewellery in stock:" textAlignment="CENTER" wrapText="true">
                                  <opaqueInsets>
                                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                  </opaqueInsets>
@@ -109,7 +109,7 @@
                                     <Font name="Calibri Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="178.0" text="Total value of materials" textAlignment="CENTER">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="178.0" text="Including materials value of:" textAlignment="CENTER">
                                  <padding>
                                     <Insets bottom="2.0" left="2.0" right="2.0" top="5.0" />
                                  </padding>

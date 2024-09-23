@@ -15,19 +15,64 @@
                     <VBox layoutX="61.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10" styleClass="navigation-button-container-1">
                         <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
                         <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button" text="Display Cases" />
-                        <Button fx:id="refreshValuesButton" accessibleText="List All Cases" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshValuesButton" text="Refresh Values" textAlignment="CENTER">
-                     <VBox.margin>
+                        <Button fx:id="refreshAllValuesButton" accessibleText="refreshAllValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshAllValuesButton" text="Jewellery Values" textAlignment="CENTER">
+                        <VBox.margin>
                         <Insets top="10.0" />
-                     </VBox.margin></Button>
+                        </VBox.margin></Button>
+                        <Button fx:id="refreshCaseValuesButton" accessibleText="refreshCaseValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshCaseValuesButton" text="Case Values" textAlignment="CENTER">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin></Button>
+                        <Button fx:id="refreshTrayValuesButton" accessibleText="refreshTrayValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshTrayValuesButton" text="Tray Values" textAlignment="CENTER">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin></Button>
+
                     </VBox>
                 </AnchorPane>
-                <VBox prefHeight="417.0" prefWidth="443.0">
-                    <Label text="List: " />
-                    <ScrollPane>
-                        <VBox fx:id="stockValuesVBox" prefHeight="745.0" prefWidth="733.0">
-                        </VBox>
-                    </ScrollPane>
-                </VBox>
+
+               <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+                 <tabs>
+                   <Tab text="Case Values">
+                     <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                      <ScrollPane>
+                                      <VBox fx:id="caseValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                    </VBox>
+                                      </ScrollPane>
+                              </children>
+                           </AnchorPane>
+                     </content>
+                   </Tab>
+                   <Tab text="Tray Values">
+                     <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                      <ScrollPane>
+                                      <VBox fx:id="trayValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                    </VBox>
+                                      </ScrollPane>
+                              </children>
+                           </AnchorPane>
+                     </content>
+                   </Tab>
+                     <Tab text="Jewellery Values">
+                         <content>
+                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                     <ScrollPane>
+                                         <VBox fx:id="stockValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                                         </VBox>
+                                     </ScrollPane>
+                                 </children>
+                             </AnchorPane>
+                         </content>
+                     </Tab>
+
+                 </tabs>
+               </TabPane>
+
             </items>
         </SplitPane>
 
