@@ -20,6 +20,9 @@ public class MyLinkedList<N> implements Iterable<N>, Serializable {
         System.out.println("List has been cleared");
     }
 
+
+
+
     // inner class
     private static class Node<N> implements Serializable{
         N data;

@@ -15,15 +15,15 @@
                     <VBox layoutX="61.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10" styleClass="navigation-button-container-1">
                         <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
                         <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button" text="Display Cases" />
-                        <Button fx:id="refreshAllValuesButton" accessibleText="refreshAllValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshAllValuesButton" text="Jewellery Values" textAlignment="CENTER">
+                        <Button fx:id="refreshAllValuesButton" accessibleText="refreshAllValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshAllValuesButton" text="Jewellery Values" textAlignment="CENTER" visible="false">
                         <VBox.margin>
                         <Insets top="10.0" />
                         </VBox.margin></Button>
-                        <Button fx:id="refreshCaseValuesButton" accessibleText="refreshCaseValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshCaseValuesButton" text="Case Values" textAlignment="CENTER">
+                        <Button fx:id="refreshCaseValuesButton" accessibleText="refreshCaseValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshCaseValuesButton" text="Case Values" textAlignment="CENTER" visible="false">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin></Button>
-                        <Button fx:id="refreshTrayValuesButton" accessibleText="refreshTrayValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshTrayValuesButton" text="Tray Values" textAlignment="CENTER">
+                        <Button fx:id="refreshTrayValuesButton" accessibleText="refreshTrayValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshTrayValuesButton" text="Tray Values" textAlignment="CENTER" visible="false">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin></Button>
@@ -33,7 +33,7 @@
 
                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
                  <tabs>
-                   <Tab text="Case Values">
+                   <Tab onSelectionChanged="#onCaseValuesTab" text="Case Values">
                      <content>
                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                               <children>
@@ -45,7 +45,7 @@
                            </AnchorPane>
                      </content>
                    </Tab>
-                   <Tab text="Tray Values">
+                   <Tab onSelectionChanged="#onTrayValuesTab" text="Tray Values">
                      <content>
                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                               <children>
@@ -57,7 +57,7 @@
                            </AnchorPane>
                      </content>
                    </Tab>
-                     <Tab text="Jewellery Values">
+                     <Tab onSelectionChanged="#onJewelleryValuesTab" text="Jewellery Values">
                          <content>
                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>

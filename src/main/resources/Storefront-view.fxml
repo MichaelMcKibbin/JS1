@@ -58,11 +58,12 @@
                   <VBox layoutX="61.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0" spacing="10" styleClass="navigation-button-container-1">
                      <children>
                         <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Storefront" />
-                        <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" prefHeight="25.0" prefWidth="102.0" styleClass="storefront-button" text="Display Cases" />
-                        <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleDisplayTraysButtonClick" prefHeight="25.0" prefWidth="103.0" styleClass="storefront-button" text="Display Trays" />
-                        <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" prefHeight="25.0" prefWidth="105.0" styleClass="storefront-button" text="Jewellery Items" />
-                        <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" styleClass="storefront-button" text="Jewellery Materials" />
-                        <Button fx:id="genericButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleStockValuesButtonClick" prefHeight="25.0" prefWidth="102.0" styleClass="storefront-button" text="All Stock" />
+                        <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Display Cases" />
+                        <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleDisplayTraysButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Display Trays" />
+                        <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Jewellery Items" />
+                        <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Jewellery Materials" />
+                        <Button fx:id="stockValuesButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleStockValuesButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="All Stock" />
+                         <Button fx:id="stockValuesButton2" layoutX="10.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleStockValuesButtonClick2" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="All Stock 2" />
                      </children>
                   </VBox>
 <!--                            end of navigation buttons & container-->

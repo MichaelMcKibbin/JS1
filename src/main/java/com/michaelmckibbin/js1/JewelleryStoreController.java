@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -26,7 +28,9 @@ import java.util.Random;
 public class JewelleryStoreController implements Serializable {
 
     @FXML public TextFlow stockValueTextFlow;
+    @FXML public Button stockViewButton;
     @FXML private Button deleteAllStockButton;
+
 
 
 //    // for testing
@@ -70,6 +74,8 @@ sPECIAL oFFER bUTTON
             Image goldBarsImage = new Image(getClass().getResourceAsStream("/images/goldBars.jpg"));
             mikeyFaceImageView.setImage(goldBarsImage);
             mikeyFaceButton.setText("It's mine!\nAll mine!\n\nMuahahaha!");
+            // add function here
+
         } else {
             mikeyFaceImageView.setImage(originalImage);
             mikeyFaceButton.setText("\u2615");
@@ -163,6 +169,10 @@ sPECIAL oFFER bUTTON
     private Button StorefrontButton;
     @FXML
     private Button stockValuesButton;
+    @FXML
+    private Button stockValuesButton2;
+
+
 
 
 
@@ -397,7 +407,7 @@ sPECIAL oFFER bUTTON
             // end of option with css from styles.css in resources folder
 
             // Get the current stage (window) and close it
-            Stage currentStage = (Stage) displayCasesButton.getScene().getWindow();
+            Stage currentStage = (Stage) stockValuesButton.getScene().getWindow();
             currentStage.close();
 
             stage.show();
@@ -406,8 +416,43 @@ sPECIAL oFFER bUTTON
         }
     }
 
+    @FXML
+    public void handleStockValuesButtonClick2(ActionEvent actionEvent) {
 
+        // open StockValues-view.fxml
+        try {
+            // Load the view
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("StockValues2-view.fxml"));
+            Parent root = loader.load();
 
+//            // option without css
+//            // Create a new stage and set the scene
+//            Stage stage = new Stage();
+//            stage.setTitle("DC View"); // Set the stage title
+//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
+//            // option without css
+
+            // option with css from styles.css in resources folder
+            // Create the Scene object
+            Scene scene = new Scene(root);
+
+            // Apply the CSS file to the scene
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Display Cases");
+            // end of option with css from styles.css in resources folder
+
+            // Get the current stage (window) and close it
+            Stage currentStage = (Stage) stockValuesButton2.getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /*
     End of Navigation Buttons
@@ -493,7 +538,7 @@ sPECIAL oFFER bUTTON
                     double itemPrice = Double.parseDouble(df.format(1 + random.nextDouble() * 1000)); // Random price between 1 and 1000
 
                     String genderChoice = gender[random.nextInt(gender.length)];
-                    JewelleryItem item = new JewelleryItem(itemId,itemName,itemType, "A beautiful "+itemType, genderChoice,"images/jewelleryGeneral.jpg", itemPrice);
+                    JewelleryItem item = new JewelleryItem(itemId,itemName,itemType, "A beautiful "+itemType, genderChoice,"/images/jewelleryGeneral.jpg", itemPrice);
 
                     for (int l = 1; l <= 2; l++) { // Add 2 materials to each item
                         int materialIdNum=itemIdNum+i+j+k+l+counter;
@@ -505,7 +550,7 @@ sPECIAL oFFER bUTTON
                         int quantity = quant[random.nextInt(quant.length)];
                         double quality = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
                         double materialPrice = (Math.floor(random.nextDouble() * 20 * 100)) / 100;
-                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
+                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"/images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
                         item.addJewelleryMaterial(jewelerylMaterial);
                     }
                     tray.addJewelleryItem(item);
@@ -538,18 +583,6 @@ sPECIAL oFFER bUTTON
     }
     @FXML public Label displayAllStockTotal;
 
-//    // total value of stock
-//    @ FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
-//        //System.out.println("Total value of stock button clicked!");
-//
-//        double totalValue = calculateTotalValueOfStock();
-//
-//        // Format the total value to two decimal places
-//        String formattedValue = String.format("%.2f", totalValue);
-//
-//        // Set the formatted value to the TextField
-//        displayAllStockTotal.setText("€ " + formattedValue);
-//    }
     @FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
         double totalJewelleryValue = calculateTotalValueOfJewellery();
         double totalMaterialValue = calculateTotalValueOfMaterials();
@@ -560,12 +593,9 @@ sPECIAL oFFER bUTTON
     @FXML public Label displayJewelleryTotal;
     @FXML public Label displayMaterialsTotal;
 
-    // calculate total value of stock
+    // calculate total value of jewellery
     private static double calculateTotalValueOfJewellery() {
         double totalJewelleryValue = 0;
-
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.HALF_UP);
 
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
             for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
@@ -574,61 +604,31 @@ sPECIAL oFFER bUTTON
                 }
             }
         }
-        totalJewelleryValue = Double.parseDouble(df.format(totalJewelleryValue));
-        System.out.println("Total value of Jewellery:: " + totalJewelleryValue);
+        // truncate to 2 decimal places
+        totalJewelleryValue = Math.floor(totalJewelleryValue*100)/100;
         return totalJewelleryValue;
     }
 
-    // calculate total value of stock
+    // calculate total value of materials
     private static double calculateTotalValueOfMaterials() {
         double totalMaterialValue = 0;
-        DecimalFormat df2 = new DecimalFormat("#.##");
-        df2.setRoundingMode(RoundingMode.HALF_UP);
 
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
             for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
-                  for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
+                    for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
                         double matVal = jewelleryMaterial.getJewelleryMaterialPrice();
                         double matQty = jewelleryMaterial.getJewelleryMaterialQuantity();
                         double materialValue = matVal * matQty;
                         totalMaterialValue += materialValue;
+                        // truncate to 2 decimal places
+                        totalMaterialValue=Math.floor(totalMaterialValue*100)/100;
                     }
                 }
             }
-        }    return totalMaterialValue;
+        }return totalMaterialValue;
 
     }
-
-//    // calculate total value of stock
-//    private static double calculateTotalValueOfStock() {
-//
-//        double totalStockValue = 0;
-//        DecimalFormat df = new DecimalFormat("#.##");
-//        df.setRoundingMode(RoundingMode.HALF_UP);
-//
-//        for (DisplayCase displayCase : DisplayCaseController.displayCases) {
-//            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
-//                for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
-//
-//                    totalStockValue+=jewelleryItem.getItemPrice();
-//
-//                    for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
-//                        double matVal = jewelleryMaterial.getJewelleryMaterialPrice();
-//                        double matQty = jewelleryMaterial.getJewelleryMaterialQuantity();
-//                        double materialValue = matVal * matQty;
-//
-//                        totalStockValue += materialValue;
-//                    }
-//                }
-//            }
-//        }
-//        totalStockValue = Double.parseDouble(df.format(totalStockValue));
-//        System.out.println("Total value of Jewellery:: " + totalStockValue);
-//        return totalStockValue;
-//    }
-
-
 
 } // end JewelleryStoreController
 

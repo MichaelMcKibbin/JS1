@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="all stock value calc ok">
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="Cases, Trays, &amp; Jewellery Values OK. Begin Tab view.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/StockValues2-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AllStockController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/StockValues-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/StockValues-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
     </list>
@@ -20,8 +26,9 @@
       <list>
         <option value="CSS File" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -78,7 +85,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/test/java/com/michaelmckibbin/js1",
-    "last_opened_file_path": "D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/main/resources/views",
+    "last_opened_file_path": "D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/main/resources",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,11 +101,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
       <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\views" />
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\views" />
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\java\com\michaelmckibbin\js1" />
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
-      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
@@ -228,7 +235,7 @@
       <workItem from="1725413474452" duration="13179000" />
       <workItem from="1725450683316" duration="66087000" />
       <workItem from="1726107708141" duration="35453000" />
-      <workItem from="1726286260644" duration="83096000" />
+      <workItem from="1726286260644" duration="109617000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -430,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726634981414</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Cases, Trays, &amp; Jewellery Values OK. Begin Tab view.">
+      <option name="closed" value="true" />
+      <created>1727056842692</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1727056842692</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Storefront view created with button.&#10;Other views created also." />
     <MESSAGE value="Small change to workspace" />
     <MESSAGE value="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView.&#10;New view opens." />
     <MESSAGE value="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView -&gt; Storefront...&#10;New view opens.&#10;Storefront Button click opens storefront again.&#10;First view -&gt; second view -&gt; first view again." />
@@ -473,7 +487,8 @@
     <MESSAGE value="create sample data" />
     <MESSAGE value="beginning stock values vbox" />
     <MESSAGE value="all stock value calc ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="all stock value calc ok" />
+    <MESSAGE value="Cases, Trays, &amp; Jewellery Values OK. Begin Tab view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cases, Trays, &amp; Jewellery Values OK. Begin Tab view." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
