@@ -30,6 +30,16 @@ public class JewelleryStoreController implements Serializable {
     @FXML public TextFlow stockValueTextFlow;
     @FXML public Button stockViewButton;
     @FXML private Button deleteAllStockButton;
+    @FXML private Button loadFileButton;
+    @FXML private Button saveFileButton;
+    @FXML private Button makeBackupButton;
+    @FXML private Button saveAndExitButton;
+    @FXML private Button closeProgButton;
+    @FXML private Button loginButton;
+    @FXML private TextField loginUsernameField;
+    @FXML private PasswordField loginPasswordField;
+    @FXML private Text loginBoxActionMessage;
+
 
 
 
@@ -170,7 +180,9 @@ sPECIAL oFFER bUTTON
     @FXML
     private Button stockValuesButton;
     @FXML
-    private Button stockValuesButton2;
+    private Button DrilldownButton;
+    @FXML
+    private Button AltBrowseButton;
 
 
 
@@ -417,12 +429,12 @@ sPECIAL oFFER bUTTON
     }
 
     @FXML
-    public void handleStockValuesButtonClick2(ActionEvent actionEvent) {
+    public void handleDrilldownButtonClick(ActionEvent actionEvent) {
 
         // open StockValues-view.fxml
         try {
             // Load the view
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("StockValues2-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Drilldown-view.fxml"));
             Parent root = loader.load();
 
 //            // option without css
@@ -441,11 +453,11 @@ sPECIAL oFFER bUTTON
 
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Display Cases");
+            stage.setTitle("Drilldown view");
             // end of option with css from styles.css in resources folder
 
             // Get the current stage (window) and close it
-            Stage currentStage = (Stage) stockValuesButton2.getScene().getWindow();
+            Stage currentStage = (Stage) DrilldownButton.getScene().getWindow();
             currentStage.close();
 
             stage.show();
@@ -509,7 +521,7 @@ sPECIAL oFFER bUTTON
         String [] trueFalse = {"true", "false"};
         String [] gender = {"Male", "Female", "Unisex"};
         int[] wideDeep = {10, 20, 30, 40, 50};
-        int[] quant = {1, 2, 3, 4, 5, 6,7,8,9,10};
+//        int[] quant = {1, 2, 3, 4, 5};
 
         String[] materialsUnits = {"Grams", "Karats", "oz", "cm", "Other"};
 
@@ -547,9 +559,13 @@ sPECIAL oFFER bUTTON
                         String materialName = materials[random.nextInt(materials.length)] + materialIdNum;
                         String materialDescription = "A high quality " + materialName + " material";
                         String materialUnit = materialsUnits[random.nextInt(materialsUnits.length)];
-                        int quantity = quant[random.nextInt(quant.length)];
+                        //int quantity = quant[random.nextInt(quant.length)];
+                        // quantity = random int between 1 and 10
+                        int quantity = random.nextInt(10) + 1;
                         double quality = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
-                        double materialPrice = (Math.floor(random.nextDouble() * 20 * 100)) / 100;
+                        // material price = random positive double between 1 and 100 rounded to two decimal places
+                        double materialPrice = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
+                        //double materialPrice = (Math.floor(random.nextDouble() * 20 * 100)) / 100;
                         JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"/images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
                         item.addJewelleryMaterial(jewelerylMaterial);
                     }
@@ -630,6 +646,55 @@ sPECIAL oFFER bUTTON
 
     }
 
-} // end JewelleryStoreController
+
+        @FXML
+        public void handleAltBrowseButtonClick(ActionEvent actionEvent) {
+            System.out.println("AltBrowse button clicked!");
+            // open AltBrowse-view.fxml
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AltBrowse-view.fxml"));
+                Parent root = loader.load();
+
+
+//            // option without css
+//            // Create a new stage and set the scene
+//            Stage stage = new Stage();
+//            stage.setTitle("..."); // Set the stage title
+//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
+//            // option without css
+
+                // option with css from styles.css in resources folder
+                // Create the Scene object
+                Scene scene = new Scene(root);
+
+                // Apply the CSS file to the scene
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("AltBrowse");
+                // end of option with css from styles.css in resources folder
+
+
+
+                // Get the current stage (window) and close it
+                Stage currentStage = (Stage) AltBrowseButton.getScene().getWindow();
+                currentStage.close();
+
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+
+
+
+
+
+
+    } // end JewelleryStoreController
 
 

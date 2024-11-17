@@ -1,6 +1,7 @@
 package com.michaelmckibbin.js1;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -11,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -23,7 +25,7 @@ import java.net.URL;
 
 import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
 
-public class JewelleryItemController implements Serializable {
+public class AltBrowseController implements Serializable {
 
     @FXML
     public ImageView jewelleryViewImage1;
@@ -71,15 +73,9 @@ public class JewelleryItemController implements Serializable {
     @FXML
     private Button displayCasesButton;
     @FXML
-    private Button displayTraysButton;
-    @FXML
     private Button jewelleryItemsButton;
     @FXML
-    private Button jewelleryMaterialsButton;
-    @FXML
     private Button StorefrontButton;
-    @FXML
-    private Button genericButton;
 
 
 
@@ -162,50 +158,6 @@ public class JewelleryItemController implements Serializable {
 
 
     @FXML
-    public void handleDisplayTraysButtonClick(ActionEvent actionEvent) {
-        System.out.println("Display trays button clicked!");
-        // open DisplayCase-view.fxml
-        try {
-            // Load the view
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("DisplayTray-view.fxml"));
-            Parent root = loader.load();
-
-
-//            // option without css
-//            // Create a new stage and set the scene
-//            Stage stage = new Stage();
-//            stage.setTitle("..."); // Set the stage title
-//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
-//            // option without css
-
-            // option with css from styles.css in resources folder
-            // Create the Scene object
-            Scene scene = new Scene(root);
-
-            // Apply the CSS file to the scene
-            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
-
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Display Trays");
-            // end of option with css from styles.css in resources folder
-
-
-
-            // Get the current stage (window) and close it
-            Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
-            currentStage.close();
-
-            stage.show();
-            //stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-    @FXML
     public void handleJewelleryItemsButtonClick(ActionEvent actionEvent) {
         System.out.println("Jewellery items button clicked!");
         // open JewelleryItem-view.fxml
@@ -247,54 +199,6 @@ public class JewelleryItemController implements Serializable {
 
 
     @FXML
-    public void handleJewelleryMaterialsButtonClick(ActionEvent actionEvent) {
-        System.out.println("Jewellery materials button clicked!");
-        // open JewelleryMaterial-view.fxml
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("JewelleryMaterial-view.fxml"));
-            Parent root = loader.load();
-
-
-//            // option without css
-//            // Create a new stage and set the scene
-//            Stage stage = new Stage();
-//            stage.setTitle("..."); // Set the stage title
-//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
-//            // option without css
-
-            // option with css from styles.css in resources folder
-            // Create the Scene object
-            Scene scene = new Scene(root);
-
-            // Apply the CSS file to the scene
-            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
-
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Materials");
-            // end of option with css from styles.css in resources folder
-
-            // Get the current stage (window) and close it
-            Stage currentStage = (Stage) jewelleryMaterialsButton.getScene().getWindow();
-            currentStage.close();
-
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    public void handleGenericButtonClick(ActionEvent actionEvent) {
-        System.out.println("Generic button clicked!");
-    }
-
-    /*
-    End of Navigation Buttons
-     */
-
-    @FXML
     public void initialize() {
         // initialise the VBox list display
         populateJewelleryItemsVBox();
@@ -329,26 +233,30 @@ public class JewelleryItemController implements Serializable {
 //                trayVBox.getChildren().add(trayLabel);
 
                 for (JewelleryItem item : tray.getJewelleryItems()) {
-
+                    
                     // Create main HBox container
-                    HBox mainContainer = new HBox(20); // 20px spacing between VBoxes
-                    mainContainer.setAlignment(Pos.CENTER);
-                    mainContainer.setPadding(new Insets(10));
+                    HBox mainHBoxContainer = new HBox(20); // 20px spacing between VBoxes
+                    mainHBoxContainer.setAlignment(Pos.CENTER);
+                    mainHBoxContainer.setPadding(new Insets(10));
 
 // Left VBox for labels
-                    VBox labelsVBox = new VBox(3); // 10px spacing between labels
-                    labelsVBox.setAlignment(Pos.CENTER_LEFT);
-                    labelsVBox.setPadding(new Insets(5));
+                    VBox itemLabelsVBox = new VBox(3); // 10px spacing between labels
+                    itemLabelsVBox.setAlignment(Pos.CENTER_LEFT);
+                    itemLabelsVBox.setPadding(new Insets(5));
 
 // Create labels for left VBox
                     Label itemLabel = new Label("Name: " + item.getItemName() + ",   RRP: €" + item.getItemPrice());
                     Label targetGenderLabel = new Label("Target Gender: " + item.getItemTargetGender());
-                    Label descriptionLabel = new Label("Description: " + item.getItemDescription());
+                    Label descriptionLabel = new Label("Description: " + item.getItemDescription() + "\n");
                     Label itemTypeLabel = new Label("Type: " + item.getItemType());
                     Label imageUrlLabel = new Label("Image url: " + item.getItemImage());
-                    Label blankLine = new Label("");
-                    Label itemLocation = new Label("Location: " + "Case " + displayCase.getCaseId() + ", Tray " + tray.getTrayId() + ", ID#: " + item.getItemId());
+                    Label itemLocationLabel = new Label("Location: " + "Case " + displayCase.getCaseId() + ", Tray " + tray.getTrayId() + ", ID#: " + item.getItemId() + "\n");
 
+                    // Hide the specified labels initially
+                    itemLocationLabel.setVisible(false);
+                    itemTypeLabel.setVisible(false);
+                    imageUrlLabel.setVisible(false);
+                    //materialsLabel.setVisible(false);
 
 
 // Make labels wrappable
@@ -356,23 +264,68 @@ public class JewelleryItemController implements Serializable {
                     descriptionLabel.setWrapText(true);
                     imageUrlLabel.setWrapText(true);
                     itemTypeLabel.setWrapText(true);
-                    itemLocation.setWrapText(true);
-
+                    itemLocationLabel.setWrapText(true);
                     targetGenderLabel.setWrapText(true);
 
-// Add labels to left VBox
-                    labelsVBox.getChildren().addAll(itemLabel);
-                    labelsVBox.getChildren().addAll(targetGenderLabel);
-                    labelsVBox.getChildren().addAll(descriptionLabel);
-                    labelsVBox.getChildren().addAll(blankLine);
-                    labelsVBox.getChildren().addAll(itemLocation);
-                    labelsVBox.getChildren().addAll(itemTypeLabel);
-                    labelsVBox.getChildren().addAll(imageUrlLabel);
-                    labelsVBox.getChildren().add(new Label("Materials Included:"));
+                    // Style clickable labels with hand cursor and different color
+                    String clickableStyle = "-fx-cursor: hand; -fx-text-fill: #0066cc;";
+                    itemLabel.setStyle(clickableStyle);
+                    targetGenderLabel.setStyle(clickableStyle);
+                    descriptionLabel.setStyle(clickableStyle);
+
+                    // Add click handlers to toggle hidden labels
+                    itemLabel.setOnMouseClicked(event -> {
+                        itemLocationLabel.setVisible(!itemLocationLabel.isVisible());
+                        itemTypeLabel.setVisible(!itemTypeLabel.isVisible());
+                        imageUrlLabel.setVisible(!imageUrlLabel.isVisible());
+                        // materialsLabel.setVisible(!materialsLabel.isVisible());
+                    });
+
+                    descriptionLabel.setOnMouseClicked(event -> {
+
+                        itemLocationLabel.setVisible(!itemLocationLabel.isVisible());
+                        itemTypeLabel.setVisible(!itemTypeLabel.isVisible());
+                        imageUrlLabel.setVisible(!imageUrlLabel.isVisible());
+                        // materialsLabel.setVisible(!materialsLabel.isVisible());
+
+                    });
+
+                    targetGenderLabel.setOnMouseClicked(event -> {
+                    itemLocationLabel.setVisible(!itemLocationLabel.isVisible());
+                    itemTypeLabel.setVisible(!itemTypeLabel.isVisible());
+                    imageUrlLabel.setVisible(!imageUrlLabel.isVisible());
+                       // materialsLabel.setVisible(!materialsLabel.isVisible());
+                    });
+
+                    // Add hover effects
+                    EventHandler<MouseEvent> hoverEffect = new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            Label source = (Label) event.getSource();
+                            if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
+                                source.setStyle(clickableStyle + "-fx-text-fill: #003366;");
+                            } else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
+                                source.setStyle(clickableStyle);
+                            }
+                        }
+                    };
+
+                    // Apply hover effect to clickable labels
+                    itemLabel.setOnMouseEntered(hoverEffect);
+                    itemLabel.setOnMouseExited(hoverEffect);
+                    targetGenderLabel.setOnMouseEntered(hoverEffect);
+                    targetGenderLabel.setOnMouseExited(hoverEffect);
+                    descriptionLabel.setOnMouseEntered(hoverEffect);
+                    descriptionLabel.setOnMouseExited(hoverEffect);
+
+
+                    // Add labels to left VBox in chosen order
+                    itemLabelsVBox.getChildren().addAll(itemLabel, targetGenderLabel, descriptionLabel, itemLocationLabel, itemTypeLabel, imageUrlLabel);
+                    itemLabelsVBox.getChildren().add(new Label("Materials:"));
                     for (JewelleryMaterial material : item.getJewelleryMaterials()) {
-                        Label materialLabel = new Label(material.getJewelleryMaterialName() + " Part#: " + material.getJewelleryMaterialId());
+                        Label materialLabel = new Label(material.getJewelleryMaterialName());
                         materialLabel.setWrapText(true);
-                        labelsVBox.getChildren().add(materialLabel);
+                        itemLabelsVBox.getChildren().add(materialLabel);
                     }
 
 // Right VBox for ImageView
@@ -426,20 +379,20 @@ public class JewelleryItemController implements Serializable {
 // Add ImageView to right VBox
                     imageVBox.getChildren().add(imageView);
 
-// Add both VBoxes to main HBox
-                    mainContainer.getChildren().addAll(labelsVBox, imageVBox);
+// Add both VBoxes to materials HBox
+                    mainHBoxContainer.getChildren().addAll(itemLabelsVBox, imageVBox);
 
 // Optional: Set minimum widths to prevent squishing
-                    labelsVBox.setMinWidth(300);
+                    itemLabelsVBox.setMinWidth(300);
                     imageVBox.setMinWidth(220);
 
 // Optional: Add styling
-                    mainContainer.setStyle("-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 5;");
-                    labelsVBox.setStyle("-fx-background-color: #f8f8f8; -fx-border-color: #eee; -fx-border-radius: 3;");
-                    imageVBox.setStyle("-fx-background-color: #f8f8f8; -fx-border-color: #eee; -fx-border-radius: 3;");
+                    mainHBoxContainer.setStyle("-fx-background-color: white; -fx-border-color: rgba(194,207,241,0.4); -fx-border-radius: 5;");
+                    itemLabelsVBox.setStyle("-fx-background-color: #fdf0f0; -fx-border-color: #ff9b9b; -fx-border-radius: 3;");
+                    imageVBox.setStyle("-fx-background-color: #f8f8f8; -fx-border-color: #ff9b9b; -fx-border-radius: 3;");
 
-// Add the main container to your existing container
-                    VBox itemVBox = new VBox(mainContainer);
+// Add the mainHBoxContainer container to existing VBox container
+                    VBox itemVBox = new VBox(mainHBoxContainer);
 
                     trayVBox.getChildren().add(itemVBox);
                 }

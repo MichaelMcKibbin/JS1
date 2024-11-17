@@ -6,7 +6,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.JewelleryItemController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.AltBrowseController">
 
 
     <children>
@@ -29,7 +29,7 @@
                     <Menu mnemonicParsing="false" text="Stock List">
                         <items>
                             <MenuItem mnemonicParsing="false" onAction="#viewAllStock" text="List All Stock" />
-                            <MenuItem mnemonicParsing="false" onAction="#drillDown" text="Drilldown" />
+
                         </items>
                     </Menu>
                 </menus>
@@ -66,10 +66,8 @@
                                         <children>
                                             <Button fx:id="StorefrontButton" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
                                             <Button fx:id="displayCasesButton" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button" text="Display Cases" />
-                                            <Button fx:id="displayTraysButton" mnemonicParsing="false" onAction="#handleDisplayTraysButtonClick" styleClass="storefront-button" text="Display Trays" />
                                             <Button fx:id="jewelleryItemsButton" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" styleClass="storefront-button" text="Jewellery Items" />
-                                            <Button fx:id="jewelleryMaterialsButton" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" styleClass="storefront-button" text="Jewellery Materials" />
-                                            <Button fx:id="genericButton" mnemonicParsing="false" onAction="#handleGenericButtonClick" styleClass="storefront-button" text="Button" />
+
                                         </children>
                                     </VBox>
                                 </children>

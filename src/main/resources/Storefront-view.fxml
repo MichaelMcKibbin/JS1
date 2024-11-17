@@ -62,8 +62,9 @@
                         <Button fx:id="displayTraysButton" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleDisplayTraysButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Display Trays" />
                         <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Jewellery Items" />
                         <Button fx:id="jewelleryMaterialsButton" layoutX="10.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleJewelleryMaterialsButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Jewellery Materials" />
-                        <Button fx:id="stockValuesButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleStockValuesButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="All Stock" />
-                         <Button fx:id="stockValuesButton2" layoutX="10.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleStockValuesButtonClick2" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="All Stock 2" />
+                        <Button fx:id="stockValuesButton" layoutX="10.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleStockValuesButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Stock Value Lists" />
+                        <Button fx:id="DrilldownButton" layoutX="10.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleDrilldownButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Drilldown" />
+                        <Button fx:id="AltBrowseButton" layoutX="10.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleAltBrowseButtonClick" prefHeight="25.0" prefWidth="100.0" styleClass="storefront-button" text="Browse" />
                      </children>
                   </VBox>
 <!--                            end of navigation buttons & container-->
@@ -142,7 +143,10 @@
                             </AnchorPane>
                         </content>
                     </ScrollPane>
-                    <AnchorPane />
+                    <AnchorPane>
+
+                    </AnchorPane>
+
                 </items>
             </SplitPane>
             <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">

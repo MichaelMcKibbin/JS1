@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="Cases, Trays, &amp; Jewellery Values OK. Begin Tab view.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/StockValues2-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AltBrowseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DrilldownController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AltBrowse-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Drilldown-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AllStockController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AllStock-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/StockValuesController2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/StockValues-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/StockValues-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/StockValues2-view.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,42 +67,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DisplayCaseTest.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.JewelleryStore.executor": "Run",
-    "Application.JewelleryStoreApplication.executor": "Run",
-    "Application.JewelleryStoreMain.executor": "Run",
-    "JUnit.DisplayCaseTest.executor": "Run",
-    "JUnit.DisplayTrayTest.executor": "Run",
-    "JUnit.DisplayTrayTest.getCaseId.executor": "Run",
-    "JUnit.DisplayTrayTest.testToString.executor": "Run",
-    "JUnit.JewelleryItemTest.executor": "Run",
-    "JUnit.JewelleryMaterialTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/test/java/com/michaelmckibbin/js1",
-    "last_opened_file_path": "D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/main/resources",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DisplayCaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JewelleryStore.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JewelleryStoreApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JewelleryStoreMain.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayCaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayTrayTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayTrayTest.getCaseId.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayTrayTest.testToString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JewelleryItemTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JewelleryMaterialTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/test/java/com/michaelmckibbin/js1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/main/resources&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
@@ -236,6 +240,12 @@
       <workItem from="1725450683316" duration="66087000" />
       <workItem from="1726107708141" duration="35453000" />
       <workItem from="1726286260644" duration="109617000" />
+      <workItem from="1727182566895" duration="4249000" />
+      <workItem from="1727216635756" duration="11476000" />
+      <workItem from="1731396362778" duration="290000" />
+      <workItem from="1731396675545" duration="4219000" />
+      <workItem from="1731479990965" duration="6773000" />
+      <workItem from="1731553866587" duration="62668000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />

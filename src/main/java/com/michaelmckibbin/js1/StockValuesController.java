@@ -36,6 +36,7 @@ public class StockValuesController implements Serializable {
     @FXML public VBox stockValuesVBox;
     @FXML public VBox caseValuesVBox;
     @FXML public VBox trayValuesVBox;
+    @FXML public VBox materialsValuesVBox;
     @FXML public Button refreshAllValuesButton;
     @FXML public Button refreshCaseValuesButton;
     @FXML public Button refreshTrayValuesButton;
@@ -125,29 +126,29 @@ public class StockValuesController implements Serializable {
     @FXML
     public void onRefreshAllValuesButton(ActionEvent actionEvent) {
         calculateTotalValueOfStock();
-        populateStockValuesVBox();
+        populateJewelleryValuesVBox();
     }
 
-    private void populateStockValuesVBox() {
+    private void populateJewelleryValuesVBox() {
         stockValuesVBox.getChildren().clear();
 
         for (DisplayCase displayCase : displayCases) {
             VBox caseVBox = new VBox();
-            caseVBox.setSpacing(10);
-            caseVBox.setPadding(new Insets(10));
-            caseVBox.setStyle("-fx-border-color: black;");
-
-            Label caseLabel = new Label("Display Case: " + displayCase.getCaseId() + " - Is Lit?: " + displayCase.isLit() + " - Wall Mounted?: " + displayCase.isWall());
-            caseVBox.getChildren().add(caseLabel);
+//            caseVBox.setSpacing(10);
+//            caseVBox.setPadding(new Insets(10));
+//            caseVBox.setStyle("-fx-border-color: black;");
+//
+//            Label caseLabel = new Label("Display Case: " + displayCase.getCaseId() + " - Is Lit?: " + displayCase.isLit() + " - Wall Mounted?: " + displayCase.isWall());
+//            caseVBox.getChildren().add(caseLabel);
 
             for (DisplayTray tray : displayCase.getDisplayTrays()) {
                 VBox trayVBox = new VBox();
-                trayVBox.setSpacing(5);
-                trayVBox.setPadding(new Insets(5));
-                trayVBox.setStyle("-fx-border-color: gray;");
-
-                Label trayLabel = new Label("Display Tray: " + tray.getTrayId() + ", " + tray.getTrayColor() + ", " + tray.getTrayWidth() + " x " + tray.getTrayDepth() + "cm");
-                trayVBox.getChildren().add(trayLabel);
+//                trayVBox.setSpacing(5);
+//                trayVBox.setPadding(new Insets(5));
+//                trayVBox.setStyle("-fx-border-color: gray;");
+//
+//                Label trayLabel = new Label("Display Tray: " + tray.getTrayId() + ", " + tray.getTrayColor() + ", " + tray.getTrayWidth() + " x " + tray.getTrayDepth() + "cm");
+//                trayVBox.getChildren().add(trayLabel);
 
                 for (JewelleryItem item : tray.getJewelleryItems()) {
                     VBox itemVBox = new VBox();
@@ -159,31 +160,6 @@ public class StockValuesController implements Serializable {
                     itemVBox.getChildren().add(itemLabel);
 
                     double materialTotalInTray = 0;
-
-                    // Add jewellery materials
-                    for (JewelleryMaterial jewelleryMaterial : item.getJewelleryMaterials()) {
-                        VBox jewelleryMaterialVBox = new VBox();
-                        jewelleryMaterialVBox.setSpacing(5);
-                        jewelleryMaterialVBox.setPadding(new Insets(5));
-                        jewelleryMaterialVBox.setStyle("-fx-border-color: gray;");
-                        double val = jewelleryMaterial.getJewelleryMaterialPrice();
-                        double qty = jewelleryMaterial.getJewelleryMaterialQuantity();
-                        double materialValue = val * qty;
-                        String formattedValue = String.format("%.2f", materialValue);
-
-                        Label jewelleryMaterialLabel = new Label("Jewellery Material: " + jewelleryMaterial.getJewelleryMaterialName()+", ID# " +jewelleryMaterial.getJewelleryMaterialId() + ", Qty: " + jewelleryMaterial.getJewelleryMaterialQuantity()+" @ "+jewelleryMaterial.getJewelleryMaterialPrice());
-                        Label jewelleryMaterialLabel2 = new Label("Total value: €" + formattedValue);
-                        materialTotalInTray += materialValue;
-
-                        jewelleryMaterialVBox.getChildren().add(jewelleryMaterialLabel);
-                        jewelleryMaterialVBox.getChildren().add(jewelleryMaterialLabel2);
-
-                        itemVBox.getChildren().add(jewelleryMaterialVBox);
-                    }
-                    String formattedMaterialTotalInTrayValue = String.format("%.2f", materialTotalInTray);
-                    Label materialTotalLabel = new Label("Total value of materials in item: €" + formattedMaterialTotalInTrayValue  );
-                    itemVBox.getChildren().add(materialTotalLabel);
-
 
                     trayVBox.getChildren().add(itemVBox);
                 }
@@ -300,7 +276,32 @@ public class StockValuesController implements Serializable {
         populateTrayValuesVBox();
     }
     @FXML public void onJewelleryValuesTab(Event event) {
-        populateStockValuesVBox();
+        populateJewelleryValuesVBox();
+    }
+    @FXML public void onMaterialsValuesTab(Event event) {
+        populateMaterialsValuesVBox();
+    }
+
+    private void populateMaterialsValuesVBox() {
+        materialsValuesVBox.getChildren().clear();
+
+        for (DisplayCase displayCase : displayCases) {
+            for (DisplayTray tray : displayCase.getDisplayTrays()) {
+                for (JewelleryItem item : tray.getJewelleryItems()) {
+                    for (JewelleryMaterial material : item.getJewelleryMaterials()) {
+                        VBox materialVBox = new VBox();
+                        materialVBox.setSpacing(5);
+                        materialVBox.setPadding(new Insets(5));
+                        materialVBox.setStyle("-fx-border-color: gray;");
+
+                        Label materialLabel = new Label("Jewellery Material: " + material.getJewelleryMaterialName() + ", ID# " + material.getJewelleryMaterialId() + ", Qty: " + material.getJewelleryMaterialQuantity() + " @ " + material.getJewelleryMaterialPrice());
+                        materialVBox.getChildren().add(materialLabel);
+
+                        materialsValuesVBox.getChildren().add(materialVBox);
+                    }
+                }
+            }
+        }
     }
 } // end
 
