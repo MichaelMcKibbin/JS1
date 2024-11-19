@@ -3,56 +3,79 @@ package com.michaelmckibbin.js1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
 
 public class JewelleryMaterialController implements Serializable {
 
+    @FXML
+    public Pane listAllCasesPane;
+    @FXML
+    public Button listAllMaterialsButton;
+    @FXML
+    public TextField materialsSearchField;
+    @FXML
+    public Button displayCaseViewItemSearchButton;
+    @FXML
+    public VBox materialsListVBox;
+    @FXML
+    public VBox materialsResultsVBox;
+    @FXML
+    public Button addJewelleryMaterialButton;
+    @FXML
+    public TextField addJewelleryMaterialDisplayCaseIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialDisplayTrayIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialNameTextField;
+    @FXML
+    public TextField addJewelleryMaterialDescriptionTextField;
+    @FXML
+    public TextField addJewelleryMaterialQuantityTextField;
+    @FXML
+    public TextField addJewelleryMaterialPriceTextField;
+    @FXML
+    public TextField addJewelleryMaterialImageUrlTextField;
+    @FXML
+    public ChoiceBox addJewelleryMaterialUnitTypeChoiceBox;
+    @FXML
+    public TextField addJewelleryMaterialJewelleryItemIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialQualityTextField;
+    @FXML
+    public TextField materialsSearchTextField;
+
+
+    @FXML
+    public void initialize() {
+        // initialise the VBox list display
+        //populate....();
+
+        // populate the jewelleryMaterialUnitTypeChoiceBox
+        addJewelleryMaterialUnitTypeChoiceBox.getItems().addAll("Grams", "Karats", "oz", "cm", "Other");
+        // Set the default value for the jewelleryMaterialUnitTypeChoiceBox
+        addJewelleryMaterialUnitTypeChoiceBox.setValue("Other");
+
+    }
 
     /*
-MENUBAR
- */
-    public void loadFile(ActionEvent actionEvent) {
-        System.out.println("Load file button clicked!");
-    }
-    public void saveFile(ActionEvent actionEvent) {
-        System.out.println("Save file button clicked!");
-    }
-    public void saveAndExit(ActionEvent actionEvent) {
-        System.out.println("Save and exit button clicked!");
-    }
-    public void closeProg(ActionEvent actionEvent) {
-        System.out.println("Close program button clicked!");
-    }
-    public void deleteAllStock(ActionEvent actionEvent) {
-        System.out.println("Delete all stock button clicked!");
-    }
-    public void viewAllStock(ActionEvent actionEvent) {
-        System.out.println("View all stock button clicked!");
-    }
-    public void drillDown(ActionEvent actionEvent) {
-        System.out.println("Drill down button clicked!");
-    }
-    public void viewAbout(ActionEvent actionEvent) {
-        System.out.println("viewAbout button clicked!");
-    }
-    public void viewReadme(ActionEvent actionEvent) {
-        System.out.println("viewReadme button clicked!");
-    }
-
-
-    /*
-    END OF MENUBAR
-     */
-
-    /*
-      Navigation Buttons - copy to other views as required
-       */
+         Navigation Buttons - copy to other views as required
+          */
     @FXML
     private Button displayCasesButton;
     @FXML
@@ -64,8 +87,7 @@ MENUBAR
     @FXML
     private Button StorefrontButton;
     @FXML
-    private Button genericButton;
-
+    private Button onListAllMaterialsButton;
 
 
     @FXML
@@ -97,7 +119,6 @@ MENUBAR
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) StorefrontButton.getScene().getWindow();
             currentStage.close();
@@ -107,6 +128,7 @@ MENUBAR
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
@@ -176,7 +198,6 @@ MENUBAR
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
             currentStage.close();
@@ -217,7 +238,6 @@ MENUBAR
             stage.setScene(scene);
             stage.setTitle("Jewellery Items");
             // end of option with css from styles.css in resources folder
-
 
 
             // Get the current stage (window) and close it
@@ -269,20 +289,30 @@ MENUBAR
         }
     }
 
-
-    @FXML
-    public void handleGenericButtonClick(ActionEvent actionEvent) {
-        System.out.println("Generic button clicked!");
-    }
-
     /*
     End of Navigation Buttons
      */
 
+    @FXML
+    public void onListAllMaterialsButton(ActionEvent actionEvent) {
+        System.out.println("List all materials button clicked!");
 
+    }
 
+    @FXML
+    public void addJewelleryMaterialButton(ActionEvent actionEvent) {
+        System.out.println("Add jewellery material button clicked!");
+//TODO add functionality
+    }
 
-    public void onAddMaterialBtn(ActionEvent actionEvent) {
+    @FXML
+    public void handleMaterialsSearchButton(ActionEvent actionEvent) {
+
+        System.out.println("Search materials button clicked!");
+
+        //TODO: Implement the search functionality
+        String searchQuery = materialsSearchTextField.getText();
+
     }
 
 

@@ -36,27 +36,35 @@ public class AltBrowseController implements Serializable {
     public void loadFile(ActionEvent actionEvent) {
         System.out.println("Load file button clicked!");
     }
+
     public void saveFile(ActionEvent actionEvent) {
         System.out.println("Save file button clicked!");
     }
+
     public void saveAndExit(ActionEvent actionEvent) {
         System.out.println("Save and exit button clicked!");
     }
+
     public void closeProg(ActionEvent actionEvent) {
         System.out.println("Close program button clicked!");
     }
+
     public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
     }
+
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");
     }
+
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
     }
+
     public void viewAbout(ActionEvent actionEvent) {
         System.out.println("viewAbout button clicked!");
     }
+
     public void viewReadme(ActionEvent actionEvent) {
         System.out.println("viewReadme button clicked!");
     }
@@ -76,7 +84,6 @@ public class AltBrowseController implements Serializable {
     private Button jewelleryItemsButton;
     @FXML
     private Button StorefrontButton;
-
 
 
     @FXML
@@ -108,7 +115,6 @@ public class AltBrowseController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) StorefrontButton.getScene().getWindow();
             currentStage.close();
@@ -118,6 +124,7 @@ public class AltBrowseController implements Serializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
@@ -186,7 +193,6 @@ public class AltBrowseController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) jewelleryItemsButton.getScene().getWindow();
             currentStage.close();
@@ -204,7 +210,6 @@ public class AltBrowseController implements Serializable {
         populateJewelleryItemsVBox();
 
     }
-
 
 
     public void onAddJewelleryItemBtn(ActionEvent actionEvent) {
@@ -233,7 +238,7 @@ public class AltBrowseController implements Serializable {
 //                trayVBox.getChildren().add(trayLabel);
 
                 for (JewelleryItem item : tray.getJewelleryItems()) {
-                    
+
                     // Create main HBox container
                     HBox mainHBoxContainer = new HBox(20); // 20px spacing between VBoxes
                     mainHBoxContainer.setAlignment(Pos.CENTER);
@@ -291,10 +296,10 @@ public class AltBrowseController implements Serializable {
                     });
 
                     targetGenderLabel.setOnMouseClicked(event -> {
-                    itemLocationLabel.setVisible(!itemLocationLabel.isVisible());
-                    itemTypeLabel.setVisible(!itemTypeLabel.isVisible());
-                    imageUrlLabel.setVisible(!imageUrlLabel.isVisible());
-                       // materialsLabel.setVisible(!materialsLabel.isVisible());
+                        itemLocationLabel.setVisible(!itemLocationLabel.isVisible());
+                        itemTypeLabel.setVisible(!itemTypeLabel.isVisible());
+                        imageUrlLabel.setVisible(!imageUrlLabel.isVisible());
+                        // materialsLabel.setVisible(!materialsLabel.isVisible());
                     });
 
                     // Add hover effects
@@ -403,9 +408,6 @@ public class AltBrowseController implements Serializable {
             jewelleryItemsVBox.getChildren().add(caseVBox);
         }
     }
-
-
-
 
 
 }

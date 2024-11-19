@@ -6,7 +6,7 @@ import com.michaelmckibbin.js1.MyLinkedList;
 import java.io.Serializable;
 
 
-public class DisplayTray  implements Serializable {
+public class DisplayTray implements Serializable {
 
     private String trayID;
     private String trayColor;
@@ -62,6 +62,7 @@ public class DisplayTray  implements Serializable {
     public int getCaseId() {
         return caseId;
     }
+
     public void setCaseId(int caseId) {
         this.caseId = caseId;
     }
@@ -93,7 +94,8 @@ public class DisplayTray  implements Serializable {
     public void addJewelleryItem(JewelleryItem newItem) {
         this.jewelleryItems.add(newItem);
     }
-// findJewelleryItemById
+
+    // findJewelleryItemById
     public JewelleryItem findJewelleryItemById(int itemId) {
         for (JewelleryItem item : jewelleryItems) {
             if (item.getItemId() == itemId) {

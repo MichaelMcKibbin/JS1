@@ -9,8 +9,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,7 +17,10 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,46 +29,78 @@ public class DisplayCaseController implements Serializable {
 
     public static MyLinkedList<DisplayCase> displayCases = new MyLinkedList<>();
 
-    @FXML public TextField CaseSearchBtn;
-    @FXML public CheckBox CheckBoxWallMounted;
-    @FXML public Button deleteAllCasesButton;
-    @FXML public Pane deleteAllCasesPane;
-    @FXML public Pane listAllCasesPane;
-    @FXML public Button listAllCasesButton;
-    @FXML public Button AddCaseBtn;
-    @FXML public Button displayCaseSearchButton;
-    @FXML public CheckBox CheckBoxIsLit;
-    @FXML public Button displayCaseViewItemSearchButton;
-    @FXML public TextField displayCaseViewItemSearchField;
-    @FXML public Button addJewelleryItemButton;
-    @FXML public TextField addItemDisplayTrayIdTextField;
-    @FXML public TextField addItemDisplayCaseIdTextField;
-    @FXML public TextField addItemItemIdTextField;
-    @FXML public TextField addItemNameTextField;
-    @FXML public TextField addItemDescriptionTextField;
-    @FXML public ChoiceBox<String> addItemGenderChoiceBox;
-    @FXML public TextField addItemPriceTextField;
-    @FXML public TextField addItemImageUrlTextField;
-    @FXML public ChoiceBox<String> addItemTypeChoiceBox;
+    @FXML
+    public TextField CaseSearchBtn;
+    @FXML
+    public CheckBox CheckBoxWallMounted;
+    @FXML
+    public Button deleteAllCasesButton;
+    @FXML
+    public Pane deleteAllCasesPane;
+    @FXML
+    public Pane listAllCasesPane;
+    @FXML
+    public Button listAllCasesButton;
+    @FXML
+    public Button AddCaseBtn;
+    @FXML
+    public Button displayCaseSearchButton;
+    @FXML
+    public CheckBox CheckBoxIsLit;
+    @FXML
+    public Button displayCaseViewItemSearchButton;
+    @FXML
+    public TextField displayCaseViewItemSearchField;
+    @FXML
+    public Button addJewelleryItemButton;
+    @FXML
+    public TextField addItemDisplayTrayIdTextField;
+    @FXML
+    public TextField addItemDisplayCaseIdTextField;
+    @FXML
+    public TextField addItemItemIdTextField;
+    @FXML
+    public TextField addItemNameTextField;
+    @FXML
+    public TextField addItemDescriptionTextField;
+    @FXML
+    public ChoiceBox<String> addItemGenderChoiceBox;
+    @FXML
+    public TextField addItemPriceTextField;
+    @FXML
+    public TextField addItemImageUrlTextField;
+    @FXML
+    public ChoiceBox<String> addItemTypeChoiceBox;
 
-    @FXML public Button addJewelleryMaterialButton;
-    @FXML public TextField addJewelleryMaterialDisplayCaseIdTextField;
-    @FXML public TextField addJewelleryMaterialDisplayTrayIdTextField;
-    @FXML public TextField addJewelleryMaterialIdTextField;
-    @FXML public TextField addJewelleryMaterialNameTextField;
-    @FXML public TextField addJewelleryMaterialDescriptionTextField;
-    @FXML public TextField addJewelleryMaterialQuantityTextField;
-    @FXML public TextField addJewelleryMaterialPriceTextField;
-    @FXML public TextField addJewelleryMaterialImageUrlTextField;
-    @FXML public ChoiceBox addJewelleryMaterialUnitTypeChoiceBox;
-    @FXML public TextField addJewelleryMaterialJewelleryItemIdTextField;
-    @FXML public TextField addJewelleryMaterialQualityTextField;
+    @FXML
+    public Button addJewelleryMaterialButton;
+    @FXML
+    public TextField addJewelleryMaterialDisplayCaseIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialDisplayTrayIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialNameTextField;
+    @FXML
+    public TextField addJewelleryMaterialDescriptionTextField;
+    @FXML
+    public TextField addJewelleryMaterialQuantityTextField;
+    @FXML
+    public TextField addJewelleryMaterialPriceTextField;
+    @FXML
+    public TextField addJewelleryMaterialImageUrlTextField;
+    @FXML
+    public ChoiceBox addJewelleryMaterialUnitTypeChoiceBox;
+    @FXML
+    public TextField addJewelleryMaterialJewelleryItemIdTextField;
+    @FXML
+    public TextField addJewelleryMaterialQualityTextField;
 
 
     private Set<String> allTrayIdsSet = new HashSet<>();
     private Set<String> allCaseIdsSet = new HashSet<>();
     private Set<String> allItemIdsSet = new HashSet<>();
-
 
 
     @FXML
@@ -82,7 +115,7 @@ public class DisplayCaseController implements Serializable {
 
 
     public DisplayCaseController() {
-       //initializeDisplayCases();
+        //initializeDisplayCases();
     }
 
     @FXML
@@ -114,7 +147,7 @@ public class DisplayCaseController implements Serializable {
 
     void initializeDisplayCases() {
 
-}
+    }
 
     @FXML
     public Button AddTrayBtn;
@@ -161,7 +194,7 @@ public class DisplayCaseController implements Serializable {
                     itemVBox.setPadding(new Insets(5));
                     itemVBox.setStyle("-fx-border-color: gray;");
 
-                    Label itemLabel = new Label("Jewellery Item: " + item.getItemId() + ", " +item.getItemName() + ", " + item.getItemType() + ", $" + item.getItemPrice());
+                    Label itemLabel = new Label("Jewellery Item: " + item.getItemId() + ", " + item.getItemName() + ", " + item.getItemType() + ", $" + item.getItemPrice());
                     itemVBox.getChildren().add(itemLabel);
 
                     // Add jewellery materials for the item
@@ -188,10 +221,6 @@ public class DisplayCaseController implements Serializable {
             displayCasesVBox.getChildren().add(caseVBox);
         }
     }
-
-
-
-
 
 
     @FXML
@@ -230,26 +259,34 @@ public class DisplayCaseController implements Serializable {
         // loadDisplayCasesFromFile
         loadDisplayCasesFromFile("displayCases.ser");
     }
+
     public void saveFile(ActionEvent actionEvent) {
         // saveDisplayCasesToFile
         saveDisplayCasesToFile("displayCases.ser");
     }
+
     public void makeBackup(ActionEvent actionEvent) {
         // backupSaveFile
         backupSaveFile("displayCases.ser");
     }
+
     // delete all stock
     // delete materials in items, items in trays and trays in cases. then delete cases.
     private static void deleteAllStock() {
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
-            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
                     for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
-                    }jewelleryItem.getJewelleryMaterials().clear();
-                }displayTray.getJewelleryItems().clear();
-            }displayCase.getDisplayTrays().clear();
-        }DisplayCaseController.displayCases.clear();
+                    }
+                    jewelleryItem.getJewelleryMaterials().clear();
+                }
+                displayTray.getJewelleryItems().clear();
+            }
+            displayCase.getDisplayTrays().clear();
+        }
+        DisplayCaseController.displayCases.clear();
     }
+
     public void saveAndExit(ActionEvent actionEvent) {
         // saveDisplayCases
         saveDisplayCasesToFile("displayCases.ser");
@@ -259,6 +296,7 @@ public class DisplayCaseController implements Serializable {
         System.out.println("Goodbye!");
         System.exit(0);
     }
+
     public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
         // show confirmation dialog
@@ -287,6 +325,7 @@ public class DisplayCaseController implements Serializable {
             e.printStackTrace();
         }
     }
+
     // loadDisplayCasesFromFile
     private static void loadDisplayCasesFromFile(String filename) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
@@ -314,6 +353,7 @@ public class DisplayCaseController implements Serializable {
         populateDisplayCasesVBox();
 
     }
+
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
     }
@@ -336,8 +376,6 @@ public class DisplayCaseController implements Serializable {
     private Button jewelleryMaterialsButton;
     @FXML
     private Button StorefrontButton;
-
-
 
 
     @FXML
@@ -369,7 +407,6 @@ public class DisplayCaseController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) StorefrontButton.getScene().getWindow();
             currentStage.close();
@@ -379,6 +416,7 @@ public class DisplayCaseController implements Serializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
@@ -448,7 +486,6 @@ public class DisplayCaseController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
             currentStage.close();
@@ -489,7 +526,6 @@ public class DisplayCaseController implements Serializable {
             stage.setScene(scene);
             stage.setTitle("Jewellery Items");
             // end of option with css from styles.css in resources folder
-
 
 
             // Get the current stage (window) and close it
@@ -565,7 +601,6 @@ public class DisplayCaseController implements Serializable {
     }
 
 
-
     @FXML
     public void onAddCaseBtn(ActionEvent actionEvent) {
         System.out.println("Add case button clicked!");
@@ -585,14 +620,16 @@ public class DisplayCaseController implements Serializable {
         System.out.println("New case added: " + newDisplayCase);
 
     }
+
     public DisplayCase findDisplayCaseById(int caseId) {
         for (DisplayCase displayCase : displayCases) {
-            if (displayCase.getCaseId()==(caseId)) {
+            if (displayCase.getCaseId() == (caseId)) {
                 return displayCase;
             }
         }
         return null; // Return null if no matching DisplayCase is found
     }
+
     @FXML
     private TextField displayCaseSearchField;
 
@@ -647,6 +684,7 @@ public class DisplayCaseController implements Serializable {
 //        displayCases.clear(); // short & immediate!
         showConfirmationDialog(); // a better way. confirm choice.
     }
+
     @FXML
     public void onListAllCasesButton(ActionEvent actionEvent) {
         System.out.println("List all cases button clicked!");
@@ -829,7 +867,7 @@ public class DisplayCaseController implements Serializable {
     private void addJewelleryItem(ActionEvent event) {
         System.out.println("Add jewellery item button clicked!");
         // get user input
-        
+
         // Get user input for the case id
         int caseIdInput = Integer.parseInt(addItemDisplayCaseIdTextField.getText());
         // Validate the case id input
@@ -884,7 +922,6 @@ public class DisplayCaseController implements Serializable {
         JewelleryItem newItem = new JewelleryItem(itemid, itemName, itemType, itemDescription, itemTargetGender, itemImage, itemPrice);
 
 
-
         // Add the jewellery item to the selected case and tray
         DisplayCase selectedCase = findDisplayCaseById(Integer.parseInt(String.valueOf(caseIdInput)));
         if (selectedCase != null) {
@@ -912,6 +949,7 @@ public class DisplayCaseController implements Serializable {
 
 
     }
+
     @FXML
     public void addJewelleryMaterial(ActionEvent actionEvent) {
         System.out.println("Add jewellery material button clicked!");
@@ -935,19 +973,19 @@ public class DisplayCaseController implements Serializable {
         // Get the user input for the jewellery item id
         int addJewelleryMaterialJewelleryIdInput = Integer.parseInt(addJewelleryMaterialJewelleryItemIdTextField.getText());
         // validate the item id input
-        if (addJewelleryMaterialJewelleryIdInput==0) {
+        if (addJewelleryMaterialJewelleryIdInput == 0) {
             showErrorMessage("Please enter an item id.");
             return;
         }
 
         // Get the user input for the jewellery material
-        String jewelleryMaterialId = addJewelleryMaterialIdTextField.getText() ;
+        String jewelleryMaterialId = addJewelleryMaterialIdTextField.getText();
         // validate jewellery material id input
         if (jewelleryMaterialId.isEmpty()) {
             showErrorMessage("Please enter a jewellery material id.");
             return;
         }
-        String jewelleryMaterialName = addJewelleryMaterialNameTextField.getText() ;
+        String jewelleryMaterialName = addJewelleryMaterialNameTextField.getText();
         //validate jewellery material name input
         if (jewelleryMaterialName.isEmpty()) {
             showErrorMessage("Please enter a jewellery material name.");
@@ -984,7 +1022,7 @@ public class DisplayCaseController implements Serializable {
                 if (selectedItem != null) {
                     selectedItem.addJewelleryMaterial(new JewelleryMaterial(jewelleryMaterialId, jewelleryMaterialName, jewelleryMaterialDescription, jewelleryMaterialUnitType, jewelleryMaterialImage, jewelleryMaterialQuantity, jewelleryMaterialQuality, jewelleryMaterialPrice));
                     System.out.println("New jewellery material added: " + jewelleryMaterial);
-                }else {
+                } else {
                     System.out.println("Invalid item id. Please try again.");
                 }
             } else {
@@ -996,8 +1034,6 @@ public class DisplayCaseController implements Serializable {
 
 
         // Clear the input fields
-
-
 
 
     }

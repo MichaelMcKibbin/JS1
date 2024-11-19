@@ -27,20 +27,30 @@ import java.util.Random;
 
 public class JewelleryStoreController implements Serializable {
 
-    @FXML public TextFlow stockValueTextFlow;
-    @FXML public Button stockViewButton;
-    @FXML private Button deleteAllStockButton;
-    @FXML private Button loadFileButton;
-    @FXML private Button saveFileButton;
-    @FXML private Button makeBackupButton;
-    @FXML private Button saveAndExitButton;
-    @FXML private Button closeProgButton;
-    @FXML private Button loginButton;
-    @FXML private TextField loginUsernameField;
-    @FXML private PasswordField loginPasswordField;
-    @FXML private Text loginBoxActionMessage;
-
-
+    @FXML
+    public TextFlow stockValueTextFlow;
+    @FXML
+    public Button stockViewButton;
+    @FXML
+    private Button deleteAllStockButton;
+    @FXML
+    private Button loadFileButton;
+    @FXML
+    private Button saveFileButton;
+    @FXML
+    private Button makeBackupButton;
+    @FXML
+    private Button saveAndExitButton;
+    @FXML
+    private Button closeProgButton;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private TextField loginUsernameField;
+    @FXML
+    private PasswordField loginPasswordField;
+    @FXML
+    private Text loginBoxActionMessage;
 
 
 //    // for testing
@@ -61,9 +71,9 @@ public class JewelleryStoreController implements Serializable {
 //
 //    } // end of for testing
 
-/*
-sPECIAL oFFER bUTTON
- */
+    /*
+    sPECIAL oFFER bUTTON
+     */
     @FXML
     private Image originalImage;
 
@@ -95,17 +105,19 @@ sPECIAL oFFER bUTTON
     end of SPECIAL oFFER bUTTON
      */
 
-        /*
-    MENUBAR options
-     */
+    /*
+MENUBAR options
+ */
     public void loadFile(ActionEvent actionEvent) {
         // loadDisplayCasesFromFile
         loadDisplayCasesFromFile("displayCases.ser");
     }
+
     public void saveFile(ActionEvent actionEvent) {
         // saveDisplayCasesToFile
         saveDisplayCasesToFile("displayCases.ser");
     }
+
     public void makeBackup(ActionEvent actionEvent) {
         // backupSaveFile
         backupSaveFile("displayCases.ser");
@@ -147,6 +159,7 @@ sPECIAL oFFER bUTTON
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
     }
+
     public void loadTestData(ActionEvent actionEvent) {
 
     }
@@ -154,14 +167,14 @@ sPECIAL oFFER bUTTON
     public void viewAbout(ActionEvent actionEvent) {
         System.out.println("viewAbout button clicked!");
     }
-    public void viewReadme(ActionEvent actionEvent){
+
+    public void viewReadme(ActionEvent actionEvent) {
         System.out.println("viewReadme button clicked!");
     }
 
     /*
     END OF MENUBAR
      */
-
 
 
     /*
@@ -183,9 +196,6 @@ sPECIAL oFFER bUTTON
     private Button DrilldownButton;
     @FXML
     private Button AltBrowseButton;
-
-
-
 
 
     @FXML
@@ -217,7 +227,6 @@ sPECIAL oFFER bUTTON
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) StorefrontButton.getScene().getWindow();
             currentStage.close();
@@ -227,6 +236,7 @@ sPECIAL oFFER bUTTON
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
@@ -296,7 +306,6 @@ sPECIAL oFFER bUTTON
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
             currentStage.close();
@@ -337,7 +346,6 @@ sPECIAL oFFER bUTTON
             stage.setScene(scene);
             stage.setTitle("Jewellery Items");
             // end of option with css from styles.css in resources folder
-
 
 
             // Get the current stage (window) and close it
@@ -471,8 +479,6 @@ sPECIAL oFFER bUTTON
      */
 
 
-
-
     private static MyLinkedList<DisplayCase> getAllDisplayCases() {
         MyLinkedList<DisplayCase> allDisplayCases = new MyLinkedList<>();
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
@@ -491,6 +497,7 @@ sPECIAL oFFER bUTTON
             e.printStackTrace();
         }
     }
+
     // loadDisplayCasesFromFile
     private static void loadDisplayCasesFromFile(String filename) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
@@ -512,14 +519,15 @@ sPECIAL oFFER bUTTON
             e.printStackTrace();
         }
     }
+
     public void onLoadSampleData(ActionEvent actionEvent) {
         // create sample data
         Random random = new Random();
         String[] colors = {"Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Brown", "Black", "White"};
         String[] materials = {"Gold", "Silver", "Platinum", "Titanium", "Steel", "Wood", "Copper", "Brass", "Stainless Steel", "Aluminum"};
-        String[] itemTypes = {"Ring", "Necklace", "Earring", "Bracelet", "Anklet", "Cufflinks", "Watch", "Clothing", "Handbag", "Sunglasses"};
-        String [] trueFalse = {"true", "false"};
-        String [] gender = {"Male", "Female", "Unisex"};
+        String[] itemTypes = {"Ring", "Necklace", "Earring", "Bracelet", "Anklet", "Set of Cufflinks", "Watch", "Broach", "Handbag", "Pair of Sunglasses"};
+        String[] trueFalse = {"true", "false"};
+        String[] gender = {"Male", "Female", "Unisex"};
         int[] wideDeep = {10, 20, 30, 40, 50};
 //        int[] quant = {1, 2, 3, 4, 5};
 
@@ -527,7 +535,7 @@ sPECIAL oFFER bUTTON
 
         for (int i = 1; i <= 5; i++) { // Create 5 display cases
             int counter = 0;
-            int caseIdNum=900+i+counter;
+            int caseIdNum = 900 + i + counter;
             counter++;
             DisplayCase displayCase = new DisplayCase(caseIdNum, random.nextBoolean(), random.nextBoolean());
 
@@ -538,22 +546,22 @@ sPECIAL oFFER bUTTON
                 String color = colors[random.nextInt(colors.length)];
                 int wide = wideDeep[random.nextInt(wideDeep.length)];
                 int deep = wideDeep[random.nextInt(wideDeep.length)];
-                int trayNum = caseIdNum + i + j+counter;
-                DisplayTray tray = new DisplayTray(caseIdNum,"Z" + trayNum, color, wide,deep);
+                int trayNum = caseIdNum + i + j + counter;
+                DisplayTray tray = new DisplayTray(caseIdNum, "Z" + trayNum, color, wide, deep);
 
                 for (int k = 1; k <= 2; k++) { // Add 2 jewellery items to each tray
-                    int itemIdNum=trayNum+i+j+k+counter;
+                    int itemIdNum = trayNum + i + j + k + counter;
                     counter++;
                     String itemId = String.valueOf(itemIdNum);
                     String itemType = itemTypes[random.nextInt(itemTypes.length)];
-                    String itemName = "A " + itemType;
+                    String itemName = "A lovely " + itemType;
                     double itemPrice = Double.parseDouble(df.format(1 + random.nextDouble() * 1000)); // Random price between 1 and 1000
 
                     String genderChoice = gender[random.nextInt(gender.length)];
-                    JewelleryItem item = new JewelleryItem(itemId,itemName,itemType, "A beautiful "+itemType, genderChoice,"/images/jewelleryGeneral.jpg", itemPrice);
+                    JewelleryItem item = new JewelleryItem(itemId, itemName, itemType, "A beautiful " + itemType, genderChoice, "/images/jewelleryGeneral.jpg", itemPrice);
 
                     for (int l = 1; l <= 2; l++) { // Add 2 materials to each item
-                        int materialIdNum=itemIdNum+i+j+k+l+counter;
+                        int materialIdNum = itemIdNum + i + j + k + l + counter;
                         counter++;
                         String materialId = String.valueOf(materialIdNum);
                         String materialName = materials[random.nextInt(materials.length)] + materialIdNum;
@@ -566,7 +574,7 @@ sPECIAL oFFER bUTTON
                         // material price = random positive double between 1 and 100 rounded to two decimal places
                         double materialPrice = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
                         //double materialPrice = (Math.floor(random.nextDouble() * 20 * 100)) / 100;
-                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit,"/images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
+                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit, "/images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
                         item.addJewelleryMaterial(jewelerylMaterial);
                     }
                     tray.addJewelleryItem(item);
@@ -583,13 +591,17 @@ sPECIAL oFFER bUTTON
     // delete materials in items, items in trays and trays in cases. then delete cases.
     private static void deleteAllStock() {
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
-            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
                     for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
-                    }jewelleryItem.getJewelleryMaterials().clear();
-                }displayTray.getJewelleryItems().clear();
-            }displayCase.getDisplayTrays().clear();
-        }DisplayCaseController.displayCases.clear();
+                    }
+                    jewelleryItem.getJewelleryMaterials().clear();
+                }
+                displayTray.getJewelleryItems().clear();
+            }
+            displayCase.getDisplayTrays().clear();
+        }
+        DisplayCaseController.displayCases.clear();
     }
 
     // delete all stock
@@ -597,31 +609,36 @@ sPECIAL oFFER bUTTON
         deleteAllStock();
         System.out.println("All stock deleted");
     }
-    @FXML public Label displayAllStockTotal;
 
-    @FXML public void onTotalValueOfStock(ActionEvent actionEvent) {
+    @FXML
+    public Label displayAllStockTotal;
+
+    @FXML
+    public void onTotalValueOfStock(ActionEvent actionEvent) {
         double totalJewelleryValue = calculateTotalValueOfJewellery();
         double totalMaterialValue = calculateTotalValueOfMaterials();
         displayJewelleryTotal.setText("€ " + totalJewelleryValue);
         displayMaterialsTotal.setText("€ " + totalMaterialValue);
     }
 
-    @FXML public Label displayJewelleryTotal;
-    @FXML public Label displayMaterialsTotal;
+    @FXML
+    public Label displayJewelleryTotal;
+    @FXML
+    public Label displayMaterialsTotal;
 
     // calculate total value of jewellery
     private static double calculateTotalValueOfJewellery() {
         double totalJewelleryValue = 0;
 
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
-            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
-                    totalJewelleryValue+=jewelleryItem.getItemPrice();
+                    totalJewelleryValue += jewelleryItem.getItemPrice();
                 }
             }
         }
         // truncate to 2 decimal places
-        totalJewelleryValue = Math.floor(totalJewelleryValue*100)/100;
+        totalJewelleryValue = Math.floor(totalJewelleryValue * 100) / 100;
         return totalJewelleryValue;
     }
 
@@ -630,7 +647,7 @@ sPECIAL oFFER bUTTON
         double totalMaterialValue = 0;
 
         for (DisplayCase displayCase : DisplayCaseController.displayCases) {
-            for (DisplayTray  displayTray : displayCase.getDisplayTrays()) {
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
                 for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
                     for (JewelleryMaterial jewelleryMaterial : jewelleryItem.getJewelleryMaterials()) {
                         double matVal = jewelleryMaterial.getJewelleryMaterialPrice();
@@ -638,22 +655,23 @@ sPECIAL oFFER bUTTON
                         double materialValue = matVal * matQty;
                         totalMaterialValue += materialValue;
                         // truncate to 2 decimal places
-                        totalMaterialValue=Math.floor(totalMaterialValue*100)/100;
+                        totalMaterialValue = Math.floor(totalMaterialValue * 100) / 100;
                     }
                 }
             }
-        }return totalMaterialValue;
+        }
+        return totalMaterialValue;
 
     }
 
 
-        @FXML
-        public void handleAltBrowseButtonClick(ActionEvent actionEvent) {
-            System.out.println("AltBrowse button clicked!");
-            // open AltBrowse-view.fxml
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AltBrowse-view.fxml"));
-                Parent root = loader.load();
+    @FXML
+    public void handleAltBrowseButtonClick(ActionEvent actionEvent) {
+        System.out.println("AltBrowse button clicked!");
+        // open AltBrowse-view.fxml
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AltBrowse-view.fxml"));
+            Parent root = loader.load();
 
 
 //            // option without css
@@ -663,38 +681,30 @@ sPECIAL oFFER bUTTON
 //            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
 //            // option without css
 
-                // option with css from styles.css in resources folder
-                // Create the Scene object
-                Scene scene = new Scene(root);
+            // option with css from styles.css in resources folder
+            // Create the Scene object
+            Scene scene = new Scene(root);
 
-                // Apply the CSS file to the scene
-                scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+            // Apply the CSS file to the scene
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
 
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.setTitle("AltBrowse");
-                // end of option with css from styles.css in resources folder
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("AltBrowse");
+            // end of option with css from styles.css in resources folder
 
 
+            // Get the current stage (window) and close it
+            Stage currentStage = (Stage) AltBrowseButton.getScene().getWindow();
+            currentStage.close();
 
-                // Get the current stage (window) and close it
-                Stage currentStage = (Stage) AltBrowseButton.getScene().getWindow();
-                currentStage.close();
-
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
 
-
-
-
-
-
-
-
-    } // end JewelleryStoreController
+} // end JewelleryStoreController
 
 

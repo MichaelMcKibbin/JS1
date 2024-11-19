@@ -1,4 +1,5 @@
 package com.michaelmckibbin.js1;
+
 import com.michaelmckibbin.js1.MyLinkedList;
 
 import java.io.Serializable;
@@ -30,6 +31,7 @@ public class JewelleryItem implements Serializable {
     public String getItemID() {
         return itemID;
     }
+
     public int getItemId() {
         return Integer.parseInt(itemID);
     }
@@ -102,7 +104,7 @@ public class JewelleryItem implements Serializable {
     @Override
     public String toString() {
         return "JewelleryItem{" +
-                "itemID=" + itemID + '\n'+
+                "itemID=" + itemID + '\n' +
                 ", itemName='" + itemName + '\n' +
                 ", itemType='" + itemType + '\n' +
                 ", itemDescription='" + itemDescription + '\n' +

@@ -34,27 +34,35 @@ public class JewelleryItemController implements Serializable {
     public void loadFile(ActionEvent actionEvent) {
         System.out.println("Load file button clicked!");
     }
+
     public void saveFile(ActionEvent actionEvent) {
         System.out.println("Save file button clicked!");
     }
+
     public void saveAndExit(ActionEvent actionEvent) {
         System.out.println("Save and exit button clicked!");
     }
+
     public void closeProg(ActionEvent actionEvent) {
         System.out.println("Close program button clicked!");
     }
+
     public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
     }
+
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");
     }
+
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
     }
+
     public void viewAbout(ActionEvent actionEvent) {
         System.out.println("viewAbout button clicked!");
     }
+
     public void viewReadme(ActionEvent actionEvent) {
         System.out.println("viewReadme button clicked!");
     }
@@ -80,7 +88,6 @@ public class JewelleryItemController implements Serializable {
     private Button StorefrontButton;
     @FXML
     private Button genericButton;
-
 
 
     @FXML
@@ -112,7 +119,6 @@ public class JewelleryItemController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) StorefrontButton.getScene().getWindow();
             currentStage.close();
@@ -122,6 +128,7 @@ public class JewelleryItemController implements Serializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
@@ -191,7 +198,6 @@ public class JewelleryItemController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
             currentStage.close();
@@ -232,7 +238,6 @@ public class JewelleryItemController implements Serializable {
             stage.setScene(scene);
             stage.setTitle("Jewellery Items");
             // end of option with css from styles.css in resources folder
-
 
 
             // Get the current stage (window) and close it
@@ -302,7 +307,6 @@ public class JewelleryItemController implements Serializable {
     }
 
 
-
     public void onAddJewelleryItemBtn(ActionEvent actionEvent) {
     }
 
@@ -348,7 +352,6 @@ public class JewelleryItemController implements Serializable {
                     Label imageUrlLabel = new Label("Image url: " + item.getItemImage());
                     Label blankLine = new Label("");
                     Label itemLocation = new Label("Location: " + "Case " + displayCase.getCaseId() + ", Tray " + tray.getTrayId() + ", ID#: " + item.getItemId());
-
 
 
 // Make labels wrappable
@@ -429,16 +432,16 @@ public class JewelleryItemController implements Serializable {
 // Add both VBoxes to main HBox
                     mainContainer.getChildren().addAll(labelsVBox, imageVBox);
 
-// Optional: Set minimum widths to prevent squishing
+// Set minimum widths
                     labelsVBox.setMinWidth(300);
                     imageVBox.setMinWidth(220);
 
-// Optional: Add styling
+// Add styling
                     mainContainer.setStyle("-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 5;");
                     labelsVBox.setStyle("-fx-background-color: #f8f8f8; -fx-border-color: #eee; -fx-border-radius: 3;");
                     imageVBox.setStyle("-fx-background-color: #f8f8f8; -fx-border-color: #eee; -fx-border-radius: 3;");
 
-// Add the main container to your existing container
+// Add the main container to existing container
                     VBox itemVBox = new VBox(mainContainer);
 
                     trayVBox.getChildren().add(itemVBox);
@@ -450,9 +453,6 @@ public class JewelleryItemController implements Serializable {
             jewelleryItemsVBox.getChildren().add(caseVBox);
         }
     }
-
-
-
 
 
 }

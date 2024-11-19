@@ -33,7 +33,6 @@ public class DisplayCase implements Serializable {
     public int getCaseId() {
         return caseID;
     }
-
     public void setCaseID(int caseID) {
         this.caseID = caseID;
     }
@@ -49,19 +48,18 @@ public class DisplayCase implements Serializable {
     public void setLit(boolean lit) {
         isLit = lit;
     }
-//    public MyLinkedList<DisplayTray> getDisplayTrays() {
-//        return displayTrays;
-//    }
-//    public void setDisplayTrays(MyLinkedList<DisplayTray> displayTrays) {
-//        this.displayTrays = displayTrays;
-//    }
-//    public void addDisplayTray(DisplayTray displayTray) {
-//        displayTrays.add(displayTray);
-//    }
-//    public void removeDisplayTray(DisplayTray displayTray) {
-//        displayTrays.remove(displayTray);
-//    }
 
+//    public String getLocation() {
+//        return isWall ? "Wall mounted" : "Free standing";
+//    }
+//
+//    public void getLighting() {
+//        if (isLit) {
+//            System.out.println("With Display Lighting");
+//        } else {
+//            System.out.println("");
+//        }
+//    }
 
 
 

@@ -6,15 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Optional;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-import com.michaelmckibbin.js1.MyLinkedList;
 
 //private MyLinkedList<DisplayTray> displayTrays;
 
@@ -34,11 +30,6 @@ public class DisplayTrayController implements Serializable {
 //        displayTrayColorChoiceBox.setValue("Black"); // in case user forgets to choose.
 
     }
-
-
-
-
-
 
 
     @FXML
@@ -65,37 +56,41 @@ public class DisplayTrayController implements Serializable {
     private ListView<DisplayTray> trayListView;
 
 
-
-
-
-
     /*
     MENUBAR
      */
     public void loadFile(ActionEvent actionEvent) {
         System.out.println("Load file button clicked!");
     }
+
     public void saveFile(ActionEvent actionEvent) {
         System.out.println("Save file button clicked!");
     }
+
     public void saveAndExit(ActionEvent actionEvent) {
         System.out.println("Save and exit button clicked!");
     }
+
     public void closeProg(ActionEvent actionEvent) {
         System.out.println("Close program button clicked!");
     }
+
     public void deleteAllStock(ActionEvent actionEvent) {
         System.out.println("Delete all stock button clicked!");
     }
+
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");
     }
+
     public void drillDown(ActionEvent actionEvent) {
         System.out.println("Drill down button clicked!");
     }
+
     public void viewAbout(ActionEvent actionEvent) {
         System.out.println("viewAbout button clicked!");
     }
+
     public void viewReadme(ActionEvent actionEvent) {
         System.out.println("viewReadme button clicked!");
     }
@@ -120,7 +115,6 @@ public class DisplayTrayController implements Serializable {
     private Button StorefrontButton;
     @FXML
     private Button genericButton;
-
 
 
     @FXML
@@ -152,7 +146,6 @@ public class DisplayTrayController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) StorefrontButton.getScene().getWindow();
             currentStage.close();
@@ -162,6 +155,7 @@ public class DisplayTrayController implements Serializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void handleDisplayCasesButtonClick(ActionEvent actionEvent) {
         System.out.println("Display cases button clicked!");
@@ -231,7 +225,6 @@ public class DisplayTrayController implements Serializable {
             // end of option with css from styles.css in resources folder
 
 
-
             // Get the current stage (window) and close it
             Stage currentStage = (Stage) displayTraysButton.getScene().getWindow();
             currentStage.close();
@@ -272,7 +265,6 @@ public class DisplayTrayController implements Serializable {
             stage.setScene(scene);
             stage.setTitle("Jewellery Items");
             // end of option with css from styles.css in resources folder
-
 
 
             // Get the current stage (window) and close it
@@ -333,8 +325,6 @@ public class DisplayTrayController implements Serializable {
     /*
     End of Navigation Buttons
      */
-
-
 
 
     @FXML
@@ -443,7 +433,6 @@ HANDLE LIST ALL TRAYS BUTTON
 //
 
 
-
     // OUTPUT TO CONSOLE OPTION
     @FXML
     private void handleListAllTraysButtonClick(ActionEvent event) {
@@ -525,11 +514,6 @@ HANDLE LIST ALL TRAYS BUTTON
     }
 
 
-
-
-
-
-
     @FXML
     public void onDeleteAllTraysButton(ActionEvent actionEvent) {
         System.out.println("Delete all trays button clicked!");
@@ -540,7 +524,6 @@ HANDLE LIST ALL TRAYS BUTTON
     private void deleteAllTrays() {
 //        displayTrays.clear();
     }
-
 
 
 }
