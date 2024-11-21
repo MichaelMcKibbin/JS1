@@ -16,6 +16,7 @@ import java.util.Optional;
 
 public class DisplayTrayController implements Serializable {
 
+    public Button displayCaseViewItemSearchButton;
     private MyLinkedList<JewelleryItem> jewelleryItems = new MyLinkedList<>();
 
     @FXML

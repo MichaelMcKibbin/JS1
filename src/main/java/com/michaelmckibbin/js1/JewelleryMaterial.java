@@ -11,7 +11,7 @@ public class JewelleryMaterial implements Serializable {
     String jewelleryMaterialImage; // url to image, or placeholder
     int jewelleryMaterialQuantity; // number of units in stock
     double jewelleryMaterialPrice; // price per unit
-    double jewelleryMaterialQuality; // .925, 24, 99%, etc.
+    String jewelleryMaterialQuality; // .925, 24, 99%, etc.
 
     public JewelleryMaterial(String jewelleryMaterialId,
                              String jewelleryMaterialName,
@@ -19,23 +19,24 @@ public class JewelleryMaterial implements Serializable {
                              String jewelleryMaterialUnit,
                              String jewelleryMaterialImage,
                              int jewelleryMaterialQuantity,
-                             double jewelleryMaterialPrice,
-                             double jewelleryMaterialQuality) {
+                             String jewelleryMaterialQuality,
+                             double jewelleryMaterialPrice) {
         this.jewelleryMaterialId = jewelleryMaterialId;
         this.jewelleryMaterialName = jewelleryMaterialName;
         this.jewelleryMaterialDescription = jewelleryMaterialDescription;
         this.jewelleryMaterialUnit = jewelleryMaterialUnit;
         this.jewelleryMaterialImage = jewelleryMaterialImage;
         this.jewelleryMaterialQuantity = jewelleryMaterialQuantity;
-        this.jewelleryMaterialPrice = jewelleryMaterialPrice;
         this.jewelleryMaterialQuality = jewelleryMaterialQuality;
+        this.jewelleryMaterialPrice = jewelleryMaterialPrice;
+
     }
 
-    public double getJewelleryMaterialQuality() {
+    public String getJewelleryMaterialQuality() {
         return jewelleryMaterialQuality;
     }
 
-    public void setJewelleryMaterialQuality(double jewelleryMaterialQuality) {
+    public void setJewelleryMaterialQuality(String jewelleryMaterialQuality) {
         this.jewelleryMaterialQuality = jewelleryMaterialQuality;
     }
 
@@ -97,13 +98,14 @@ public class JewelleryMaterial implements Serializable {
 
     @Override
     public String toString() {
-        return "jewelleryMaterialId=" + jewelleryMaterialId + '\n'+
-                ", jewelleryMaterialName=" + jewelleryMaterialName + '\n'+
-                ", jewelleryMaterialDescription=" + jewelleryMaterialDescription + '\n'+
-                ", jewelleryMaterialUnit=" + jewelleryMaterialUnit + '\n'+
-                ", jewelleryMaterialImage=" + jewelleryMaterialImage + '\n'+
-                ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity + '\n'+
-                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice + '\n'+
-                ", jewelleryMaterialQuality= " + jewelleryMaterialQuality;
+        return "jewelleryMaterialId=" + jewelleryMaterialId + '\n' +
+                ", jewelleryMaterialName=" + jewelleryMaterialName + '\n' +
+                ", jewelleryMaterialDescription=" + jewelleryMaterialDescription + '\n' +
+                ", jewelleryMaterialUnit=" + jewelleryMaterialUnit + '\n' +
+                ", jewelleryMaterialImage=" + jewelleryMaterialImage + '\n' +
+                ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity + '\n' +
+                ", jewelleryMaterialQuality= " + jewelleryMaterialQuality + '\n' +
+                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice;
+
     }
 }

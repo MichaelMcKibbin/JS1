@@ -1,15 +1,11 @@
 package com.michaelmckibbin.js1;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -196,6 +192,47 @@ MENUBAR options
     private Button DrilldownButton;
     @FXML
     private Button AltBrowseButton;
+    @FXML
+    private Button SearchPageButton;
+
+    @FXML
+    public void handleSearchPageButtonClick(ActionEvent actionEvent) {
+        System.out.println("Search Page button clicked!");
+        // open Storefront-view.fxml in a new window
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Search-view.fxml"));
+            Parent root = loader.load();
+
+
+//            // option without css
+//            // Create a new stage and set the scene
+//            Stage stage = new Stage();
+//            stage.setTitle("..."); // Set the stage title
+//            stage.setScene(new Scene(root, 800, 600)); // Set the scene size
+//            // option without css
+
+            // option with css from styles.css in resources folder
+            // Create the Scene object
+            Scene scene = new Scene(root);
+
+            // Apply the CSS file to the scene
+            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Search");
+            // end of option with css from styles.css in resources folder
+
+
+            // Get the current stage (window) and close it
+            Stage currentStage = (Stage) SearchPageButton.getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML
@@ -570,11 +607,18 @@ MENUBAR options
                         //int quantity = quant[random.nextInt(quant.length)];
                         // quantity = random int between 1 and 10
                         int quantity = random.nextInt(10) + 1;
-                        double quality = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
+                        // create a random quality attribute and convert to String. Need quality to be a string to allow for "24k", "pure", "0.925", etc.
+                        // generate a random number between 0 and 100
+                        double randomDouble = random.nextDouble() * 100;
+                        // round the random number to three decimal places
+                        double roundedDouble = Math.round(randomDouble * 1000.0) / 1000.0;
+                        // convert the rounded number to a string
+                        String roundedString = String.valueOf(roundedDouble);
+                        String quality = roundedString;
                         // material price = random positive double between 1 and 100 rounded to two decimal places
                         double materialPrice = Double.parseDouble(df.format(1 + random.nextDouble() * 100));
-                        //double materialPrice = (Math.floor(random.nextDouble() * 20 * 100)) / 100;
-                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit, "/images/jewelleryGeneral.jpg", quantity, materialPrice, quality);
+                        //double materialPrice = ((Math.floor(random.nextDouble() * 20) * 100)) / 100;
+                        JewelleryMaterial jewelerylMaterial = new JewelleryMaterial(materialId, materialName, materialDescription, materialUnit, "/images/jewelleryGeneral.jpg", quantity, quality, materialPrice);
                         item.addJewelleryMaterial(jewelerylMaterial);
                     }
                     tray.addJewelleryItem(item);

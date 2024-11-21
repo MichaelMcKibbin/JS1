@@ -907,14 +907,13 @@ public class DisplayCaseController implements Serializable {
             itemImage = "./images/jewelleryGeneral.jpg";
         }
 
-        //float itemPrice = Float.parseFloat(addItemPriceTextField.getText());
 
-        float itemPrice;
+        double itemPrice;
         // Check if the addItemPriceTextField is empty, and set the default value if it is
         if (addItemPriceTextField.getText().trim().isEmpty()) {
-            itemPrice = 9999.99f;
+            itemPrice = 9999.99;
         } else {
-            itemPrice = Float.parseFloat(addItemPriceTextField.getText());
+            itemPrice = Double.parseDouble(addItemPriceTextField.getText());
         }
 
 
@@ -998,16 +997,16 @@ public class DisplayCaseController implements Serializable {
         if (jewelleryMaterialImage.isEmpty()) {
             jewelleryMaterialImage = "./images/jewelleryGeneral.jpg";
         }
-        float jewelleryMaterialPrice;
+        double jewelleryMaterialPrice;
         // Check if the addJewelleryMaterialPriceTextField is empty, and set the default value if it is
         if (addJewelleryMaterialPriceTextField.getText().trim().isEmpty()) {
-            jewelleryMaterialPrice = 9999.99f;
+            jewelleryMaterialPrice = 9999.99;
         } else {
-            jewelleryMaterialPrice = Float.parseFloat(addJewelleryMaterialPriceTextField.getText());
+            jewelleryMaterialPrice = Double.parseDouble(addJewelleryMaterialPriceTextField.getText());
         }
 
         int jewelleryMaterialQuantity = Integer.parseInt(addJewelleryMaterialQuantityTextField.getText());
-        float jewelleryMaterialQuality = Float.parseFloat(addJewelleryMaterialQualityTextField.getText());
+        String jewelleryMaterialQuality = (String) addJewelleryMaterialQualityTextField.getText();
         String jewelleryMaterialUnitType = (String) addJewelleryMaterialUnitTypeChoiceBox.getValue();
 
         // create a new jewellery material instance

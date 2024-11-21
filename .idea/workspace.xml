@@ -4,25 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="in browse">
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="Stock Value Lists Tabs OK&#10;Treeview Drilldown OK">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/SearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Search-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AltBrowseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/AltBrowseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTrayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTrayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DrilldownController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DrilldownController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/forLater" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/forLater" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AltBrowse-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AltBrowse-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Drilldown-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Drilldown-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/JewelleryMaterial-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JewelleryMaterial-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/OLDDisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/OLDDisplayCase-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/OLDStorefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/OLDStorefront-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sampleviewwithmenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sampleviewwithmenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +97,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/onedrive personal/OneDrive/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/test/java/com/michaelmckibbin/js1",
-    "last_opened_file_path": "D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/Code Samples/DS_And_Algo-CA-1-main/DS_And_Algo-CA-1-main",
+    "last_opened_file_path": "D:/onedrive personal/OneDrive/Documents/ComputerScienceBSc/DataStructuresAndAlgorithms1/intellijProjects/JS1/JS1/src/main/resources",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -257,7 +255,7 @@
       <workItem from="1731479990965" duration="6773000" />
       <workItem from="1731553866587" duration="62802000" />
       <workItem from="1731878923075" duration="20128000" />
-      <workItem from="1732023808031" duration="16159000" />
+      <workItem from="1732023808031" duration="49178000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -475,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731874049139</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Stock Value Lists Tabs OK&#10;Treeview Drilldown OK">
+      <option name="closed" value="true" />
+      <created>1732060044859</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732060044859</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +499,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView.&#10;New view opens." />
     <MESSAGE value="JSMain -&gt; Storefront-view -&gt; JSController -&gt; DCView -&gt; Storefront...&#10;New view opens.&#10;Storefront Button click opens storefront again.&#10;First view -&gt; second view -&gt; first view again." />
     <MESSAGE value="most views look ok" />
     <MESSAGE value="after broken revert" />
@@ -518,7 +523,8 @@
     <MESSAGE value="all stock value calc ok" />
     <MESSAGE value="Cases, Trays, &amp; Jewellery Values OK. Begin Tab view." />
     <MESSAGE value="in browse" />
-    <option name="LAST_COMMIT_MESSAGE" value="in browse" />
+    <MESSAGE value="Stock Value Lists Tabs OK&#10;Treeview Drilldown OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stock Value Lists Tabs OK&#10;Treeview Drilldown OK" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
