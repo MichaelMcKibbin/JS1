@@ -460,7 +460,7 @@ MENUBAR options
 
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Display Cases");
+            stage.setTitle("Stock Value Lists");
             // end of option with css from styles.css in resources folder
 
             // Get the current stage (window) and close it
@@ -574,7 +574,9 @@ MENUBAR options
             int counter = 0;
             int caseIdNum = 900 + i + counter;
             counter++;
-            DisplayCase displayCase = new DisplayCase(caseIdNum, random.nextBoolean(), random.nextBoolean());
+            // Convert caseIDNum to String
+            String caseId = String.valueOf(caseIdNum);
+            DisplayCase displayCase = new DisplayCase(caseId, random.nextBoolean(), random.nextBoolean());
 
             DecimalFormat df = new DecimalFormat("#.##");
             df.setRoundingMode(RoundingMode.HALF_UP);

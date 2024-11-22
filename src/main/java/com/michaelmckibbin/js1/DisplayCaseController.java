@@ -96,6 +96,10 @@ public class DisplayCaseController implements Serializable {
     public TextField addJewelleryMaterialJewelleryItemIdTextField;
     @FXML
     public TextField addJewelleryMaterialQualityTextField;
+    public VBox deleteJewelleryVBox;
+    public ChoiceBox displayCaseChoiceBox;
+    public ChoiceBox displayTrayChoiceBox;
+    public ChoiceBox jewelleryItemChoiceBox;
 
 
     private Set<String> allTrayIdsSet = new HashSet<>();
@@ -142,6 +146,9 @@ public class DisplayCaseController implements Serializable {
         addJewelleryMaterialUnitTypeChoiceBox.getItems().addAll("Grams", "Karats", "oz", "cm", "Other");
         // Set the default value for the jewelleryMaterialUnitTypeChoiceBox
         addJewelleryMaterialUnitTypeChoiceBox.setValue("Other");
+
+        //populate
+
 
     }
 
@@ -589,7 +596,7 @@ public class DisplayCaseController implements Serializable {
         do {
             idExists = false;
             for (DisplayCase displayCase : displayCases) {
-                if (displayCase.getCaseId() == nextCaseid) {
+                if (displayCase.getCaseId().equals(nextCaseid)) {
                     idExists = true;
                     nextCaseid++;
                     break;
@@ -606,7 +613,7 @@ public class DisplayCaseController implements Serializable {
         System.out.println("Add case button clicked!");
 
         // generate new case number with getNextCaseid
-        int newCaseid = getNextCaseid();
+        String newCaseid = String.valueOf(getNextCaseid());
         // get value of CheckBoxIsLit
         boolean isLit = CheckBoxIsLit.isSelected();
         // get value of CheckBoxWallMounted
@@ -623,7 +630,7 @@ public class DisplayCaseController implements Serializable {
 
     public DisplayCase findDisplayCaseById(int caseId) {
         for (DisplayCase displayCase : displayCases) {
-            if (displayCase.getCaseId() == (caseId)) {
+            if (displayCase.getCaseId().equals(caseId)) {
                 return displayCase;
             }
         }
@@ -1031,9 +1038,32 @@ public class DisplayCaseController implements Serializable {
             System.out.println("Invalid case id. Please try again.");
         }
 
-
         // Clear the input fields
+        addJewelleryMaterialIdTextField.clear();
+        addJewelleryMaterialNameTextField.clear();
 
 
     }
+
+    //
+
+    public void deleteJewelleryItem(String itemId) {
+        // Find the display case
+        for (DisplayCase displayCase : displayCases) {
+                for (DisplayTray tray : displayCase.getDisplayTrays()) {
+                        for (JewelleryItem item : tray.getJewelleryItems()) {
+                            if (item.getItemID().equals(itemId)) {
+                                // Remove the jewellery item
+                                tray.getJewelleryItems().remove(item);
+                                return;
+                            }
+                        }
+
+                        return;
+
+                }
+
+        }
+    }
+
 }

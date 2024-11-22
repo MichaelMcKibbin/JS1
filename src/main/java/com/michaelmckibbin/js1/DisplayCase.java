@@ -6,13 +6,13 @@ import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
 
 public class DisplayCase implements Serializable {
 
-    public int caseID;
+    public String caseID;
     public boolean isWall = false; // false = floor, true = wall
     public boolean isLit = false;  // false = not lit, true = lit
     public MyLinkedList<DisplayTray> displayTrays;
     private int caseId;
 
-    public DisplayCase(int caseID, boolean isLit, boolean isWall) {
+    public DisplayCase(String caseID, boolean isLit, boolean isWall) {
         this.caseID = caseID;
         this.isWall = isWall;
         this.isLit = isLit;
@@ -30,10 +30,10 @@ public class DisplayCase implements Serializable {
         return displayTrays;
     }
 
-    public int getCaseId() {
+    public String getCaseId() {
         return caseID;
     }
-    public void setCaseID(int caseID) {
+    public void setCaseID(String caseID) {
         this.caseID = caseID;
     }
     public boolean isWall() {
@@ -88,7 +88,7 @@ public class DisplayCase implements Serializable {
 
     public DisplayCase findDisplayCaseById(int caseId) {
         for (DisplayCase displayCase : displayCases) {
-            if (displayCase.getCaseId()==(caseId)) {
+            if (displayCase.getCaseId().equals(caseId)) {
                 return displayCase;
             }
         }

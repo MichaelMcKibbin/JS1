@@ -94,10 +94,101 @@ public class DrilldownController implements Serializable {
     End of Navigation Buttons
      */
 
-
     @FXML
-    private TreeView<String> inventoryTreeView;
+    private TreeView<String> inventoryTreeView; // create Treeview
 
+//
+//      // TODO - fix delete button
+//      // add delete button - lost item details in treeview...
+
+//    private void populateInventoryTreeView() {
+//        TreeItem<String> root = new TreeItem<>("Inventory: ");
+//        root.setExpanded(true);
+//
+//        for (DisplayCase displayCase : displayCases) {
+//            TreeItem<String> caseNode = new TreeItem<>("Display Case: " + displayCase.getCaseId());
+//
+//            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
+//                TreeItem<String> trayNode = new TreeItem<>("Display Tray: " + displayTray.getTrayID());
+//
+//                for (JewelleryItem item : displayTray.getJewelleryItems()) {
+//                    // Create HBox to hold item info and delete button
+//                    HBox itemBox = new HBox(10); // 10 is spacing between elements
+//
+//                    // Create VBox for item details
+//                    VBox itemDetails = new VBox(2);
+//                    itemDetails.getChildren().addAll(
+//                            new Label("Item ID#: " + item.getItemID()),
+//                            new Label("Item Name: " + item.getItemName()),
+//                            new Label("Item Type: " + item.getItemType()),
+//                            new Label("Description: " + item.getItemDescription()),
+//                            new Label("Target Gender: " + item.getItemTargetGender()),
+//                            new Label("Price: €" + item.getItemPrice())
+//                    );
+//
+//                    // Create delete button
+//                    Button deleteButton = new Button("Delete");
+//                    deleteButton.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white;");
+//
+//                    // Add hover effect
+//                    deleteButton.setOnMouseEntered(e ->
+//                            deleteButton.setStyle("-fx-background-color: #cc0000; -fx-text-fill: white;"));
+//                    deleteButton.setOnMouseExited(e ->
+//                            deleteButton.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white;"));
+//
+//                    // Add delete functionality
+//                    deleteButton.setOnAction(e -> {
+//                        // Confirm deletion
+//                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                        alert.setTitle("Confirm Deletion");
+//                        alert.setHeaderText("Delete Item");
+//                        alert.setContentText("Are you sure you want to delete this item?");
+//
+//                        Optional<ButtonType> result = alert.showAndWait();
+//                        if (result.isPresent() && result.get() == ButtonType.OK) {
+//                            // Remove from the tray's jewellery items list
+//                            displayTray.getJewelleryItems().remove(item);
+//                            // Remove from the TreeView
+//                            // Is this necessary? will refresh take care of it anyway?
+//                            trayNode.getChildren().remove(item);
+//
+//                            // Show success message
+//                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+//                            successAlert.setTitle("Success");
+//                            successAlert.setHeaderText(null);
+//                            successAlert.setContentText("Item successfully deleted.");
+//                            successAlert.show();
+//                        }
+//                    });
+//
+//                    // Add items to HBox
+//                    itemBox.getChildren().addAll(itemDetails, deleteButton);
+//                    itemBox.setAlignment(Pos.CENTER_LEFT); // Align items to the left
+//
+//                    TreeItem<String> itemNode = new TreeItem<>();
+//                    itemNode.setGraphic(itemBox);
+//
+//                    for (JewelleryMaterial material : item.getJewelleryMaterials()) {
+//                        TreeItem<String> materialNode = new TreeItem<>(
+//                                "Materials included: \n" +
+//                                        "Material ID#: " + material.getJewelleryMaterialId() +
+//                                        "\nMaterial Name: " + material.getJewelleryMaterialName());
+//                        itemNode.getChildren().add(materialNode);
+//                    }
+//
+//                    trayNode.getChildren().add(itemNode);
+//                }
+//                caseNode.getChildren().add(trayNode);
+//            }
+//            root.getChildren().add(caseNode);
+//        }
+//
+//        inventoryTreeView.setRoot(root);
+//        inventoryTreeView.setShowRoot(true);
+//    }
+
+
+    // without delete button
     private void populateInventoryTreeView() {
         TreeItem<String> root = new TreeItem<>("Inventory: ");
         root.setExpanded(true);

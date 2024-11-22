@@ -99,6 +99,11 @@ public class JewelleryItem implements Serializable {
     public void removeJewelleryMaterial(JewelleryMaterial jewelleryMaterial) {
         jewelleryMaterials.remove(jewelleryMaterial);
     }
+    // remove jewellery item from list
+    public void removeJewelleryItem(JewelleryItem jewelleryItem) {
+        jewelleryMaterials.remove(Integer.parseInt(itemID));
+    }
+
 
 
     @Override
