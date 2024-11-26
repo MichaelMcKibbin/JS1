@@ -42,7 +42,7 @@
                    prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
                 <AnchorPane>
-                    <VBox layoutX="61.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10"
+                    <VBox layoutX="45.0" layoutY="14.0" prefHeight="200.0" prefWidth="136.0" spacing="10"
                           styleClass="navigation-button-container-1">
                         <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false"
                                 onAction="#handleStorefrontButtonClick" styleClass="storefront-button"
@@ -64,7 +64,7 @@
                                 textAlignment="CENTER"/>
 
                     </VBox>
-                    <VBox layoutX="44.0" layoutY="253.0" prefHeight="123.0" prefWidth="134.0"
+                    <VBox layoutX="44.0" layoutY="276.0" prefHeight="123.0" prefWidth="134.0"
                           style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;"
                           styleClass="addCaseBtnVBox">
 
@@ -399,9 +399,9 @@
                                     <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
                                 </padding>
                             </Label>
-                            <TextField/>
-                            <Button fx:id="deleteJewelleryItemButton" prefHeight="30.0" prefWidth="180.0"
-                                    text="Delete item!">
+                            <TextField fx:id="deleteItemUserInputTextBox" promptText="Enter item ID"/>
+                            <Button fx:id="deleteItemButton" onAction="#handleDeleteItemButton" prefHeight="30.0"
+                                    prefWidth="180.0" text="Delete item!">
                                 <font>
                                     <Font name="System Bold" size="14.0"/>
                                 </font>
@@ -431,20 +431,20 @@
                                     <Font name="System Italic" size="12.0"/>
                                 </font>
                             </Label>
-                            <TextField fx:id="addItemDisplayCaseIdTextField" promptText=" Enter Case ID"/>
-                            <TextField fx:id="addItemDisplayTrayIdTextField" prefHeight="25.0" prefWidth="143.0"
+                            <TextField fx:id="editItemDisplayCaseIdTextField" promptText=" Enter Case ID"/>
+                            <TextField fx:id="editItemDisplayTrayIdTextField" prefHeight="25.0" prefWidth="143.0"
                                        promptText=" Enter Tray ID">
                                 <VBox.margin>
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemItemIdTextField" layoutX="16.0" layoutY="54.0" prefHeight="25.0"
+                            <TextField fx:id="editItemItemIdTextField" layoutX="16.0" layoutY="54.0" prefHeight="25.0"
                                        prefWidth="143.0" promptText=" Enter Item ID">
                                 <VBox.margin>
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemNameTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0"
+                            <TextField fx:id="editItemNameTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0"
                                        prefWidth="143.0" promptText=" Enter Item Name">
                                 <padding>
                                     <Insets top="1.0"/>
@@ -453,7 +453,7 @@
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemDescriptionTextField" layoutX="16.0" layoutY="104.0"
+                            <TextField fx:id="editItemDescriptionTextField" layoutX="16.0" layoutY="104.0"
                                        prefHeight="25.0" prefWidth="143.0" promptText=" Enter Description">
                                 <padding>
                                     <Insets top="1.0"/>
@@ -462,28 +462,29 @@
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </TextField>
-                            <ChoiceBox fx:id="addItemTypeChoiceBox" layoutX="16.0" layoutY="179.0" prefWidth="150.0">
+                            <ChoiceBox fx:id="editItemTypeChoiceBox" layoutX="16.0" layoutY="179.0" prefWidth="150.0">
                                 <VBox.margin>
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </ChoiceBox>
-                            <ChoiceBox fx:id="addItemGenderChoiceBox" prefWidth="150.0">
+                            <ChoiceBox fx:id="editItemGenderChoiceBox" prefWidth="150.0">
                                 <VBox.margin>
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </ChoiceBox>
-                            <TextField fx:id="addItemImageUrlTextField" promptText="enter image url">
+                            <TextField fx:id="editItemImageUrlTextField" promptText="enter image url">
                                 <VBox.margin>
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemPriceTextField" promptText="00.00">
+                            <TextField fx:id="editItemPriceTextField" promptText="00.00">
                                 <VBox.margin>
                                     <Insets top="3.0"/>
                                 </VBox.margin>
                             </TextField>
-                            <Button fx:id="addJewelleryItemButton" mnemonicParsing="false" onAction="#addJewelleryItem"
-                                    prefHeight="21.0" prefWidth="152.0" text="Save Changes">
+                            <Button fx:id="editJewelleryItemButton" mnemonicParsing="false"
+                                    onAction="#editJewelleryItem" prefHeight="21.0" prefWidth="152.0"
+                                    text="Save Changes">
                                 <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                                 </padding>

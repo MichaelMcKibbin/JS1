@@ -100,6 +100,33 @@ public class DisplayCaseController implements Serializable {
     public VBox deleteJewelleryVBox;
     @FXML
     public ChoiceBox jewelleryItemChoiceBox;
+    @FXML
+    public TextField deleteItemUserInputTextBox;
+
+    @FXML
+    public Button deleteItemButton;
+    @FXML
+    public VBox editItemVbox;
+    @FXML
+    public TextField editItemDisplayCaseIdTextField;
+    @FXML
+    public TextField editItemDisplayTrayIdTextField;
+    @FXML
+    public TextField editItemItemIdTextField;
+    @FXML
+    public TextField editItemNameTextField;
+    @FXML
+    public TextField editItemDescriptionTextField;
+    @FXML
+    public ChoiceBox editItemTypeChoiceBox;
+    @FXML
+    public ChoiceBox editItemGenderChoiceBox;
+    @FXML
+    public TextField editItemImageUrlTextField;
+    @FXML
+    public TextField editItemPriceTextField;
+    @FXML
+    public Button editJewelleryItemButton;
 
 
     private Set<String> allTrayIdsSet = new HashSet<>();
@@ -626,7 +653,20 @@ public class DisplayCaseController implements Serializable {
 
     }
 
-    public DisplayCase findDisplayCaseById(int caseId) {
+//    public DisplayCase findDisplayCaseById(int caseId) {
+//        for (DisplayCase displayCase : displayCases) {
+//            if (displayCase.getCaseId().equals(caseId)) {
+//                return displayCase;
+//            }
+//        }
+//        return null; // Return null if no matching DisplayCase is found
+//    }
+
+    public DisplayCase findDisplayCaseById(String caseId) {
+        if (caseId == null || caseId.trim().isEmpty()) {
+            return null;
+        }
+
         for (DisplayCase displayCase : displayCases) {
             if (displayCase.getCaseId().equals(caseId)) {
                 return displayCase;
@@ -635,44 +675,10 @@ public class DisplayCaseController implements Serializable {
         return null; // Return null if no matching DisplayCase is found
     }
 
+
     @FXML
     private TextField displayCaseSearchField;
 
-    @FXML
-    private void handleDisplayCaseSearchButton() {
-        String input = displayCaseSearchField.getText().trim(); // get input and remove any leading or trailing whitespace
-
-//        // before input validation
-//        DisplayCase foundCase = findDisplayCaseById(Integer.parseInt(caseId));
-//        if (foundCase != null) {
-//            // Display the found DisplayCase or perform other actions
-//            System.out.println("Found DisplayCase: " + foundCase);
-//            displayCaseSearchResult(foundCase);
-//
-//        } else {
-//            System.out.println("No DisplayCase found with caseId: " + caseId);
-//        }
-
-        // with input validation
-        if (input.isEmpty()) {
-            //System.out.println("Please enter a caseId to search.");
-            displayCaseSearchResult(null); // Clear the search result if the input is empty
-            showErrorMessage("Invalid input. Please enter a number.");
-            return;
-        }
-        // Check if the input is a valid number
-        if (!isNumeric(input)) {
-            displayCaseSearchResult(null); // Clear the search result
-            showErrorMessage("Invalid input. Please enter a number.");
-            return;
-        }
-
-        //System.out.println("Searching for: " + caseId);
-        DisplayCase foundCase = findDisplayCaseById(Integer.parseInt(input));
-        displayCaseSearchResult(foundCase);
-        //System.out.println("Found DisplayCase: " + foundCase);
-
-    }
 
     private boolean isNumeric(String str) {
         try {
@@ -773,13 +779,7 @@ public class DisplayCaseController implements Serializable {
             return;
         }
 
-        if (!isNumeric(caseIdInput)) {
-            showErrorMessage("Invalid input. Please enter a number.");
-            return;
-        }
-
-        int caseId = Integer.parseInt(caseIdInput);
-        DisplayCase selectedCase = findDisplayCaseById(caseId);
+        DisplayCase selectedCase = findDisplayCaseById(caseIdInput);
 
         if (selectedCase != null) {
             // take user input from displayTrayIdTextField and create trayId
@@ -868,9 +868,9 @@ public class DisplayCaseController implements Serializable {
         // get user input
 
         // Get user input for the case id
-        int caseIdInput = Integer.parseInt(addItemDisplayCaseIdTextField.getText());
+        String caseIdInput = addItemDisplayCaseIdTextField.getText();
         // Validate the case id input
-        if (caseIdInput == 0) {
+        if (caseIdInput.isEmpty()) {
             showErrorMessage("Please enter a case id.");
             return;
         }
@@ -921,7 +921,7 @@ public class DisplayCaseController implements Serializable {
 
 
         // Add the jewellery item to the selected case and tray
-        DisplayCase selectedCase = findDisplayCaseById(Integer.parseInt(String.valueOf(caseIdInput)));
+        DisplayCase selectedCase = findDisplayCaseById(caseIdInput);
         if (selectedCase != null) {
             DisplayTray selectedTray = selectedCase.findDisplayTrayById(trayIdInput);
             if (selectedTray != null) {
@@ -953,10 +953,18 @@ public class DisplayCaseController implements Serializable {
         System.out.println("Add jewellery material button clicked!");
         // get user input
 
-        // Get user input for the case
-        int addJewelleryMaterialCaseIdInput = Integer.parseInt(addJewelleryMaterialDisplayCaseIdTextField.getText());
-        // Validate the case id input
-        if (addJewelleryMaterialCaseIdInput == 0) {
+//        // Get user input for the case
+//        int addJewelleryMaterialCaseIdInput = Integer.parseInt(addJewelleryMaterialDisplayCaseIdTextField.getText());
+//        // Validate the case id input
+//        if (addJewelleryMaterialCaseIdInput == 0) {
+//            showErrorMessage("Please enter a case id.");
+//            return;
+//        }
+//
+// Get user input for the case
+        String addJewelleryMaterialCaseIdInput = addJewelleryMaterialDisplayCaseIdTextField.getText();
+// Validate the case id input
+        if (addJewelleryMaterialCaseIdInput.isEmpty() || addJewelleryMaterialCaseIdInput.trim().isEmpty()) {
             showErrorMessage("Please enter a case id.");
             return;
         }
@@ -1012,7 +1020,7 @@ public class DisplayCaseController implements Serializable {
         JewelleryMaterial jewelleryMaterial = new JewelleryMaterial(jewelleryMaterialId, jewelleryMaterialName, jewelleryMaterialDescription, jewelleryMaterialUnitType, jewelleryMaterialImage, jewelleryMaterialQuantity, jewelleryMaterialQuality, jewelleryMaterialPrice);
 
         // add the jewellery material to the selected jewellery item. add the jewellery item the tray and case as before.
-        DisplayCase selectedCase = findDisplayCaseById(Integer.parseInt(String.valueOf(addJewelleryMaterialCaseIdInput)));
+        DisplayCase selectedCase = findDisplayCaseById(addJewelleryMaterialCaseIdInput);
         if (selectedCase != null) {
             DisplayTray selectedTray = selectedCase.findDisplayTrayById(addJewelleryMaterialTrayIdInput);
             if (selectedTray != null) {
@@ -1118,4 +1126,23 @@ public class DisplayCaseController implements Serializable {
     } // end of delete jewellery item
 
 
+    @FXML
+    public void handleDeleteItemButton(ActionEvent actionEvent) {
+        // search display cases, display trays, and jewellery items lists for jewellery item by itemId
+        for (DisplayCase displayCase : displayCases) {
+            for (DisplayTray displayTray : displayCase.getDisplayTrays()) {
+                for (JewelleryItem jewelleryItem : displayTray.getJewelleryItems()) {
+                    if (jewelleryItem.getItemID().equals(deleteItemUserInputTextBox.getText())) {
+                        displayTray.getJewelleryItems().remove(jewelleryItem); // see MyLinkedList 'remove' method
+                        System.out.println("Jewellery item deleted");
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    @FXML
+    public void editJewelleryItem(ActionEvent actionEvent) {
+    }
 }
