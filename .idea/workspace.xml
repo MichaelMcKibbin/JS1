@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="changed case id from int to string&#10;begining delete jewellery item.">
-      <change afterPath="$PROJECT_DIR$/JewelleryStoreDetailedInstructions.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/java/com/michaelmckibbin/js1/DisplayTrayTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayTray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/SearchController.java" afterDir="false" />
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="rearranged DC view">
       <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/DisplayCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/michaelmckibbin/js1/DisplayCaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/DisplayTrayTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/JewelleryItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/michaelmckibbin/js1/JewelleryItemTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/michaelmckibbin/js1/JewelleryMaterialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/com/michaelmckibbin/js1/JewelleryMaterialTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +267,7 @@
       <workItem from="1732577855296" duration="577000" />
       <workItem from="1732578556981" duration="184000" />
       <workItem from="1732579065816" duration="374000" />
-      <workItem from="1732585241372" duration="189000" />
+      <workItem from="1732585241372" duration="2881000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -528,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732250468331</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="rearranged DC view">
+      <option name="closed" value="true" />
+      <created>1732586256623</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732586256623</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="after broken revert" />
     <MESSAGE value="menubars &amp; navigation buttons ok" />
     <MESSAGE value="before new list" />
     <MESSAGE value="DC test data loading &amp; printing.&#10;MyLinkedList - updated Iterator." />
@@ -571,7 +559,8 @@
     <MESSAGE value="Stock Value Lists Tabs OK&#10;Treeview Drilldown OK" />
     <MESSAGE value="Changed 'quality' attribute from double to string to allow for &quot;24k&quot;, etc.&#10;Corrected jewellery material signature. Quality &amp; Quantity were swapped. Also toString." />
     <MESSAGE value="changed case id from int to string&#10;begining delete jewellery item." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed case id from int to string&#10;begining delete jewellery item." />
+    <MESSAGE value="rearranged DC view" />
+    <option name="LAST_COMMIT_MESSAGE" value="rearranged DC view" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
