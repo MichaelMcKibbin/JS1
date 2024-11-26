@@ -1,4 +1,16 @@
+/**
+ * This class represents a display case in the store.
+ * Cases are identified by a unique ID, and whether it's wall-mounted, freestanding, lit or not.
+ * Each display case contains a linked list of display trays.
+ *
+ *
+ * @author Michael McKibbin
+ * @version 1.0
+ */
 package com.michaelmckibbin.js1;
+
+import com.michaelmckibbin.js1.DisplayTray;
+import com.michaelmckibbin.js1.MyLinkedList;
 
 import java.io.Serializable;
 
@@ -18,7 +30,7 @@ public class DisplayCase implements Serializable {
         this.isLit = isLit;
         this.displayTrays = new MyLinkedList<>();
     }
-
+//      sample data for testing
 //    public static void initializeDisplayTrays() {
 //        DisplayTray displayTray1 = new DisplayTray("Z999", "Black", 10, 10);
 //        DisplayTray displayTray2 = new DisplayTray("Z888", "White", 10, 10);
@@ -33,18 +45,23 @@ public class DisplayCase implements Serializable {
     public String getCaseId() {
         return caseID;
     }
+
     public void setCaseID(String caseID) {
         this.caseID = caseID;
     }
+
     public boolean isWall() {
         return isWall;
     }
+
     public void setWall(boolean wall) {
         isWall = wall;
     }
+
     public boolean isLit() {
         return isLit;
     }
+
     public void setLit(boolean lit) {
         isLit = lit;
     }
@@ -60,7 +77,6 @@ public class DisplayCase implements Serializable {
 //            System.out.println("");
 //        }
 //    }
-
 
 
     @Override
@@ -95,7 +111,7 @@ public class DisplayCase implements Serializable {
         return null; // Return null if no matching DisplayCase is found
     }
 
-    public JewelleryItem  findJewelleryItemById(String itemId) {
+    public JewelleryItem findJewelleryItemById(String itemId) {
         for (DisplayTray tray : displayTrays) {
             JewelleryItem item = tray.findJewelleryItemById(Integer.parseInt(itemId));
             if (item != null) {

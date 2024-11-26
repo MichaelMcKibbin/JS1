@@ -1,3 +1,16 @@
+/**
+ * Represents a display tray within a jewellery display case.
+ * Each tray can contain multiple jewellery items and has specific dimensions and a colour(color).
+ *
+ * The tray identifier is unique within the entire display system.
+ *
+ * Currently, there are no size limits on the number of jewellery items that can be added to a tray or the dimensions of the tray.
+ * Later, the tray size and capacity could be limited to allow the use of a 'smart add' facility.
+ * If no limits are imposed, a smart add facility has the potential to create an unmanageable number of items on a single tray.
+ *
+ * @author Michael McKibbin
+ * @version 1.0
+ */
 package com.michaelmckibbin.js1;
 
 import com.michaelmckibbin.js1.JewelleryItem;
@@ -15,17 +28,13 @@ public class DisplayTray implements Serializable {
     private int caseId;
     public MyLinkedList<JewelleryItem> jewelleryItems;
 
-    public DisplayTray(int caseId, String trayID, String trayColor, int trayWidth, int trayDepth/*, JewelleryItem jewelleryItems*/) {
+    public DisplayTray(String trayID, String trayColor, int trayWidth, int trayDepth) {
         this.trayID = trayID;
         this.trayColor = trayColor;
         this.trayWidth = trayWidth;
         this.trayDepth = trayDepth;
         this.jewelleryItems = new MyLinkedList<>();
     }
-
-    public DisplayTray(String trayId) {
-    }
-
 
     public String getTrayID() {
         return trayID;

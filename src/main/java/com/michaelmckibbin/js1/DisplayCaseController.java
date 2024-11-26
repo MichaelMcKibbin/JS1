@@ -96,9 +96,9 @@ public class DisplayCaseController implements Serializable {
     public TextField addJewelleryMaterialJewelleryItemIdTextField;
     @FXML
     public TextField addJewelleryMaterialQualityTextField;
+    @FXML
     public VBox deleteJewelleryVBox;
-    public ChoiceBox displayCaseChoiceBox;
-    public ChoiceBox displayTrayChoiceBox;
+    @FXML
     public ChoiceBox jewelleryItemChoiceBox;
 
 
@@ -298,7 +298,7 @@ public class DisplayCaseController implements Serializable {
         // saveDisplayCases
         saveDisplayCasesToFile("displayCases.ser");
         // clear all lists
-        deleteAllStock();
+        deleteAllStock(); // tidy up
         // exit
         System.out.println("Goodbye!");
         System.exit(0);
@@ -308,8 +308,6 @@ public class DisplayCaseController implements Serializable {
         System.out.println("Delete all stock button clicked!");
         // show confirmation dialog
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete all stock?", ButtonType.YES, ButtonType.NO);
-        // clear cases list
-        // displayCases.clear();
         deleteAllStock();
     }
 
@@ -686,12 +684,6 @@ public class DisplayCaseController implements Serializable {
     }
 
 
-    public void onDeleteAllCasesButton(ActionEvent actionEvent) {
-        System.out.println("Delete all cases button clicked!");
-//        displayCases.clear(); // short & immediate!
-        showConfirmationDialog(); // a better way. confirm choice.
-    }
-
     @FXML
     public void onListAllCasesButton(ActionEvent actionEvent) {
         System.out.println("List all cases button clicked!");
@@ -848,7 +840,7 @@ public class DisplayCaseController implements Serializable {
 
 
             // Create a new DisplayTray instance with the user input
-            DisplayTray newTray = new DisplayTray(caseId, trayId, trayColor, trayWidth, trayDepth);
+            DisplayTray newTray = new DisplayTray(trayId, trayColor, trayWidth, trayDepth);
             selectedCase.addDisplayTray(newTray);
             System.out.println("New tray added: " + newTray);
 
@@ -1045,25 +1037,85 @@ public class DisplayCaseController implements Serializable {
 
     }
 
-    //
 
-    public void deleteJewelleryItem(String itemId) {
-        // Find the display case
-        for (DisplayCase displayCase : displayCases) {
-                for (DisplayTray tray : displayCase.getDisplayTrays()) {
-                        for (JewelleryItem item : tray.getJewelleryItems()) {
-                            if (item.getItemID().equals(itemId)) {
-                                // Remove the jewellery item
-                                tray.getJewelleryItems().remove(item);
+
+    /*
+    Delete a jewellery item from a tray in a case.
+    Linked lists are not like arrays.
+    Need to create a new list without the 'deleted' item by copying the original list and excluding the item to be deleted.
+    Then, update the original list with the new list.
+     */
+
+    @FXML
+    public TextField deleteJewelleryItemCaseIdTextField;
+    @FXML
+    public TextField deleteJewelleryItemTrayIdTextField;
+    @FXML
+    public TextField deleteJewelleryItemTextField;
+    @FXML
+    public Button deleteJewelleryItemButton;
+
+    @FXML
+    public void handleDeleteJewelleryItem(ActionEvent actionEvent) {
+        System.out.println("Delete jewellery item button clicked!");
+
+        // Get user input
+        String caseId = deleteJewelleryItemCaseIdTextField.getText().trim();
+        String trayId = deleteJewelleryItemTrayIdTextField.getText().trim();
+        String itemId = deleteJewelleryItemTextField.getText().trim();
+
+        // Validate inputs
+        if (caseId.isEmpty() || trayId.isEmpty() || itemId.isEmpty()) {
+            System.out.println("Please fill in all fields (Case ID, Tray ID, and Item ID)");
+            return;
+        }
+
+        try {
+            // Find the specific case
+            for (DisplayCase displayCase : displayCases) {
+                if (displayCase.getCaseId().equals(caseId)) {
+                    // Find the specific tray
+                    for (DisplayTray tray : displayCase.getDisplayTrays()) {
+                        if (tray.getTrayID().equals(trayId)) {
+                            // Create a new MyLinkedList
+                            MyLinkedList<JewelleryItem> newItems = new MyLinkedList<>();
+                            // Copy all items except the one to be deleted
+                            for (JewelleryItem item : tray.getJewelleryItems()) {
+                                if (!item.getItemID().equals(itemId)) {
+                                    newItems.add(item);
+                                }
+                            }
+
+                            // If sizes are the same, item wasn't found
+                            if (newItems.size() == tray.getJewelleryItems().size()) {
+                                System.out.println("Item " + itemId + " not found in specified tray");
                                 return;
                             }
+
+                            // Update the tray with the new list
+                            tray.setJewelleryItems(newItems);
+                            System.out.println("Successfully deleted item " + itemId +
+                                    " from tray " + trayId +
+                                    " in case " + caseId);
+
+                            // Clear the input fields
+                            deleteJewelleryItemCaseIdTextField.clear();
+                            deleteJewelleryItemTrayIdTextField.clear();
+                            deleteJewelleryItemTextField.clear();
+                            return;
                         }
-
-                        return;
-
+                    }
+                    System.out.println("Tray " + trayId + " not found in specified case");
+                    return;
                 }
+            }
+            System.out.println("Case " + caseId + " not found");
 
+        } catch (Exception e) {
+            System.out.println("Error occurred while deleting item: " + e.getMessage());
+            e.printStackTrace();
         }
-    }
+    } // end of delete jewellery item
+
 
 }

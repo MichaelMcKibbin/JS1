@@ -1,3 +1,10 @@
+/**
+ * This class represents jewellery material contained in a jewellery item.
+ *
+ *
+ * @author Michael McKibbin
+ * @version 1.0
+ */
 package com.michaelmckibbin.js1;
 
 import java.io.Serializable;
@@ -13,14 +20,7 @@ public class JewelleryMaterial implements Serializable {
     double jewelleryMaterialPrice; // price per unit
     String jewelleryMaterialQuality; // .925, 24, 99%, etc.
 
-    public JewelleryMaterial(String jewelleryMaterialId,
-                             String jewelleryMaterialName,
-                             String jewelleryMaterialDescription,
-                             String jewelleryMaterialUnit,
-                             String jewelleryMaterialImage,
-                             int jewelleryMaterialQuantity,
-                             String jewelleryMaterialQuality,
-                             double jewelleryMaterialPrice) {
+    public JewelleryMaterial(String jewelleryMaterialId, String jewelleryMaterialName, String jewelleryMaterialDescription, String jewelleryMaterialUnit, String jewelleryMaterialImage, int jewelleryMaterialQuantity, String jewelleryMaterialQuality, double jewelleryMaterialPrice) {
         this.jewelleryMaterialId = jewelleryMaterialId;
         this.jewelleryMaterialName = jewelleryMaterialName;
         this.jewelleryMaterialDescription = jewelleryMaterialDescription;
@@ -98,14 +98,7 @@ public class JewelleryMaterial implements Serializable {
 
     @Override
     public String toString() {
-        return "jewelleryMaterialId=" + jewelleryMaterialId + '\n' +
-                ", jewelleryMaterialName=" + jewelleryMaterialName + '\n' +
-                ", jewelleryMaterialDescription=" + jewelleryMaterialDescription + '\n' +
-                ", jewelleryMaterialUnit=" + jewelleryMaterialUnit + '\n' +
-                ", jewelleryMaterialImage=" + jewelleryMaterialImage + '\n' +
-                ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity + '\n' +
-                ", jewelleryMaterialQuality= " + jewelleryMaterialQuality + '\n' +
-                ", jewelleryMaterialPrice=" + jewelleryMaterialPrice;
+        return "jewelleryMaterialId=" + jewelleryMaterialId + '\n' + ", jewelleryMaterialName=" + jewelleryMaterialName + '\n' + ", jewelleryMaterialDescription=" + jewelleryMaterialDescription + '\n' + ", jewelleryMaterialUnit=" + jewelleryMaterialUnit + '\n' + ", jewelleryMaterialImage=" + jewelleryMaterialImage + '\n' + ", jewelleryMaterialQuantity=" + jewelleryMaterialQuantity + '\n' + ", jewelleryMaterialQuality= " + jewelleryMaterialQuality + '\n' + ", jewelleryMaterialPrice=" + jewelleryMaterialPrice;
 
     }
 }

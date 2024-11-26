@@ -24,7 +24,7 @@ public class JewelleryStoreLogin extends JewelleryStoreController {
 
 //        System.out.println("in handleLoginButtonAction");
 //        System.out.println("in JewelleryStoreLogin");
-//        // TODO - add login function
+//        // TODO - add login function later
 
         FXMLLoader fxmlLoader = new FXMLLoader(JewelleryStore.class.getResource("Storefront-view.fxml"));
         Scene scene = null;

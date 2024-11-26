@@ -45,6 +45,7 @@ public class SearchController implements Serializable {
 
     @FXML
     private void initialize() {
+        // listeners are cool!
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             handleSearch(newValue);
         });

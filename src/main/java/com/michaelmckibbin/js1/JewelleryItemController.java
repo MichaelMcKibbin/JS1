@@ -7,9 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,7 +20,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
-import java.util.Optional;
 
 import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
 
@@ -385,68 +382,69 @@ public class JewelleryItemController implements Serializable {
                     Label spacer = new Label("");
                     labelsVBox.getChildren().add(spacer);
 
-                    // Create and style the button
-                    Button deleteButton = new Button("Delete Item");
-                    deleteButton.setPrefWidth(120); // Set preferred width
-                    deleteButton.setStyle("-fx-background-color: #ff4444; "
-                            + "-fx-text-fill: white; "
-                            + "-fx-font-weight: bold; "
-                            + "-fx-padding: 8px 16px; "
-                            + "-fx-background-radius: 4px;");
-
-// Add hover effect
-                    deleteButton.setOnMouseEntered(e ->
-                            deleteButton.setStyle("-fx-background-color: #cc0000; "
-                                    + "-fx-text-fill: white; "
-                                    + "-fx-font-weight: bold; "
-                                    + "-fx-padding: 8px 16px; "
-                                    + "-fx-background-radius: 4px;"));
-                    deleteButton.setOnMouseExited(e ->
-                            deleteButton.setStyle("-fx-background-color: #ff4444; "
-                                    + "-fx-text-fill: white; "
-                                    + "-fx-font-weight: bold; "
-                                    + "-fx-padding: 8px 16px; "
-                                    + "-fx-background-radius: 4px;"));
-
-// Add click handler
-                    deleteButton.setOnAction(e -> {
-                        Alert confirmDialog = new Alert(Alert.AlertType.CONFIRMATION);
-                        confirmDialog.setTitle("Confirm Delete");
-                        confirmDialog.setHeaderText("Delete Item");
-                        confirmDialog.setContentText("Are you sure you want to delete this item?");
-
-                        Optional<ButtonType> result = confirmDialog.showAndWait();
-                        if (result.isPresent() && result.get() == ButtonType.OK) {
-                            // Remove item from tray
-                            //tray.getTrayID();
-                            tray.getJewelleryItems().get(item.getItemId());
-                            tray.getJewelleryItems().remove(item);
-
-                            // get case, tray, and item id#
-                            System.out.println(displayCase.getCaseId());
-                            System.out.println(tray.getTrayID());
-                            System.out.println(item.getItemId());
-
-                            String caseId = displayCase.getCaseId();
-                            String trayId = tray.getTrayID();
-                            int itemId = item.getItemId();
-
-
-                            // Clear the current display
-                            labelsVBox.getChildren().clear();
-
-                            // Show success message
-                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                            successAlert.setTitle("Success");
-                            successAlert.setHeaderText(null);
-                            successAlert.setContentText("Item successfully deleted.");
-                            successAlert.showAndWait();
-
-                        }
-                    });
-
-                    // Add button to VBox
-                    labelsVBox.getChildren().add(deleteButton);
+//                    // add delete button
+//                    // Create and style the button
+//                    Button deleteButton = new Button("Delete Item");
+//                    deleteButton.setPrefWidth(120); // Set preferred width
+//                    deleteButton.setStyle("-fx-background-color: #ff4444; "
+//                            + "-fx-text-fill: white; "
+//                            + "-fx-font-weight: bold; "
+//                            + "-fx-padding: 8px 16px; "
+//                            + "-fx-background-radius: 4px;");
+//
+//// Add hover effect
+//                    deleteButton.setOnMouseEntered(e ->
+//                            deleteButton.setStyle("-fx-background-color: #cc0000; "
+//                                    + "-fx-text-fill: white; "
+//                                    + "-fx-font-weight: bold; "
+//                                    + "-fx-padding: 8px 16px; "
+//                                    + "-fx-background-radius: 4px;"));
+//                    deleteButton.setOnMouseExited(e ->
+//                            deleteButton.setStyle("-fx-background-color: #ff4444; "
+//                                    + "-fx-text-fill: white; "
+//                                    + "-fx-font-weight: bold; "
+//                                    + "-fx-padding: 8px 16px; "
+//                                    + "-fx-background-radius: 4px;"));
+//
+//// Add click handler
+//                    deleteButton.setOnAction(e -> {
+//                        Alert confirmDialog = new Alert(Alert.AlertType.CONFIRMATION);
+//                        confirmDialog.setTitle("Confirm Delete");
+//                        confirmDialog.setHeaderText("Delete Item");
+//                        confirmDialog.setContentText("Are you sure you want to delete this item?");
+//
+//                        Optional<ButtonType> result = confirmDialog.showAndWait();
+//                        if (result.isPresent() && result.get() == ButtonType.OK) {
+//                            // Remove item from tray
+//                            //tray.getTrayID();
+//                            tray.getJewelleryItems().get(item.getItemId());
+//                            tray.getJewelleryItems().remove(item);
+//
+//                            // get case, tray, and item id#
+//                            System.out.println(displayCase.getCaseId());
+//                            System.out.println(tray.getTrayID());
+//                            System.out.println(item.getItemId());
+//
+//                            String caseId = displayCase.getCaseId();
+//                            String trayId = tray.getTrayID();
+//                            int itemId = item.getItemId();
+//
+//
+//                            // Clear the current display
+//                            labelsVBox.getChildren().clear();
+//
+//                            // Show success message
+//                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+//                            successAlert.setTitle("Success");
+//                            successAlert.setHeaderText(null);
+//                            successAlert.setContentText("Item successfully deleted.");
+//                            successAlert.showAndWait();
+//
+//                        }
+//                    });
+//
+//                    // Add button to VBox
+//                    labelsVBox.getChildren().add(deleteButton);
 
 
 // Right VBox for ImageView

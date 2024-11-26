@@ -586,7 +586,7 @@ MENUBAR options
                 int wide = wideDeep[random.nextInt(wideDeep.length)];
                 int deep = wideDeep[random.nextInt(wideDeep.length)];
                 int trayNum = caseIdNum + i + j + counter;
-                DisplayTray tray = new DisplayTray(caseIdNum, "Z" + trayNum, color, wide, deep);
+                DisplayTray tray = new DisplayTray("Z" + trayNum, color, wide, deep);
 
                 for (int k = 1; k <= 2; k++) { // Add 2 jewellery items to each tray
                     int itemIdNum = trayNum + i + j + k + counter;

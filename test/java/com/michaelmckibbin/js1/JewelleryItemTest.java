@@ -2,7 +2,7 @@ package com.michaelmckibbin.js1;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JewelleryItemTest {
 
@@ -98,9 +98,9 @@ class JewelleryItemTest {
 
     @Test
     void setItemPrice() {
-        JewelleryItem item = new JewelleryItem("123", "Test Item", "Test Type", "Test Description", "Test Gender", "Test Image", 19.99f);
-        item.setItemPrice(29.99f);
-        assertEquals(29.99f, item.getItemPrice());
+        JewelleryItem item = new JewelleryItem("123", "Test Item", "Test Type", "Test Description", "Test Gender", "Test Image", 19.99);
+        item.setItemPrice(29.99);
+        assertEquals(29.99, item.getItemPrice());
     }
 
 
