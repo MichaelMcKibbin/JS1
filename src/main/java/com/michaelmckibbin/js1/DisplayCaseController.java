@@ -1,8 +1,6 @@
 package com.michaelmckibbin.js1;
 
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +16,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -94,7 +91,7 @@ public class DisplayCaseController implements Serializable {
     @FXML
     public TextField addJewelleryMaterialImageUrlTextField;
     @FXML
-    public ChoiceBox addJewelleryMaterialUnitTypeChoiceBox;
+    public ChoiceBox<String> addJewelleryMaterialUnitTypeChoiceBox;
     @FXML
     public TextField addJewelleryMaterialJewelleryItemIdTextField;
     @FXML
@@ -317,14 +314,14 @@ public class DisplayCaseController implements Serializable {
     // ==========================
 
 
-    public void populateDisplayCasesList() {
-        displayCasesListView.getItems().clear(); // Clear the list first
-
-        // Convert MyLinkedList to an ObservableList
-        ObservableList<DisplayCase> observableDisplayCases = FXCollections.observableList((List<DisplayCase>) displayCases);
-
-        displayCasesListView.setItems(observableDisplayCases); // Set the ObservableList to the ListView
-    }
+//    public void populateDisplayCasesList() {
+//        displayCasesListView.getItems().clear(); // Clear the list first
+//
+//        // Convert MyLinkedList to an ObservableList
+//        ObservableList<DisplayCase> observableDisplayCases = FXCollections.observableList((List<DisplayCase>) displayCases);
+//
+//        displayCasesListView.setItems(observableDisplayCases); // Set the ObservableList to the ListView
+//    }
 
 
     /*
@@ -349,7 +346,7 @@ public class DisplayCaseController implements Serializable {
     private static void deleteAllStock() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete All Display Cases!");
-        alert.setHeaderText("Are you sure you want to delete all display cases?");
+        alert.setHeaderText("Deleting all display cases!");
         alert.setContentText("This action cannot be undone!");
 
         ButtonType confirmButton = new ButtonType("Delete");
@@ -499,7 +496,12 @@ public class DisplayCaseController implements Serializable {
             Scene scene = new Scene(root);
 
             // Apply the CSS file to the scene
-            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+            try {
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+            } catch (Exception e) {
+                System.out.println("Error loading styles.css: " + e.getMessage());
+                e.printStackTrace();
+            }
 
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -538,7 +540,12 @@ public class DisplayCaseController implements Serializable {
             Scene scene = new Scene(root);
 
             // Apply the CSS file to the scene
-            scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+            try {
+                scene.getStylesheets().add(getClass().getClassLoader().getResource("styles.css").toExternalForm());
+            } catch (Exception e) {
+                System.out.println("Error loading styles.css: " + e.getMessage());
+                e.printStackTrace();
+            }
 
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -560,23 +567,21 @@ public class DisplayCaseController implements Serializable {
     End of Navigation Buttons
      */
 
-
-    private int getNextCaseid() {
+    private String getNextCaseid() {
+        // check if list is empty
+        if (displayCases.isEmpty()) {
+            return "1"; // Return 1 if the list is empty
+        }
+        // easier to use int to create caseIds
         int nextCaseid = displayCases.size() + 1;
-        boolean idExists;
+        for (DisplayCase displayCase : displayCases) {
+            int caseId = Integer.parseInt(displayCase.getCaseId());
 
-        do {
-            idExists = false;
-            for (DisplayCase displayCase : displayCases) {
-                if (displayCase.getCaseId().equals(nextCaseid)) {
-                    idExists = true;
-                    nextCaseid++;
-                    break;
-                }
+            if (caseId >= nextCaseid) {
+                nextCaseid = caseId + 1;
             }
-        } while (idExists);
-
-        return nextCaseid;
+        }
+        return String.valueOf(nextCaseid);// return as String
     }
 
 
@@ -911,8 +916,8 @@ public class DisplayCaseController implements Serializable {
         }
 
         int jewelleryMaterialQuantity = Integer.parseInt(addJewelleryMaterialQuantityTextField.getText());
-        String jewelleryMaterialQuality = (String) addJewelleryMaterialQualityTextField.getText();
-        String jewelleryMaterialUnitType = (String) addJewelleryMaterialUnitTypeChoiceBox.getValue();
+        String jewelleryMaterialQuality = addJewelleryMaterialQualityTextField.getText();
+        String jewelleryMaterialUnitType = addJewelleryMaterialUnitTypeChoiceBox.getValue();
 
         // create a new jewellery material instance
         JewelleryMaterial jewelleryMaterial = new JewelleryMaterial(jewelleryMaterialId, jewelleryMaterialName, jewelleryMaterialDescription, jewelleryMaterialUnitType, jewelleryMaterialImage, jewelleryMaterialQuantity, jewelleryMaterialQuality, jewelleryMaterialPrice);
