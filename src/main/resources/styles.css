@@ -4,13 +4,16 @@
     -fx-border-color: #4CAF50; /* Green */
     -fx-text-fill: blue;
 }
+
 #mikeyFaceButton:pressed {
     -fx-border-color: #0000FF;
     -fx-text-fill: yellow;
 }
-#mikeyFaceButton:hover{
+
+#mikeyFaceButton:hover {
     -fx-background-color: rgba(205, 243, 195, 0.6);
 }
+
 .button {
     -fx-background-color: #f0f0f0;
     -fx-border-color: #cccccc;
@@ -34,6 +37,7 @@
     -fx-pref-width: 140; /* adjust to suit buttons */
     -fx-alignment: "CENTER";
 }
+
 .navigation-button-container-1 .button { /* style for VBox button container buttons on storefront view */
     -fx-border-radius: 5;
     -fx-border-width: 2;
@@ -42,28 +46,34 @@
     -fx-pref-width: 130; /* adjust button width to make uniform */
     -fx-alignment: "CENTER";
 }
+
 .navigation-button-container-1:hover {
     -fx-background-color: rgba(206, 175, 175, 0.5);
     -fx-border-color: blue;
 }
-.navigation-button-container-1 .storefront-button:hover{
+
+.navigation-button-container-1 .storefront-button:hover {
     -fx-background-color: rgba(206, 175, 175, 0.5);
     -fx-border-color: rgb(173, 15, 15);
 }
-.menu-bar{
+
+.menu-bar {
     -fx-background-color: rgba(206, 175, 175, 0.25);
     -fx-border-color: rgba(6, 70, 238, 0.6);
     -fx-border-radius: 3;
 }
-.menu-item{
+
+.menu-item {
     -fx-background-color: rgb(206, 175, 175, 0.45);
     -fx-border-color: rgba(6, 70, 238, 0.6);
     -fx-border-radius: 3;
 }
-.menu-item:hover{
+
+.menu-item:hover {
     -fx-background-color: skyblue;
 }
-.menu{
+
+.menu {
     -fx-background-color: rgba(206, 175, 175, 0.70);
 }
 
@@ -75,6 +85,7 @@
     -fx-background-color: lightgrey;
     -fx-pref-width: 140; /* adjust to suit buttons */
 }
+
 .addCaseBtnVBox .button { /* style for VBox button container buttons on storefront view */
     -fx-border-radius: 5;
     -fx-border-width: 2;
@@ -83,11 +94,13 @@
     -fx-pref-width: 130; /* adjust button width to make uniform */
     -fx-alignment: "CENTER";
 }
+
 .addCaseBtnVBox:hover {
     -fx-background-color: rgba(206, 175, 175, 0.5);
     -fx-border-color: blue;
 }
-.addCaseBtnVBox .button:hover{
+
+.addCaseBtnVBox .button:hover {
     -fx-background-color: rgba(206, 175, 175, 0.5);
     -fx-border-color: rgb(173, 15, 15);
 }
@@ -102,6 +115,10 @@
 .tree-cell:selected {
     -fx-background-color: #0096c9;
     -fx-text-fill: white;
+}
+
+VBox {
+    -fx-background-color: rgba(194, 207, 241, 0.4);
 }
 
 

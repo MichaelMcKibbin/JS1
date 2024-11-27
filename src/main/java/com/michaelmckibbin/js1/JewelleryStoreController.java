@@ -1,16 +1,21 @@
 package com.michaelmckibbin.js1;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.math.RoundingMode;
@@ -18,6 +23,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
 
@@ -27,6 +36,8 @@ public class JewelleryStoreController implements Serializable {
     public TextFlow stockValueTextFlow;
     @FXML
     public Button stockViewButton;
+    @FXML
+    public VBox storefrontHighlightVBox;
     @FXML
     private Button deleteAllStockButton;
     @FXML
@@ -68,7 +79,7 @@ public class JewelleryStoreController implements Serializable {
 //    } // end of for testing
 
     /*
-    sPECIAL oFFER bUTTON
+    storefront centre pic
      */
     @FXML
     private Image originalImage;
@@ -82,6 +93,7 @@ public class JewelleryStoreController implements Serializable {
     @FXML
     private void initialize() {
         originalImage = mikeyFaceImageView.getImage();
+        fillHighlightVBox();
     }
 
     @FXML
@@ -98,7 +110,7 @@ public class JewelleryStoreController implements Serializable {
         }
     }
     /*
-    end of SPECIAL oFFER bUTTON
+    end of storefront centre pic
      */
 
     /*
@@ -162,11 +174,103 @@ MENUBAR options
 
     public void viewAbout(ActionEvent actionEvent) {
         System.out.println("viewAbout button clicked!");
+        // generate popup window
+        Alert about = new Alert(Alert.AlertType.INFORMATION);
+        about.setTitle("About");
+        about.setHeaderText("Mikey's Jewellery Store");
+        about.setContentText("Jewellery Store is a JavaFX application that allows you to manage a jewellery store.\n\n" +
+                "It contains display cases, trays, jewellery items, and materials.\n\n" +
+                "Michael McKibbin\n\n" +
+                "20092733");
+
+        // Customize
+        Stage stage = (Stage) about.getDialogPane().getScene().getWindow();
+        about.getButtonTypes().setAll(ButtonType.OK);
+        about.showAndWait();
+
     }
 
+    //    public void viewReadme(ActionEvent actionEvent) {
+//        System.out.println("viewReadme button clicked!");
+//        // generate popup window
+//        Alert readme = new Alert(Alert.AlertType.INFORMATION);
+//        readme.setTitle("Readme");
+//        readme.setHeaderText("Readme");
+//        // show README.md file
+//        String readmeText = "";
+//        try {
+//            BufferedReader reader = new BufferedReader(new FileReader("README.md"));
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                readmeText += line + "\n";
+//            }
+//            reader.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        readme.setContentText(readmeText);
+//        // Customize
+//        Stage stage = (Stage) readme.getDialogPane().getScene().getWindow();
+//        readme.getButtonTypes().setAll(ButtonType.OK);
+//        readme.showAndWait();
+//    }
     public void viewReadme(ActionEvent actionEvent) {
         System.out.println("viewReadme button clicked!");
+
+        Alert readme = new Alert(Alert.AlertType.INFORMATION);
+        readme.setTitle("Readme");
+        readme.setHeaderText("Readme");
+
+        TextArea textArea = new TextArea();
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+        textArea.setPrefWidth(500);
+        textArea.setPrefHeight(400);
+
+        // Add custom styling
+        textArea.setStyle("-fx-font-family: 'Segoe UI', Arial, sans-serif; " +
+                "-fx-font-size: 14px; " +
+                "-fx-background-color: #fafafa; " +
+                "-fx-border-color: #e0e0e0; " +
+                "-fx-border-radius: 4px; " +
+                "-fx-padding: 10px;");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("README.md"));
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            reader.close();
+            textArea.setText(content.toString());
+
+            // Scroll to top
+            textArea.positionCaret(0);
+
+        } catch (IOException e) {
+            textArea.setText("Error reading README.md file: " + e.getMessage());
+            textArea.setStyle(textArea.getStyle() + "-fx-text-fill: red;");
+            e.printStackTrace();
+        }
+
+        readme.getDialogPane().setContent(textArea);
+
+        // Make dialog resizable
+        readme.setResizable(true);
+
+        // Set minimum dimensions
+        readme.getDialogPane().setMinWidth(450);
+        readme.getDialogPane().setMinHeight(350);
+
+        // Center on screen
+        Stage stage = (Stage) readme.getDialogPane().getScene().getWindow();
+        stage.centerOnScreen();
+
+        readme.getButtonTypes().setAll(ButtonType.OK);
+        readme.showAndWait();
     }
+
 
     /*
     END OF MENUBAR
@@ -748,6 +852,155 @@ MENUBAR options
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // storefrontHighlightVBox
+    // display a clock with current time in 24 hour format
+    @FXML
+//    public void fillHighlightVBox() {
+//        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//            storefrontHighlightVBox.getChildren().clear();
+//            storefrontHighlightVBox.getChildren().add(new Label(LocalDateTime.now().format(formatter)));
+//        }), new KeyFrame(Duration.seconds(1)));
+//        clock.setCycleCount(Timeline.INDEFINITE);
+//        clock.play();
+//    }
+//    public void fillHighlightVBox() {
+//        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//            Label timeLabel = new Label(LocalDateTime.now().format(formatter));
+//
+//            // Set font size and style
+//            timeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+//
+//            // Add some styling
+//            timeLabel.setStyle("-fx-background-color: #f0f0f0; " +
+//                    "-fx-padding: 10px; " +
+//                    "-fx-background-radius: 5px;");
+//
+//            // Center the label
+//            timeLabel.setAlignment(Pos.CENTER);
+//            VBox.setMargin(timeLabel, new Insets(10));
+//
+//            // Clear and add to VBox
+//            storefrontHighlightVBox.getChildren().clear();
+//            storefrontHighlightVBox.getChildren().add(timeLabel);
+//
+//            // Center in VBox
+//            storefrontHighlightVBox.setAlignment(Pos.CENTER);
+//            storefrontHighlightVBox.setPadding(new Insets(10));
+//
+//        }), new KeyFrame(Duration.seconds(1)));
+//
+//        clock.setCycleCount(Timeline.INDEFINITE);
+//        clock.play();
+//    }
+//    public void fillHighlightVBox() {
+//        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//
+//            // Create the message label
+//            Label messageLabel = new Label("It's time to save!");
+//            messageLabel.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+//            messageLabel.setStyle("-fx-text-fill: #2c3e50; " +
+//                    "-fx-padding: 5px; " +
+//                    "-fx-background-color: #ecf0f1; " +
+//                    "-fx-background-radius: 3px;");
+//            messageLabel.setAlignment(Pos.CENTER);
+//            VBox.setMargin(messageLabel, new Insets(0, 0, 5, 0));
+//
+//            // Create the clock label
+//            Label timeLabel = new Label(LocalDateTime.now().format(formatter));
+//            timeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+//            timeLabel.setStyle("-fx-background-color: #f0f0f0; " +
+//                    "-fx-padding: 10px; " +
+//                    "-fx-background-radius: 5px; " +
+//                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);");
+//            timeLabel.setAlignment(Pos.CENTER);
+//            VBox.setMargin(timeLabel, new Insets(5));
+//
+//            // Clear and add both labels to VBox
+//            storefrontHighlightVBox.getChildren().clear();
+//            storefrontHighlightVBox.getChildren().addAll(messageLabel, timeLabel);
+//
+//            // Style the VBox
+//            storefrontHighlightVBox.setAlignment(Pos.CENTER);
+//            storefrontHighlightVBox.setPadding(new Insets(15));
+//            storefrontHighlightVBox.setStyle("-fx-background-color: white; " +
+//                    "-fx-background-radius: 10px; " +
+//                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);");
+//
+//        }), new KeyFrame(Duration.seconds(1)));
+//
+//        clock.setCycleCount(Timeline.INDEFINITE);
+//        clock.play();
+//    }
+    public void fillHighlightVBox() {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+            // Create the message label
+            Label messageLabel = new Label("It's time to save!");
+            messageLabel.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 18));
+            messageLabel.setStyle("-fx-text-fill: #2c3e50; " +
+                    "-fx-padding: 15px; " +
+                    "-fx-background-color: #ecf0f1; " +
+                    "-fx-background-radius: 3px;" +
+                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 1, 1);");
+            messageLabel.setAlignment(Pos.CENTER);
+            VBox.setMargin(messageLabel, new Insets(0, 0, 5, 0));
+
+            // Create the clock label
+            Label timeLabel = new Label(LocalDateTime.now().format(formatter));
+            timeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+            timeLabel.setStyle("-fx-background-color: #f0f0f0; " +
+                    "-fx-padding: 15px; " +
+                    "-fx-background-radius: 5px; " +
+                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 1, 1);");
+            timeLabel.setAlignment(Pos.CENTER);
+            VBox.setMargin(timeLabel, new Insets(5));
+
+            // Calculate days until Christmas
+            LocalDate today = LocalDate.now();
+            LocalDate christmas = LocalDate.of(today.getYear(), 12, 25);
+            if (today.isAfter(christmas)) {
+                christmas = LocalDate.of(today.getYear() + 1, 12, 25);
+            }
+            long daysUntilChristmas = ChronoUnit.DAYS.between(today, christmas);
+
+            // Create the countdown label with custom message
+            String countdownText = daysUntilChristmas == 0 ? "🎄\n" + "Merry Christmas!\n" + "🎄" :
+                    daysUntilChristmas == 1 ? "🎅\n" + "Christmas is tomorrow!\n" + "🎅" :
+                            "🎄\n" + daysUntilChristmas + " days \n until \n Christmas!\n" + "🎄";
+
+            Label countdownLabel = new Label(countdownText);
+            countdownLabel.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 16));
+            countdownLabel.setStyle("-fx-text-fill: #066408; " +
+                    "-fx-padding: 8px 15px; " +
+                    "-fx-background-color: linear-gradient(to bottom right, #fcc0c9, #a0d784); " +
+                    "-fx-background-radius: 4px; " +
+                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 2, 0, 1, 1);");
+            countdownLabel.setMaxWidth(Double.MAX_VALUE);
+            countdownLabel.setAlignment(Pos.CENTER);
+            countdownLabel.setTextAlignment(TextAlignment.CENTER);  // Add this for text alignment
+            VBox.setMargin(countdownLabel, new Insets(10, 0, 0, 0));
+
+            // Clear and add all labels to VBox
+            storefrontHighlightVBox.getChildren().clear();
+            storefrontHighlightVBox.getChildren().addAll(messageLabel, timeLabel, countdownLabel);
+
+            // Style the VBox
+            storefrontHighlightVBox.setAlignment(Pos.CENTER);
+            storefrontHighlightVBox.setPadding(new Insets(15));
+            storefrontHighlightVBox.setStyle("-fx-background-color: white; " +
+                    "-fx-background-radius: 10px; " +
+                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);");
+
+        }), new KeyFrame(Duration.seconds(1)));
+
+        clock.setCycleCount(Timeline.INDEFINITE);
+        clock.play();
     }
 
 

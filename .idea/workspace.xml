@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="1st commit today">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="more adjustments related to changing case id from int to String">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/aviatorSunglasses.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/snowflakes.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/snowflakes2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/sunglasses4aliens.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/sunglassesWayfarer.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/MyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryMaterialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AltBrowse-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AltBrowse-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayTray-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayTray-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/JewelleryMaterial-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JewelleryMaterial-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,11 +135,11 @@
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\java\com\michaelmckibbin\js1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\images" />
       <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1" />
       <recent name="D:\onedrive personal\OneDrive\Documents\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources" />
       <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src\main\resources\com" />
-      <recent name="D:\onedrive personal\OneDrive\ComputerScienceBSc\DataStructuresAndAlgorithms1\intellijProjects\JS1\JS1\src" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -281,7 +292,7 @@
       <workItem from="1732635968188" duration="317000" />
       <workItem from="1732636320453" duration="110000" />
       <workItem from="1732636510297" duration="103000" />
-      <workItem from="1732637471393" duration="4749000" />
+      <workItem from="1732637471393" duration="38929000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -539,7 +550,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732622996111</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="more adjustments related to changing case id from int to String">
+      <option name="closed" value="true" />
+      <created>1732643200320</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1732643200320</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +576,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="before new list" />
     <MESSAGE value="DC test data loading &amp; printing.&#10;MyLinkedList - updated Iterator." />
     <MESSAGE value="Add case - check for next available ID OK.&#10;List cases OK&#10;Delete all cases with conformation dialog OK" />
     <MESSAGE value="before listview" />
@@ -582,7 +600,8 @@
     <MESSAGE value="changed case id from int to string&#10;begining delete jewellery item." />
     <MESSAGE value="rearranged DC view" />
     <MESSAGE value="1st commit today" />
-    <option name="LAST_COMMIT_MESSAGE" value="1st commit today" />
+    <MESSAGE value="more adjustments related to changing case id from int to String" />
+    <option name="LAST_COMMIT_MESSAGE" value="more adjustments related to changing case id from int to String" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -3,21 +3,17 @@ package com.michaelmckibbin.js1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
-import static com.michaelmckibbin.js1.DisplayCaseController.displayCases;
 
 public class JewelleryMaterialController implements Serializable {
 
@@ -59,6 +55,28 @@ public class JewelleryMaterialController implements Serializable {
     public TextField addJewelleryMaterialQualityTextField;
     @FXML
     public TextField materialsSearchTextField;
+    @FXML
+    public TextField materialsSearchTextField1;
+    @FXML
+    public Button displayCaseViewItemSearchButton1;
+    @FXML
+    public Button editJewelleryMaterialButton;
+    @FXML
+    public TextField editJewelleryMaterialPriceTextField;
+    @FXML
+    public TextField editJewelleryMaterialImageUrlTextField;
+    @FXML
+    public TextField editJewelleryMaterialQualityTextField;
+    @FXML
+    public ChoiceBox editJewelleryMaterialUnitTypeChoiceBox;
+    @FXML
+    public TextField editJewelleryMaterialQuantityTextField;
+    @FXML
+    public TextField editJewelleryMaterialDescriptionTextField;
+    @FXML
+    public TextField editJewelleryMaterialNameTextField;
+    @FXML
+    public TextField editJewelleryMaterialIdTextField;
 
 
     @FXML

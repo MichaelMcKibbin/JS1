@@ -193,7 +193,8 @@ public class SearchController implements Serializable {
 
         Label itemLabel = new Label("Jewellery Item Found:");
         itemLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
-
+        Label itemIDLabel = new Label("Item ID: " + item.getItemId());
+        Label itemNameLabel = new Label("Name: " + item.getItemName());
         Label descriptionLabel = new Label("Description: " + item.getItemDescription());
         Label priceLabel = new Label(String.format("Price: €%.2f", item.getItemPrice()));
         Label locationLabel = new Label(String.format("Location: Case %s, Tray %s",
@@ -212,7 +213,7 @@ public class SearchController implements Serializable {
         itemContainer.setOnMouseClicked(e -> displayItemDetails(item, displayCase, tray));
 
 
-        itemContainer.getChildren().addAll(itemLabel, descriptionLabel, priceLabel, locationLabel);
+        itemContainer.getChildren().addAll(itemLabel, itemIDLabel, itemNameLabel, descriptionLabel, priceLabel, locationLabel);
 
 
         // Add separator for visual clarity
