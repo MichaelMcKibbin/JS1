@@ -94,6 +94,7 @@ public class JewelleryStoreController implements Serializable {
     private void initialize() {
         originalImage = mikeyFaceImageView.getImage();
         fillHighlightVBox();
+
     }
 
     @FXML
@@ -938,7 +939,7 @@ MENUBAR options
 //    }
     public void fillHighlightVBox() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
             // Create the message label
             Label messageLabel = new Label("It's time to save!");
@@ -968,11 +969,12 @@ MENUBAR options
                 christmas = LocalDate.of(today.getYear() + 1, 12, 25);
             }
             long daysUntilChristmas = ChronoUnit.DAYS.between(today, christmas);
+            long secondsUntilChristmas = ChronoUnit.SECONDS.between(LocalDateTime.now(), christmas.atStartOfDay());
 
             // Create the countdown label with custom message
             String countdownText = daysUntilChristmas == 0 ? "🎄\n" + "Merry Christmas!\n" + "🎄" :
                     daysUntilChristmas == 1 ? "🎅\n" + "Christmas is tomorrow!\n" + "🎅" :
-                            "🎄\n" + daysUntilChristmas + " days \n until \n Christmas!\n" + "🎄";
+                            "🎄\n" + daysUntilChristmas + " days \n until \n Christmas!\n" + "🎄" + "\n\n\nSeconds 'til Santa!\n" + secondsUntilChristmas;
 
             Label countdownLabel = new Label(countdownText);
             countdownLabel.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 16));
