@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.JewelleryItemController">
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.JewelleryItemController">
 
+    <!--menubar-->
+    <HBox/>
+    <!--            end of menubar-->
 
-    <children>
-        <!--menubar-->
-        <HBox />
-        <!--            end of menubar-->
+    <SplitPane dividerPositions="0.20044543429844097" focusTraversable="true" prefHeight="528.0" prefWidth="900.0"
+               VBox.vgrow="ALWAYS">
+        <AnchorPane>
+            <StackPane>
+                <VBox alignment="CENTER" spacing="20">
+                    <StackPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </StackPane.margin>
+                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10"
+                          styleClass="navigation-button-container-1">
+                        <VBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+                        </VBox.margin>
+                        <padding>
+                            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                        </padding>
+                        <Button fx:id="StorefrontButton" mnemonicParsing="false"
+                                onAction="#handleStorefrontButtonClick" styleClass="storefront-button"
+                                text="Storefront"/>
+                        <Button fx:id="displayCasesButton" mnemonicParsing="false"
+                                onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button"
+                                text="Display Cases"/>
+                    </VBox>
+                </VBox>
+            </StackPane>
+        </AnchorPane>
 
-        <SplitPane dividerPositions="0.20044543429844097" focusTraversable="true" prefHeight="528.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
-            <items>
-                <AnchorPane>
-                    <StackPane>
-                        <children>
-                            <VBox alignment="CENTER" spacing="20">
-                                <children>
-                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10" styleClass="navigation-button-container-1">
-                                        <children>
-                                            <Button fx:id="StorefrontButton" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
-                                            <Button fx:id="displayCasesButton" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button" text="Display Cases" />
-                                        </children>
-                                    </VBox>
-                                </children>
-                                <StackPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                </StackPane.margin>
-                            </VBox>
-                        </children>
-                    </StackPane>
-                </AnchorPane>
-
-                <ScrollPane prefHeight="550.0" prefWidth="571.0">
-                    <content>
-
-                        <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="500.0" prefWidth="400.0">
-                            <children>
-                                <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" wrapText="false">
-                           <font>
-                                         <Font size="18.0" fx:id="x1" />
-                           </font></Label>
-                                <ScrollPane>
-                                    <VBox fx:id="jewelleryItemsVBox" layoutX="100.0" layoutY="100" prefHeight="513.0" prefWidth="595.0">
-                                    </VBox>
-                                </ScrollPane>
-                            </children>
-                        </AnchorPane>
-
-                    </content>
+        <ScrollPane prefHeight="550.0" prefWidth="571.0">
+            <AnchorPane id="Content" prefHeight="500.0" prefWidth="400.0">
+                <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="View"
+                       textAlignment="CENTER">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <ScrollPane>
+                    <VBox fx:id="jewelleryItemsVBox" layoutX="100.0" layoutY="100" prefHeight="513.0"
+                          prefWidth="595.0">
+                    </VBox>
                 </ScrollPane>
+            </AnchorPane>
+
+        </ScrollPane>
 
 
-            </items>
-        </SplitPane>
-    </children>
+    </SplitPane>
 </VBox>

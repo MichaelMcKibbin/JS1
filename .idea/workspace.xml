@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="About, readme, main page css, styles, added clock &amp; xmas countdown. Tidied menu bar &amp; nav buttons.">
+    <list default="true" id="46042e36-96d0-4085-bbea-566a195de5ba" name="Changes" comment="Style and layout updates">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/DisplayCaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/michaelmckibbin/js1/JewelleryStoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DisplayCase-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Drilldown-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Drilldown-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JewelleryItem-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Search-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/StockValues-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/StockValues-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Storefront-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
@@ -20,9 +27,9 @@
       <list>
         <option value="CSS File" />
         <option value="FxmlFile" />
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -82,12 +89,14 @@
     &quot;Application.JewelleryStore.executor&quot;: &quot;Run&quot;,
     &quot;Application.JewelleryStoreApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.JewelleryStoreMain.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DisplayCaseTest and 3 more.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DisplayCaseTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DisplayTrayTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DisplayTrayTest.getCaseId.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DisplayTrayTest.testToString.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.JewelleryItemTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.JewelleryMaterialTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MyLinkedListTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -147,7 +156,7 @@
       <module name="JS1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.michaelmckibbin.js1.*" />
+          <option name="PATTERN" value="java.com.michaelmckibbin.js1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,32 +164,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DisplayCaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DisplayCaseTest and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JS1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.michaelmckibbin.js1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.michaelmckibbin.js1" />
-      <option name="MAIN_CLASS_NAME" value="com.michaelmckibbin.js1.DisplayCaseTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DisplayTrayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JS1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.michaelmckibbin.js1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.michaelmckibbin.js1" />
-      <option name="MAIN_CLASS_NAME" value="com.michaelmckibbin.js1.DisplayTrayTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="com.michaelmckibbin.js1.DisplayCaseTest" />
+        <pattern testClass="com.michaelmckibbin.js1.DisplayTrayTest" />
+        <pattern testClass="com.michaelmckibbin.js1.JewelleryItemTest" />
+        <pattern testClass="com.michaelmckibbin.js1.JewelleryMaterialTest" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,7 +181,7 @@
       <module name="JS1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.michaelmckibbin.js1.*" />
+          <option name="PATTERN" value="java.com.michaelmckibbin.js1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -204,7 +196,7 @@
       <module name="JS1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.michaelmckibbin.js1.*" />
+          <option name="PATTERN" value="java.com.michaelmckibbin.js1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -215,13 +207,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyLinkedListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JS1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="java.com.michaelmckibbin.js1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="java.com.michaelmckibbin.js1" />
+      <option name="MAIN_CLASS_NAME" value="java.com.michaelmckibbin.js1.MyLinkedListTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.JewelleryStore" />
+        <item itemvalue="JUnit.MyLinkedListTest" />
+        <item itemvalue="JUnit.DisplayCaseTest and 3 more" />
         <item itemvalue="JUnit.JewelleryMaterialTest" />
         <item itemvalue="JUnit.JewelleryItemTest" />
-        <item itemvalue="JUnit.DisplayTrayTest" />
-        <item itemvalue="JUnit.DisplayCaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +286,9 @@
       <workItem from="1732635968188" duration="317000" />
       <workItem from="1732636320453" duration="110000" />
       <workItem from="1732636510297" duration="103000" />
-      <workItem from="1732637471393" duration="45498000" />
+      <workItem from="1732637471393" duration="55462000" />
+      <workItem from="1732786413608" duration="14000" />
+      <workItem from="1732786488167" duration="8189000" />
     </task>
     <task id="LOCAL-00001" summary="Storefront view created with button.&#10;Other views created also.">
       <option name="closed" value="true" />
@@ -553,7 +562,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732692142157</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="end of day">
+      <option name="closed" value="true" />
+      <created>1732732306023</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1732732306023</updated>
+    </task>
+    <task id="LOCAL-00036" summary="end of day - more tests added">
+      <option name="closed" value="true" />
+      <created>1732747980926</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1732747980926</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,9 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add case - check for next available ID OK.&#10;List cases OK&#10;Delete all cases with conformation dialog OK" />
-    <MESSAGE value="before listview" />
-    <MESSAGE value="no listview. before trays." />
     <MESSAGE value="trays list initialises. create tray with validation. list trays. delete trays. all ok." />
     <MESSAGE value="DisplayCasesVBox working" />
     <MESSAGE value="DC Search function added.&#10;Laist all &amp; search results to VBoxes." />
@@ -596,7 +618,10 @@
     <MESSAGE value="1st commit today" />
     <MESSAGE value="more adjustments related to changing case id from int to String" />
     <MESSAGE value="About, readme, main page css, styles, added clock &amp; xmas countdown. Tidied menu bar &amp; nav buttons." />
-    <option name="LAST_COMMIT_MESSAGE" value="About, readme, main page css, styles, added clock &amp; xmas countdown. Tidied menu bar &amp; nav buttons." />
+    <MESSAGE value="end of day" />
+    <MESSAGE value="end of day - more tests added" />
+    <MESSAGE value="Style and layout updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Style and layout updates" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

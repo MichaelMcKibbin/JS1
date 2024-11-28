@@ -39,6 +39,8 @@ public class JewelleryStoreController implements Serializable {
     @FXML
     public VBox storefrontHighlightVBox;
     @FXML
+    public VBox mainStage;
+    @FXML
     private Button deleteAllStockButton;
     @FXML
     private Button loadFileButton;
@@ -855,91 +857,9 @@ MENUBAR options
         }
     }
 
-    // storefrontHighlightVBox
-    // display a clock with current time in 24 hour format
-    @FXML
-//    public void fillHighlightVBox() {
-//        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//            storefrontHighlightVBox.getChildren().clear();
-//            storefrontHighlightVBox.getChildren().add(new Label(LocalDateTime.now().format(formatter)));
-//        }), new KeyFrame(Duration.seconds(1)));
-//        clock.setCycleCount(Timeline.INDEFINITE);
-//        clock.play();
-//    }
-//    public void fillHighlightVBox() {
-//        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//            Label timeLabel = new Label(LocalDateTime.now().format(formatter));
-//
-//            // Set font size and style
-//            timeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-//
-//            // Add some styling
-//            timeLabel.setStyle("-fx-background-color: #f0f0f0; " +
-//                    "-fx-padding: 10px; " +
-//                    "-fx-background-radius: 5px;");
-//
-//            // Center the label
-//            timeLabel.setAlignment(Pos.CENTER);
-//            VBox.setMargin(timeLabel, new Insets(10));
-//
-//            // Clear and add to VBox
-//            storefrontHighlightVBox.getChildren().clear();
-//            storefrontHighlightVBox.getChildren().add(timeLabel);
-//
-//            // Center in VBox
-//            storefrontHighlightVBox.setAlignment(Pos.CENTER);
-//            storefrontHighlightVBox.setPadding(new Insets(10));
-//
-//        }), new KeyFrame(Duration.seconds(1)));
-//
-//        clock.setCycleCount(Timeline.INDEFINITE);
-//        clock.play();
-//    }
-//    public void fillHighlightVBox() {
-//        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//
-//            // Create the message label
-//            Label messageLabel = new Label("It's time to save!");
-//            messageLabel.setFont(Font.font("Arial", FontWeight.BOLD, 18));
-//            messageLabel.setStyle("-fx-text-fill: #2c3e50; " +
-//                    "-fx-padding: 5px; " +
-//                    "-fx-background-color: #ecf0f1; " +
-//                    "-fx-background-radius: 3px;");
-//            messageLabel.setAlignment(Pos.CENTER);
-//            VBox.setMargin(messageLabel, new Insets(0, 0, 5, 0));
-//
-//            // Create the clock label
-//            Label timeLabel = new Label(LocalDateTime.now().format(formatter));
-//            timeLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
-//            timeLabel.setStyle("-fx-background-color: #f0f0f0; " +
-//                    "-fx-padding: 10px; " +
-//                    "-fx-background-radius: 5px; " +
-//                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);");
-//            timeLabel.setAlignment(Pos.CENTER);
-//            VBox.setMargin(timeLabel, new Insets(5));
-//
-//            // Clear and add both labels to VBox
-//            storefrontHighlightVBox.getChildren().clear();
-//            storefrontHighlightVBox.getChildren().addAll(messageLabel, timeLabel);
-//
-//            // Style the VBox
-//            storefrontHighlightVBox.setAlignment(Pos.CENTER);
-//            storefrontHighlightVBox.setPadding(new Insets(15));
-//            storefrontHighlightVBox.setStyle("-fx-background-color: white; " +
-//                    "-fx-background-radius: 10px; " +
-//                    "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);");
-//
-//        }), new KeyFrame(Duration.seconds(1)));
-//
-//        clock.setCycleCount(Timeline.INDEFINITE);
-//        clock.play();
-//    }
     public void fillHighlightVBox() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
             // Create the message label
             Label messageLabel = new Label("It's time to save!");

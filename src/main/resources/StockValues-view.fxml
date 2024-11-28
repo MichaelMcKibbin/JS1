@@ -1,92 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<VBox prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.StockValuesController">
 
-<VBox prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.StockValuesController">
 
+    <SplitPane dividerPositions="0.25" focusTraversable="true" VBox.vgrow="ALWAYS">
+        <AnchorPane>
+            <VBox alignment="TOP_CENTER" layoutX="61.0" layoutY="14.0" prefHeight="120.0" prefWidth="100.0"
+                  spacing="10" styleClass="navigation-button-container-1" AnchorPane.topAnchor="20.0">
+                <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false"
+                        onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront"/>
+                <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button"
+                        text="Display Cases"/>
+                <Button fx:id="refreshAllValuesButton" accessibleText="refreshAllValuesButton" alignment="CENTER"
+                        mnemonicParsing="false" onAction="#onRefreshAllValuesButton" text="Jewellery Values"
+                        textAlignment="CENTER" visible="false">
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="refreshCaseValuesButton" accessibleText="refreshCaseValuesButton" alignment="CENTER"
+                        mnemonicParsing="false" onAction="#onRefreshCaseValuesButton" text="Case Values"
+                        textAlignment="CENTER" visible="false">
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="refreshTrayValuesButton" accessibleText="refreshTrayValuesButton" alignment="CENTER"
+                        mnemonicParsing="false" onAction="#onRefreshTrayValuesButton" text="Tray Values"
+                        textAlignment="CENTER" visible="false">
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Button>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                </padding>
 
-    <children>
+            </VBox>
+        </AnchorPane>
 
-        <SplitPane dividerPositions="0.25" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-            <items>
-                <AnchorPane>
-                    <VBox layoutX="61.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10" styleClass="navigation-button-container-1">
-                        <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
-                        <Button fx:id="displayCasesButton" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleDisplayCasesButtonClick" styleClass="storefront-button" text="Display Cases" />
-                        <Button fx:id="refreshAllValuesButton" accessibleText="refreshAllValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshAllValuesButton" text="Jewellery Values" textAlignment="CENTER" visible="false">
-                        <VBox.margin>
-                        <Insets top="10.0" />
-                        </VBox.margin></Button>
-                        <Button fx:id="refreshCaseValuesButton" accessibleText="refreshCaseValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshCaseValuesButton" text="Case Values" textAlignment="CENTER" visible="false">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin></Button>
-                        <Button fx:id="refreshTrayValuesButton" accessibleText="refreshTrayValuesButton" alignment="CENTER" mnemonicParsing="false" onAction="#onRefreshTrayValuesButton" text="Tray Values" textAlignment="CENTER" visible="false">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin></Button>
-
-                    </VBox>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+            <Tab onSelectionChanged="#onCaseValuesTab" text="Case Values">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <ScrollPane>
+                        <VBox fx:id="caseValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                        </VBox>
+                    </ScrollPane>
                 </AnchorPane>
+            </Tab>
+            <Tab onSelectionChanged="#onTrayValuesTab" text="Tray Values">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <ScrollPane>
+                        <VBox fx:id="trayValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                        </VBox>
+                    </ScrollPane>
+                </AnchorPane>
+            </Tab>
+            <Tab onSelectionChanged="#onJewelleryValuesTab" text="Jewellery Values">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <ScrollPane>
+                        <VBox fx:id="stockValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                        </VBox>
+                    </ScrollPane>
+                </AnchorPane>
+            </Tab>
+            <Tab onSelectionChanged="#onMaterialsValuesTab" text="Materials Values">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <ScrollPane>
+                        <VBox fx:id="materialsValuesVBox" prefHeight="745.0" prefWidth="733.0">
+                        </VBox>
+                    </ScrollPane>
+                </AnchorPane>
+            </Tab>
 
-               <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
-                 <tabs>
-                   <Tab onSelectionChanged="#onCaseValuesTab" text="Case Values">
-                     <content>
-                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                              <children>
-                                      <ScrollPane>
-                                      <VBox fx:id="caseValuesVBox" prefHeight="745.0" prefWidth="733.0">
-                    </VBox>
-                                      </ScrollPane>
-                              </children>
-                           </AnchorPane>
-                     </content>
-                   </Tab>
-                   <Tab onSelectionChanged="#onTrayValuesTab" text="Tray Values">
-                     <content>
-                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                              <children>
-                                      <ScrollPane>
-                                      <VBox fx:id="trayValuesVBox" prefHeight="745.0" prefWidth="733.0">
-                    </VBox>
-                                      </ScrollPane>
-                              </children>
-                           </AnchorPane>
-                     </content>
-                   </Tab>
-                     <Tab onSelectionChanged="#onJewelleryValuesTab" text="Jewellery Values">
-                         <content>
-                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                     <ScrollPane>
-                                         <VBox fx:id="stockValuesVBox" prefHeight="745.0" prefWidth="733.0">
-                                         </VBox>
-                                     </ScrollPane>
-                                 </children>
-                             </AnchorPane>
-                         </content>
-                     </Tab>
-                     <Tab onSelectionChanged="#onMaterialsValuesTab" text="Materials Values">
-                         <content>
-                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                     <ScrollPane>
-                                         <VBox fx:id="materialsValuesVBox" prefHeight="745.0" prefWidth="733.0">
-                                         </VBox>
-                                     </ScrollPane>
-                                 </children>
-                             </AnchorPane>
-                         </content>
-                     </Tab>
+        </TabPane>
 
-                 </tabs>
-               </TabPane>
+    </SplitPane>
 
-            </items>
-        </SplitPane>
-
-    </children>
 </VBox>

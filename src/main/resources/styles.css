@@ -1,3 +1,11 @@
+.root {
+    -fx-background-color: rgba(227, 227, 245, 0.6);
+}
+
+.label {
+    -fx-padding: 3, 2, 2, 3;
+}
+
 #mikeyFaceButton {
     -fx-border-width: 2;
     -fx-border-radius: 5;
@@ -19,6 +27,7 @@
     -fx-border-color: #cccccc;
     -fx-border-radius: 5px;
     -fx-padding: 5px 10px;
+    -fx-text-fill: #484848;
 }
 
 .button:hover {
@@ -86,7 +95,7 @@
     -fx-background-color: lightgrey;
     -fx-pref-width: 140; /* adjust to suit buttons */
     -fx-background-color: rgba(194, 207, 241, 0.4);
-    -fx-alignment: CENTER ;
+    -fx-alignment: CENTER;
 }
 
 .addCaseBtnVBox .button { /* style for VBox button container buttons on storefront view */
