@@ -137,29 +137,17 @@ MENUBAR options
     public void saveAndExit(ActionEvent actionEvent) {
         // saveDisplayCases
         saveDisplayCasesToFile("displayCases.ser");
-        // clear all lists
-        deleteAllStock();
         // exit
         System.out.println("Goodbye!");
         System.exit(0);
     }
 
     public void closeProg(ActionEvent actionEvent) {
-        // clear all lists
-        deleteAllStock();
         // exit
         System.out.println("Goodbye!");
         System.exit(0);
     }
 
-    public void deleteAllStock(ActionEvent actionEvent) {
-        System.out.println("Delete all stock button clicked!");
-        // show confirmation dialog
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete all stock?", ButtonType.YES, ButtonType.NO);
-        // clear cases list
-        // displayCases.clear();
-        deleteAllStock();
-    }
 
     public void viewAllStock(ActionEvent actionEvent) {
         System.out.println("View all stock button clicked!");
@@ -631,8 +619,37 @@ MENUBAR options
         return allDisplayCases;
     }
 
-    // saveDisplayCasesToFile
+//    // saveDisplayCasesToFile
+//    private static void saveDisplayCasesToFile(String filename) {
+//        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+//            oos.writeObject(DisplayCaseController.displayCases);
+//            System.out.println("Display cases saved to file: " + filename);
+//        } catch (IOException e) {
+//            System.out.println("Error saving display cases to file: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
+
     private static void saveDisplayCasesToFile(String filename) {
+        File file = new File(filename);
+
+        // If file exists, create a backup
+        if (file.exists()) {
+            LocalDateTime now = LocalDateTime.now();
+            String timestamp = now.format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            String backupFilename = filename.replaceFirst("\\.(?=[^\\.]+$)", "_" + timestamp + ".");
+
+            File backupFile = new File(backupFilename);
+            try {
+                Files.copy(file.toPath(), backupFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Backup created: " + backupFilename);
+            } catch (IOException e) {
+                System.out.println("Error creating backup: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+
+        // Save current data
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
             oos.writeObject(DisplayCaseController.displayCases);
             System.out.println("Display cases saved to file: " + filename);
@@ -641,6 +658,7 @@ MENUBAR options
             e.printStackTrace();
         }
     }
+
 
     // loadDisplayCasesFromFile
     private static void loadDisplayCasesFromFile(String filename) {
@@ -757,11 +775,20 @@ MENUBAR options
         DisplayCaseController.displayCases.clear();
     }
 
-    // delete all stock
     public void onDeleteAllStock(ActionEvent actionEvent) {
-        deleteAllStock();
-        System.out.println("All stock deleted");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Deletion");
+        alert.setHeaderText("Delete All Stock");
+        alert.setContentText("Are you sure you want to delete all stock?\n This action cannot be undone.\n\n You may be able to recover from a backup.");
+
+        alert.showAndWait().ifPresent(result -> {
+            if (result == ButtonType.OK) {
+                deleteAllStock();
+                System.out.println("All stock deleted");
+            }
+        });
     }
+
 
     @FXML
     public Label displayAllStockTotal;
