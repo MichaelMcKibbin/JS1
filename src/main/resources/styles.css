@@ -125,14 +125,19 @@
 }
 
 .tree-cell:selected {
-    -fx-background-color: #0096c9;
+    -fx-background-color: rgba(2, 100, 138, 0.7);
     -fx-text-fill: white;
 }
 
 VBox {
-    -fx-background-color: rgba(194, 207, 241, 0.4);
+    -fx-background-color: rgba(194, 194, 241, 0.4);
     -fx-border-radius: 3;
     -fx-border-width: 2;
 }
 
+HBox {
+    -fx-background-color: rgba(194, 194, 241, 0.75);
+    -fx-border-radius: 3;
+    -fx-border-width: 2;
+}
 
