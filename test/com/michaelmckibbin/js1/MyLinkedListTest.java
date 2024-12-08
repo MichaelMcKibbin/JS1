@@ -1,6 +1,5 @@
-package java.com.michaelmckibbin.js1;
+package com.michaelmckibbin.js1;
 
-import com.michaelmckibbin.js1.MyLinkedList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

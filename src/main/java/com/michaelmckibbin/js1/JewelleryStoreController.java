@@ -105,7 +105,7 @@ public class JewelleryStoreController implements Serializable {
             Image goldBarsImage = new Image(getClass().getResourceAsStream("/images/goldBars.jpg"));
             mikeyFaceImageView.setImage(goldBarsImage);
             mikeyFaceButton.setText("It's mine!\nAll mine!\n\nMuahahaha!");
-            // add function here
+            // add a function here later
 
         } else {
             mikeyFaceImageView.setImage(originalImage);
@@ -297,6 +297,7 @@ MENUBAR options
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Search-view.fxml"));
             Parent root = loader.load();
+
 
 
 //            // option without css
