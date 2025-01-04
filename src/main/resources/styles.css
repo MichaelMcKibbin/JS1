@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: rgba(227, 227, 245, 0.6);
+    -fx-background-color: rgba(225, 225, 245, 0.6);
 }
 
 .label {
@@ -19,7 +19,7 @@
 }
 
 #mikeyFaceButton:hover {
-    -fx-background-color: rgba(205, 243, 195, 0.6);
+    -fx-background-color: rgba(205, 245, 195, 0.6);
 }
 
 .button {
@@ -31,7 +31,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #e0e0e0;
+    -fx-background-color: #fcd1d1;
 }
 
 .button:pressed {
@@ -57,25 +57,25 @@
 }
 
 .navigation-button-container-1:hover {
-    -fx-background-color: rgba(206, 175, 175, 0.5);
+    -fx-background-color: rgba(210, 175, 175, 0.5);
     -fx-border-color: blue;
 }
 
 .navigation-button-container-1 .storefront-button:hover {
-    -fx-background-color: rgba(206, 175, 175, 0.5);
-    -fx-border-color: rgb(173, 15, 15);
+    -fx-background-color: rgba(210, 175, 175, 0.5);
+    -fx-border-color: rgb(175, 15, 15);
 
 }
 
 .menu-bar {
-    -fx-background-color: rgba(206, 175, 175, 0.25);
-    -fx-border-color: rgba(6, 70, 238, 0.6);
+    -fx-background-color: rgba(210, 175, 175, 0.25);
+    -fx-border-color: rgba(10, 70, 240, 0.6);
     -fx-border-radius: 3;
 }
 
 .menu-item {
-    -fx-background-color: rgb(206, 175, 175, 0.45);
-    -fx-border-color: rgba(6, 70, 238, 0.6);
+    -fx-background-color: rgb(210, 175, 175, 0.45);
+    -fx-border-color: rgba(10, 70, 240, 0.6);
     -fx-border-radius: 3;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .menu {
-    -fx-background-color: rgba(206, 175, 175, 0.70);
+    -fx-background-color: rgba(210, 175, 175, 0.70);
 }
 
 
@@ -94,7 +94,7 @@
     -fx-border-color: blue;
     -fx-background-color: lightgrey;
     -fx-pref-width: 140; /* adjust to suit buttons */
-    -fx-background-color: rgba(194, 207, 241, 0.4);
+    -fx-background-color: rgba(200, 210, 240, 0.4);
     -fx-alignment: CENTER;
 }
 
@@ -108,13 +108,13 @@
 }
 
 .addCaseBtnVBox:hover {
-    -fx-background-color: rgba(206, 175, 175, 0.5);
+    -fx-background-color: rgba(200, 175, 175, 0.5);
     -fx-border-color: blue;
 }
 
 .addCaseBtnVBox .button:hover {
-    -fx-background-color: rgba(206, 175, 175, 0.5);
-    -fx-border-color: rgb(173, 15, 15);
+    -fx-background-color: rgba(200, 175, 175, 0.5);
+    -fx-border-color: rgb(175, 15, 15);
 }
 
 .addTrayBtnVBox {
@@ -125,32 +125,32 @@
 }
 
 .tree-cell:selected {
-    -fx-background-color: rgba(2, 100, 138, 0.7);
+    -fx-background-color: rgba(5, 100, 140, 0.7);
     -fx-text-fill: white;
 }
 
 VBox {
-    -fx-background-color: rgba(194, 194, 241, 0.4);
+    -fx-background-color: rgba(200, 200, 240, 0.4);
     -fx-border-radius: 3;
     -fx-border-width: 2;
 }
 
 HBox {
-    -fx-background-color: rgba(194, 194, 241, 0.75);
+    -fx-background-color: rgba(200, 200, 240, 0.75);
     -fx-border-radius: 3;
     -fx-border-width: 2;
 }
 
 /* Dialog styling */
 .dialog-pane {
-    -fx-background-color: rgba(194, 194, 241, 0.4);
+    -fx-background-color: rgba(200, 200, 240, 0.4);
     -fx-border-color: blue;
     -fx-border-width: 2;
     -fx-border-radius: 5;
 }
 
 .dialog-pane .header-panel {
-    -fx-background-color: rgba(206, 175, 175, 0.25);
+    -fx-background-color: rgba(200, 175, 175, 0.25);
     -fx-border-color: blue;
     -fx-border-width: 0 0 2 0;
 }
@@ -174,7 +174,7 @@ HBox {
 }
 
 .table-view .column-header {
-    -fx-background-color: rgba(206, 175, 175, 0.70);
+    -fx-background-color: rgba(200, 175, 175, 0.70);
     -fx-border-color: blue;
     -fx-padding: 5;
 }
@@ -184,35 +184,35 @@ HBox {
 }
 
 .table-row-cell:odd {
-    -fx-background-color: rgba(194, 194, 241, 0.2);
+    -fx-background-color: rgba(200, 200, 240, 0.2);
 }
 
 .table-row-cell:even {
-    -fx-background-color: rgba(194, 194, 241, 0.4);
+    -fx-background-color: rgba(200, 200, 240, 0.4);
 }
 
 .table-row-cell:selected {
-    -fx-background-color: rgba(2, 100, 138, 0.7);
+    -fx-background-color: rgba(5, 100, 140, 0.7);
     -fx-text-fill: white;
 }
 
 /* Scroll bar styling */
 .scroll-bar {
-    -fx-background-color: rgba(194, 194, 241, 0.4);
+    -fx-background-color: rgba(200, 200, 240, 0.4);
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: rgba(206, 175, 175, 0.70);
+    -fx-background-color: rgba(200, 175, 175, 0.70);
     -fx-background-radius: 5;
 }
 
 .scroll-bar .thumb:hover {
-    -fx-background-color: rgba(206, 175, 175, 0.90);
+    -fx-background-color: rgba(200, 175, 175, 0.90);
 }
 
 /* Tooltip styling */
 .tooltip {
-    -fx-background-color: rgba(194, 194, 241, 0.9);
+    -fx-background-color: rgba(200, 200, 240, 0.9);
     -fx-text-fill: black;
     -fx-font-size: 12px;
     -fx-padding: 5;

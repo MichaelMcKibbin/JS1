@@ -3,356 +3,296 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<VBox prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #bfeefa;"
-      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.michaelmckibbin.js1.DisplayCaseController">
+
+<VBox prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #bfeefa;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.michaelmckibbin.js1.DisplayCaseController">
 
 
     <!--menubar-->
     <HBox>
         <MenuBar HBox.hgrow="ALWAYS">
             <Menu mnemonicParsing="false" text="File">
-                <MenuItem mnemonicParsing="false" onAction="#loadFile" text="Load Data File"/>
-                <SeparatorMenuItem mnemonicParsing="false"/>
-                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Data File"/>
-                <MenuItem mnemonicParsing="false" onAction="#saveAndExit" text="Save and Exit"/>
-                <SeparatorMenuItem mnemonicParsing="false"/>
-                <MenuItem mnemonicParsing="false" onAction="#closeProg" text="Exit"/>
-                <SeparatorMenuItem mnemonicParsing="false"/>
-                <MenuItem mnemonicParsing="false" onAction="#deleteAllStock"
-                          text="Delete Stock List * CAUTION *"/>
+                <MenuItem mnemonicParsing="false" onAction="#loadFile" text="Load Data File" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save Data File" />
+                <MenuItem mnemonicParsing="false" onAction="#saveAndExit" text="Save and Exit" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" onAction="#closeProg" text="Exit" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" onAction="#deleteAllStock" text="Delete Stock List * CAUTION *" />
             </Menu>
             <Menu mnemonicParsing="false" text="Stock List">
-                <MenuItem mnemonicParsing="false" onAction="#viewAllStock" text="List All Stock"/>
+                <MenuItem mnemonicParsing="false" onAction="#viewAllStock" text="List All Stock" />
 
             </Menu>
         </MenuBar>
     </HBox>
     <!--            end of menubar-->
 
-    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true"
-               VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" VBox.vgrow="ALWAYS">
         <AnchorPane>
-            <VBox alignment="TOP_CENTER" layoutX="45.0" layoutY="14.0" prefHeight="105.0" prefWidth="136.0"
-                  spacing="8.0" styleClass="navigation-button-container-1" AnchorPane.topAnchor="15.0">
-                <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false"
-                        onAction="#handleStorefrontButtonClick" styleClass="storefront-button"
-                        text="Storefront"/>
-                <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false"
-                        onAction="#handleJewelleryItemsButtonClick" styleClass="storefront-button"
-                        text="Jewellery Items"/>
+            <VBox alignment="TOP_CENTER" layoutX="45.0" layoutY="14.0" prefHeight="105.0" prefWidth="136.0" spacing="8.0" styleClass="navigation-button-container-1" AnchorPane.topAnchor="15.0">
+                <Button fx:id="StorefrontButton" layoutX="10.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleStorefrontButtonClick" styleClass="storefront-button" text="Storefront" />
+                <Button fx:id="jewelleryItemsButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleJewelleryItemsButtonClick" styleClass="storefront-button" text="Jewellery Items" />
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                 </padding>
 
             </VBox>
-            <VBox layoutX="44.0" layoutY="276.0" prefHeight="123.0" prefWidth="136.0"
-                  style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;"
-                  styleClass="addCaseBtnVBox">
+            <VBox layoutX="44.0" layoutY="276.0" prefHeight="123.0" prefWidth="136.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addCaseBtnVBox">
 
 
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                 </padding>
-                <Label alignment="CENTER" prefHeight="17.0" prefWidth="120.0" text="Add a case"
-                       textAlignment="CENTER">
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="120.0" text="Add a case" textAlignment="CENTER">
                     <font>
-                        <Font name="System Italic" size="12.0"/>
+                        <Font name="System Italic" size="12.0" />
                     </font>
                 </Label>
 
-                <CheckBox fx:id="CheckBoxIsLit" mnemonicParsing="false" prefHeight="23.0" prefWidth="111.0"
-                          text="       Lit ?">
+                <CheckBox fx:id="CheckBoxIsLit" mnemonicParsing="false" prefHeight="23.0" prefWidth="111.0" text="       Lit ?">
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </CheckBox>
-                <CheckBox fx:id="CheckBoxWallMounted" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0"
-                          prefWidth="135.0" text="Wall Mounted?">
+                <CheckBox fx:id="CheckBoxWallMounted" layoutY="20.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Wall Mounted?">
                     <opaqueInsets>
-                        <Insets/>
+                        <Insets />
                     </opaqueInsets>
                     <VBox.margin>
-                        <Insets top="5.0"/>
+                        <Insets top="5.0" />
                     </VBox.margin>
                 </CheckBox>
-                <Button fx:id="AddCaseBtn" mnemonicParsing="false" onAction="#onAddCaseBtn" prefHeight="37.0"
-                        prefWidth="125.0" text="Add New Case">
+                <Button fx:id="AddCaseBtn" mnemonicParsing="false" onAction="#onAddCaseBtn" prefHeight="37.0" prefWidth="125.0" text="Add New Case">
                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                     <VBox.margin>
-                        <Insets top="4.0"/>
+                        <Insets top="4.0" />
                     </VBox.margin>
                 </Button>
             </VBox>
-            <VBox layoutX="44.0" layoutY="422.0" prefHeight="315.0" prefWidth="136.0"
-                  style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;"
-                  styleClass="addTrayBtnVBox">
+            <VBox layoutX="44.0" layoutY="422.0" prefHeight="315.0" prefWidth="136.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3;" styleClass="addTrayBtnVBox">
                 <padding>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                 </padding>
-                <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="156.0"
-                       style="-fx-background-color: White;" text="Add Display Tray to Case"
-                       textAlignment="CENTER">
+                <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="156.0" style="-fx-background-color: White;" text="Add Display Tray to Case" textAlignment="CENTER">
                     <VBox.margin>
-                        <Insets bottom="5.0"/>
+                        <Insets bottom="5.0" />
                     </VBox.margin>
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
                 </Label>
-                <Label text="Enter Display Case"/>
-                <TextField fx:id="addTrayDisplayCaseChoice" prefHeight="25.0" prefWidth="143.0"
-                           promptText="caseID?"/>
+                <Label text="Enter Display Case" />
+                <TextField fx:id="addTrayDisplayCaseChoice" prefHeight="25.0" prefWidth="143.0" promptText="caseID?" />
 
                 <Label text="Enter new tray ID number">
                     <padding>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </padding>
                 </Label>
-                <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0"
-                           promptText="e.g. A123">
+                <TextField fx:id="displayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText="e.g. A123">
                     <VBox.margin>
-                        <Insets top="5.0"/>
+                        <Insets top="5.0" />
                     </VBox.margin>
                     <padding>
-                        <Insets top="1.0"/>
+                        <Insets top="1.0" />
                     </padding>
                 </TextField>
                 <Label text="Choose tray colour">
                     <VBox.margin>
-                        <Insets top="5.0"/>
+                        <Insets top="5.0" />
                     </VBox.margin>
                     <padding>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </padding>
                 </Label>
                 <ChoiceBox fx:id="displayTrayColorChoiceBox" prefWidth="150.0">
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <padding>
-                        <Insets top="1.0"/>
+                        <Insets top="1.0" />
                     </padding>
                 </ChoiceBox>
                 <Label text="Enter tray size">
                     <VBox.margin>
-                        <Insets top="5.0"/>
+                        <Insets top="5.0" />
                     </VBox.margin>
                 </Label>
-                <TextField fx:id="newTrayWidthTextField" promptText="Width in cm"/>
-                <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm"/>
-                <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick"
-                        prefHeight="26.0" prefWidth="187.0"
-                        style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-radius: 5;"
-                        text="Add New Tray">
+                <TextField fx:id="newTrayWidthTextField" promptText="Width in cm" />
+                <TextField fx:id="newTrayDepthTextField" promptText="Depth in cm" />
+                <Button fx:id="AddTrayBtn" mnemonicParsing="false" onAction="#handleAddTrayButtonClick" prefHeight="26.0" prefWidth="187.0" style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-radius: 5;" text="Add New Tray">
                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                     <VBox.margin>
-                        <Insets top="10.0"/>
+                        <Insets top="10.0" />
                     </VBox.margin>
                 </Button>
             </VBox>
-            <Button fx:id="listAllCasesButton" accessibleText="List All Cases" alignment="CENTER" layoutX="49.0"
-                    layoutY="229.0" mnemonicParsing="false" onAction="#onListAllCasesButton"
-                    text="Refresh Case List" textAlignment="CENTER"/>
+            <Button fx:id="listAllCasesButton" accessibleText="List All Cases" alignment="CENTER" layoutX="49.0" layoutY="229.0" mnemonicParsing="false" onAction="#onListAllCasesButton" text="Refresh Case List" textAlignment="CENTER" />
 
         </AnchorPane>
         <VBox prefHeight="417.0" prefWidth="443.0">
-            <Label text="List: "/>
+            <Label text="List: " />
             <ScrollPane prefHeight="234.0" prefWidth="493.0">
                 <VBox fx:id="displayCasesVBox" prefHeight="300.0" prefWidth="480.0">
                 </VBox>
             </ScrollPane>
-            <Separator prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;"/>
-            <Label text="Results: "/>
-            <VBox fx:id="displayCaseSearchResultVBox" prefHeight="80.0" prefWidth="297.0"/>
-            <Separator prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;"/>
-            <HBox prefHeight="13.0" prefWidth="493.0"/>
+            <Separator prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
+            <Label text="Results: " />
+            <VBox fx:id="displayCaseSearchResultVBox" prefHeight="80.0" prefWidth="297.0" />
+            <Separator prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
+            <HBox prefHeight="13.0" prefWidth="493.0" />
             <HBox prefHeight="186.0" prefWidth="493.0">
                 <VBox prefHeight="172.0" prefWidth="494.0">
                     <HBox prefHeight="100.0" prefWidth="200.0">
-                        <VBox prefHeight="361.0" prefWidth="242.0"
-                              style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3; -fx-border-width: 3;"
-                              styleClass="addTrayBtnVBox">
+                        <VBox prefHeight="361.0" prefWidth="242.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3; -fx-border-width: 3;" styleClass="addTrayBtnVBox">
                             <padding>
-                                <Insets left="5.0" right="5.0" top="10.0"/>
+                                <Insets left="5.0" right="5.0" top="10.0" />
                             </padding>
                             <HBox.margin>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </HBox.margin>
-                            <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="156.0"
-                                   style="-fx-background-color: White;"
-                                   text="New Jewellery Item" textAlignment="CENTER">
+                            <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="156.0" style="-fx-background-color: White;" text="New Jewellery Item" textAlignment="CENTER">
                                 <padding>
-                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets bottom="5.0"/>
+                                    <Insets bottom="5.0" />
                                 </VBox.margin>
                                 <font>
-                                    <Font name="System Italic" size="12.0"/>
+                                    <Font name="System Italic" size="12.0" />
                                 </font>
                             </Label>
-                            <TextField fx:id="addItemDisplayCaseIdTextField"
-                                       promptText=" Enter Case ID"/>
-                            <TextField fx:id="addItemDisplayTrayIdTextField" prefHeight="25.0"
-                                       prefWidth="143.0" promptText=" Enter Tray ID">
+                            <TextField fx:id="addItemDisplayCaseIdTextField" promptText=" Enter Case ID" text="901" />
+                            <TextField fx:id="addItemDisplayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Tray ID" text="Z904">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemItemIdTextField" layoutX="16.0"
-                                       layoutY="54.0" prefHeight="25.0" prefWidth="143.0"
-                                       promptText=" Enter Item ID">
+                            <TextField fx:id="addItemItemIdTextField" layoutX="16.0" layoutY="54.0" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Item ID">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemNameTextField" layoutX="16.0"
-                                       layoutY="79.0" prefHeight="25.0" prefWidth="143.0"
-                                       promptText=" Enter Item Name">
+                            <TextField fx:id="addItemNameTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Item Name">
                                 <padding>
-                                    <Insets top="1.0"/>
+                                    <Insets top="1.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addItemDescriptionTextField" layoutX="16.0"
-                                       layoutY="104.0" prefHeight="25.0" prefWidth="143.0"
-                                       promptText=" Enter Description">
+                            <TextField fx:id="addItemDescriptionTextField" layoutX="16.0" layoutY="104.0" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Description">
                                 <padding>
-                                    <Insets top="1.0"/>
+                                    <Insets top="1.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <ChoiceBox fx:id="addItemTypeChoiceBox" layoutX="16.0"
-                                       layoutY="179.0" prefWidth="150.0">
+                            <ChoiceBox fx:id="addItemTypeChoiceBox" layoutX="16.0" layoutY="179.0" prefWidth="150.0">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </ChoiceBox>
                             <ChoiceBox fx:id="addItemGenderChoiceBox" prefWidth="150.0">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </ChoiceBox>
-                            <TextField fx:id="addItemImageUrlTextField"
-                                       promptText="enter image url">
+                            <TextField fx:id="addItemImageUrlTextField" promptText="enter image url">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
                             <TextField fx:id="addItemPriceTextField" promptText="00.00">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <Button fx:id="addJewelleryItemButton" mnemonicParsing="false"
-                                    onAction="#addJewelleryItem" prefHeight="21.0"
-                                    prefWidth="152.0" text="Add New Item">
+                            <Button fx:id="addJewelleryItemButton" mnemonicParsing="false" onAction="#addJewelleryItem" prefHeight="21.0" prefWidth="152.0" text="Add New Item">
                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets top="10.0"/>
+                                    <Insets top="10.0" />
                                 </VBox.margin>
                                 <font>
-                                    <Font name="System Bold" size="14.0"/>
+                                    <Font name="System Bold" size="14.0" />
                                 </font>
                             </Button>
                         </VBox>
-                        <VBox prefHeight="274.0" prefWidth="239.0"
-                              style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3; -fx-border-width: 3;"
-                              styleClass="addTrayBtnVBox">
+                        <VBox prefHeight="274.0" prefWidth="239.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3; -fx-border-width: 3;" styleClass="addTrayBtnVBox">
                             <padding>
-                                <Insets left="5.0" right="5.0" top="10.0"/>
+                                <Insets left="5.0" right="5.0" top="10.0" />
                             </padding>
                             <HBox.margin>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </HBox.margin>
-                            <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="156.0"
-                                   style="-fx-background-color: White;"
-                                   text="New Jewellery Material" textAlignment="CENTER">
+                            <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="156.0" style="-fx-background-color: White;" text="New Jewellery Material" textAlignment="CENTER">
                                 <padding>
-                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets bottom="5.0"/>
+                                    <Insets bottom="5.0" />
                                 </VBox.margin>
                                 <font>
-                                    <Font name="System Italic" size="12.0"/>
+                                    <Font name="System Italic" size="12.0" />
                                 </font>
                             </Label>
-                            <TextField fx:id="addJewelleryMaterialDisplayCaseIdTextField"
-                                       promptText=" Enter Case ID"/>
-                            <TextField fx:id="addJewelleryMaterialDisplayTrayIdTextField"
-                                       prefHeight="25.0" prefWidth="143.0"
-                                       promptText=" Enter Tray ID"/>
-                            <TextField fx:id="addJewelleryMaterialJewelleryItemIdTextField"
-                                       layoutX="16.0" layoutY="97.0"
-                                       promptText="Jewellery Item Id"/>
-                            <TextField fx:id="addJewelleryMaterialIdTextField"
-                                       promptText="Jewellery Material ID number"/>
-                            <TextField fx:id="addJewelleryMaterialNameTextField"
-                                       prefHeight="25.0" prefWidth="143.0"
-                                       promptText="Jewellery Material Name">
+                            <TextField fx:id="addJewelleryMaterialDisplayCaseIdTextField" promptText=" Enter Case ID" text="901" />
+                            <TextField fx:id="addJewelleryMaterialDisplayTrayIdTextField" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Tray ID" text="Z904" />
+                            <TextField fx:id="addJewelleryMaterialJewelleryItemIdTextField" layoutX="16.0" layoutY="97.0" promptText="Jewellery Item Id" text="912" />
+                            <TextField fx:id="addJewelleryMaterialIdTextField" promptText="Jewellery Material ID number" text="7654" />
+                            <TextField fx:id="addJewelleryMaterialNameTextField" prefHeight="25.0" prefWidth="143.0" promptText="Jewellery Material Name" text="Rose Gold">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addJewelleryMaterialDescriptionTextField"
-                                       layoutX="16.0" layoutY="54.0" prefHeight="25.0"
-                                       prefWidth="143.0" promptText=" Enter Description">
+                            <TextField fx:id="addJewelleryMaterialDescriptionTextField" layoutX="16.0" layoutY="54.0" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Description" text="Finest quality rose coloured gold">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addJewelleryMaterialQuantityTextField"
-                                       layoutX="16.0" layoutY="79.0" prefHeight="25.0"
-                                       prefWidth="143.0" promptText="Qty.">
+                            <TextField fx:id="addJewelleryMaterialQuantityTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0" prefWidth="143.0" promptText="Qty." text="1">
                                 <padding>
-                                    <Insets top="1.0"/>
+                                    <Insets top="1.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <ChoiceBox fx:id="addJewelleryMaterialUnitTypeChoiceBox"
-                                       layoutX="16.0" layoutY="179.0" prefWidth="150.0">
+                            <ChoiceBox fx:id="addJewelleryMaterialUnitTypeChoiceBox" layoutX="16.0" layoutY="179.0" prefWidth="150.0">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </ChoiceBox>
-                            <TextField fx:id="addJewelleryMaterialQualityTextField"
-                                       promptText="Quality, 0.925, 24, 90%, etc."/>
-                            <TextField fx:id="addJewelleryMaterialImageUrlTextField"
-                                       promptText="enter image url">
+                            <TextField fx:id="addJewelleryMaterialQualityTextField" promptText="Quality, 0.925, 24, 90%, etc." text="18k" />
+                            <TextField fx:id="addJewelleryMaterialImageUrlTextField" promptText="enter image url" text="/images/roseGold.jpg">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <TextField fx:id="addJewelleryMaterialPriceTextField"
-                                       promptText="Enter price 00.00">
+                            <TextField fx:id="addJewelleryMaterialPriceTextField" promptText="Enter price 00.00" text="27.27">
                                 <VBox.margin>
-                                    <Insets top="3.0"/>
+                                    <Insets top="3.0" />
                                 </VBox.margin>
                             </TextField>
-                            <Button fx:id="addJewelleryMaterialButton" mnemonicParsing="false"
-                                    onAction="#addJewelleryMaterial" prefHeight="21.0"
-                                    prefWidth="152.0" text="Add New Jewellery Material">
+                            <Button fx:id="addJewelleryMaterialButton" mnemonicParsing="false" onAction="#addJewelleryMaterial" prefHeight="21.0" prefWidth="152.0" text="Add New Jewellery Material">
                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                 </padding>
                                 <VBox.margin>
-                                    <Insets top="10.0"/>
+                                    <Insets top="10.0" />
                                 </VBox.margin>
                                 <font>
-                                    <Font name="System Bold" size="14.0"/>
+                                    <Font name="System Bold" size="14.0" />
                                 </font>
                             </Button>
                         </VBox>
@@ -362,119 +302,105 @@
             </HBox>
         </VBox>
         <AnchorPane>
-            <Separator layoutX="23.0" layoutY="208.0" prefHeight="9.0" prefWidth="200.0"
-                       style="-fx-background-color: green;"/>
-            <VBox fx:id="deleteJewelleryVBox" layoutX="34.0" layoutY="27.0" prefHeight="123.0" prefWidth="178.0"
-                  style="-fx-border-color: green; -fx-border-radius: 5;">
+            <Separator layoutX="23.0" layoutY="208.0" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: green;" />
+            <VBox fx:id="deleteJewelleryVBox" layoutX="34.0" layoutY="27.0" prefHeight="123.0" prefWidth="178.0" style="-fx-border-color: green; -fx-border-radius: 5;">
                 <padding>
-                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                 </padding>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="173.0"
-                       text="Delete Jewellery Item" textAlignment="CENTER" wrapText="true">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="173.0" text="Delete Jewellery Item" textAlignment="CENTER" wrapText="true">
                     <VBox.margin>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                     </VBox.margin>
                     <padding>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                     </padding>
                 </Label>
-                <TextField fx:id="deleteItemUserInputTextBox" promptText="Enter item ID"/>
-                <Button fx:id="deleteItemButton" onAction="#handleDeleteItemButton" prefHeight="30.0"
-                        prefWidth="180.0" text="Delete item!">
+                <TextField fx:id="deleteItemUserInputTextBox" promptText="Enter item ID" />
+                <Button fx:id="deleteItemButton" onAction="#handleDeleteItemButton" prefHeight="30.0" prefWidth="180.0" text="Delete item!">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
             </VBox>
-            <VBox fx:id="editItemVbox" layoutX="23.0" layoutY="281.0" prefHeight="422.0" prefWidth="200.0"
-                  style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3; -fx-border-width: 3;"
-                  styleClass="addTrayBtnVBox">
+            <VBox fx:id="editItemVbox" layoutX="23.0" layoutY="281.0" prefHeight="422.0" prefWidth="200.0" style="-fx-border-color: rgba(0,128,0,0.5); -fx-border-radius: 3; -fx-border-width: 3;" styleClass="addTrayBtnVBox">
                 <padding>
-                    <Insets left="5.0" right="5.0" top="10.0"/>
+                    <Insets left="5.0" right="5.0" top="10.0" />
                 </padding>
                 <HBox.margin>
-                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                 </HBox.margin>
-                <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="192.0"
-                       style="-fx-background-color: White;" text="Edit Jewellery Item"
-                       textAlignment="CENTER">
+                <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="192.0" style="-fx-background-color: White;" text="Edit Jewellery Item" textAlignment="CENTER">
                     <padding>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                     </padding>
                     <VBox.margin>
-                        <Insets bottom="5.0"/>
+                        <Insets bottom="5.0" />
                     </VBox.margin>
                     <font>
-                        <Font name="System Italic" size="12.0"/>
+                        <Font name="System Italic" size="12.0" />
                     </font>
                 </Label>
-                <TextField fx:id="getItemIdUserInputTextField" layoutX="16.0" layoutY="54.0"
-                           prefHeight="25.0" prefWidth="143.0" promptText=" Enter Item ID">
+                <TextField fx:id="getItemIdUserInputTextField" layoutX="16.0" layoutY="54.0" prefHeight="25.0" prefWidth="143.0" promptText=" Enter Item ID">
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </TextField>
-                <Button fx:id="getItemDetailsButton" mnemonicParsing="false"
-                        onAction="#handleGetItemDetailsButton" text="Get Item details">
+                <Button fx:id="getItemDetailsButton" mnemonicParsing="false" onAction="#handleGetItemDetailsButton" text="Get Item details">
                     <VBox.margin>
-                        <Insets bottom="5.0" left="3.0" right="3.0" top="3.0"/>
+                        <Insets bottom="5.0" left="3.0" right="3.0" top="3.0" />
                     </VBox.margin>
                     <padding>
-                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                     </padding>
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <TextField fx:id="editItemNameTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0"
-                           prefWidth="143.0" promptText="Item Name">
+                <TextField fx:id="editItemNameTextField" layoutX="16.0" layoutY="79.0" prefHeight="25.0" prefWidth="143.0" promptText="Item Name">
                     <padding>
-                        <Insets top="1.0"/>
+                        <Insets top="1.0" />
                     </padding>
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </TextField>
-                <TextField fx:id="editItemDescriptionTextField" layoutX="16.0" layoutY="104.0"
-                           prefHeight="25.0" prefWidth="143.0" promptText="Item Description">
+                <TextField fx:id="editItemDescriptionTextField" layoutX="16.0" layoutY="104.0" prefHeight="25.0" prefWidth="143.0" promptText="Item Description">
                     <padding>
-                        <Insets top="1.0"/>
+                        <Insets top="1.0" />
                     </padding>
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </TextField>
                 <ChoiceBox fx:id="editItemTypeChoiceBox" layoutX="16.0" layoutY="179.0" prefWidth="150.0">
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </ChoiceBox>
                 <ChoiceBox fx:id="editItemGenderChoiceBox" prefWidth="150.0">
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </ChoiceBox>
                 <TextField fx:id="editItemImageUrlTextField" promptText="enter image url">
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </TextField>
                 <TextField fx:id="editItemPriceTextField" promptText="00.00">
                     <VBox.margin>
-                        <Insets top="3.0"/>
+                        <Insets top="3.0" />
                     </VBox.margin>
                 </TextField>
-                <Button fx:id="editJewelleryItemButton" mnemonicParsing="false"
-                        onAction="#handleEditJewelleryItem" prefHeight="21.0" prefWidth="152.0"
-                        text="Save Changes">
+                <Button fx:id="editJewelleryItemButton" mnemonicParsing="false" onAction="#handleEditJewelleryItem" prefHeight="21.0" prefWidth="152.0" text="Save Changes">
                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                     <VBox.margin>
-                        <Insets top="10.0"/>
+                        <Insets top="10.0" />
                     </VBox.margin>
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
             </VBox>
@@ -484,17 +410,17 @@
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
         <padding>
-            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
         </padding>
         <Label maxHeight="1.7976931348623157E308" text="Left status" HBox.hgrow="ALWAYS">
             <font>
-                <Font size="11.0"/>
+                <Font size="11.0" />
             </font>
             <textFill>
-                <Color red="0.625" green="0.625" blue="0.625"/>
+                <Color red="0.625" green="0.625" blue="0.625" />
             </textFill>
         </Label>
-        <Pane HBox.hgrow="ALWAYS"/>
-        <Label text="Right status" HBox.hgrow="NEVER"/>
+        <Pane HBox.hgrow="ALWAYS" />
+        <Label text="Right status" HBox.hgrow="NEVER" />
     </HBox>
 </VBox>
