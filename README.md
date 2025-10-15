@@ -133,7 +133,11 @@ My Node can be an outer or inner class.
 
 *Have a look at MyLinkedList.java for more detail.*
 
+![Screenshots](src/main/resources/images/Views.jpg)
+
 # ...
+
+# References
 
 JavaFX FXML controller - constructor vs initialize method
 https://stackoverflow.com/questions/34785417/javafx-fxml-controller-constructor-vs-initialize-method
