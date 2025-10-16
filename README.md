@@ -133,7 +133,7 @@ My Node can be an outer or inner class.
 
 *Have a look at MyLinkedList.java for more detail.*
 
-![Screenshots](src/main/resources/images/Views.jpg)
+![Screenshots](src/main/resources/Views.jpg)
 
 # ...
 
